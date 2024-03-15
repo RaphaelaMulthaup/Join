@@ -38,5 +38,18 @@
     min-width: 99px;
     min-height: 48px;
     padding: 15px 24px 15px 24px;
-    border-radius: 8px
+    border-radius: 8px;
+    font-size: 16px;
+
+}
+
+.button:hover{
+    background: #29ABE2;
+    box-shadow: 0px 4px 4px 0px #00000040;
+    transition: all 100ms ease-in-out;
+}
+
+.button:active{
+    background: #091931;
+    transition: 100ms ease-in-out;
 }
