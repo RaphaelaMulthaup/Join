@@ -1,0 +1,16 @@
+body{
+    margin: 0;
+}
+
+.icon {
+    margin: 0 !important;
+    width: 80vw;
+}
+
+img {
+    position: relative;
+    height: 8px;
+    left: -16.5px;
+    top: 4px;
+
+}
