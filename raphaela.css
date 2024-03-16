@@ -6,30 +6,25 @@
     "slnt" 0;
 }
 
-.checkbox {
+.checkbox + label {
     display: inline-block;
     width: 24px;
-    height: 24px;
+    height: 25px;
     background: url('assets/img/checkboxDisabled.svg') no-repeat;
-    cursor: pointer; /* Hinzugefügt, damit der Cursor auf Pointer geändert wird, um anzuzeigen, dass es klickbar ist */
+    cursor: pointer;
 }
 
-#checkbox:checked + .checkbox {
+#checkbox:checked + label {
     background: url('assets/img/checkboxChecked.svg') no-repeat;
 }
 
-.checkbox:hover {
+.checkbox:hover + label{
     background: url('assets/img/checkboxDisabledHover.svg') no-repeat;
 }
 
-#checkbox:checked + .checkbox:hover {
+#checkbox:checked:hover + label {
     background: url('assets/img/checkboxCheckedHover.svg') no-repeat;
 }
-
-.checkbox img {
-    vertical-align: middle; /* Ändere die vertikale Ausrichtung der Grafik */
-}
-
 
 .button{
     background-color: #2A3647;
