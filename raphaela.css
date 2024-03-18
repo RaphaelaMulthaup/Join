@@ -46,14 +46,17 @@
 
 .buttonFilled:hover{
     background: #29ABE2;
+    transition: all 100ms ease-in-out;
 }
 
 .buttonFilled:active{
     background: #091931;
+    transition: all 100ms ease-in-out;
 }
 
 .buttonEmpty{
     border: 1px solid #2A3647;
+    color: #2A3647; 
     background: none;
 }
 
@@ -61,12 +64,14 @@
     border-width: 2px;
     border-color: #29ABE2;
     color: #29ABE2;
+    transition: all 100ms ease-in-out;
 }
 
 .buttonEmpty:active{
     border-width: 1px;
     border-color: #091931;
     color: #091931;
+    transition: all 100ms ease-in-out;
 }
 
 .buttonWithIcon{
@@ -76,7 +81,18 @@
 
 .buttonCancel{
     font-size: 20px;
-    gap: ;
+    align-items: center;
+    gap: 10.67px;
+}
+
+.buttonCancel:hover svg .svgCancelX{
+    fill: #29ABE2;
+    transition: all 100ms ease-in-out;
+}
+
+.buttonCancel:active svg .svgCancelX{
+    fill: #091931;
+    transition: all 100ms ease-in-out;
 }
 
 header{
