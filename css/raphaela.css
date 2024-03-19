@@ -110,3 +110,21 @@ header span{
     font-size: 20px;
     height: 24px;
 }
+
+/*Summary*/
+
+.bodyMainpages{
+    display: flex;
+}
+
+.menu{
+    width: 232px;
+    background-color: #2A3647;
+    height: 100vh;
+}
+
+.logoMenu{
+    width: 100.03px;
+    height: 121.97px;
+    margin: 64px 65.98px 114.2px 65.93px;
+}
