@@ -208,6 +208,12 @@ body {
   .button {
     
   }
+
+/*a*/
+
+a{
+    text-decoration: none;
+}
   
   .signUp {
     position: absolute;

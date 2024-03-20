@@ -32,6 +32,12 @@
     background-color: #2A3D59;
 }
 
+.menuItemActicePage{
+    background-color: #091931;
+    color: white;
+
+}
+
 .menuItem div{
     height: 30px;
     width: 30px;

@@ -1,3 +1,5 @@
+let menuItems = ['menuItemSummary', 'menuItemAddTask', 'menuItemBoard', 'menuItemContacts']
+
 async function includeHTML() {
     let includeElements = document.querySelectorAll('[w3-include-html]');
     for (let i = 0; i < includeElements.length; i++) {
@@ -10,4 +12,13 @@ async function includeHTML() {
             element.innerHTML = 'Page not found';
         }
     }
+}
+
+function selectActivePage(id){
+    for (let i = 0; i < menuItems.length; i++) {
+        document.getElementById(i).classList.remove('menuItemActicePage');
+        document.getElementById(i).classList.add('menuItemHoveringPossible');
+    }
+    document.getElementById(id).classList.add('menuItemActicePage');
+    document.getElementById(id).classList.remove('menuItemHoveringPossible');
 }
