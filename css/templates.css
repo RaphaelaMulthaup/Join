@@ -35,7 +35,10 @@
 .menuItemActicePage{
     background-color: #091931;
     color: white;
+}
 
+.svgMenuItemActicePage{
+    fill: white;
 }
 
 .menuItem div{
