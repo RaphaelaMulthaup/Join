@@ -1,0 +1,58 @@
+/*menu*/
+
+.menu{
+    width: 232px;
+    background-color: #2A3647;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.logoMenu{
+    width: 100.03px;
+    height: 121.97px;
+    margin: 64px 65.98px 114.2px 65.93px;
+}
+
+.menuItems{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.menuItem{
+    display: flex;
+    align-items: center;
+    color: #CDCDCD;
+}
+
+.menuItemHoveringPossible:hover{
+    transition: all 100ms ease-in-out;
+    background-color: #2A3D59;
+}
+
+.menuItem div{
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 8px 8px 8px 56px;
+}
+
+.menuItemseLegally{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 0 74px 60px;
+}
+
+.menuItemseLegally a{
+    color: #A8A8A8;
+}
+
+.menuItemseLegally a:hover{
+    color: #29ABE2;
+    font-weight: 700;
+}
