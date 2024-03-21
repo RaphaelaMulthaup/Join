@@ -242,6 +242,7 @@ a {
 a:hover{
   color: #29ABE2;
   font-size: small;
+  font-weight: bold;
 }
 .signUp {
   position: absolute;

@@ -18,22 +18,31 @@
                     <form action="">
                         <h2>Sign up</h2>
                         <div class="inputbox">
+                            <input type="name" placeholder="Name" required>
+                            <ion-name namen="name"></ion-name>
+                        </div>
+                        <div class="inputbox">
                             <input type="email" placeholder="Email" required>
                             <ion-mail namen="search"></ion-mail>
                         </div>
                         <div class="inputbox">
-                            <input type="password" placeholder="Password" required>
+                            <input type="password" class="passwordInput" placeholder="Password" required>
                             <ion-lock namen="password"></ion-lock>
+                        </div>
+                        <div class="inputbox">
+                            <input type="password" class="passwordInput" placeholder="Confirm Password" required>
+                            <ion-lock2 namen="password"></ion-lock2>
                         </div>
                         <div class="position">
                             <div class="checkboxText">
                                 <input type="checkbox" id="checkbox" class="checkbox" style="display: none;">
                                 <label for="checkbox"></label>
-                                <p>Remember me</p>
+                                <span>I accept the <a class="underline" href="privacyPolicy.html">privacy policy</a></span>
                             </div>
                             <div>
-                                <button class="button buttonFilled">Log in</button>
-                                <button class="button buttonEmpty">Guest Log in</button>
+                                <form action="index.html">
+                                <button class="button buttonFilled">Sign up</button>
+                                </form>
                             </div>
                         </div>
                         
