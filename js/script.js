@@ -3,6 +3,40 @@
 let menuItems = ['menuItemSummary', 'menuItemAddTask', 'menuItemBoard', 'menuItemContacts']
 
 /**
+ * This function is used to load html templates first bevor adjust the menu. The elements are hidden until 'selectActivPage' has finished executing.
+ * 
+ * @param {string} id - This is the id of the menu item that was selected.
+ */
+async function loadPage(id) {
+    document.querySelectorAll('.bodyMainpages').forEach(element => {
+        element.style.display = 'none';
+    });
+    await includeHTML();
+    selectActivePage(id);
+    document.querySelectorAll('.bodyMainpages').forEach(element => {
+        element.style.display = 'flex';
+    });
+}
+
+
+/**
+ * This function includes html templates. (menu and header)
+ */
+async function includeHTML() {
+    let includeElements = document.querySelectorAll('[w3-include-html]');
+    for (let i = 0; i < includeElements.length; i++) {
+        const element = includeElements[i];
+        file = element.getAttribute("w3-include-html"); // "includes/header.html"
+        let resp = await fetch(file);
+        if (resp.ok) {
+            element.innerHTML = await resp.text();
+        } else {
+            element.innerHTML = 'Page not found';
+        }
+    }
+}
+
+/**
  * This function checks whether one of the menu item IDs was passed and selects it.
  * 
  * @param {string} id  - This is the id of the menu item that was selected.
@@ -25,11 +59,8 @@ function selectActivePage(id){
  */
 function changeSelectedMenuItem(menuItem){
     menuItem.classList.add('menuItemActicePage');
-    let svg = menuItem.querySelector("svg");
-    let paths = svg.querySelectorAll("path");
-    paths.forEach(path => {
-        path.classList.add('svgMenuItemActicePage');
-    })
+    let img = menuItem.querySelector("img");
+    img.classList.add('imgMenuItemActicePage');
     menuItem.classList.remove('menuItemHoveringPossible');
 }
 
@@ -40,11 +71,8 @@ function changeSelectedMenuItem(menuItem){
  */
 function changeMenuItemToDefault(menuItem){
     menuItem.classList.remove('menuItemActicePage');
-    let svg = menuItem.querySelector("svg");
-    let paths = svg.querySelectorAll("path");
-    paths.forEach(path => {
-        path.classList.remove('svgMenuItemActicePage');
-    })
+    let img = menuItem.querySelector("img");
+    img.classList.remove('imgMenuItemActicePage');
     menuItem.classList.add('menuItemHoveringPossible');
 }
 

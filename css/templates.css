@@ -37,8 +37,8 @@
     color: white;
 }
 
-.svgMenuItemActicePage{
-    fill: white;
+.imgMenuItemActicePage{
+    filter: grayscale(100%) brightness(200%);
 }
 
 .menuItem div{
@@ -78,7 +78,50 @@ header{
     box-shadow: 0px 4px 4px 0px #0000001A;
 }
 
-header span{
+header h1{
     font-size: 20px;
     height: 24px;
+    font-weight: 400;
 }
+
+.headerElementsRight{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.help{
+    height: 32px;
+    width: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.help img{
+    height: 20px;
+    width: 20px;
+}
+
+.help img:hover{
+    height: 24px;
+    width: 24px;
+}
+
+.cicleInitials{
+    height: 56px;
+    width: 56px;
+    border-radius: 50%;
+    border: 3px solid #2A3647;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:#29ABE2;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.cicleInitials:hover{
+    background-color: #E2E6EC;
+}
+
