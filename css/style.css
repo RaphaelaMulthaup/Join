@@ -1,3 +1,7 @@
+.dNone{
+  display: none;
+}
+
 body {
   background-color: #f7f7f9;
 }
@@ -8,6 +12,10 @@ body {
 
 .mainpagesRightSide {
   width: 100%;
+}
+
+.mainMainpages{
+  position: relative;
 }
 
 .start-logo {

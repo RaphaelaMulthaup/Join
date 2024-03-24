@@ -76,6 +76,16 @@ function changeMenuItemToDefault(menuItem){
     menuItem.classList.add('menuItemHoveringPossible');
 }
 
+function openAndCloseSubMenu(){
+    document.getElementById('subMenu').classList.toggle('dNone');
+}
+
+function closeSubMenu(){
+    document.getElementById('subMenu').classList.add('dNone');
+}
+
+
+
 /**
  * for sign up
  */
