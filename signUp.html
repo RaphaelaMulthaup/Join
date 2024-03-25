@@ -16,22 +16,18 @@
             <div class="form-box">
                 <div class="form-value">
                     <form action="">
-                        <h2>Sign up</h2>
+                        <h1>Sign up</h1>
                         <div class="inputbox">
-                            <input type="name" placeholder="Name" required>
-                            <ion-name namen="name"></ion-name>
+                            <input type="name" class="input person" placeholder="Name" required>
                         </div>
                         <div class="inputbox">
-                            <input type="email" placeholder="Email" required>
-                            <ion-mail namen="search"></ion-mail>
+                            <input type="email" class="input mail" placeholder="Email" required>
                         </div>
                         <div class="inputbox">
-                            <input type="password" id="passwordInput" placeholder="Password" required>
-                            <ion-lock namen="password"></ion-lock>
+                            <input type="text" class="input lock" id="passwordInput" placeholder="Password" required onclick="togglePasswordVisibility('passwordInput')">
                         </div>
                         <div class="inputbox">
-                            <input type="password" placeholder="Confirm Password" required>
-                            <ion-lock2 namen="password"></ion-lock2>
+                            <input type="text" class="input lock" id="passwordInputConfirm" placeholder="Confirm Password" required onclick="togglePasswordVisibility('passwordInputConfirm')">
                         </div>
                         <div class="position">
                             <div class="checkboxText">
