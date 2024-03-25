@@ -103,16 +103,20 @@ function dontClose(event){
 /**
  * for sign up
  */
-document.getElementById('passwordInput').addEventListener('input', function() {
-    var lockIcon = document.getElementBy('lockIcon');
-    if (this.value.length > 0) {
-        lockIcon.classList.remove('ion-lock');
-        lockIcon.classList.add('ion-eye');
+function togglePasswordVisibility(lockId) {
+    var passwordField = document.getElementById(lockId);
+    var lockIcon = document.querySelector("#" + lockId + ".lock");
+
+    if 
+    (passwordField.type == "text"){
+        passwordField.type = "password";
+        lockIcon.style.backgroundImage = "url('/assets/img/visibilityoff.svg')";
     } else {
-        lockIcon.classList.remove('ion-eye');
-        lockIcon.classList.add('ion-lock');
+        passwordField.type = "text";
+        lockIcon.style.backgroundImage = "url('/assets/img/visibility.svg')";
     }
-});
+}
+
 
 
 const STORAGE_TOKEN = '39QCOR1Z1NVJZHWNBMOEMDPO2Y6VX0RI1KUJ7OM7';

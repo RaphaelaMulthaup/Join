@@ -23,12 +23,10 @@
                     <form action="">
                         <h2>Log in</h2>
                         <div class="inputbox">
-                            <input type="email" placeholder="Email" required>
-                            <ion-mail namen="search"></ion-mail>
+                            <input type="email" class="input mail" placeholder="Email" required>
                         </div>
                         <div class="inputbox">
-                            <input type="password" placeholder="Password" required>
-                            <ion-lock namen="password"></ion-lock>
+                            <input type="text" class="input lock" placeholder="Password" id="passwordInput" required onclick="togglePasswordVisibility('passwordInput')">
                         </div>
                         <div class="position">
                             <div class="checkboxText">
