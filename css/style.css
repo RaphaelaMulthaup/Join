@@ -54,6 +54,7 @@ body {
   font-style: normal;
   font-variation-settings: "slnt" 0;
   box-sizing: border-box;
+  user-select: none;
 }
 
 section {
@@ -171,7 +172,6 @@ input:valid~label {
   height: 25px;
   background: url('/assets/img/checkboxDisabled.svg') no-repeat;
   cursor: pointer;
-  user-select: none;
 }
 
 #checkbox:checked+label {
