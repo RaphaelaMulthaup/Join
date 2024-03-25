@@ -119,6 +119,25 @@ function togglePasswordVisibility(lockId) {
 
 
 
+/**
+ * check for password match
+ */
+function checkPasswordMatch() {
+    var password = document.getElementById("passwordInput").value;
+    var confirmPassword = document.getElementById("passwordInputConfirm").value;
+    var confirm = document.getElementById('confirm');
+    var alert = document.getElementById('alert');
+
+    if (password === confirmPassword) {
+        alert  ('you signt up succesfully');
+        document.getElementById("signupForm").submit();
+    } else {
+        confirm.style.border = '2px solid #FE818F';
+        alert.innerHTML = '<span style="color: #FE818F;">Ups! Your passwords don\'t match</span>';
+        false;
+    }
+}
+
 const STORAGE_TOKEN = '39QCOR1Z1NVJZHWNBMOEMDPO2Y6VX0RI1KUJ7OM7';
 const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
 

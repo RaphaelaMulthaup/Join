@@ -7,6 +7,8 @@
     <title title="Join">Join</title>
     <title>Join</title>
     <script src="/js/script.js"></script>
+    <script src="/js/storage.js"></script>
+    <script src="/js/register.js"></script>
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>        
@@ -20,13 +22,13 @@
         <section>
             <div class="form-box">
                 <div class="form-value">
-                    <form action="">
+                    <form onsubmit="register(); return false">
                         <h2>Log in</h2>
                         <div class="inputbox">
-                            <input type="email" class="input mail" placeholder="Email" required>
+                            <input type="email" class="input mail" id="email" placeholder="Email" required>
                         </div>
                         <div class="inputbox">
-                            <input type="text" class="input lock" placeholder="Password" id="passwordInput" required onclick="togglePasswordVisibility('passwordInput')">
+                            <input type="text" class="input lock" id="password" placeholder="Password" id="passwordInput" required onclick="togglePasswordVisibility('passwordInput')">
                         </div>
                         <div class="position">
                             <div class="checkboxText">
