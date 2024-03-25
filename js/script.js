@@ -76,14 +76,28 @@ function changeMenuItemToDefault(menuItem){
     menuItem.classList.add('menuItemHoveringPossible');
 }
 
+/**
+ * This function opens and closes the sub menu.
+ */
 function openAndCloseSubMenu(){
     document.getElementById('subMenu').classList.toggle('dNone');
 }
 
+/**
+ * This function closes the sub menu.
+ */
 function closeSubMenu(){
     document.getElementById('subMenu').classList.add('dNone');
 }
 
+/**
+ * 
+ * 
+ * @param {*} event 
+ */
+function dontClose(event){
+    event.stopPropagation();
+}
 
 
 /**
