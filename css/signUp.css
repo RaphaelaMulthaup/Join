@@ -71,6 +71,8 @@ h2::after {
   padding: 6px;
   margin: 15px;
   color: #80808040;
+  display: flex; /* um das icon rechts zu halten */
+
 }
 
 .inputbox label {
@@ -113,13 +115,19 @@ input:valid~label {
   background-image: url(/assets/img/lock.svg);
 }
 
-.lock:focus,
-#lock:focus {
+.lock:active,
+.lock:focus {
   background-image: url(/assets/img/visibilityoff.svg);
 }
 
 .visbility {
   background-image: url(/assets/img/visibility.svg);
+}
+
+.visibility-icon img{
+  position: absolute;
+  right: 56px;
+  opacity: 0;
 }
 
 .input::placeholder {
@@ -219,13 +227,12 @@ a {
 }
 
 a:hover {
-  color: #29ABE2;
-  font-size: small;
-  font-weight: bold;
+  color: #29ABE2;;
 }
 
 .underline {
   margin: 0;
+  font-size: unset;
 }
 
 .underline:hover {

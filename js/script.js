@@ -103,17 +103,31 @@ function dontClose(event){
 /**
  * for sign up
  */
-function togglePasswordVisibility(lockId) {
-    var passwordField = document.getElementById(lockId);
-    var lockIcon = document.querySelector("#" + lockId + ".lock");
+// function togglePasswordVisibility(lockId) {
+//     var passwordField = document.getElementById(lockId);
+//     var lockIcon = document.querySelector("#" + lockId + ".lock");
 
-    if 
-    (passwordField.type == "text"){
-        passwordField.type = "password";
-        lockIcon.style.backgroundImage = "url('/assets/img/visibilityoff.svg')";
+//     if 
+//     (passwordField.type == "text"){
+//         passwordField.type = "password";
+//         lockIcon.style.backgroundImage = "url('/assets/img/visibilityoff.svg')";
+//     } else {
+//         passwordField.type = "text";
+//         lockIcon.style.backgroundImage = "url('/assets/img/visibility.svg')";
+//     }
+// }
+
+// zum änder für die Sichtbarkeit
+function togglePasswordVisibility(inputId) {
+    var input = document.getElementById(inputId);
+    var icon = input.parentElement.querySelector('.visibility-icon img');
+    
+    if (input.type === 'text') {
+        input.type = 'password';
+        icon.src = '/assets/img/visibilityoff.svg';
     } else {
-        passwordField.type = "text";
-        lockIcon.style.backgroundImage = "url('/assets/img/visibility.svg')";
+        input.type = 'text';
+        icon.src = '/assets/img/visibility.svg';
     }
 }
 
@@ -122,7 +136,9 @@ function togglePasswordVisibility(lockId) {
 /**
  * check for password match
  */
-function checkPasswordMatch() {
+function checkPasswordMatch(event) {
+    // event.preventDefault();
+
     var password = document.getElementById("passwordInput").value;
     var confirmPassword = document.getElementById("passwordInputConfirm").value;
     var confirm = document.getElementById('confirm');
@@ -130,11 +146,13 @@ function checkPasswordMatch() {
 
     if (password === confirmPassword) {
         alert  ('you signt up succesfully');
-        document.getElementById("signupForm").submit();
+        // document.getElementById("signupForm").submit();
+        return true;
     } else {
+        event.preventDefault();
         confirm.style.border = '2px solid #FE818F';
         alert.innerHTML = '<span style="color: #FE818F;">Ups! Your passwords don\'t match</span>';
-        false;
+        return false
     }
 }
 

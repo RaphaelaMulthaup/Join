@@ -15,7 +15,7 @@
         <section>
             <div class="form-box">
                 <div class="form-value">
-                    <form action="">
+                    <form id="signupForm" onsubmit="checkPasswordMatch(event)" >
                         <h1>Sign up</h1>
                         <div class="inputbox">
                             <input type="name" class="input person" placeholder="Name" required>
@@ -26,15 +26,21 @@
                         <div class="inputbox">
                             <input type="text" class="input lock" id="passwordInput" placeholder="Password" required onclick="togglePasswordVisibility('passwordInput')">
                         </div>
-                        <div class="inputbox" id="confirm">
+                        <!-- <div class="inputbox" id="confirm">
                             <input type="text" class="input lock" id="passwordInputConfirm" placeholder="Confirm Password" required onclick="togglePasswordVisibility('passwordInputConfirm')">
+                        </div> -->
+                        <div class="inputbox" id="confirm">
+                            <input type="password" class="input lock" id="passwordInputConfirm" placeholder="Confirm Password" required>
+                            <span class="visibility-icon" onclick="togglePasswordVisibility('passwordInputConfirm')">
+                                <img src="/assets/img/visibility.svg" alt="Visibility Icon">
+                            </span>
                         </div>
                         <span class="alert" id="alert"></span>
                         <div class="position">
                             <div class="checkboxText">
                                 <input type="checkbox" id="checkbox" class="checkbox" style="display: none;">
                                 <label for="checkbox"></label>
-                                <span>I accept the <a class="underline" href="privacyPolicy.html">privacy policy</a></span>
+                                <span>I accept the <a class="underline" href="privacyPolicy.html">Privacy policy</a></span>
                             </div>
                             <div>
                                 <form action="index.html">
