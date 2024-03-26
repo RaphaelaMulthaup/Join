@@ -91,9 +91,9 @@ function closeSubMenu(){
 }
 
 /**
+ * This function stops the propagation of the onclick event.
  * 
- * 
- * @param {*} event 
+ * @param {onclick event} event 
  */
 function dontClose(event){
     event.stopPropagation();

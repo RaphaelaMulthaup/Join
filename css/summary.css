@@ -1,0 +1,24 @@
+.headlineSummary{
+    display: flex;
+    align-items: center;
+}
+
+.verticalLine{
+    height: 59px;
+    width: 2px;
+    border: 1.5px solid #29ABE2;
+    background-color: #29ABE2;
+    border-radius: 1.5px;
+    margin: 0 30px;
+}
+
+.keyMetrics{
+    font-size: 27px;
+    color: #2A3647;
+}
+
+.overviewSummary{
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
