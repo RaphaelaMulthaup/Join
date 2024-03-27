@@ -1,0 +1,38 @@
+.sectionPageOneLogInSignUp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 95vh;
+  }
+
+.h1PageOneLogInSignUp{
+    text-align: center;
+  }
+  
+.h1PageOneLogInSignUp::after {
+    content: "";
+    background-color: #29abe2;
+    width: 5rem;
+    height: 0.2rem;
+    display: block;
+    margin: 0.75rem auto;
+  }
+
+.inputPageOneLogInSignUp:focus~label,
+.inputPageOneLogInSignUp:valid~label {
+    top: -5px;
+  }
+
+.aPageOneLogInSignUp{
+    color: #A8A8A8;
+  }
+  
+  
+.aPageOneLogInSignUp:hover{
+    color: #29ABE2;
+    font-weight: bold;
+  }
+  
+.paPageOneLogInSignUp {
+    margin-inline: 10px;
+  }

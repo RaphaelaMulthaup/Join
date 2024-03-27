@@ -3,7 +3,7 @@
 }
 
 body {
-  background-color: #f7f7f9;
+  background-color: #f7f7f8;
 }
 
 .bodyMainpages {
@@ -23,7 +23,7 @@ body {
   padding-left: 96px;
 }
 
-.start-logo {
+start-logo {
   position: absolute;
   left: 35%;
   top: 35%;
@@ -60,13 +60,6 @@ body {
   font-variation-settings: "slnt" 0;
   box-sizing: border-box;
   user-select: none;
-}
-
-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 95vh;
 }
 
 .form-box {
@@ -129,11 +122,6 @@ h1::after {
   font-size: 1em;
   pointer-events: none;
   transition: .5s;
-}
-
-input:focus~label,
-input:valid~label {
-  top: -5px;
 }
 
 .input {
@@ -257,13 +245,7 @@ input:valid~label {
 /*a*/
 
 a {
-  text-decoration: none;
-  color: #A8A8A8;
-}
-
-a:hover{
-  color: #29ABE2;
-  font-weight: bold;
+  text-decoration: none; 
 }
 
 .signUp {
@@ -272,10 +254,6 @@ a:hover{
   top: 70px;
   display: flex;
   align-items: center;
-}
-
-p {
-  margin-inline: 10px;
 }
 
 footer {

@@ -10,22 +10,23 @@
     <script src="/js/storage.js"></script>
     <script src="/js/register.js"></script>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="./css/PageOneLogInSignUp.css">
 </head>
 <body>        
         <img src="/assets/img/emptyBox.svg" id="start-logo" class="start-logo" alt="">
     
         <div class="signUp">
-            <p>Not a Join user? </p>
+            <p class="paPageOneLogInSignUp">Not a Join user? </p>
             <form action="signUp.html">
             <button class="button buttonFilled">Sign up</button></form>
         </div>
-        <section>
+        <section class="sectionPageOneLogInSignUp">
             <div class="form-box">
                 <div class="form-value">
                     <form onsubmit="register(); return false">
                         <h1>Log in</h1>
                         <div class="inputbox">
-                            <input type="email" class="input mail" id="email" placeholder="Email" required>
+                            <input type="email" class="input mail inputPageOneLogInSignUp" id="email" placeholder="Email" required>
                         </div>
                         <div class="inputbox">
                             <input type="password" class="input lock" id="passwordInput" placeholder="Password" required>
@@ -35,9 +36,9 @@
                         </div>
                         <div class="position">
                             <div class="checkboxText">
-                                <input type="checkbox" id="checkbox" class="checkbox" style="display: none;">
+                                <input type="checkbox" id="checkbox" class="checkbox inputPageOneLogInSignUp" style="display: none;">
                                 <label for="checkbox"></label>
-                                <p>Remember me</p>
+                                <p class="paPageOneLogInSignUp">Remember me</p>
                             </div>
                             <div>
                                 <button class="button buttonFilled">Log in</button>
@@ -52,8 +53,8 @@
             </div>
         </section>
         <footer>
-            <a href="privacyPolicy.html">Privacy Policy</a>
-            <a href="legalNotice.html">Legal Notice</a>
+            <a class="aPageOneLogInSignUp" href="privacyPolicy.html">Privacy Policy</a>
+            <a class="aPageOneLogInSignUp" href="legalNotice.html">Legal Notice</a>
         </footer>
     </body>
     
