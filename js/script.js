@@ -103,34 +103,19 @@ function dontClose(event){
 /**
  * for sign up
  */
-// function togglePasswordVisibility(lockId) {
-//     var passwordField = document.getElementById(lockId);
-//     var lockIcon = document.querySelector("#" + lockId + ".lock");
+function togglePasswordVisibility(lockId) {
+    var passwordField = document.getElementById(lockId);
+    var lockIcon = document.querySelector("#" + lockId + ".lock");
 
-//     if 
-//     (passwordField.type == "text"){
-//         passwordField.type = "password";
-//         lockIcon.style.backgroundImage = "url('/assets/img/visibilityoff.svg')";
-//     } else {
-//         passwordField.type = "text";
-//         lockIcon.style.backgroundImage = "url('/assets/img/visibility.svg')";
-//     }
-// }
-
-// zum änder für die Sichtbarkeit
-function togglePasswordVisibility(inputId) {
-    var input = document.getElementById(inputId);
-    var icon = input.parentElement.querySelector('.visibility-icon img');
-    
-    if (input.type === 'text') {
-        input.type = 'password';
-        icon.src = '/assets/img/visibilityoff.svg';
+    if 
+    (passwordField.type == "text"){
+        passwordField.type = "password";
+        lockIcon.style.backgroundImage = "url('/assets/img/visibilityoff.svg')";
     } else {
-        input.type = 'text';
-        icon.src = '/assets/img/visibility.svg';
+        passwordField.type = "text";
+        lockIcon.style.backgroundImage = "url('/assets/img/visibility.svg')";
     }
 }
-
 
 
 /**
@@ -141,8 +126,8 @@ function checkPasswordMatch(event) {
 
     var password = document.getElementById("passwordInput").value;
     var confirmPassword = document.getElementById("passwordInputConfirm").value;
-    var confirm = document.getElementById('confirm');
-    var alert = document.getElementById('alert');
+    // var confirm = document.getElementById('confirm');
+    var alertPw = document.getElementById('alert');
 
     if (password === confirmPassword) {
         alert  ('you signt up succesfully');
@@ -151,25 +136,54 @@ function checkPasswordMatch(event) {
     } else {
         event.preventDefault();
         confirm.style.border = '2px solid #FE818F';
-        alert.innerHTML = /*html*/` <span>Ups! Your passwords don\'t match</span>';`
+        alertPw.innerHTML = /*html*/` <span>Ups! Your passwords don\'t match</span>';`
         return false
     }
 }
 
 const STORAGE_TOKEN = '39QCOR1Z1NVJZHWNBMOEMDPO2Y6VX0RI1KUJ7OM7';
-// const STORAGE_TOKEN = '';
 const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
 
+// Function to retrieve form data and set it to storage
+async function submitFormData(event) {
+    // event.preventDefault(); // Prevent the default form submission behavior
+    
+    // Get form elements by their IDs
+    const name = document.getElementById('name');
+    const email = document.getElementById('email');
+    const password = document.getElementById('passwordInput');
+    
+    // Construct JSON object
+    const formData = {
+        name: name.value,
+        email: email.value,
+        password: password.value
+    };
+    
+    formData.push(formData);
+    console.log(formData);
+    name.value = '';
+    email.value = '';
+    password.value = '';
 
-async function setItem(key, value) {
-    const payload = { key, value, token: STORAGE_TOKEN };
-    return fetch(STORAGE_URL, { method: 'POST', body: JSON.stringify(payload)})
-    .then(res => res.json());
+    // try {
+    //     // Call setItem function to send data to storage
+    //     const response = await setItem('user_data', formData);
+    //     console.log(response); // Log the response from the server
+    //     // Optionally, you can display a success message or redirect the user
+    // } catch (error) {
+    //     console.error('Error:', error); // Log any errors that occur
+    //     // Optionally, you can display an error message to the user
+    // }
 }
 
-async function getItem(key) {
-    const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
-    return fetch(url).then(res => res.json());
-}
+// Function to send data to storage
+// async function setItem(key, value) {
+//     const payload = { key, value, token: STORAGE_TOKEN };
+//     return fetch(STORAGE_URL, { method: 'POST', body: JSON.stringify(payload)})
+//         .then(res => res.json());
+// }
 
+// // Event listener for form submission
+// document.getElementById('signupForm').addEventListener('submit', submitFormData);
 

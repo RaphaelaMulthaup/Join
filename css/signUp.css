@@ -49,12 +49,12 @@ section {
   align-items: center;
 }
 
-h2 {
+h1 {
   font-size: 2em;
   text-align: center;
 }
 
-h2::after {
+h1::after {
   content: "";
   background-color: #29abe2;
   width: 5rem;

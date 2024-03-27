@@ -95,17 +95,13 @@ section {
   }
 }
 
-h1{
-  font-size: 61px;
-  font-weight: 700;
-}
 
-h2 {
+h1 {
   font-size: 2em;
   text-align: center;
 }
 
-h2::after {
+h1::after {
   content: "";
   background-color: #29abe2;
   width: 5rem;
@@ -164,12 +160,19 @@ input:valid~label {
   background-image: url(/assets/img/lock.svg);
 }
 
-.lock:focus, #lock:focus {
+.lock:active,
+.lock:focus {
   background-image: url(/assets/img/visibilityoff.svg);
 }
 
-.visbility{
-  background-image: url(/assets/img/visibility.svg) ;
+.visbility {
+  background-image: url(/assets/img/visibility.svg);
+}
+
+.visibility-icon img{
+  position: absolute;
+  right: 56px;
+  opacity: 0;
 }
 
 .input::placeholder {

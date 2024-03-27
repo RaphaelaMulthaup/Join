@@ -23,12 +23,15 @@
             <div class="form-box">
                 <div class="form-value">
                     <form onsubmit="register(); return false">
-                        <h2>Log in</h2>
+                        <h1>Log in</h1>
                         <div class="inputbox">
                             <input type="email" class="input mail" id="email" placeholder="Email" required>
                         </div>
                         <div class="inputbox">
-                            <input type="text" class="input lock" id="password" placeholder="Password" id="passwordInput" required onclick="togglePasswordVisibility('passwordInput')">
+                            <input type="password" class="input lock" id="passwordInput" placeholder="Password" required>
+                            <span class="visibility-icon" onclick="togglePasswordVisibility('passwordInput')">
+                                <img src="/assets/img/visibility.svg" alt="Visibility Icon">
+                            </span>
                         </div>
                         <div class="position">
                             <div class="checkboxText">

@@ -15,7 +15,7 @@
         <section>
             <div class="form-box">
                 <div class="form-value">
-                    <form id="signupForm" onsubmit="checkPasswordMatch(event)" >
+                    <form action="" id="signupForm" onsubmit="checkPasswordMatch(event), submitFormData(event)" >
                         <h1>Sign up</h1>
                         <div class="inputbox">
                             <input type="name" class="input person" placeholder="Name" required>
@@ -24,7 +24,10 @@
                             <input type="email" class="input mail" placeholder="Email" required>
                         </div>
                         <div class="inputbox">
-                            <input type="text" class="input lock" id="passwordInput" placeholder="Password" required onclick="togglePasswordVisibility('passwordInput')">
+                            <input type="password" class="input lock" id="passwordInput" placeholder="Password" required>
+                            <span class="visibility-icon" onclick="togglePasswordVisibility('passwordInput')">
+                                <img src="/assets/img/visibility.svg" alt="Visibility Icon">
+                            </span>
                         </div>
                         <div class="inputbox" id="confirm">
                             <input type="password" class="input lock" id="passwordInputConfirm" placeholder="Confirm Password" required>
