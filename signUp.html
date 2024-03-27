@@ -8,26 +8,28 @@
     <title>Join</title>
     <script src="/js/script.js"></script>
     <link rel="stylesheet" href="/css/signUp.css">
+    <link rel="stylesheet" href="./css/PageOneLogInSignUp.css">
+
 </head>
 <body>        
         <img src="/assets/img/emptyBox.svg" id="start-logo" class="start-logo" alt="">
     
-        <section>
+        <section class="sectionPageOneLogInSignUp">
             <div class="form-box">
                 <div class="form-value">
                     <form id="signupForm" onsubmit="checkPasswordMatch(event)" >
-                        <h1>Sign up</h1>
+                        <h1 class="h1PageOneLogInSignUp">Sign up</h1>
                         <div class="inputbox">
-                            <input type="name" class="input person" placeholder="Name" required>
+                            <input type="name" class="input person inputPageOneLogInSignUp" placeholder="Name" required>
                         </div>
                         <div class="inputbox">
-                            <input type="email" class="input mail" placeholder="Email" required>
+                            <input type="email" class="input mail inputPageOneLogInSignUp" placeholder="Email" required>
                         </div>
                         <div class="inputbox">
-                            <input type="text" class="input lock" id="passwordInput" placeholder="Password" required onclick="togglePasswordVisibility('passwordInput')">
+                            <input type="text" class="input lock inputPageOneLogInSignUp" id="passwordInput" placeholder="Password" required onclick="togglePasswordVisibility('passwordInput')">
                         </div>
                         <div class="inputbox" id="confirm">
-                            <input type="password" class="input lock" id="passwordInputConfirm" placeholder="Confirm Password" required>
+                            <input type="password" class="input lock inputPageOneLogInSignUp" id="passwordInputConfirm" placeholder="Confirm Password" required>
                             <span class="visibility-icon" onclick="togglePasswordVisibility('passwordInputConfirm')">
                                 <img src="/assets/img/visibility.svg" alt="Visibility Icon">
                             </span>
@@ -35,9 +37,9 @@
                         <span class="alert" id="alert"></span>
                         <div class="position">
                             <div class="checkboxText">
-                                <input type="checkbox" id="checkbox" class="checkbox" style="display: none;">
+                                <input type="checkbox" id="checkbox" class="checkbox inputPageOneLogInSignUp" style="display: none;">
                                 <label for="checkbox"></label>
-                                <span>I accept the <a class="underline" href="privacyPolicy.html">Privacy policy</a></span>
+                                <span>I accept the <a class="underline aPageOneLogInSignUp" href="privacyPolicy.html">Privacy policy</a></span>
                             </div>
                             <div>
                                 <form action="index.html">
@@ -53,8 +55,8 @@
             </div>
         </section>
         <footer>
-            <a href="privacyPolicy.html">Privacy Policy</a>
-            <a href="legalNotice.html">Legal Notice</a>
+            <a class="aPageOneLogInSignUp" href="privacyPolicy.html">Privacy Policy</a>
+            <a class="aPageOneLogInSignUp" href="legalNotice.html">Legal Notice</a>
         </footer>
     </body>
     

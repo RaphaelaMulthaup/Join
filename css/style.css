@@ -23,7 +23,7 @@ body {
   padding-left: 96px;
 }
 
-.start-logo {
+start-logo {
   position: absolute;
   left: 35%;
   top: 35%;
@@ -62,13 +62,6 @@ body {
   user-select: none;
 }
 
-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 95vh;
-}
-
 .form-box {
   position: relative;
   width: 400px;
@@ -100,20 +93,6 @@ h1{
   font-weight: 700;
 }
 
-h2 {
-  font-size: 2em;
-  text-align: center;
-}
-
-h2::after {
-  content: "";
-  background-color: #29abe2;
-  width: 5rem;
-  height: 0.2rem;
-  display: block;
-  margin: 0.75rem auto;
-}
-
 .inputbox {
   width: 100%;
   border: 2px solid #80808040;
@@ -133,11 +112,6 @@ h2::after {
   font-size: 1em;
   pointer-events: none;
   transition: .5s;
-}
-
-input:focus~label,
-input:valid~label {
-  top: -5px;
 }
 
 .input {
@@ -254,13 +228,7 @@ input:valid~label {
 /*a*/
 
 a {
-  text-decoration: none;
-  color: #A8A8A8;
-}
-
-a:hover{
-  color: #29ABE2;
-  font-weight: bold;
+  text-decoration: none; 
 }
 
 .signUp {
@@ -269,10 +237,6 @@ a:hover{
   top: 70px;
   display: flex;
   align-items: center;
-}
-
-p {
-  margin-inline: 10px;
 }
 
 footer {
