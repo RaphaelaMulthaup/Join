@@ -139,9 +139,9 @@ input:valid~label {
 .alert {
   position: absolute;
   bottom: 107px;
-  font-size: 1vmax;
   color: #FE818F;
   left: 82px;
+  font-size: xx-small;
 }
 
 /*
@@ -185,7 +185,6 @@ input:valid~label {
 }
 
 .button {
-  /* habe beim padding in der Breite von 24 auf 12 reduziert */
   padding: 6px 12px 6px 12px;
   border-radius: 5px;
   font-size: 16px;
@@ -222,8 +221,6 @@ input:valid~label {
 a {
   text-decoration: none;
   color: #A8A8A8;
-  margin: 12px;
-  font-size: smaller;
 }
 
 a:hover {

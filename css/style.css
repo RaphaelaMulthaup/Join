@@ -207,7 +207,6 @@ input:valid~label {
 }
 
 .button {
-  /* habe beim padding in der Breite von 24 auf 12 reduziert */
   padding: 6px 12px 6px 12px;
   border-radius: 5px;
   font-size: 16px;
@@ -261,9 +260,9 @@ a {
 
 a:hover{
   color: #29ABE2;
-  font-size: small;
   font-weight: bold;
 }
+
 .signUp {
   position: absolute;
   right: 40px;
@@ -273,7 +272,6 @@ a:hover{
 }
 
 p {
-  /* von 20 auf 10 */
   margin-inline: 10px;
 }
 

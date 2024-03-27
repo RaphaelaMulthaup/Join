@@ -146,17 +146,18 @@ function checkPasswordMatch(event) {
 
     if (password === confirmPassword) {
         alert  ('you signt up succesfully');
-        // document.getElementById("signupForm").submit();
+        document.getElementById("signupForm").submit();
         return true;
     } else {
         event.preventDefault();
         confirm.style.border = '2px solid #FE818F';
-        alert.innerHTML = '<span style="color: #FE818F;">Ups! Your passwords don\'t match</span>';
+        alert.innerHTML = /*html*/` <span>Ups! Your passwords don\'t match</span>';`
         return false
     }
 }
 
 const STORAGE_TOKEN = '39QCOR1Z1NVJZHWNBMOEMDPO2Y6VX0RI1KUJ7OM7';
+// const STORAGE_TOKEN = '';
 const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
 
 
