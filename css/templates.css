@@ -136,7 +136,6 @@ header h4{
     top: 0px;
     right: 20px;
     box-shadow: 0px 0px 4px 0px #0000001A;
-    color: #CDCDCD;
     display: flex;
     flex-direction: column;
     padding: 10px;
@@ -144,6 +143,7 @@ header h4{
 
 .subMenu a{
     padding: 13.5px 0px 13.5px 16px;
+    color: #CDCDCD;
 }
 
 .subMenu a:hover{
