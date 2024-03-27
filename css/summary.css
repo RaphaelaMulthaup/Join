@@ -33,8 +33,19 @@
     border-radius: 30px;
     background-color: white;
     box-shadow: 0px 0px 4px 0px #0000001A;
-
 }
+
+.overviewNumberTasks:hover{
+    transition: all 80ms ease-in-out;
+    width: 282.5px;
+    height: 184px;
+    padding: 41.5px 48.75px;
+    background-color: #2A3647;
+    color: white;
+    box-shadow: 0px 4px 4px 0px #00000040;
+}
+
+.overviewNumberTasks:hover{}
 
 .grayCircleIcon{
     width: 69px;
