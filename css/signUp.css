@@ -137,6 +137,7 @@ input:valid~label {
 }
 
 .alert {
+  content: "Bitte akzeptieren Sie zuerst die Nutzungsbedingungen"; /* Text, der angezeigt wird */
   position: absolute;
   bottom: 107px;
   color: #FE818F;
@@ -213,7 +214,17 @@ input:valid~label {
   background: #091931;
 }
 
+.button:disabled {
+  cursor: not-allowed; 
+  background-color: gray; 
+}
 
+.button:disabled::after {
+  display: block;
+  font-size: 12px;
+
+  margin-top: 5px;
+}
 
 
 /*a*/

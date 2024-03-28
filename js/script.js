@@ -101,7 +101,9 @@ function dontClose(event){
 
 
 /**
- * for sign up
+ * this funciton change the icon of in the passwordinput
+ * 
+ * @param {img} lockId - show if text is visible or not
  */
 function togglePasswordVisibility(lockId) {
     var passwordField = document.getElementById(lockId);
@@ -117,64 +119,70 @@ function togglePasswordVisibility(lockId) {
     }
 }
 
-
 /**
  * check for password match
  */
-function checkPasswordMatch(event) {
-    // event.preventDefault();
+function checkPasswords() {
+    event.preventDefault();
 
-    var password = document.getElementById("passwordInput").value;
-    var confirmPassword = document.getElementById("passwordInputConfirm").value;
-    // var confirm = document.getElementById('confirm');
-    var alertPw = document.getElementById('alert');
+    let password = document.getElementById("passwordInput").value;
+    let confirmPassword = document.getElementById("passwordInputConfirm").value;
+    let confirm = document.getElementById('confirm');
+    let alertPw = document.getElementById('alert');
 
     if (password === confirmPassword) {
         alert  ('you signt up succesfully');
-        document.getElementById("signupForm").submit();
+        submitFormData();
+        // document.getElementById("signupForm").submit();
         return true;
     } else {
-        event.preventDefault();
         confirm.style.border = '2px solid #FE818F';
-        alertPw.innerHTML = /*html*/` <span>Ups! Your passwords don\'t match</span>';`
-        return false
+        alertPw.innerHTML = /*html*/` <span>Ups! Your passwords don't match.</span>`;
     }
+}
+
+/**
+ * check for checkbox
+ */
+function toggleSubmitButton() {
+    var checkbox = document.getElementById('checkbox');
+    var submitButton = document.getElementById('submitButton');
+    submitButton.disabled = !checkbox.checked;
 }
 
 const STORAGE_TOKEN = '39QCOR1Z1NVJZHWNBMOEMDPO2Y6VX0RI1KUJ7OM7';
 const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
 
+let formDatas = [];
+/**
+ * 
+ */
 // Function to retrieve form data and set it to storage
-async function submitFormData(event) {
-    // event.preventDefault(); // Prevent the default form submission behavior
+async function submitFormData() {
+    let name = document.getElementById('name');
+    let email = document.getElementById('email');
+    let password = document.getElementById('passwordInput');
     
-    // Get form elements by their IDs
-    const name = document.getElementById('name');
-    const email = document.getElementById('email');
-    const password = document.getElementById('passwordInput');
-    
-    // Construct JSON object
-    const formData = {
-        name: name.value,
-        email: email.value,
-        password: password.value
+    let formData = {
+        "name": name.value,
+        "email": email.value,
+        "password": password.value
     };
     
-    formData.push(formData);
-    console.log(formData);
-    name.value = '';
-    email.value = '';
-    password.value = '';
+    formDatas.push(formData);
+    console.log(formDatas);
+    // document.getElementById('signupForm').reset(); //zum löschen aller Eingaben. 
 
-    // try {
-    //     // Call setItem function to send data to storage
-    //     const response = await setItem('user_data', formData);
-    //     console.log(response); // Log the response from the server
-    //     // Optionally, you can display a success message or redirect the user
-    // } catch (error) {
-    //     console.error('Error:', error); // Log any errors that occur
-    //     // Optionally, you can display an error message to the user
-    // }
+
+    try {
+        // Call setItem function to send data to storage
+        const response = await setItem('user_data', formData);
+        console.log(response); // Log the response from the server
+        // Optionally, you can display a success message or redirect the user
+    } catch (error) {
+        console.error('Error:', error); // Log any errors that occur
+        // Optionally, you can display an error message to the user
+    }
 }
 
 // Function to send data to storage
