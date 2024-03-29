@@ -251,3 +251,30 @@ a:hover {
 footer {
   text-align: center;
 }
+
+
+.signupMaskBG{
+  position: fixed;
+    top: 0px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .45);
+}
+
+.signupMask {
+  position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: auto;
+    outline: 0;
+    z-index: 1000;
+    width: 400px;
+    padding: 24px;
+    line-height: 1.5715;
+  }
+  
+ /* background-size: contain; */

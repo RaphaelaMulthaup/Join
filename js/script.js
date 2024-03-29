@@ -99,7 +99,6 @@ function dontClose(event){
     event.stopPropagation();
 }
 
-
 /**
  * this funciton change the icon of in the passwordinput
  * 
@@ -154,10 +153,10 @@ const STORAGE_TOKEN = '39QCOR1Z1NVJZHWNBMOEMDPO2Y6VX0RI1KUJ7OM7';
 const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
 
 let formDatas = [];
+
 /**
- * 
+ * Function to retrieve form data and set a json
  */
-// Function to retrieve form data and set it to storage
 async function submitFormData() {
     let name = document.getElementById('name');
     let email = document.getElementById('email');
@@ -168,30 +167,59 @@ async function submitFormData() {
         "email": email.value,
         "password": password.value
     };
-    
+    document.getElementById('signupForm').reset(); //zum löschen aller Eingaben. 
     formDatas.push(formData);
     console.log(formDatas);
-    // document.getElementById('signupForm').reset(); //zum löschen aller Eingaben. 
-
-
-    try {
-        // Call setItem function to send data to storage
-        const response = await setItem('user_data', formData);
-        console.log(response); // Log the response from the server
-        // Optionally, you can display a success message or redirect the user
-    } catch (error) {
-        console.error('Error:', error); // Log any errors that occur
-        // Optionally, you can display an error message to the user
-    }
 }
 
+
+//     
+//      try {
+//         // Call setItem function to send data to storage
+//         const response = await setItem('user_data', formData);
+//         console.log(response); // Log the response from the server
+//         // Optionally, you can display a success message or redirect the user
+//     } catch (error) {
+//         console.error('Error:', error); // Log any errors that occur
+//         // Optionally, you can display an error message to the user
+//     }
+// }
+
 // Function to send data to storage
+// Origin form Junus
 // async function setItem(key, value) {
 //     const payload = { key, value, token: STORAGE_TOKEN };
 //     return fetch(STORAGE_URL, { method: 'POST', body: JSON.stringify(payload)})
 //         .then(res => res.json());
 // }
 
-// // Event listener for form submission
+async function setItem(key, value) {
+    const payload = { key, value, token: STORAGE_TOKEN };
+    return fetch(STORAGE_URL, { method: 'POST', body: JSON.stringify(payload)})
+        .then(res => res.json())
+        .then(updatedData => {
+            // update formData with uptodate data
+            formData = updatedData;
+            return updatedData; // return Daten
+        });
+}
+
+// Event listener for form submission
 // document.getElementById('signupForm').addEventListener('submit', submitFormData);
 
+// Origin form Junus
+// async function getItem(key) {
+//     const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
+//     return fetch(url).then(res => res.json());
+// }
+
+async function getItem(key) {
+    const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
+    return fetch(url)
+        .then(res => res.json())
+        .then(data => {
+            // formData update with downloads
+            formDatas = data;
+            return data;
+        });
+}
