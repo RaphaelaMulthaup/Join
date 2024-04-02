@@ -132,7 +132,7 @@ function checkPasswords() {
     if (password === confirmPassword) {
         alert  ('you signt up succesfully');
         submitFormData();
-        // document.getElementById("signupForm").submit();
+        setItem();
         return true;
     } else {
         confirm.style.border = '2px solid #FE818F';
@@ -152,7 +152,16 @@ function toggleSubmitButton() {
 const STORAGE_TOKEN = '39QCOR1Z1NVJZHWNBMOEMDPO2Y6VX0RI1KUJ7OM7';
 const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
 
-let formDatas = [];
+let userDatas = [];
+let currentUserDatas = [];
+
+
+/**
+ * load userdatas form storage
+ */
+async function loadUserDatas() {
+    userDatas = JSON.parse(await getItem('userDatas'))
+}
 
 /**
  * Function to retrieve form data and set a json
@@ -162,14 +171,14 @@ async function submitFormData() {
     let email = document.getElementById('email');
     let password = document.getElementById('passwordInput');
     
-    let formData = {
+    let userData = {
         "name": name.value,
         "email": email.value,
         "password": password.value
     };
-    document.getElementById('signupForm').reset(); //zum löschen aller Eingaben. 
-    formDatas.push(formData);
-    console.log(formDatas);
+    await setItem('userData', JSON.stringify(userData));
+    // display Signed Up successfully
+    document.getElementById('signupForm').reset();
 }
 
 
@@ -199,6 +208,7 @@ async function setItem(key, value) {
         .then(res => res.json())
         .then(updatedData => {
             // update formData with uptodate data
+            console.log(updatedData);
             formData = updatedData;
             return updatedData; // return Daten
         });
