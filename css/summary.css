@@ -57,7 +57,7 @@
 }
 
 
-.overviewNumberTasks:hover .numberTasks span{
+.overviewNumberTasks:hover span{
         color: white;
 }
 
@@ -79,8 +79,12 @@
     stroke: white;
 }
 
-.overviewNumberTasks:active .numberTasks span{
+.overviewNumberTasks:active .numberTasks span:nth-child(1){
         color: black;
+}
+
+.overviewNumberTasks:active .numberTasks span:nth-child(2){
+    color: #2A3647;
 }
 
 .numberTasks{
@@ -139,7 +143,7 @@
     width: 576px;
 }
 
-.secondLineOverviewSummary:hover .deatline{
+.secondLineOverviewSummary:hover .deadline{
     color: white;
 }
 
@@ -147,7 +151,7 @@
     width: 560px;
 }
 
-.secondLineOverviewSummary:active .deatline{
+.secondLineOverviewSummary:active .deadline{
     color: #2A3647;
 }
 
@@ -179,7 +183,7 @@
     margin: 0 61px 0 62px;
 }
 
-.deatline{
+.deadline{
     gap: 13px;
     color: #2A3647;
     display: flex;
@@ -193,4 +197,23 @@
 
 .upcomingDeadline{
     font-size: 16px;
+}
+
+/*.numberDisplayedDeclarationSecondLine:visited {
+    color: #2A3647;
+}
+
+/*third line*/
+.overviewNumberTasksThirdLine{
+    flex-direction: column;
+    width: 168px;
+    text-align: center;
+}
+
+.overviewNumberTasksThirdLine:active span:nth-child(1){
+    color: black;
+}
+
+.overviewNumberTasksThirdLine:active span:nth-child(2){
+    color: #2A3647;
 }
