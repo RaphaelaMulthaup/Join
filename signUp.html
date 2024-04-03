@@ -14,7 +14,7 @@
 <body>        
         <section class="sectionPageOneLogInSignUp">
             <div class="form-box formBoxSignUp">
-                <div class="form-value">
+                <div class="form-value form-valueSignUp">
                     <form class="formSignUp" action="" id="signupForm" >
                         <h1 class="h1PageOneLogInSignUp">Sign up</h1>
                         <div class="inputbox">
@@ -36,15 +36,15 @@
                             </span>
                         </div>
                         <span class="alert" id="alert"></span>
-                        <div class="position">
-                            <div class="checkboxText">
+                        <div class="position positionSignIn">
+                            <div class="checkboxText checkboxTextSignUp">
                                 <input type="checkbox" id="checkbox" class="checkbox inputPageOneLogInSignUp" onchange="toggleSubmitButton()" style="display: none;">
                                 <label for="checkbox"></label>
                                 <span class="checkboxTextSpan">I accept the <a class="underline aPrivacyPolicy" href="privacyPolicy.html">Privacy policy</a></span>
                             </div>
                             <div>
                                 <form action="index.html">
-                                <button class="button buttonFilled" id="submitButton" onclick="checkPasswords()" disabled title="Accept privacyPolicy first, please.">Sign up</button>
+                                <button class="button buttonFilled buttonSignIn" id="submitButton" onclick="checkPasswords()" disabled title="Accept privacyPolicy first, please.">Sign up</button>
                                 <!-- display Signed Up successfully -->
                                 </form>
                             </div>

@@ -37,6 +37,7 @@
   
 .paPageOneLogInSignUp {
     margin-inline: 10px;
+    margin-top: 2px;
   }
 
 .start-logo {
@@ -70,13 +71,11 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 95vh;
 }
 
 .form-box {
   position: relative;
   width: 400px;
-  padding: 30px 0px 30px 0px;
   background: white;
   border: 2px solid rgba(255, 255, 255, 0.5);
   border-radius: 20px;
@@ -202,8 +201,15 @@ input:valid~label {
   display: flex;
   font-size: 16px;
   align-items: center;
-  margin-top: 14px;
   margin-bottom: 32px;
+}
+
+.checkboxTextSignUp{
+  margin-top: 14px;
+}
+
+.checkboxTextLogIn{
+  margin-top: 20px;
 }
 
 .button:disabled {
@@ -292,10 +298,52 @@ footer {
   .position{
     display: flex;
     flex-direction: column;
+    margin-bottom: 48px;
+  }
+
+  .positionSignIn{
+  
     align-items: center;
+  }
+
+  .positionLogIn{
+    margin-left: 39px;
   }
 
   #submitButton{
     width: 126px;
     height: 55px;
+  }
+
+  .buttonSignIn{
+    border-radius: 8px;
+  }
+
+  .buttonsLogIn{
+    gap: 35px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .buttonsLogIn button{
+    font-weight: 700;
+    font-size: 21px;
+    border-radius: 8px;
+    height: 48px;
+  }
+
+  .buttonLogIn{
+    width: 110px;
+  }
+
+  .buttonGuestLogIn{
+    width: 177px;
+  }
+
+  .form-valueSignUp{
+    height: 630px;
+  }
+
+  .buttonOnIndexToSignUp{
+    border-radius: 8px;
   }
