@@ -1,0 +1,406 @@
+<mxfile host="65bd71144e">
+    <diagram id="kQQPeZKmrFZnlIIt3CU1" name="Page-1">
+        <mxGraphModel dx="822" dy="559" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="3" value="Datenverwaltung  bei SignIn" style="swimlane;startSize=20;horizontal=1;childLayout=flowLayout;flowOrientation=north;resizable=0;interRankCellSpacing=50;containerType=tree;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="30" y="40" width="270" height="285" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="Input vom Benutzer" style="whiteSpace=wrap;html=1;" parent="3" vertex="1">
+                    <mxGeometry x="85" y="40" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="&lt;font style=&quot;font-size: 8px;&quot;&gt;Laden von vorhandenen Daten&lt;/font&gt;" style="whiteSpace=wrap;html=1;" parent="3" vertex="1">
+                    <mxGeometry x="20" y="131.5" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="" style="html=1;rounded=1;curved=0;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;startSize=6;endSize=6;noEdgeStyle=1;orthogonal=1;" parent="3" source="4" target="5" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="112.5" y="92"/>
+                            <mxPoint x="70" y="118"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="7" value="&lt;font style=&quot;font-size: 6px;&quot;&gt;überprüfen ob Benutzer vorhanden (melden das Schon vorhanden ist) sonst Benutzer anlegen&lt;/font&gt;" style="whiteSpace=wrap;html=1;" parent="3" vertex="1">
+                    <mxGeometry x="150" y="131.5" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="" style="html=1;rounded=1;curved=0;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;startSize=6;endSize=6;noEdgeStyle=1;orthogonal=1;" parent="3" source="4" target="7" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="157.5" y="92"/>
+                            <mxPoint x="200" y="118"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="9" value="&lt;font style=&quot;font-size: 6px;&quot;&gt;speichern in Benutzerdaten und Banner anzeigen&lt;/font&gt;" style="whiteSpace=wrap;html=1;" parent="3" vertex="1">
+                    <mxGeometry x="85" y="224.5" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="" style="html=1;rounded=1;curved=0;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;startSize=6;endSize=6;noEdgeStyle=1;orthogonal=1;" parent="3" source="5" target="9" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="70" y="185"/>
+                            <mxPoint x="112.5" y="211"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="11" value="" style="html=1;rounded=1;curved=0;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;startSize=6;endSize=6;noEdgeStyle=1;orthogonal=1;" parent="3" source="7" target="9" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="200" y="185"/>
+                            <mxPoint x="157.5" y="211"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="13" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontSize=6;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="9" target="14" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="319.9999999999999" y="360" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="39" value="" style="edgeStyle=none;html=1;fontSize=6;" parent="1" source="14" target="28" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="Datenverwaltung beim Login" style="swimlane;startSize=20;horizontal=1;childLayout=flowLayout;flowOrientation=north;resizable=0;interRankCellSpacing=50;containerType=tree;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="10" y="380" width="310" height="290" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="laden von vorhanden Daten&amp;nbsp;&lt;br&gt;Eingaben vom Benutzer um diese zu überprüfen für die Anmeldung" style="whiteSpace=wrap;html=1;fontSize=6;" parent="14" vertex="1">
+                    <mxGeometry x="150" y="40" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="Eingabe richtig" style="whiteSpace=wrap;html=1;fontSize=6;" parent="14" vertex="1">
+                    <mxGeometry x="20" y="130" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="" style="html=1;rounded=1;curved=0;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;startSize=6;endSize=6;fontSize=6;noEdgeStyle=1;orthogonal=1;" parent="14" source="15" target="16" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="170" y="92"/>
+                            <mxPoint x="70" y="118"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="18" value="Eingabe Falsch&lt;br&gt;Fehler zurückgeben&lt;br&gt;Mail oder PW falsch" style="whiteSpace=wrap;html=1;fontSize=6;" parent="14" vertex="1">
+                    <mxGeometry x="150" y="130" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="" style="html=1;rounded=1;curved=0;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;startSize=6;endSize=6;fontSize=6;noEdgeStyle=1;orthogonal=1;" parent="14" source="15" target="18" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="200" y="94"/>
+                            <mxPoint x="200" y="118"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="20" value="weiter zur Summery Seite" style="whiteSpace=wrap;html=1;fontSize=6;" parent="14" vertex="1">
+                    <mxGeometry x="20" y="225" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="" style="html=1;rounded=1;curved=0;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;startSize=6;endSize=6;fontSize=6;noEdgeStyle=1;orthogonal=1;" parent="14" source="16" target="20" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="70" y="182"/>
+                            <mxPoint x="70" y="208"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="23" value="" style="html=1;rounded=1;curved=0;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;startSize=6;endSize=6;fontSize=6;noEdgeStyle=1;orthogonal=1;" parent="14" source="18" target="24" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="687.5" y="1290" as="sourcePoint"/>
+                        <Array as="points">
+                            <mxPoint x="200" y="182"/>
+                            <mxPoint x="217.5" y="208"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="25" style="edgeStyle=none;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;fontSize=6;noEdgeStyle=1;orthogonal=1;" parent="14" source="24" target="15" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="262.5" y="208"/>
+                            <mxPoint x="280" y="195"/>
+                            <mxPoint x="280" y="105"/>
+                            <mxPoint x="230" y="92"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="24" value="Eingabe verändern können und weiter versuchen" style="whiteSpace=wrap;html=1;fontSize=6;direction=west;" parent="14" vertex="1">
+                    <mxGeometry x="190" y="220" width="100" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="Datenverwaltung nach dem Einloggen" style="swimlane;startSize=20;horizontal=1;childLayout=flowLayout;flowOrientation=north;resizable=0;interRankCellSpacing=50;containerType=tree;fontSize=12;" parent="1" vertex="1">
+                    <mxGeometry x="10" y="750" width="310" height="290" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="laden von vorhanden Daten&amp;nbsp;&lt;br&gt;Eingaben vom Benutzer zum anmelden" style="whiteSpace=wrap;html=1;fontSize=6;" parent="28" vertex="1">
+                    <mxGeometry x="150" y="40" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" value="Eingabe richtig&lt;br&gt;(Mail und PW mit Vorhanden Daten abgleichen. Name als extra Variable speicher um diese in der Summery Seite auszugeben.)" style="whiteSpace=wrap;html=1;fontSize=6;" parent="28" vertex="1">
+                    <mxGeometry x="20" y="130" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" value="" style="html=1;rounded=1;curved=0;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;startSize=6;endSize=6;fontSize=6;noEdgeStyle=1;orthogonal=1;" parent="28" source="29" target="30" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="170" y="92"/>
+                            <mxPoint x="70" y="118"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="32" value="Eingabe Falsch&lt;br&gt;Fehler zurückgeben&lt;br&gt;Mail oder PW falsch" style="whiteSpace=wrap;html=1;fontSize=6;" parent="28" vertex="1">
+                    <mxGeometry x="150" y="130" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="33" value="" style="html=1;rounded=1;curved=0;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;startSize=6;endSize=6;fontSize=6;noEdgeStyle=1;orthogonal=1;" parent="28" source="29" target="32" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="200" y="94"/>
+                            <mxPoint x="200" y="118"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="34" value="Name ausgeben auf Summery Seite mit Tagesbegrüßung (Morgen, Abend usw.." style="whiteSpace=wrap;html=1;fontSize=6;" parent="28" vertex="1">
+                    <mxGeometry x="20" y="225" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="35" value="" style="html=1;rounded=1;curved=0;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;startSize=6;endSize=6;fontSize=6;noEdgeStyle=1;orthogonal=1;" parent="28" source="30" target="34" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="70" y="182"/>
+                            <mxPoint x="70" y="208"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="36" value="" style="html=1;rounded=1;curved=0;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;startSize=6;endSize=6;fontSize=6;noEdgeStyle=1;orthogonal=1;" parent="28" source="32" target="38" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="687.5" y="1290" as="sourcePoint"/>
+                        <Array as="points">
+                            <mxPoint x="200" y="182"/>
+                            <mxPoint x="217.5" y="208"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="37" style="edgeStyle=none;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;fontSize=6;noEdgeStyle=1;orthogonal=1;" parent="28" source="38" target="29" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="262.5" y="208"/>
+                            <mxPoint x="280" y="195"/>
+                            <mxPoint x="280" y="105"/>
+                            <mxPoint x="230" y="92"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="38" value="Eingabe verändern können und weiter versuchen" style="whiteSpace=wrap;html=1;fontSize=6;direction=west;" parent="28" vertex="1">
+                    <mxGeometry x="190" y="220" width="100" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="40" value="Anlegen von Kontakten (keine Benutzer)" style="swimlane;startSize=20;horizontal=1;childLayout=flowLayout;flowOrientation=north;resizable=0;interRankCellSpacing=50;containerType=tree;fontSize=12;" vertex="1" parent="1">
+                    <mxGeometry x="520" y="40" width="270" height="283" as="geometry"/>
+                </mxCell>
+                <mxCell id="41" value="&lt;font style=&quot;font-size: 9px;&quot;&gt;Eingabe vom Benutzer (Name, Mail, Nummer)&lt;/font&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="40">
+                    <mxGeometry x="85" y="40" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="42" value="&lt;span style=&quot;font-size: 8px;&quot;&gt;Laden von vorhandenen Daten&lt;/span&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="40">
+                    <mxGeometry x="20" y="131.5" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="43" value="" style="html=1;rounded=1;curved=0;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;startSize=6;endSize=6;noEdgeStyle=1;orthogonal=1;" edge="1" parent="40" source="41" target="42">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="112.5" y="92"/>
+                            <mxPoint x="70" y="118"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="44" value="&lt;span style=&quot;font-size: 6px;&quot;&gt;überprüfen ob Benutzer vorhanden (melden das Schon vorhanden ist) sonst Benutzer anlegen&lt;/span&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="40">
+                    <mxGeometry x="150" y="131.5" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="45" value="" style="html=1;rounded=1;curved=0;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;startSize=6;endSize=6;noEdgeStyle=1;orthogonal=1;" edge="1" parent="40" source="41" target="44">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="157.5" y="92"/>
+                            <mxPoint x="200" y="118"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="46" value="&lt;span style=&quot;font-size: 6px;&quot;&gt;speichern in Benutzerdaten und Banner anzeigen&lt;/span&gt;" style="whiteSpace=wrap;html=1;" vertex="1" parent="40">
+                    <mxGeometry x="85" y="223" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="47" value="" style="html=1;rounded=1;curved=0;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;startSize=6;endSize=6;noEdgeStyle=1;orthogonal=1;" edge="1" parent="40" source="42" target="46">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="70" y="185"/>
+                            <mxPoint x="112.5" y="211"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="48" value="" style="html=1;rounded=1;curved=0;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;startSize=6;endSize=6;noEdgeStyle=1;orthogonal=1;" edge="1" parent="40" source="44" target="46">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="200" y="185"/>
+                            <mxPoint x="157.5" y="211"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="53" value="Benutzerdaten" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;fontSize=9;" vertex="1" collapsed="1" parent="1">
+                    <mxGeometry x="320" y="60" width="100" height="26" as="geometry">
+                        <mxRectangle x="320" y="60" width="140" height="104" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="54" value="Name, Mail, PW" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=9;" vertex="1" parent="53">
+                    <mxGeometry y="26" width="140" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="55" value="Telefonnummer" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=9;" vertex="1" parent="53">
+                    <mxGeometry y="52" width="140" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="56" value="Projekt Id Nr bei denen man dabei ist." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontSize=9;" vertex="1" parent="53">
+                    <mxGeometry y="78" width="140" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="59" value="Add Task was &#10;gehört gespeichert&#10;Alles soll änderbar sein" style="swimlane;startSize=60;horizontal=1;childLayout=treeLayout;horizontalTree=0;resizable=0;containerType=tree;fontSize=12;" vertex="1" parent="1">
+                    <mxGeometry x="540" y="380" width="140" height="820" as="geometry"/>
+                </mxCell>
+                <mxCell id="60" value="Taskname" style="whiteSpace=wrap;html=1;fontSize=9;" vertex="1" parent="59">
+                    <mxGeometry x="20" y="70" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="61" value="Datum" style="whiteSpace=wrap;html=1;fontSize=9;" vertex="1" parent="59">
+                    <mxGeometry x="20" y="160" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="62" value="" style="edgeStyle=elbowEdgeStyle;elbow=vertical;html=1;rounded=1;curved=0;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;startSize=6;endSize=6;fontSize=9;" edge="1" parent="59" source="60" target="61">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="65" value="" style="edgeStyle=elbowEdgeStyle;elbow=vertical;html=1;rounded=1;curved=0;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;startSize=6;endSize=6;fontSize=9;" edge="1" target="66" source="61" parent="59">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="310" y="490" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="66" value="Beschreibung" style="whiteSpace=wrap;html=1;fontSize=9;" vertex="1" parent="59">
+                    <mxGeometry x="20" y="250" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="67" value="" style="edgeStyle=elbowEdgeStyle;elbow=vertical;html=1;rounded=1;curved=0;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;startSize=6;endSize=6;fontSize=9;" edge="1" target="68" source="66" parent="59">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="310" y="580" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="68" value="Teilnehmer" style="whiteSpace=wrap;html=1;fontSize=9;" vertex="1" parent="59">
+                    <mxGeometry x="20" y="340" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="77" value="" style="edgeStyle=elbowEdgeStyle;elbow=vertical;html=1;rounded=1;curved=0;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;startSize=6;endSize=6;fontSize=9;" edge="1" target="78" source="68" parent="59">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="330" y="670" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="78" value="Priorität" style="whiteSpace=wrap;html=1;fontSize=9;" vertex="1" parent="59">
+                    <mxGeometry x="20" y="430" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="81" value="" style="edgeStyle=elbowEdgeStyle;elbow=vertical;html=1;rounded=1;curved=0;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;startSize=6;endSize=6;fontSize=9;" edge="1" target="82" source="78" parent="59">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="400" y="760" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="82" value="Category" style="whiteSpace=wrap;html=1;fontSize=9;" vertex="1" parent="59">
+                    <mxGeometry x="20" y="520" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="87" value="" style="edgeStyle=elbowEdgeStyle;elbow=vertical;html=1;rounded=1;curved=0;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;startSize=6;endSize=6;fontSize=9;" edge="1" target="88" source="82" parent="59">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="470" y="850" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="88" value="Unterpunkte" style="whiteSpace=wrap;html=1;fontSize=9;" vertex="1" parent="59">
+                    <mxGeometry x="20" y="610" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="97" value="" style="edgeStyle=elbowEdgeStyle;elbow=vertical;html=1;rounded=1;curved=0;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;startSize=6;endSize=6;fontSize=9;" edge="1" target="98" source="88" parent="59">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="610" y="940" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="98" value="Unterpunkte" style="whiteSpace=wrap;html=1;fontSize=9;" vertex="1" parent="59">
+                    <mxGeometry x="20" y="700" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="110" value="" style="edgeStyle=elbowEdgeStyle;elbow=vertical;html=1;rounded=1;curved=0;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;startSize=6;endSize=6;fontSize=9;" edge="1" target="111" source="98" parent="59">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="610" y="1030" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="111" value="Boardposition 1 (To do)" style="whiteSpace=wrap;html=1;fontSize=9;" vertex="1" parent="59">
+                    <mxGeometry x="20" y="780" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="116" value="" style="edgeStyle=none;html=1;fontSize=9;" edge="1" parent="1" source="80" target="115">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="80" value="Kontakt und Benutzerdaten anzeigen" style="whiteSpace=wrap;html=1;fontSize=9;" vertex="1" parent="1">
+                    <mxGeometry x="730" y="720" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="79" value="" style="edgeStyle=elbowEdgeStyle;elbow=vertical;html=1;rounded=1;curved=0;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;startSize=6;endSize=6;fontSize=9;" edge="1" target="80" source="68" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="1150" y="1140" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="86" value="wichtig, mittel, wenig" style="whiteSpace=wrap;html=1;fontSize=9;" vertex="1" parent="1">
+                    <mxGeometry x="730" y="810" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="85" value="" style="edgeStyle=elbowEdgeStyle;elbow=vertical;html=1;rounded=1;curved=0;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;startSize=6;endSize=6;fontSize=9;" edge="1" target="86" source="78" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="1150" y="1230" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="90" value="Technische Aufgabe oder Dokumentation" style="whiteSpace=wrap;html=1;fontSize=9;" vertex="1" parent="1">
+                    <mxGeometry x="730" y="900" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="89" value="" style="edgeStyle=elbowEdgeStyle;elbow=vertical;html=1;rounded=1;curved=0;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;startSize=6;endSize=6;fontSize=9;" edge="1" target="90" source="82" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="1150" y="1320" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="92" value="Unterpunkte&lt;br&gt;speicherplatz&amp;nbsp;" style="whiteSpace=wrap;html=1;fontSize=9;" vertex="1" parent="1">
+                    <mxGeometry x="730" y="990" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="91" value="" style="edgeStyle=elbowEdgeStyle;elbow=vertical;html=1;rounded=1;curved=0;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;startSize=6;endSize=6;fontSize=9;" edge="1" target="92" source="88" parent="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="1150" y="1320" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="109" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=9;" edge="1" parent="1" source="59" target="100">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="466.6987298107781" y="1170" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="100" value="Board Speicherung" style="swimlane;startSize=20;horizontal=1;childLayout=flowLayout;flowOrientation=north;resizable=0;interRankCellSpacing=50;containerType=tree;fontSize=12;" vertex="1" parent="1">
+                    <mxGeometry x="475" y="1300" width="270" height="280" as="geometry"/>
+                </mxCell>
+                <mxCell id="101" value="AddTask Daten" style="whiteSpace=wrap;html=1;fontSize=9;" vertex="1" parent="100">
+                    <mxGeometry x="85" y="40" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="102" value="auf dem Bord verschiebbar machen" style="whiteSpace=wrap;html=1;fontSize=9;" vertex="1" parent="100">
+                    <mxGeometry x="20" y="130" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="103" value="" style="html=1;rounded=1;curved=0;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;startSize=6;endSize=6;fontSize=9;noEdgeStyle=1;orthogonal=1;" edge="1" parent="100" source="101" target="102">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="112.5" y="92"/>
+                            <mxPoint x="70" y="118"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="104" value="Suchfunktion&amp;nbsp;" style="whiteSpace=wrap;html=1;fontSize=9;" vertex="1" parent="100">
+                    <mxGeometry x="150" y="130" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="105" value="" style="html=1;rounded=1;curved=0;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;startSize=6;endSize=6;fontSize=9;noEdgeStyle=1;orthogonal=1;" edge="1" parent="100" source="101" target="104">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="157.5" y="92"/>
+                            <mxPoint x="200" y="118"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="106" value="End" style="whiteSpace=wrap;html=1;fontSize=9;" vertex="1" parent="100">
+                    <mxGeometry x="85" y="220" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="107" value="" style="html=1;rounded=1;curved=0;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;startSize=6;endSize=6;fontSize=9;noEdgeStyle=1;orthogonal=1;" edge="1" parent="100" source="102" target="106">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="70" y="182"/>
+                            <mxPoint x="112.5" y="208"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="108" value="" style="html=1;rounded=1;curved=0;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;startSize=6;endSize=6;fontSize=9;noEdgeStyle=1;orthogonal=1;" edge="1" parent="100" source="104" target="106">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="200" y="182"/>
+                            <mxPoint x="157.5" y="208"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="115" value="Sollen wir aus Benutzer und Kontakdaten ein einziges JSON machen?" style="whiteSpace=wrap;html=1;fontSize=9;" vertex="1" parent="1">
+                    <mxGeometry x="720" y="590" width="120" height="60" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
