@@ -17,6 +17,19 @@
         <div w3-include-html="./assets/templates/header.html"></div>
         <main class="mainMainpages mainMainpagesPaddingDefault">
             <div id="subMenu" class="dNone" w3-include-html="./assets/templates/subMenu.html" onclick="dontClose(event)"></div>
+            <h1>Add Task</h1>
+            <form onsubmit="addNewTask()">
+                <div>
+                    <div>
+                        <label for="AddTaskTitle">Title<span>*</span></label>
+                        <input id="AddTaskTitle" name="AddTaskTitle" type="text" required placeholder="Enter a title">
+                        
+                    </div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div></div>
+            </form>
         </main>
     </div>
 </body>
