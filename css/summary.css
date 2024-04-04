@@ -19,6 +19,8 @@
 
 .summaryContent{
     margin-top: 55.5px;
+    display: flex;
+    align-items: center;
 }
 
 .overviewSummary{
@@ -148,6 +150,11 @@
     width: 576px;
 }
 
+.overviewSummary:has(.secondLineOverviewSummary:hover) {
+    gap: 20px;
+    transition: 80ms ease-in-out;   
+}
+
 .secondLineOverviewSummary:hover .deadline{
     color: white;
 }
@@ -177,6 +184,11 @@
 
 .numberDisplayedDeclarationSecondLine{
     font-size: 16px;
+    color: #2A3647;
+}
+
+.numberDisplayedDeclarationSecondLine:visited{
+    color: #2A3647;
 }
 
 .verticalLineGray{
@@ -221,4 +233,22 @@
 
 .overviewNumberTasksThirdLine:active span:nth-child(2){
     color: #2A3647;
+}
+
+.greeting{
+    display: flex;
+    flex-direction: column;
+    margin-left: 80px;
+}
+
+.greetingCurrent{
+    font-weight: 500;
+    font-size: 47px;
+    color: #2A3647;
+}
+
+.greetingName{
+    font-weight: 700;
+    font-size: 64px;
+    color: #29ABE2;
 }
