@@ -187,12 +187,12 @@ input:valid~label {
 }
 
 .alert {
-  content: "Bitte akzeptieren Sie zuerst die Nutzungsbedingungen"; /* Text, der angezeigt wird */
+  content: "Bitte akzeptieren Sie zuerst die Nutzungsbedingungen";
   position: absolute;
-  bottom: 107px;
+  bottom: 163px;
   color: #FE818F;
-  left: 82px;
-  font-size: xx-small;
+  left: 65px;
+  font-size: 12px;
 }
 
 /* checkbox + text*/
