@@ -138,7 +138,7 @@ function checkPasswords() {
 
     } else {
         confirm.style.border = '2px solid #FE818F';
-        alertPw.innerHTML = /*html*/` <span>Ups! Your passwords don't match.</span>`;
+        alertPw.innerHTML = /*html*/` <span>Ups! Your passwords don't match</span>`;
     }
 }
 

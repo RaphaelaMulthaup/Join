@@ -23,16 +23,16 @@
                     <div class="addTaksFormLeft">
                         <label for="addTaskTitle">Title<span>*</span></label>
                         <input id="addTaskTitle" name="addTaskTitle" type="text" required placeholder="Enter a title">
-                        <span id="requiredMessage" style="color: #FF8190; display: none;">This field is required</span>
+                        <span class="requiredMessage" id="requiredMessageTitleAddTask"></span>
                         <label for="addTaskDescription">Description</label>
-                        <textarea name="addTaskDescription" id="addTaskDescription" cols="30" rows="10"></textarea>
+                        <textarea name="addTaskDescription" id="addTaskDescription" cols="30" rows="10" placeholder="Enter a description"></textarea>
                     </div>
                     <div></div>
                     <div></div>
                 </div>
                 <div>
                     <div>
-                        <button onclick="validateForm()">Create Task</button>
+                        <button>Create Task</button>
                     </div>
                 </div>
             </form>
