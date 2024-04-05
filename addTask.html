@@ -19,16 +19,36 @@
             <div id="subMenu" class="dNone" w3-include-html="./assets/templates/subMenu.html" onclick="dontClose(event)"></div>
             <h1>Add Task</h1>
             <form onsubmit="addNewTask()">
-                <div>
+                <div class="inputTagsAddTask">
                     <div class="addTaksFormLeft">
                         <label for="addTaskTitle">Title<span>*</span></label>
                         <input id="addTaskTitle" name="addTaskTitle" type="text" required placeholder="Enter a title">
                         <span class="requiredMessage" id="requiredMessageTitleAddTask"></span>
+
                         <label for="addTaskDescription">Description</label>
                         <textarea name="addTaskDescription" id="addTaskDescription" cols="30" rows="10" placeholder="Enter a description"></textarea>
+
+                        <label for="addTaskAssignedTo">Assigned to</label>
+                        <select id="addTaskAssignedTo" name="addTaskAssignedTo">
+                            <option value="selectTaskCategory">Select task category</option>
+                            <option value="technicalTask">Technical Task</option>
+                            <option value="userStory">User Story</option>
+                          </select>
                     </div>
-                    <div></div>
-                    <div></div>
+                    <div class="verticalLineAddTask"></div>
+                    <div class="addTaksFormRight">
+                        <label for="addTaskDueDate">Due date<span>*</span></label>
+                        <input id="addTaskDueDate" name="addTaskDueDate" type="text" required placeholder="dd/mm/yyyy" onfocus="this.type='date'" onblur="this.type='text'">
+
+                        <span">Prio</span>
+                        <div class="addTaskPrioButtons">
+                            <button id="addTaskPrioUrgent">Urgent <img src="./assets/img/capaUrgent.svg"></button>
+                            <button id="addTaskPrioMedium">Medium <img src="./assets/img/capaMedium.svg"></button>
+                            <button id="addTaskPrioLow">Low <img src="./assets/img/capaLow.svg"></button>
+                        </div>
+
+
+                    </div>
                 </div>
                 <div>
                     <div>

@@ -1,4 +1,13 @@
+.inputTagsAddTask{
+    display: flex;
+}
+
 .addTaksFormLeft{
+    display: flex;
+    flex-direction: column;
+}
+
+.addTaksFormRight{
     display: flex;
     flex-direction: column;
 }
