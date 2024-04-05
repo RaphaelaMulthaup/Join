@@ -9,11 +9,13 @@
     <script src="/js/script.js"></script>
     <link rel="stylesheet" href="./css/PageOneLogInSignUp.css">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./assets/templates/subMenu.html">
 
 </head>
 <body>        
         <section class="sectionPageOneLogInSignUp">
             <div class="form-box formBoxSignUp">
+                <a class="back-arrow" href="index.html"></a>
                 <div class="form-value form-valueSignUp">
                     <form class="formSignUp" action="" id="signupForm" >
                         <h1 class="h1PageOneLogInSignUp">Sign up</h1>
@@ -45,14 +47,16 @@
                             <div>
                                 <form action="index.html">
                                 <button class="button buttonFilled buttonSignIn" id="submitButton" onclick="checkPasswords()" disabled title="Accept privacyPolicy first, please.">Sign up</button>
-                                <!-- display Signed Up successfully -->
-                                </form>
-                            </div>
-                        </div>  
-                    </form>
-                </div>
+                            </form>
+                        </div>
+                    </div>  
+                </form>
             </div>
-        </section>
+        </div>
+    </section>
+    <div class="slideInBG" id="slideInBG">
+    <div class="slideIn">You Signed Up successfully</div>
+    </div>
         <footer>
             <a class="aPageOneLogInSignUp" href="privacyPolicy.html">Privacy Policy</a>
             <a class="aPageOneLogInSignUp" href="legalNotice.html">Legal Notice</a>

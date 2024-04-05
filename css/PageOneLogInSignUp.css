@@ -1,44 +1,44 @@
 .sectionPageOneLogInSignUp {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 95vh;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 95vh;
+}
 
-.h1PageOneLogInSignUp{
-    text-align: center;
-    margin-top: 48px;
-    margin-bottom: 8px;
-  }
-  
+.h1PageOneLogInSignUp {
+  text-align: center;
+  margin-top: 48px;
+  margin-bottom: 8px;
+}
+
 .h1PageOneLogInSignUp::after {
-    content: "";
-    background-color: #29abe2;
-    width: 150px;
-    height: 0.2rem;
-    display: block;
-    margin: 0.75rem auto;
-    border-radius: 1.5px;
-  }
+  content: "";
+  background-color: #29abe2;
+  width: 150px;
+  height: 0.2rem;
+  display: block;
+  margin: 0.75rem auto;
+  border-radius: 1.5px;
+}
 
-.inputPageOneLogInSignUp:focus~label,
-.inputPageOneLogInSignUp:valid~label {
-    top: -5px;
-  }
+.inputPageOneLogInSignUp:focus ~ label,
+.inputPageOneLogInSignUp:valid ~ label {
+  top: -5px;
+}
 
-.aPageOneLogInSignUp{
-    color: #A8A8A8;
-  }
-  
-.aPageOneLogInSignUp:hover{
-    color: #29ABE2;
-    font-weight: bold;
-  }
-  
+.aPageOneLogInSignUp {
+  color: #a8a8a8;
+}
+
+.aPageOneLogInSignUp:hover {
+  color: #29abe2;
+  font-weight: bold;
+}
+
 .paPageOneLogInSignUp {
-    margin-inline: 10px;
-    margin-top: 2px;
-  }
+  margin-inline: 10px;
+  margin-top: 2px;
+}
 
 .start-logo {
   position: absolute;
@@ -48,7 +48,7 @@
   animation-delay: 0.3s;
   background: url(/assets/img/favicon_dark.svg) no-repeat;
   background-size: 300px;
-  height: -webkit-fill-available; 
+  height: -webkit-fill-available;
 }
 
 @keyframes moveAndResize {
@@ -95,17 +95,31 @@ section {
   }
 }
 
-.formBoxLogIn{
+.formBoxLogIn {
   height: 493px;
   width: 652px;
   opacity: 0;
-  animation: startDelay .5s ease-in-out forwards;
-  animation-delay: .7s;
+  animation: startDelay 0.5s ease-in-out forwards;
+  animation-delay: 0.7s;
 }
 
-.formBoxSignUp{
+.formBoxSignUp {
   height: 630px;
   width: 598px;
+}
+
+.back-arrow {
+  position: relative;
+  top: -37%;
+  height: 34px;
+  width: 32px;
+  background-position: center;
+  background-image: url(/assets/img/arrow-left-line.svg);
+  background-repeat: no-repeat;
+}
+
+.back-arrow:hover {
+  background-image: url(/assets/img/arrowLeftLineHover.svg);
 }
 
 .inputbox {
@@ -115,9 +129,9 @@ section {
   border-radius: 10px;
   font-size: 15px;
   padding: 6px;
-margin-right: 15px;
+  margin-right: 15px;
   color: #80808040;
-  display: flex; /* um das icon rechts zu halten */
+  display: flex;
 }
 
 .inputbox label {
@@ -128,14 +142,13 @@ margin-right: 15px;
   color: #fff;
   font-size: 1em;
   pointer-events: none;
-  transition: .5s;
+  transition: 0.5s;
 }
 
-input:focus~label,
-input:valid~label {
+input:focus ~ label,
+input:valid ~ label {
   top: -5px;
 }
-
 
 .input {
   width: 422px;
@@ -174,25 +187,25 @@ input:valid~label {
   background-image: url(/assets/img/visibility.svg);
 }
 
-.visibility-icon img{
+.visibility-icon img {
   position: absolute;
   right: 56px;
   opacity: 0;
 }
 
 .input::placeholder {
-  color: #D1D1D1;
-/*  background-size: contain;*/
+  color: #d1d1d1;
+   background-size: contain;
   font-size: 20px;
 }
 
 .alert {
-  content: "Bitte akzeptieren Sie zuerst die Nutzungsbedingungen"; /* Text, der angezeigt wird */
-  position: absolute;
-  bottom: 107px;
-  color: #FE818F;
-  left: 82px;
+  position: relative;
+  bottom: 21px;
+  left: -127px;
+  color: #fe818f;
   font-size: xx-small;
+  margin-bottom: -36px;
 }
 
 /* checkbox + text*/
@@ -204,17 +217,17 @@ input:valid~label {
   margin-bottom: 32px;
 }
 
-.checkboxTextSignUp{
+.checkboxTextSignUp {
   margin-top: 14px;
 }
 
-.checkboxTextLogIn{
+.checkboxTextLogIn {
   margin-top: 20px;
 }
 
 .button:disabled {
-  cursor: not-allowed; 
-  background-color: gray; 
+  cursor: not-allowed;
+  background-color: gray;
 }
 
 .button:disabled::after {
@@ -229,6 +242,35 @@ input:valid~label {
   top: 70px;
   display: flex;
   align-items: center;
+}
+
+.slideInBG {
+  display: none;
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: #80808045;
+}
+.slideIn {
+  animation: slideIn 0.5s ease-in-out forwards;
+  background-color: #2A3647;
+  border-radius: 20px;
+  position: absolute;
+  padding: 30px;
+  color: #CDCDCD;
+}
+
+@keyframes slideIn {
+  0% {
+    top: 100vh;
+    left: 42vw;
+  }
+
+  100% {
+    top: 36vh;
+    left: 42vw;
+  }
 }
 
 footer {
@@ -249,101 +291,100 @@ footer {
   font-weight: 100;
 }
 
-.signupMaskBG{
+.signupMaskBG {
   position: fixed;
-    top: 0px;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 1000;
-    height: 100%;
-    background-color: rgba(0, 0, 0, .45);
+  top: 0px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.45);
 }
 
 .signupMask {
   position: fixed;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    overflow: auto;
-    outline: 0;
-    z-index: 1000;
-    width: 400px;
-    padding: 24px;
-    line-height: 1.5715;
-  }
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  outline: 0;
+  z-index: 1000;
+  width: 400px;
+  padding: 24px;
+  line-height: 1.5715;
+}
 
-  .formSignUp{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 24px;
-  }
+.formSignUp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
 
-  .formLogIn{
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-  }
+.formLogIn {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
 
-  .checkboxTextSpan{
-    margin-top: 1px;
-    margin-left: 8px;
-  }
+.checkboxTextSpan {
+  margin-top: 1px;
+  margin-left: 8px;
+}
 
-  .aPrivacyPolicy{
-    color: #29ABE2;
-  }
+.aPrivacyPolicy {
+  color: #29abe2;
+}
 
-  .position{
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 48px;
-  }
+.position {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 48px;
+}
 
-  .positionSignIn{
-  
-    align-items: center;
-  }
+.positionSignIn {
+  align-items: center;
+}
 
-  .positionLogIn{
-    margin-left: 39px;
-  }
+.positionLogIn {
+  margin-left: 39px;
+}
 
-  #submitButton{
-    width: 126px;
-    height: 55px;
-  }
+#submitButton {
+  width: 126px;
+  height: 55px;
+}
 
-  .buttonSignIn{
-    border-radius: 8px;
-  }
+.buttonSignIn {
+  border-radius: 8px;
+}
 
-  .buttonsLogIn{
-    gap: 35px;
-    display: flex;
-    justify-content: center;
-  }
+.buttonsLogIn {
+  gap: 35px;
+  display: flex;
+  justify-content: center;
+}
 
-  .buttonsLogIn button{
-    font-weight: 700;
-    font-size: 21px;
-    border-radius: 8px;
-    height: 48px;
-  }
+.buttonsLogIn button {
+  font-weight: 700;
+  font-size: 21px;
+  border-radius: 8px;
+  height: 48px;
+}
 
-  .buttonLogIn{
-    width: 110px;
-  }
+.buttonLogIn {
+  width: 110px;
+}
 
-  .buttonGuestLogIn{
-    width: 177px;
-  }
+.buttonGuestLogIn {
+  width: 177px;
+}
 
-  .form-valueSignUp{
-    height: 630px;
-  }
+.form-valueSignUp {
+  height: 630px;
+}
 
-  .buttonOnIndexToSignUp{
-    border-radius: 8px;
-  }
+.buttonOnIndexToSignUp {
+  border-radius: 8px;
+}

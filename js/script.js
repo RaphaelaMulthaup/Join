@@ -130,10 +130,12 @@ function checkPasswords() {
     let alertPw = document.getElementById('alert');
 
     if (password === confirmPassword) {
-        alert  ('you signt up succesfully');
+        document.getElementById('slideInBG').style.display = 'block';
         submitFormData();
         setItem();
+        window.location.href = 'index.html';
         return true;
+
     } else {
         confirm.style.border = '2px solid #FE818F';
         alertPw.innerHTML = /*html*/` <span>Ups! Your passwords don't match.</span>`;
@@ -177,7 +179,6 @@ async function submitFormData() {
         "password": password.value
     };
     await setItem('userData', JSON.stringify(userData));
-    // display Signed Up successfully
     document.getElementById('signupForm').reset();
 }
 
