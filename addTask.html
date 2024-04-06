@@ -22,30 +22,41 @@
                 <div class="inputTagsAddTask">
                     <div class="addTaksFormLeft">
                         <label for="addTaskTitle">Title<span>*</span></label>
-                        <input id="addTaskTitle" name="addTaskTitle" type="text" required placeholder="Enter a title">
+                        <input class="inputFieldAddTask" id="addTaskTitle" name="addTaskTitle" type="text" required placeholder="Enter a title">
                         <span class="requiredMessage" id="requiredMessageTitleAddTask"></span>
 
                         <label for="addTaskDescription">Description</label>
-                        <textarea name="addTaskDescription" id="addTaskDescription" cols="30" rows="10" placeholder="Enter a description"></textarea>
+                        <textarea class="inputFieldAddTask" name="addTaskDescription" id="addTaskDescription" cols="30" rows="10" placeholder="Enter a description"></textarea>
 
-                        <label for="addTaskAssignedTo">Assigned to</label>
-                        <select id="addTaskAssignedTo" name="addTaskAssignedTo">
-                            <option value="selectTaskCategory">Select task category</option>
-                            <option value="technicalTask">Technical Task</option>
-                            <option value="userStory">User Story</option>
-                          </select>
+                        <span>Assigned to</span>
+                        <div class="dropdown" id="addTaskAssignedTo">
+                            <button class="buttonSelectContacts inputFieldAddTask" onclick="toggleDropdown()">Select contacts to assign<span class="arrow down" id="arrowIcon" onclick="toggleDropdown()"></span></button>
+                            <div class="dropdown-content inputFieldAddTask">
+                                <label> <div class="coloredCircleInitials">SM</div>Sofia Müller (You)<input type="checkbox" value="option1"></label>
+                            </div>
+                        </div>
                     </div>
                     <div class="verticalLineAddTask"></div>
                     <div class="addTaksFormRight">
                         <label for="addTaskDueDate">Due date<span>*</span></label>
-                        <input id="addTaskDueDate" name="addTaskDueDate" type="text" required placeholder="dd/mm/yyyy" onfocus="this.type='date'" onblur="this.type='text'">
+                        <input class="inputFieldAddTask" id="addTaskDueDate" name="addTaskDueDate" type="text" required placeholder="dd/mm/yyyy" onfocus="this.type='date'" onblur="this.type='text'">
+                        <span class="requiredMessage" id="requiredMessageTitleAddTask"></span>
 
-                        <span">Prio</span>
-                        <div class="addTaskPrioButtons">
+                        <span>Prio</span>
+                        <div class="addTaskPrioButtons inputFieldAddTask">
                             <button id="addTaskPrioUrgent">Urgent <img src="./assets/img/capaUrgent.svg"></button>
                             <button id="addTaskPrioMedium">Medium <img src="./assets/img/capaMedium.svg"></button>
                             <button id="addTaskPrioLow">Low <img src="./assets/img/capaLow.svg"></button>
                         </div>
+
+                        <label for="addTaskCategory">Category<span>*</span></label>
+                        <select class="inputFieldAddTask" id="addTaskCategory" name="addTaskCategory" required>
+                            <option value="selectTaskCategory">Select task category</option>
+                            <option value="technicalTask">Technical Task</option>
+                            <option value="userStory">User Story</option>
+                        </select>
+                        <label for="addTaskSubtasks">Subtasks</label>
+                        <input class="inputFieldAddTask" id="addTaskSubtasks" name="addTaskSubtasks" type="text" placeholder="Add  new subtask">
 
 
                     </div>

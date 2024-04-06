@@ -2,9 +2,84 @@
     display: flex;
 }
 
+.inputFieldAddTask{
+    width: 440px;
+}
+
 .addTaksFormLeft{
     display: flex;
     flex-direction: column;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.buttonSelectContacts {
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px;
+    z-index: 1;
+}
+
+.dropdown-content label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.dropdown-content label input {
+    margin-right: 5px;
+}
+
+.dropdown.active .dropdown-content {
+    display: block;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    cursor: pointer;
+}
+
+.arrow.down {
+    border-top: 5px solid #000;
+}
+
+.arrow.up {
+    border-bottom: 5px solid #000;
+}
+
+ .coloredCircleInitials{
+    background-color: blue;
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+ }
+
+ .dropdown-content label input[type="checkbox"],
+ .dropdown-content label .coloredCircleInitials {
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .addTaksFormRight{
