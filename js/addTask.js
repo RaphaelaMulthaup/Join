@@ -5,3 +5,9 @@ function toggleDropdown() {
     arrowIcon.classList.toggle('down');
     arrowIcon.classList.toggle('up');
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    var divAddTaskSubtasks = document.querySelector(".divAddTaskSubtasks");
+    var dataAddContent = divAddTaskSubtasks.getAttribute("data-add");
+    divAddTaskSubtasks.innerHTML += dataAddContent;
+});
