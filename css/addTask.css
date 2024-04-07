@@ -2,13 +2,21 @@
     display: flex;
 }
 
-.inputFieldAddTask{
+.widthFormElementsAddTask{
     width: 440px;
 }
 
 .addTaksFormLeft{
     display: flex;
     flex-direction: column;
+}
+
+#addTaskTitle{
+    padding-left: 21px;
+}
+
+.paddingLeftAddTask{
+    padding-left: 16px;
 }
 
 .dropdown {
