@@ -6,6 +6,27 @@
     width: 440px;
 }
 
+.heightFormElementsAddTask{
+    height: 48px;
+}
+
+.borderFormElementsAddTask{
+    border: 1px solid rgba(209, 209, 209, 1);
+    border-radius: 10px;
+}
+
+.buttonAddTaskPage{
+    height: 56px;
+}
+
+.colorRed{
+    color: rgba(255, 129, 144, 1);
+}
+
+.formPointDescription{
+    margin-bottom: 8px;
+}
+
 .addTaksFormLeft{
     display: flex;
     flex-direction: column;
@@ -18,6 +39,27 @@
 .paddingLeftAddTask{
     padding-left: 16px;
 }
+
+.formAddTask{
+    display: inline-block;
+    margin-top: 48px;
+    font-size: 20px;
+}
+
+.formAddTask input::placeholder,
+.formAddTask textarea::placeholder {
+  color: rgba(209, 209, 209, 1);
+  font-size: 20px;
+}
+
+.formAddTask input{
+    padding-top: 5px;
+}
+
+
+/*.formAddTask label{
+    font-size: 20px;
+}*/
 
 .dropdown {
     position: relative;
@@ -95,6 +137,10 @@
     flex-direction: column;
 }
 
+#addTaskCategory{
+    padding-left: 13px;
+}
+
 /*#addTaskSubtasks{
     background-image: url(../assets/img/);
 }
@@ -130,3 +176,18 @@
     transform: translateY(-50%);
     color: black;
 }*/
+
+/*lower area add task*/
+.lowerAreaAddTask{
+    display: flex;
+    height: 273px;
+    justify-content: space-between;
+}
+
+.lowerAreaAddTaskNecessity{
+    padding-top: 175px;
+}
+
+.lowerAreaAddTaskButtons{
+    padding-top: 138px;
+}
