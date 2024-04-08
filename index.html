@@ -12,13 +12,12 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="./css/PageOneLogInSignUp.css">
 </head>
-<body>        
+<body onload="initUser()">        
         <img src="/assets/img/emptyBox.svg" id="start-logo" class="start-logo" alt="">
     
         <div class="signUp">
             <p class="paPageOneLogInSignUp">Not a Join user? </p>
-            <form action="signUp.html">
-            <button class="button buttonFilled buttonOnIndexToSignUp">Sign up</button></form>
+            <a href="signUp.html" class="button buttonFilled buttonOnIndexToSignUp">Sign up</a>
         </div>
         <section class="sectionPageOneLogInSignUp">
             <div class="form-box formBoxLogIn">
@@ -26,9 +25,11 @@
                     <form class="formLogIn" onsubmit="register(); return false">
                         <h1 class="h1PageOneLogInSignUp">Log in</h1>
                         <div class="inputbox">
+                            <!-- Email -->
                             <input type="email" class="input mail inputPageOneLogInSignUp" id="email" placeholder="Email" required>
                         </div>
                         <div class="inputbox">
+                            <!-- password -->
                             <input type="password" class="input lock" id="passwordInput" placeholder="Password" required>
                             <span class="visibility-icon" onclick="togglePasswordVisibility('passwordInput')">
                                 <img src="/assets/img/visibility.svg" alt="Visibility Icon">
@@ -41,7 +42,8 @@
                                 <p class="paPageOneLogInSignUp">Remember me</p>
                             </div>
                             <div class="buttonsLogIn">
-                                <button class="button buttonFilled buttonLogIn">Log in</button>
+                                <!-- button -->
+                                <button class="button buttonFilled buttonLogIn" id="registerBtn">Log in</button>
                                 <button class="button buttonEmpty buttonGuestLogIn">Guest Log in</button>
                             </div>
                         </div>

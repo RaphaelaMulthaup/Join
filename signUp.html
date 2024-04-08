@@ -17,7 +17,7 @@
             <div class="form-box formBoxSignUp">
                 <a class="back-arrow" href="index.html"></a>
                 <div class="form-value form-valueSignUp">
-                    <form class="formSignUp" action="" id="signupForm" >
+                    <form class="formSignUp" action="" id="signupForm" onsubmit="return checkPasswords()">
                         <h1 class="h1PageOneLogInSignUp">Sign up</h1>
                         <div class="inputbox">
                             <input type="name" id="name" class="input person inputPageOneLogInSignUp" placeholder="Name" required>
@@ -46,7 +46,7 @@
                             </div>
                             <div>
                                 <form action="index.html">
-                                <button class="button buttonFilled buttonSignIn" id="submitButton" onclick="checkPasswords()" disabled title="Accept privacyPolicy first, please.">Sign up</button>
+                                <button class="button buttonFilled buttonSignIn" id="submitButton" disabled title="Accept privacyPolicy first, please.">Sign up</button>
                             </form>
                         </div>
                     </div>  

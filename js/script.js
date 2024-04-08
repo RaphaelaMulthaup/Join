@@ -133,7 +133,7 @@ function checkPasswords() {
         document.getElementById('slideInBG').style.display = 'block';
         submitFormData();
         setItem();
-        window.location.href = 'index.html';
+        // window.location.href = 'index.html';
         return true;
 
     } else {
@@ -154,15 +154,22 @@ function toggleSubmitButton() {
 const STORAGE_TOKEN = '39QCOR1Z1NVJZHWNBMOEMDPO2Y6VX0RI1KUJ7OM7';
 const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
 
-let userDatas = [];
-let currentUserDatas = [];
-
+// let users = [];
+// let currentusers = [users];
 
 /**
- * load userdatas form storage
+ * load users from storag with getItem()
  */
-async function loadUserDatas() {
-    userDatas = JSON.parse(await getItem('userDatas'))
+async function initUser(){
+    // loadusers();
+
+}
+
+/**
+ * load users form storage
+ */
+async function loadusers() {
+    users = JSON.parse(await getItem('users'))
 }
 
 /**
@@ -179,7 +186,7 @@ async function submitFormData() {
         "password": password.value
     };
     await setItem('userData', JSON.stringify(userData));
-    document.getElementById('signupForm').reset();
+    // document.getElementById('signupForm').reset();
 }
 
 
@@ -197,40 +204,40 @@ async function submitFormData() {
 
 // Function to send data to storage
 // Origin form Junus
-// async function setItem(key, value) {
-//     const payload = { key, value, token: STORAGE_TOKEN };
-//     return fetch(STORAGE_URL, { method: 'POST', body: JSON.stringify(payload)})
-//         .then(res => res.json());
-// }
-
 async function setItem(key, value) {
     const payload = { key, value, token: STORAGE_TOKEN };
     return fetch(STORAGE_URL, { method: 'POST', body: JSON.stringify(payload)})
-        .then(res => res.json())
-        .then(updatedData => {
-            // update formData with uptodate data
-            console.log(updatedData);
-            formData = updatedData;
-            return updatedData; // return Daten
-        });
+        .then(res => res.json());
 }
+
+// async function setItem(key, value) {
+//     const payload = { key, value, token: STORAGE_TOKEN };
+//     return fetch(STORAGE_URL, { method: 'POST', body: JSON.stringify(payload)})
+//         .then(res => res.json())
+//         .then(updatedData => {
+//             // update formData with uptodate data
+//             console.log('Empfangene Daten: ', updatedData);
+//             formData = updatedData;
+//             return updatedData; // return Daten
+//         });
+// }
 
 // Event listener for form submission
 // document.getElementById('signupForm').addEventListener('submit', submitFormData);
 
 // Origin form Junus
-// async function getItem(key) {
-//     const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
-//     return fetch(url).then(res => res.json());
-// }
-
 async function getItem(key) {
     const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
-    return fetch(url)
-        .then(res => res.json())
-        .then(data => {
-            // formData update with downloads
-            formDatas = data;
-            return data;
-        });
+    return fetch(url).then(res => res.json());
 }
+
+// async function getItem(key) {
+//     const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
+//     return fetch(url)
+//         .then(res => res.json())
+//         .then(data => {
+//             // formData update with downloads
+//             formDatas = data;
+//             return data;
+//         });
+// }

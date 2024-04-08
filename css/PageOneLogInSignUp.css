@@ -189,7 +189,7 @@ input:valid ~ label {
 
 .visibility-icon img {
   position: absolute;
-  right: 56px;
+  margin: 10px 0px 0px -20px;
   opacity: 0;
 }
 
