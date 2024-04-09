@@ -119,6 +119,15 @@ function togglePasswordVisibility(lockId) {
 }
 
 /**
+ * putting together getItem, password matching, submitFormadata, setItem, 
+ */
+function signup(){
+    // getItem();
+    checkPasswords();
+    submitFormData();
+    setItem();
+}
+/**
  * check for password match
  */
 function checkPasswords() {
@@ -126,13 +135,9 @@ function checkPasswords() {
 
     let password = document.getElementById("passwordInput").value;
     let confirmPassword = document.getElementById("passwordInputConfirm").value;
-    let confirm = document.getElementById('confirm');
-    let alertPw = document.getElementById('alert');
 
     if (password === confirmPassword) {
         document.getElementById('slideInBG').style.display = 'block';
-        submitFormData();
-        setItem();
         // window.location.href = 'index.html';
         return true;
 
@@ -154,16 +159,14 @@ function toggleSubmitButton() {
 const STORAGE_TOKEN = '39QCOR1Z1NVJZHWNBMOEMDPO2Y6VX0RI1KUJ7OM7';
 const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
 
-// let users = [];
-// let currentusers = [users];
 
-/**
- * load users from storag with getItem()
- */
-async function initUser(){
-    // loadusers();
+// /**
+//  * load users from storag with getItem()
+//  */
+// async function initUser(){
+//     // loadusers();
 
-}
+// }
 
 /**
  * load users form storage
@@ -186,58 +189,20 @@ async function submitFormData() {
         "password": password.value
     };
     await setItem('userData', JSON.stringify(userData));
-    // document.getElementById('signupForm').reset();
+
 }
 
-
-//     
-//      try {
-//         // Call setItem function to send data to storage
-//         const response = await setItem('user_data', formData);
-//         console.log(response); // Log the response from the server
-//         // Optionally, you can display a success message or redirect the user
-//     } catch (error) {
-//         console.error('Error:', error); // Log any errors that occur
-//         // Optionally, you can display an error message to the user
-//     }
-// }
-
-// Function to send data to storage
-// Origin form Junus
 async function setItem(key, value) {
     const payload = { key, value, token: STORAGE_TOKEN };
     return fetch(STORAGE_URL, { method: 'POST', body: JSON.stringify(payload)})
         .then(res => res.json());
 }
 
-// async function setItem(key, value) {
-//     const payload = { key, value, token: STORAGE_TOKEN };
-//     return fetch(STORAGE_URL, { method: 'POST', body: JSON.stringify(payload)})
-//         .then(res => res.json())
-//         .then(updatedData => {
-//             // update formData with uptodate data
-//             console.log('Empfangene Daten: ', updatedData);
-//             formData = updatedData;
-//             return updatedData; // return Daten
-//         });
-// }
-
-// Event listener for form submission
-// document.getElementById('signupForm').addEventListener('submit', submitFormData);
-
-// Origin form Junus
 async function getItem(key) {
     const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
-    return fetch(url).then(res => res.json());
+    return fetch(url).then(res => res.json()).then(res => {
+        if (res.data){
+            return res.data.value;
+        }throw `Could not find data with key "${key}".`;
+    });
 }
-
-// async function getItem(key) {
-//     const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
-//     return fetch(url)
-//         .then(res => res.json())
-//         .then(data => {
-//             // formData update with downloads
-//             formDatas = data;
-//             return data;
-//         });
-// }
