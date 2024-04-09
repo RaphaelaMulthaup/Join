@@ -1,5 +1,11 @@
 .inputTagsAddTask{
     display: flex;
+    gap: 48px;
+}
+
+.formElementAddTask{
+    display: flex;
+    flex-direction: column;
 }
 
 .widthFormElementsAddTask{
@@ -17,6 +23,8 @@
 
 .buttonAddTaskPage{
     height: 56px;
+    width: 136px;
+    background-color: white;
 }
 
 .colorRed{
@@ -27,14 +35,35 @@
     margin-bottom: 8px;
 }
 
+.requiredMessage{
+    margin-top: 4px;
+    visibility: hidden;
+    height: 12px;
+}
+
 .addTaksFormLeft{
     display: flex;
     flex-direction: column;
+    gap: 16px;
 }
 
 #addTaskTitle{
     padding-left: 21px;
 }
+
+#addTaskDescription{
+    padding-top: 18px;
+    background-image: url('../assets/img/resize.svg'); /* Pfad zur benutzerdefinierten Grafik */
+    background-repeat: no-repeat;
+    background-position: calc(100% - 6.1px) calc(100% - 6.1px); /* Position der benutzerdefinierten Grafik */
+    padding-bottom: 25.1px; /* Platz für die benutzerdefinierte Grafik (19px + 6.1px Abstand) */
+    padding-right: 25.1px; /* Platz für die benutzerdefinierte Grafik (19px + 6.1px Abstand) */
+    height: 120px;
+}
+
+#addTaskDescription::-webkit-resizer {
+    display: none;
+  }
 
 .paddingLeftAddTask{
     padding-left: 16px;
@@ -67,11 +96,13 @@
 }
 
 .buttonSelectContacts {
-    padding: 10px 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    padding-left: 16px;
+    align-items: center;
     background-color: #fff;
     cursor: pointer;
+    font-size: 20px;
+    color: #000;
+    display: flex;
 }
 
 .dropdown-content {
@@ -132,9 +163,15 @@
     vertical-align: middle;
 }
 
+.verticalLineAddTask{
+    border: 1px solid #D1D1D1;
+    height: 424px;
+}
+
 .addTaksFormRight{
     display: flex;
     flex-direction: column;
+    gap: 24px;
 }
 
 #addTaskCategory{
