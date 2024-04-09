@@ -49,16 +49,16 @@
 
                         <div class="formElementAddTask">
                             <label class="formPointDescription" for="addTaskDueDate">Due date<span class="colorRed">*</span></label>
-                            <input class="widthFormElementsAddTask heightFormElementsAddTask borderFormElementsAddTask paddingLeftAddTask" id="addTaskDueDate" name="addTaskDueDate" type="text" required placeholder="dd/mm/yyyy" onfocus="this.type='date'" onblur="this.type='text'">
+                            <input class="widthFormElementsAddTask heightFormElementsAddTask borderFormElementsAddTask paddingLeftAddTask" id="addTaskDueDate" name="addTaskDueDate" type="date" required>
                             <span class="requiredMessage" id="requiredMessageTitleAddTask"></span>
                         </div>
                         
                         <div class="formElementAddTask">
                             <span class="formPointDescription">Prio</span>
                             <div class="addTaskPrioButtons widthFormElementsAddTask">
-                                <button class="buttonAddTaskPage borderFormElementsAddTask" id="addTaskPrioUrgent">Urgent <img src="./assets/img/capaUrgent.svg"></button>
-                                <button class="buttonAddTaskPage borderFormElementsAddTask" id="addTaskPrioMedium">Medium <img src="./assets/img/capaMedium.svg"></button>
-                                <button class="buttonAddTaskPage borderFormElementsAddTask" id="addTaskPrioLow">Low <img src="./assets/img/capaLow.svg"></button>
+                                <button class="buttonAddTaskPage" id="addTaskPrioUrgent">Urgent <img src="./assets/img/capaUrgent.svg"></button>
+                                <button class="buttonAddTaskPage addTaskPrioActiv addTaskPrioMediumActiv" id="addTaskPrioMedium">Medium <img src="./assets/img/capaMediumWhite.svg"></button>
+                                <button class="buttonAddTaskPage" id="addTaskPrioLow">Low <img src="./assets/img/capaLow.svg"></button>
                             </div>
                         </div>
                         
