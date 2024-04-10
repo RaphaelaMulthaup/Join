@@ -6,9 +6,9 @@
     <link rel="icon" href="/assets/img/favicon_light.svg">
     <title title="Join">Join</title>
     <title>Join</title>
+    <script src="/js/storage.js"></script>
     <script src="/js/script.js"></script>
     <script src="/js/register.js"></script>
-    <script src="/js/script.js"></script>
 
     <link rel="stylesheet" href="./css/PageOneLogInSignUp.css">
     <link rel="stylesheet" href="./css/style.css">
@@ -20,8 +20,8 @@
             <div class="form-box formBoxSignUp">
                 <a class="back-arrow" href="index.html"></a>
                 <div class="form-value form-valueSignUp">
-                    <!-- <form class="formSignUp" id="signupForm" onsubmit="return signup();"> -->
-                    <form class="formSignUp" id="signupForm" onsubmit="register(); return false;">
+                    <form class="formSignUp" id="signupForm" onsubmit="checkPasswords(); return false;">
+                    <!-- <form class="formSignUp" id="signupForm" onsubmit="register(); return false;"> -->
                         <h1 class="h1PageOneLogInSignUp">Sign up</h1>
                         <div class="inputbox">
                             <input type="name" id="user" class="input person inputPageOneLogInSignUp" placeholder="Name" required>
@@ -53,8 +53,7 @@
                             <div>
                                 <form action="index.html">
                                     <!-- Button submitButton -->
-                                <!-- <button class="button buttonFilled buttonSignIn" id="submitButton" disabled title="Accept privacyPolicy first, please.">Sign up</button> -->
-                                <button class="button buttonFilled buttonSignIn" id="submitButton" title="Accept privacyPolicy first, please.">Sign up</button>
+                                <button class="button buttonFilled buttonSignIn" id="submitButton" disabled title="Accept privacyPolicy first, please.">Sign up</button>
                             </form>
                         </div>
                     </div>  

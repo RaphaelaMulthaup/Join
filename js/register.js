@@ -2,9 +2,11 @@ let users = [];
 
 async function init() {
     loadusers();
-
 }
 
+/**
+ * load users form storage
+ */
 async function loadusers(){
     try {
     users = JSON.parse(await getItem('users'));
@@ -13,6 +15,9 @@ async function loadusers(){
     }
 }
 
+/**
+ * user registration
+ */
 async function register(){
     submitButton.disabled = true;
     users.push({
@@ -21,15 +26,4 @@ async function register(){
         password: passwordInput.value,
     });
     await setItem('users', JSON.stringify(users)); 
-    document.getElementById('signupForm').reset();
-}
-
-// function resetForm() {
-//     email.value = '';
-//     passwordInput.value = '';
-//     submitButton.disabled = false;
-// }
-
-function resetData() {
-    setItem(JSON.stringify(''));
 }

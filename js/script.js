@@ -119,35 +119,6 @@ function togglePasswordVisibility(lockId) {
 }
 
 /**
- * putting together getItem, password matching, submitFormadata, setItem, 
- */
-function signup(){
-    // getItem();
-    checkPasswords();
-    submitFormData();
-    setItem();
-}
-/**
- * check for password match
- */
-function checkPasswords() {
-    event.preventDefault();
-
-    let password = document.getElementById("passwordInput").value;
-    let confirmPassword = document.getElementById("passwordInputConfirm").value;
-
-    if (password === confirmPassword) {
-        document.getElementById('slideInBG').style.display = 'block';
-        // window.location.href = 'index.html';
-        return true;
-
-    } else {
-        confirm.style.border = '2px solid #FE818F';
-        alertPw.innerHTML = /*html*/` <span>Ups! Your passwords don't match</span>`;
-    }
-}
-
-/**
  * check for checkbox
  */
 function toggleSubmitButton() {
@@ -156,53 +127,26 @@ function toggleSubmitButton() {
     submitButton.disabled = !checkbox.checked;
 }
 
-const STORAGE_TOKEN = '39QCOR1Z1NVJZHWNBMOEMDPO2Y6VX0RI1KUJ7OM7';
-const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
-
-
-// /**
-//  * load users from storag with getItem()
-//  */
-// async function initUser(){
-//     // loadusers();
-
-// }
-
 /**
- * load users form storage
+ * check for password match
  */
-async function loadusers() {
-    users = JSON.parse(await getItem('users'))
-}
+async function checkPasswords() {
+    event.preventDefault();
 
-/**
- * Function to retrieve form data and set a json
- */
-async function submitFormData() {
-    let name = document.getElementById('name');
-    let email = document.getElementById('email');
-    let password = document.getElementById('passwordInput');
-    
-    let userData = {
-        "name": name.value,
-        "email": email.value,
-        "password": password.value
-    };
-    await setItem('userData', JSON.stringify(userData));
+    let password = document.getElementById("passwordInput").value;
+    let confirmPassword = document.getElementById("passwordInputConfirm").value;
+    let confirm = document.getElementById('confirm');
+    let alertPw = document.getElementById('alert');
 
-}
+    if (password === confirmPassword) {
+        register();
+        document.getElementById('slideInBG').style.display = 'block';
+        document.getElementById('signupForm').reset();
+        window.location.href = 'index.html';
+        return true;
 
-async function setItem(key, value) {
-    const payload = { key, value, token: STORAGE_TOKEN };
-    return fetch(STORAGE_URL, { method: 'POST', body: JSON.stringify(payload)})
-        .then(res => res.json());
-}
-
-async function getItem(key) {
-    const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
-    return fetch(url).then(res => res.json()).then(res => {
-        if (res.data){
-            return res.data.value;
-        }throw `Could not find data with key "${key}".`;
-    });
+    } else {
+        confirm.style.border = '2px solid #FE818F';
+        alertPw.innerHTML = /*html*/` <span>Ups! Your passwords don't match</span>`;
+    }
 }
