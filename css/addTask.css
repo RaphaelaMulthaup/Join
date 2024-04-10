@@ -8,6 +8,14 @@
     flex-direction: column;
 }
 
+.paddingLeftAddTask{
+    padding-left: 16px;
+}
+
+.paddingRightAddTask{
+    padding-right: 16px;
+}
+
 .widthFormElementsAddTask{
     width: 440px;
 }
@@ -39,38 +47,6 @@
     height: 12px;
 }
 
-.addTaksFormLeft{
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-#addTaskTitle{
-    padding-left: 21px;
-}
-
-#addTaskDescription{
-    padding-top: 18px;
-    background-image: url('../assets/img/resize.svg'); /* Pfad zur benutzerdefinierten Grafik */
-    background-repeat: no-repeat;
-    background-position: calc(100% - 6.1px) calc(100% - 6.1px); /* Position der benutzerdefinierten Grafik */
-    padding-bottom: 25.1px; /* Platz für die benutzerdefinierte Grafik (19px + 6.1px Abstand) */
-    padding-right: 25.1px; /* Platz für die benutzerdefinierte Grafik (19px + 6.1px Abstand) */
-    height: 120px;
-}
-
-#addTaskDescription::-webkit-resizer {
-    display: none;
-  }
-
-.paddingLeftAddTask{
-    padding-left: 16px;
-}
-
-.paddingRightAddTask{
-    padding-right: 16px;
-}
-
 .formAddTask{
     display: inline-block;
     margin-top: 48px;
@@ -87,11 +63,38 @@
     padding-top: 5px;
 }
 
+/*add task form left*/
+.addTaksFormLeft{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/*title*/
+#addTaskTitle{
+    padding-left: 21px;
+}
+
+/*description*/
+#addTaskDescription{
+    padding-top: 18px;
+    background-image: url('../assets/img/resize.svg'); /* Pfad zur benutzerdefinierten Grafik */
+    background-repeat: no-repeat;
+    background-position: calc(100% - 6.1px) calc(100% - 6.1px); /* Position der benutzerdefinierten Grafik */
+    padding-bottom: 25.1px; /* Platz für die benutzerdefinierte Grafik (19px + 6.1px Abstand) */
+    padding-right: 25.1px; /* Platz für die benutzerdefinierte Grafik (19px + 6.1px Abstand) */
+    height: 120px;
+}
+
+#addTaskDescription::-webkit-resizer {
+    display: none;
+}
 
 /*.formAddTask label{
     font-size: 20px;
 }*/
 
+/*assignted to*/
 .dropdown {
     position: relative;
     display: inline-block;
@@ -133,55 +136,48 @@
     display: block;
 }
 
-.arrow {
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    cursor: pointer;
-}
-
-.arrow.down {
-    border-top: 5px solid #000;
-}
-
-.arrow.up {
-    border-bottom: 5px solid #000;
-}
-
- .coloredCircleInitials{
+.coloredCircleInitials{
     background-color: blue;
     border-radius: 50%;
     height: 25px;
     width: 25px;
- }
+}
 
- .dropdown-content label input[type="checkbox"],
- .dropdown-content label .coloredCircleInitials {
+.dropdown-content label input[type="checkbox"],
+.dropdown-content label .coloredCircleInitials {
     display: inline-block;
     vertical-align: middle;
 }
 
+/*vertical line*/
 .verticalLineAddTask{
     border: 1px solid #D1D1D1;
     height: 424px;
 }
 
+/*add Task form right*/
 .addTaksFormRight{
     display: flex;
     flex-direction: column;
     gap: 24px;
 }
 
+/*due date*/
 #addTaskDueDate{
     color: #D1D1D1;
     font-size: 20px;
 }
 
+#addTaskDueDate::-webkit-calendar-picker-indicator {
+    background-image: url('../assets/img/calender.svg'); /* Pfad zur benutzerdefinierten Icon-Grafik */
+    background-size: 24px 24px; /* Größe des Hintergrundbildes anpassen */
+    background-repeat: no-repeat; /* Hintergrundwiederholung ausschalten */
+    background-position: center;
+    cursor: pointer; /* Mauszeiger auf Zeiger festlegen, um Interaktivität anzuzeigen */
+    opacity: 1; /* Standardwert für den Firefox */
+}
+
+/*prio*/
 .addTaskPrioButtons{
     display: flex;
     gap: 16px;
@@ -206,7 +202,6 @@
 
 .addTaskPrioUrgentActiv{
     background-color: #FF3D00;
-
 }
 
 .addTaskPrioLowActiv{
@@ -220,9 +215,31 @@
     box-shadow: none !important;
 }
 
+/*category*/
 #addTaskCategory{
     padding-left: 13px;
+    font-size: 20px;
+    background-color: #fff;
 }
+
+.dropdownCategory {
+    position: relative;
+  }
+  
+  .dropdownCategory select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: url('../assets/img/arrowdropdownDown.svg') no-repeat right center; /* Pfad zur benutzerdefinierten Pfeil-Grafik */
+    background-size: 16px; /* Größe der Pfeil-Grafik anpassen */
+    padding-right: 20px; /* Platz für die Pfeil-Grafik */
+    cursor: pointer; /* Mauszeiger auf Zeiger festlegen */
+  }
+  
+  .dropdownCategory select::-ms-expand {
+    display: none; /* Internet Explorer spezifische Anpassung, um den Standard-Pfeil auszublenden */
+  }
+  
 
 /*#addTaskSubtasks{
     background-image: url(../assets/img/);
@@ -230,6 +247,7 @@
 
 #addTaskSubtasks::placeholder*/
 
+/*subtasks*/
 .divAddTaskSubtasks{
     position: relative;
     display: inline-block;

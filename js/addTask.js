@@ -1,3 +1,6 @@
+/**
+ * This function expands or collapses the div with contacts and changes the arrow from top to bottom and vice versa.
+ */
 function toggleDropdown() {
     var dropdown = document.getElementById('addTaskAssignedTo');
     dropdown.classList.toggle('active');
@@ -10,6 +13,9 @@ function toggleDropdown() {
 }
 
 
+/**
+ * This eventlistener adds a plus sign to the Subtasks form field.
+ */
 document.addEventListener("DOMContentLoaded", function() {
     var divAddTaskSubtasks = document.querySelector(".divAddTaskSubtasks");
     var dataAddContent = divAddTaskSubtasks.getAttribute("data-add");
