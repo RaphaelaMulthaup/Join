@@ -67,6 +67,10 @@
     padding-left: 16px;
 }
 
+.paddingRightAddTask{
+    padding-right: 16px;
+}
+
 .formAddTask{
     display: inline-block;
     margin-top: 48px;
@@ -101,6 +105,7 @@
     font-size: 20px;
     color: #000;
     display: flex;
+    justify-content: space-between;
 }
 
 .dropdown-content {

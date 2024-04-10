@@ -36,7 +36,11 @@
                         <div class="formElementAddTask">
                             <span class="formPointDescription">Assigned to</span>
                             <div class="dropdown" id="addTaskAssignedTo">
-                                <button class="buttonSelectContacts widthFormElementsAddTask heightFormElementsAddTask borderFormElementsAddTask" onclick="toggleDropdown()">Select contacts to assign<span class="arrow down" id="arrowIcon"></span></button>
+                                <button class="buttonSelectContacts widthFormElementsAddTask heightFormElementsAddTask borderFormElementsAddTask paddingRightAddTask" onclick="toggleDropdown()">
+                                    Select contacts to assign
+                                    <!--<span class="arrow down" id="arrowIcon"></span>-->
+                                    <img id="arrowIcon" src="./assets/img/arrowdropdownDown.svg" alt="">
+                                </button>
                                 <div class="dropdown-content widthFormElementsAddTask">
                                     <label class="paddingLeftAddTask"> <div class="coloredCircleInitials">SM</div>Sofia Müller (You)<input type="checkbox" value="option1"></label>
                                 </div>
@@ -49,7 +53,7 @@
 
                         <div class="formElementAddTask">
                             <label class="formPointDescription" for="addTaskDueDate">Due date<span class="colorRed">*</span></label>
-                            <input class="widthFormElementsAddTask heightFormElementsAddTask borderFormElementsAddTask paddingLeftAddTask" id="addTaskDueDate" name="addTaskDueDate" type="date" required>
+                            <input class="widthFormElementsAddTask heightFormElementsAddTask borderFormElementsAddTask paddingLeftAddTask paddingRightAddTask" id="addTaskDueDate" name="addTaskDueDate" type="date" required>
                             <span class="requiredMessage" id="requiredMessageTitleAddTask"></span>
                         </div>
                         
