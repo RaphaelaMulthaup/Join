@@ -139,10 +139,10 @@ async function checkPasswords() {
     let alertPw = document.getElementById('alert');
 
     if (password === confirmPassword) {
-        register();
+        await register();
         document.getElementById('slideInBG').style.display = 'block';
         document.getElementById('signupForm').reset();
-        window.location.href = 'index.html';
+        // window.location.href = 'index.html';
         return true;
 
     } else {

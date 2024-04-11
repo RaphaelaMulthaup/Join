@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="./css/PageOneLogInSignUp.css">
 </head>
-<body onload="initUser()">        
+<body onload="init()">        
         <img src="/assets/img/emptyBox.svg" id="start-logo" class="start-logo" alt="">
     
         <div class="signUp">
@@ -22,16 +22,16 @@
         <section class="sectionPageOneLogInSignUp">
             <div class="form-box formBoxLogIn">
                 <div class="form-value">
-                    <form class="formLogIn" onsubmit="register(); return false">
+                    <form class="formLogIn" onsubmit="logIn(); return false">
                         <h1 class="h1PageOneLogInSignUp">Log in</h1>
                         <div class="inputbox">
                             <!-- Email -->
-                            <input type="email" class="input mail inputPageOneLogInSignUp" id="email" placeholder="Email" required>
+                            <input type="email" id="email" class="input mail inputPageOneLogInSignUp" placeholder="Email" required>
                         </div>
                         <div class="inputbox">
                             <!-- password -->
-                            <input type="password" class="input lock" id="passwordInput" placeholder="Password" required>
-                            <span class="visibility-icon" onclick="togglePasswordVisibility('passwordInput')">
+                            <input type="password" id="password" class="input lock" placeholder="Password" required>
+                            <span class="visibility-icon" onclick="togglePasswordVisibility('password')">
                                 <img src="/assets/img/visibility.svg" alt="Visibility Icon">
                             </span>
                         </div>
@@ -49,7 +49,7 @@
                         </div>
                         
                     </form>
-    
+                    <div id="msgBox"></div>
                 </div>
     
             </div>
