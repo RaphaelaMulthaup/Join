@@ -119,15 +119,6 @@ function togglePasswordVisibility(lockId) {
 }
 
 /**
- * check for checkbox
- */
-function toggleSubmitButton() {
-    var checkbox = document.getElementById('checkbox');
-    var submitButton = document.getElementById('submitButton');
-    submitButton.disabled = !checkbox.checked;
-}
-
-/**
  * check for password match
  */
 async function checkPasswords() {
@@ -142,11 +133,20 @@ async function checkPasswords() {
         await register();
         document.getElementById('slideInBG').style.display = 'block';
         document.getElementById('signupForm').reset();
-        // window.location.href = 'index.html';
+        window.location.href = 'index.html';
         return true;
 
     } else {
         confirm.style.border = '2px solid #FE818F';
-        alertPw.innerHTML = /*html*/` <span>Ups! Your passwords don't match</span>`;
+        alertPw.innerHTML =` <span>Ups! Your passwords don't match</span>`;
     }
 }
+
+/* 
+Wert aus dem E-Mail-Feld speichern in der Variablen email
+Wert aus dem Passwort-Feld speichern in der Variablen password
+checkUser soll aufgerufen werden, um den gefundenen Benutzer zu überprüfen und die E-Mail-Adresse zu bestätigen.
+Bestätigten Wert in die currentUser=[] Json übergeben zu setItem
+Wenn Kontrollkästchen für "Remember Me" aktiviert ist, wird die Funktion rememberMe() aufgerufen -> muss ich auch erst noch schreiben.
+Sonst werden Anmeldeinformationen gelöscht
+*/

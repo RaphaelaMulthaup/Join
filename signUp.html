@@ -21,17 +21,14 @@
                 <a class="back-arrow" href="index.html"></a>
                 <div class="form-value form-valueSignUp">
                     <form class="formSignUp" id="signupForm" onsubmit="checkPasswords(); return false;">
-                    <!-- <form class="formSignUp" id="signupForm" onsubmit="register(); return false;"> -->
                         <h1 class="h1PageOneLogInSignUp">Sign up</h1>
                         <div class="inputbox">
                             <input type="name" id="user" class="input person inputPageOneLogInSignUp" placeholder="Name" required>
                         </div>
                         <div class="inputbox formBoxSignUp">
-                            <!-- email email -->
                             <input type="email" id="email" class="input mail inputPageOneLogInSignUp" placeholder="Email" required>
                         </div>
                         <div class="inputbox">
-                            <!-- password passwordInput -->
                             <input type="password" minlength="8" id="passwordInput" class="input lock inputPageOneLogInSignUp" placeholder="Password" required>
                             <span class="visibility-icon" onclick="togglePasswordVisibility('passwordInput')">
                                 <img src="/assets/img/visibility.svg" alt="Visibility Icon">
@@ -52,8 +49,7 @@
                             </div>
                             <div>
                                 <form action="index.html">
-                                    <!-- Button submitButton -->
-                                <button class="button buttonFilled buttonSignIn" id="submitButton" disabled title="Accept privacyPolicy first, please.">Sign up</button>
+                                <button class="button buttonFilled buttonSignIn" id="registerBtn" disabled title="Accept privacyPolicy first, please.">Sign up</button>
                             </form>
                         </div>
                     </div>  

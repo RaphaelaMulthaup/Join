@@ -10,7 +10,7 @@ async function init() {
  */
 async function loadusers(){
     try {
-    users = JSON.parse(await getItem('users'));
+    users = JSON.parse(await getItem('users', 'currentUser'));
     } catch (e){
         console.error('Loading error:' , e);
     }
