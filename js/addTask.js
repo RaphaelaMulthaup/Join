@@ -14,7 +14,7 @@ function toggleDropdown() {
 
 
 /**
- * This eventlistener adds a plus sign to the Subtasks form field.
+ * This eventlistener adds a plus sign inside a circular div to the Subtasks form field.
  */
 document.addEventListener("DOMContentLoaded", function() {
     var divAddTaskSubtasks = document.querySelector(".divAddTaskSubtasks");

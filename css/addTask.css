@@ -231,8 +231,9 @@
     -webkit-appearance: none;
     -moz-appearance: none;
     background: url('../assets/img/arrowdropdownDown.svg') no-repeat right center; /* Pfad zur benutzerdefinierten Pfeil-Grafik */
-    background-size: 16px; /* Größe der Pfeil-Grafik anpassen */
-    padding-right: 20px; /* Platz für die Pfeil-Grafik */
+    background-size: 24px 25px; /* Größe der Pfeil-Grafik anpassen */
+    background-position: right 16px center;
+    padding-right: 40px; /* Platz für die Pfeil-Grafik */
     cursor: pointer; /* Mauszeiger auf Zeiger festlegen */
   }
   
@@ -256,12 +257,15 @@
 .circlePlusAddTaskSubtasks {
     position: absolute;
     top: 50%;
-    right: 8px; /* Passen Sie den Abstand nach Bedarf an */
+    right: 16px; /* Passen Sie den Abstand nach Bedarf an */
     transform: translateY(-50%);
-    font-size: 20px; /* Passen Sie die Schriftgröße nach Bedarf an */
-    color: black;
     cursor: pointer;
     border-radius: 50%;
+    height: 24px;
+    width: 24px;
+    background-image: url('../assets/img/plus.svg'); /* Pfad zur benutzerdefinierten Grafik */
+    background-repeat: no-repeat; /* Hintergrundwiederholung ausschalten */
+
 }
 
 .circlePlusAddTaskSubtasks:hover{
@@ -291,4 +295,24 @@
 
 .lowerAreaAddTaskButtons{
     padding-top: 138px;
+    display: flex;
+    gap: 16px;
+}
+
+.lowerAreaAddTaskButtons button{
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.buttonCancel{
+    gap: 10.76px;
+    font-size: 20px
+}
+
+.buttonCreateTask{
+    gap: 8.26px;
+    font-size: 21px;
+    font-weight: 700;
 }
