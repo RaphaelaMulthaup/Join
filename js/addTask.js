@@ -21,3 +21,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var dataAddContent = divAddTaskSubtasks.getAttribute("data-add");
     divAddTaskSubtasks.innerHTML += dataAddContent;
 });
+
+function priorityUrgent(){
+    document.getElementById('addTaskPrioMedium').classList.remove('addTaskPrioActiv', 'addTaskPrioMediumActiv');
+    document.getElementById('imgMedium').src = './assets/img/capaMedium.svg';}

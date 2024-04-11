@@ -24,7 +24,7 @@
 
                         <div class="formElementAddTask">
                             <label class="formPointDescription" for="addTaskTitle">Title<span class="colorRed">*</span></label>
-                            <input class="widthFormElementsAddTask heightFormElementsAddTask borderFormElementsAddTask" id="addTaskTitle" name="addTaskTitle" type="text" required placeholder="Enter a title">
+                            <input class="widthFormElementsAddTask heightFormElementsAddTask borderFormElementsAddTask inputTagAddTaskFocus" id="addTaskTitle" name="addTaskTitle" type="text" required placeholder="Enter a title">
                             <span class="requiredMessage" id="requiredMessageTitleAddTask"></span>
                         </div>
 
@@ -60,9 +60,9 @@
                         <div class="formElementAddTask">
                             <span class="formPointDescription">Prio</span>
                             <div class="addTaskPrioButtons widthFormElementsAddTask">
-                                <button class="buttonAddTaskPage" id="addTaskPrioUrgent">Urgent <img src="./assets/img/capaUrgent.svg"></button>
-                                <button class="buttonAddTaskPage addTaskPrioActiv addTaskPrioMediumActiv" id="addTaskPrioMedium">Medium <img src="./assets/img/capaMediumWhite.svg"></button>
-                                <button class="buttonAddTaskPage" id="addTaskPrioLow">Low <img src="./assets/img/capaLow.svg"></button>
+                                <button class="buttonAddTaskPage" id="addTaskPrioUrgent" onclick="priorityUrgent()">Urgent <img id="imgUrgent" src="./assets/img/capaUrgent.svg"></button>
+                                <button class="buttonAddTaskPage addTaskPrioActiv addTaskPrioMediumActiv" id="addTaskPrioMedium">Medium <img id="imgMedium" src="./assets/img/capaMediumWhite.svg" onclick="priorityMedium()"></button>
+                                <button class="buttonAddTaskPage" id="addTaskPrioLow">Low <img src="./assets/img/capaLow.svg" onclick="priorityLow()"></button>
                             </div>
                         </div>
                         
