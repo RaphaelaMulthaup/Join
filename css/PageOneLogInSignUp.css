@@ -202,10 +202,13 @@ input:valid ~ label {
 .alert {
   position: relative;
   bottom: 21px;
-  left: -127px;
   color: #fe818f;
   font-size: xx-small;
   margin-bottom: -36px;
+}
+
+.al {
+  left: -127px;
 }
 
 /* checkbox + text*/
