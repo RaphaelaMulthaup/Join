@@ -53,19 +53,19 @@
     font-size: 20px;
 }
 
+.formAddTask input{
+    font-size: 20px;
+}
+
 .formAddTask input::placeholder,
 .formAddTask textarea::placeholder {
   color: rgba(209, 209, 209, 1);
   font-size: 20px;
 }
 
-.formAddTask input[type="text"]{
-    padding-top: 5px;
-}
-
-.inputTagAddTaskFocus:focus,
-.inputTagAddTaskFocus:focus-visible{
+.inputTagAddTaskFocus:focus{
     border: 1px solid #29ABE2;
+    outline: #29ABE2;
 }
 
 /*add task form left*/
@@ -89,6 +89,7 @@
     padding-bottom: 25.1px; /* Platz für die benutzerdefinierte Grafik (19px + 6.1px Abstand) */
     padding-right: 25.1px; /* Platz für die benutzerdefinierte Grafik (19px + 6.1px Abstand) */
     height: 120px;
+    font-size: 20px;
 }
 
 #addTaskDescription::-webkit-resizer {
