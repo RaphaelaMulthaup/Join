@@ -37,6 +37,10 @@
     color: rgba(255, 129, 144, 1);
 }
 
+.borderRed{
+    border-color: #FF8190;
+}
+
 .formPointDescription{
     margin-bottom: 8px;
 }
@@ -45,6 +49,8 @@
     margin-top: 4px;
     visibility: hidden;
     height: 12px;
+    color: #FF8190;
+    font-size: 12px;
 }
 
 .formAddTask{

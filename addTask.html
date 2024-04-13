@@ -18,20 +18,20 @@
         <main class="mainMainpages mainMainpagesPaddingDefault">
             <div id="subMenu" class="dNone" w3-include-html="./assets/templates/subMenu.html" onclick="dontClose(event)"></div>
             <h1>Add Task</h1>
-            <form onsubmit="addNewTask(); return false;" class="formAddTask">
+            <form onsubmit="addNewTask(); return false;" class="formAddTask" novalidate id="formAddNewTask">
                 <div class="inputTagsAddTask">
                     <div class="addTaksFormLeft">
 
                         <div class="formElementAddTask">
                             <label class="formPointDescription" for="addTaskTitle">Title<span class="colorRed">*</span></label>
-                            <input class="widthFormElementsAddTask heightFormElementsAddTask borderFormElementsAddTask inputTagAddTaskFocus" id="addTaskTitle" name="addTaskTitle" type="text" required placeholder="Enter a title">
-                            <span class="requiredMessage" id="requiredMessageTitleAddTask"></span>
+                            <input class="widthFormElementsAddTask heightFormElementsAddTask borderFormElementsAddTask inputTagAddTaskFocus addTaskInputRequired" id="addTaskTitle" name="addTaskTitle" type="text" required placeholder="Enter a title">
+                            <span class="requiredMessage" id="requiredMessageTitleAddTask">This field is required</span>
                         </div>
 
                         <div class="formElementAddTask">
                             <label class="formPointDescription" for="addTaskDescription">Description<span class="colorRed">*</span></label>
-                            <textarea class="widthFormElementsAddTask borderFormElementsAddTask paddingLeftAddTask inputTagAddTaskFocus" name="addTaskDescription" id="addTaskDescription" required placeholder="Enter a description"></textarea>
-                            <span class="requiredMessage" id="requiredMessageTitleAddTask"></span>
+                            <textarea class="widthFormElementsAddTask borderFormElementsAddTask paddingLeftAddTask inputTagAddTaskFocus addTaskInputRequired" name="addTaskDescription" id="addTaskDescription" required placeholder="Enter a description"></textarea>
+                            <span class="requiredMessage" id="requiredMessageDescriptionAddTask">This field is required</span>
                         </div>
 
                         <div class="formElementAddTask">
@@ -54,8 +54,8 @@
 
                         <div class="formElementAddTask">
                             <label class="formPointDescription" for="addTaskDueDate">Due date<span class="colorRed">*</span></label>
-                            <input class="widthFormElementsAddTask heightFormElementsAddTask borderFormElementsAddTask paddingLeftAddTask paddingRightAddTask inputTagAddTaskFocus" id="addTaskDueDate" name="addTaskDueDate" type="date" required>
-                            <span class="requiredMessage" id="requiredMessageTitleAddTask"></span>
+                            <input class="widthFormElementsAddTask heightFormElementsAddTask borderFormElementsAddTask paddingLeftAddTask paddingRightAddTask inputTagAddTaskFocus addTaskInputRequired" id="addTaskDueDate" name="addTaskDueDate" type="date" required>
+                            <span class="requiredMessage" id="requiredMessageDueDateAddTask">This field is required</span>
                         </div>
                         
                         <div class="formElementAddTask">
@@ -69,12 +69,12 @@
                         
                         <div class="formElementAddTask dropdownCategory">
                            <label class="formPointDescription" for="addTaskCategory">Category<span class="colorRed">*</span></label>
-                            <select class="widthFormElementsAddTask heightFormElementsAddTask borderFormElementsAddTask" id="addTaskCategory" name="addTaskCategory" required>
-                                <option value="selectTaskCategory">Select task category</option>
+                            <select class="widthFormElementsAddTask heightFormElementsAddTask borderFormElementsAddTask addTaskInputRequired" id="addTaskCategory" name="addTaskCategory" required>
+                                <option value="" disabled selected>Select task category</option>
                                 <option value="technicalTask">Technical Task</option>
                                 <option value="userStory">User Story</option>
                             </select>
-                            <span class="requiredMessage" id="requiredMessageTitleAddTask"></span>
+                            <span class="requiredMessage" id="requiredMessageCategoryAddTask">This field is required</span>
                         </div>
 
                         <div class="formElementAddTask">
