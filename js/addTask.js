@@ -1,16 +1,4 @@
-/**
- * This function expands or collapses the div with contacts and changes the arrow from top to bottom and vice versa.
- */
-function toggleDropdown() {
-    var dropdown = document.getElementById('addTaskAssignedTo');
-    dropdown.classList.toggle('active');
-    var arrowIcon = document.getElementById('arrowIcon');
-    if (arrowIcon.src.includes("Down")) {
-        arrowIcon.src = "./assets/img/arrowdropdownup.svg";
-    } else {
-        arrowIcon.src = "./assets/img/arrowdropdownDown.svg";
-    }
-}
+let buttonSelectContactClicked = false;
 
 /**
  * This eventlistener adds a plus sign inside a circular div to the Subtasks form field.
@@ -20,6 +8,55 @@ document.addEventListener("DOMContentLoaded", function() {
     var dataAddContent = divAddTaskSubtasks.getAttribute("data-add");
     divAddTaskSubtasks.innerHTML += dataAddContent;
 });
+
+function selectContactsButton(event) {
+    event.preventDefault();
+    event.stopPropagation(); // Verhindert, dass das Klicken auf das Inputfeld das Dropdown schließt
+
+    toggleSelectContactsButton();
+}
+
+
+
+/**
+ * This function expands or collapses the div with contacts and changes the arrow from top to bottom and vice versa.
+ */
+
+function toggleSelectContactsButton(){
+    let buttonText = document.getElementById("textSelectContacts");
+    let inputField = document.getElementById("inputSelectContacts");
+    let button = document.getElementById("buttonSelectContacts");
+    let dropdown = document.getElementById('addTaskAssignedTo');
+    let arrowIcon = document.getElementById('arrowIcon');
+
+    if (buttonText.style.display === "none") {
+        // Wenn der Text ausgeblendet ist, zeige ihn wieder an und blende das Inputfeld aus
+        buttonText.style.display = "inline";
+        inputField.style.display = "none";
+        inputField.value = "";
+        button.style.border = "1px solid #D1D1D1";
+        dropdown.classList.remove('active');
+        arrowIcon.src = "./assets/img/arrowdropdownDown.svg";
+        buttonSelectContactClicked = false; // Button wurde nicht geklickt
+        
+    } else {
+        // Wenn der Text sichtbar ist, blende ihn aus und zeige das Inputfeld an
+        buttonText.style.display = "none";
+        inputField.style.display = "inline";
+        button.style.border = "1px solid #29ABE2";
+        inputField.focus(); // Inputfeld fokussieren
+        dropdown.classList.add('active');
+        arrowIcon.src = "./assets/img/arrowdropdownup.svg";
+        buttonSelectContactClicked = true; // Button wurde geklickt
+    }
+}
+
+function selectContactsButtonDefault(){
+    if (buttonSelectContactClicked) {
+        toggleSelectContactsButton();
+    }
+}
+
 
 /**
  * This function disables validation of the form, styles the button with urgent prioryty prominently and removes the prominent style from the other two buttons

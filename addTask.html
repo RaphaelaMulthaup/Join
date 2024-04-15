@@ -11,7 +11,7 @@
     <script src="./js/script.js"></script>
     <script src="./js/addTask.js"></script>
 </head>
-<body class="bodyMainpages" onload="loadPage('menuItemAddTask')" onclick="closeSubMenu()">
+<body class="bodyMainpages" onload="loadPage('menuItemAddTask')" onclick="closeSubMenu(); selectContactsButtonDefault()">
     <div w3-include-html="./assets/templates/menu.html"></div>
     <div class="mainpagesRightSide">
         <div w3-include-html="./assets/templates/header.html"></div>
@@ -24,7 +24,7 @@
 
                         <div class="formElementAddTask">
                             <label class="formPointDescription" for="addTaskTitle">Title<span class="colorRed">*</span></label>
-                            <input class="widthFormElementsAddTask heightFormElementsAddTask borderFormElementsAddTask inputTagAddTaskFocus addTaskInputRequired" id="addTaskTitle" name="addTaskTitle" type="text" required placeholder="Enter a title">
+                            <input class="widthFormElementsAddTask heightFormElementsAddTask borderFormElementsAddTask inputTagAddTaskFocus addTaskInputRequired" id="addTaskTitle" name="addTaskTitle" type="text" required placeholder="Enter a title" autocomplete="off">
                             <span class="requiredMessage" id="requiredMessageTitleAddTask">This field is required</span>
                         </div>
 
@@ -37,13 +37,17 @@
                         <div class="formElementAddTask">
                             <span class="formPointDescription">Assigned to</span>
                             <div class="dropdown" id="addTaskAssignedTo">
-                                <button class="buttonSelectContacts widthFormElementsAddTask heightFormElementsAddTask borderFormElementsAddTask paddingRightAddTask" onclick="toggleDropdown()">
-                                    Select contacts to assign
-                                    <!--<span class="arrow down" id="arrowIcon"></span>-->
+                                <button formnovalidate id="buttonSelectContacts" class="buttonSelectContacts widthFormElementsAddTask heightFormElementsAddTask borderFormElementsAddTask paddingRightAddTask" onclick="selectContactsButton(event)">
+                                    <span id="textSelectContacts">Select contacts to assign</span>
+                                    <input type="text" id="inputSelectContacts" style="display: none;" autocomplete="off">
                                     <img id="arrowIcon" src="./assets/img/arrowdropdownDown.svg" alt="">
                                 </button>
                                 <div class="dropdown-content widthFormElementsAddTask">
-                                    <label class="paddingLeftAddTask"> <div class="coloredCircleInitials">SM</div>Sofia Müller (You)<input type="checkbox" value="option1"></label>
+                                    <label class="paddingLeftAddTask">
+                                        <div class="coloredCircleInitials">SM</div>
+                                        <div class="selectContastsName">Sofia Müller (You)</div> 
+                                        <input type="checkbox" value="option1">
+                                    </label>
                                 </div>
                             </div>
                         </div>

@@ -121,27 +121,50 @@
     color: #000;
     display: flex;
     justify-content: space-between;
+    z-index: 5;
+    position: relative;
+}
+
+.buttonSelectContacts:hover{
+    border: 1px solid #A8A8A8;
+}
+
+#inputSelectContacts{
+    width: 100%;
+    font-size: 20px;
+    border-style: none;
+}
+
+#inputSelectContacts:focus{
+    outline: none;
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
-    top: 100%;
+    top: calc(100% - 10px) ;
     right: 0;
     background-color: #f9f9f9;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    padding: 12px;
+    padding: 10px 12px 0px 0px;
     z-index: 1;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    max-height: 298px;
+    background-color: #fff;
+    box-shadow: 0px 0px 14px 3px #0000000A;
 }
 
 .dropdown-content label {
     display: block;
-    margin-bottom: 5px;
+    height: 56px;    
+    display: flex;
+    align-items: center;
 }
 
 .dropdown-content label input {
-    margin-right: 5px;
+    margin-right: 44px;
 }
 
 .dropdown.active .dropdown-content {
@@ -149,15 +172,25 @@
 }
 
 .coloredCircleInitials{
-    background-color: blue;
+    background-color: #FF7A00;
     border-radius: 50%;
-    height: 25px;
-    width: 25px;
+    height: 42px;
+    width: 42px;
+    border: 2px solid #FFFFFF;
+    color: white;
+    font-size: 12px;
+    align-items: center;
+    justify-content: center;
+    margin-right: 16px;
+}
+
+.selectContastsName{
+    flex: 1;
 }
 
 .dropdown-content label input[type="checkbox"],
 .dropdown-content label .coloredCircleInitials {
-    display: inline-block;
+    display: flex;
     vertical-align: middle;
 }
 
