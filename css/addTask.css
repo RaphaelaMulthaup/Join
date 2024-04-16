@@ -102,10 +102,6 @@
     display: none;
 }
 
-/*.formAddTask label{
-    font-size: 20px;
-}*/
-
 /*assignted to*/
 .dropdown {
     position: relative;
@@ -147,7 +143,7 @@
     background-color: #f9f9f9;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    padding: 10px 12px 0px 0px;
+    padding: 10px 0px 0px 0px;
     z-index: 1;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -156,15 +152,15 @@
     box-shadow: 0px 0px 14px 3px #0000000A;
 }
 
-.dropdown-content label {
+.dropdown-content > label {
     display: block;
-    height: 56px;    
+    height: 56px;
+    width: 416px;
     display: flex;
     align-items: center;
-}
+    padding-right: 16px;
+    border-radius: 10px;
 
-.dropdown-content label input {
-    margin-right: 44px;
 }
 
 .dropdown.active .dropdown-content {
@@ -184,14 +180,18 @@
     margin-right: 16px;
 }
 
-.selectContastsName{
+.selectContactsName{
     flex: 1;
 }
 
-.dropdown-content label input[type="checkbox"],
-.dropdown-content label .coloredCircleInitials {
+.dropdown-content > label input[type="checkbox"],
+.dropdown-content > label .coloredCircleInitials {
     display: flex;
     vertical-align: middle;
+}
+
+.checkboxSelectContacts:hover+label{
+    background: url('/assets/img/checkboxDisabled.svg') no-repeat;
 }
 
 /*vertical line*/
@@ -210,7 +210,10 @@
 /*due date*/
 #addTaskDueDate{
     color: #D1D1D1;
-    font-size: 20px;
+}
+
+#addTaskDueDate:focus{
+    color: black;
 }
 
 #addTaskDueDate::-webkit-calendar-picker-indicator {
@@ -366,6 +369,11 @@
 .buttonCancel{
     gap: 10.76px;
     font-size: 20px
+}
+
+.button:hover .svgCancelX {
+    fill: #29ABE2;
+    transition: 100ms ease-in-out;
 }
 
 .buttonCreateTask{

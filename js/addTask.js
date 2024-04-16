@@ -1,22 +1,17 @@
 let buttonSelectContactClicked = false;
 
-/**
- * This eventlistener adds a plus sign inside a circular div to the Subtasks form field.
- */
-document.addEventListener("DOMContentLoaded", function() {
-    var divAddTaskSubtasks = document.querySelector(".divAddTaskSubtasks");
-    var dataAddContent = divAddTaskSubtasks.getAttribute("data-add");
-    divAddTaskSubtasks.innerHTML += dataAddContent;
-});
 
+/**
+ * This function prevents the function toggleSelectContactsButton from being executed twice
+ * 
+ * @param {*} event 
+ */
 function selectContactsButton(event) {
     event.preventDefault();
     event.stopPropagation(); // Verhindert, dass das Klicken auf das Inputfeld das Dropdown schließt
 
     toggleSelectContactsButton();
 }
-
-
 
 /**
  * This function expands or collapses the div with contacts and changes the arrow from top to bottom and vice versa.
@@ -57,6 +52,19 @@ function selectContactsButtonDefault(){
     }
 }
 
+/*due date*/
+
+function blackColorDueDate(input) {
+    input.style.color = 'black'; // Ändert die Schriftfarbe auf Schwarz, wenn das Eingabefeld den Fokus erhält oder wenn der Benutzer etwas eingibt
+}
+
+function changeColorDueDate(input){
+    if (input.value !== '') {
+        input.style.color = 'black'; // Ändert die Schriftfarbe auf Schwarz, wenn ein Datum eingetragen ist
+    } else {
+        input.style.color = '#D1D1D1'; // Ändert die Schriftfarbe auf Grau, wenn kein Datum eingetragen ist
+    }
+}
 
 /**
  * This function disables validation of the form, styles the button with urgent prioryty prominently and removes the prominent style from the other two buttons
@@ -96,6 +104,19 @@ function priorityLow(event){
     document.getElementById('addTaskPrioLow').classList.add('addTaskPrioActiv', 'addTaskPrioLowActiv');
     document.getElementById('imgLow').src = './assets/img/capaLowWhite.svg';
 }
+
+/*subtasks*/
+
+/**
+ * This eventlistener adds a plus sign inside a circular div to the Subtasks form field.
+ */
+document.addEventListener("DOMContentLoaded", function() {
+    var divAddTaskSubtasks = document.querySelector(".divAddTaskSubtasks");
+    var dataAddContent = divAddTaskSubtasks.getAttribute("data-add");
+    divAddTaskSubtasks.innerHTML += dataAddContent;
+});
+
+/*form validation*/
 
 /**
  * This event listener checks validity. If the value is valid, the error display and red border are removed, if applicable.

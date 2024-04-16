@@ -42,11 +42,12 @@
                                     <input type="text" id="inputSelectContacts" style="display: none;" autocomplete="off">
                                     <img id="arrowIcon" src="./assets/img/arrowdropdownDown.svg" alt="">
                                 </button>
-                                <div class="dropdown-content widthFormElementsAddTask">
+                                <div class="dropdown-content widthFormElementsAddTask" onclick="dontClose(event)">
                                     <label class="paddingLeftAddTask">
                                         <div class="coloredCircleInitials">SM</div>
-                                        <div class="selectContastsName">Sofia Müller (You)</div> 
-                                        <input type="checkbox" value="option1">
+                                        <div class="selectContactsName">Sofia Müller (You)</div> 
+                                        <input type="checkbox" id="checkboxSelectContacts" class="checkbox checkboxSelectContacts" style="display: none;">
+                                        <label for="checkboxSelectContacts"></label>
                                     </label>
                                 </div>
                             </div>
@@ -58,7 +59,7 @@
 
                         <div class="formElementAddTask">
                             <label class="formPointDescription" for="addTaskDueDate">Due date<span class="colorRed">*</span></label>
-                            <input class="widthFormElementsAddTask heightFormElementsAddTask borderFormElementsAddTask paddingLeftAddTask paddingRightAddTask inputTagAddTaskFocus addTaskInputRequired" id="addTaskDueDate" name="addTaskDueDate" type="date" required>
+                            <input class="widthFormElementsAddTask heightFormElementsAddTask borderFormElementsAddTask paddingLeftAddTask paddingRightAddTask inputTagAddTaskFocus addTaskInputRequired" id="addTaskDueDate" name="addTaskDueDate" type="date" required onfocus="blackColorDueDate(this)" oninput="blackColorDueDate(this)" onblur="changeColorDueDate(this)">
                             <span class="requiredMessage" id="requiredMessageDueDateAddTask">This field is required</span>
                         </div>
                         
