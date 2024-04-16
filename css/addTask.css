@@ -282,6 +282,11 @@
     background-color: #fff;
 }
 
+.defaultBorder{
+    border: 1px solid #D1D1D1;
+    outline: #D1D1D1;
+}
+
 .dropdownCategory {
     position: relative;
   }

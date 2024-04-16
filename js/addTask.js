@@ -1,22 +1,21 @@
 let buttonSelectContactClicked = false;
 
+/*assigned to*/
 
 /**
- * This function prevents the function toggleSelectContactsButton from being executed twice
+ * This function disables validation of the form, prevents the function toggleSelectContactsButton from being executed twice and calls the function that expands or collapses the div with contacts.
  * 
- * @param {*} event 
+ * @param {click event} event click on buttonSelectContacts
  */
 function selectContactsButton(event) {
     event.preventDefault();
     event.stopPropagation(); // Verhindert, dass das Klicken auf das Inputfeld das Dropdown schließt
-
     toggleSelectContactsButton();
 }
 
 /**
  * This function expands or collapses the div with contacts and changes the arrow from top to bottom and vice versa.
  */
-
 function toggleSelectContactsButton(){
     let buttonText = document.getElementById("textSelectContacts");
     let inputField = document.getElementById("inputSelectContacts");
@@ -46,6 +45,9 @@ function toggleSelectContactsButton(){
     }
 }
 
+/**
+ * This function checks whether the drop down menu for selecting contacts is expanded. If that's the case, the function toggleSelectContactsButton is called to collapse it.
+*/
 function selectContactsButtonDefault(){
     if (buttonSelectContactClicked) {
         toggleSelectContactsButton();
@@ -54,10 +56,20 @@ function selectContactsButtonDefault(){
 
 /*due date*/
 
+/**
+ * This function changes the font color to black when the input field receives focus or when the user types something.
+ * 
+ * @param {string} input the input field typ date
+ */
 function blackColorDueDate(input) {
-    input.style.color = 'black'; // Ändert die Schriftfarbe auf Schwarz, wenn das Eingabefeld den Fokus erhält oder wenn der Benutzer etwas eingibt
+    input.style.color = 'black';
 }
 
+/**
+ * This function changes the font color to black if a date has been entered or to gray if no date has been entered.
+ * 
+ * @param {string} input the input field typ date
+ */
 function changeColorDueDate(input){
     if (input.value !== '') {
         input.style.color = 'black'; // Ändert die Schriftfarbe auf Schwarz, wenn ein Datum eingetragen ist
@@ -66,8 +78,12 @@ function changeColorDueDate(input){
     }
 }
 
+/*prio*/
+
 /**
- * This function disables validation of the form, styles the button with urgent prioryty prominently and removes the prominent style from the other two buttons
+ * This function disables validation of the form, styles the button with urgent prioryty prominently and removes the prominent style from the other two buttons.
+ *
+ * @param {click event} event click on addTaskPrioUrgent
  */
 function priorityUrgent(event){
     event.preventDefault();
@@ -80,7 +96,9 @@ function priorityUrgent(event){
 }
 
 /**
- * This function disables validation of the form, styles the button with medium prioryty prominently and removes the prominent style from the other two buttons
+ * This function disables validation of the form, styles the button with medium prioryty prominently and removes the prominent style from the other two buttons.
+ * 
+ * @param {click event} event click on addTaskPrioMedium
  */
 function priorityMedium(event){
     event.preventDefault();
@@ -93,7 +111,9 @@ function priorityMedium(event){
 }
 
 /**
- *This function disables validation of the form, styles the button with low prioryty prominently and removes the prominent style from the other two buttons
+ *This function disables validation of the form, styles the button with low prioryty prominently and removes the prominent style from the other two buttons.
+ *
+ * @param {click event} event click on addTaskPrioLow
  */
 function priorityLow(event){
     event.preventDefault();
@@ -103,6 +123,12 @@ function priorityLow(event){
     document.getElementById('imgUrgent').src = './assets/img/capaUrgent.svg';
     document.getElementById('addTaskPrioLow').classList.add('addTaskPrioActiv', 'addTaskPrioLowActiv');
     document.getElementById('imgLow').src = './assets/img/capaLowWhite.svg';
+}
+
+/*category*/
+
+function defaultBorder(selectElement) {
+    selectElement.classList.add('defaultBorder');
 }
 
 /*subtasks*/
