@@ -195,7 +195,7 @@ input:valid ~ label {
 
 .input::placeholder {
   color: #d1d1d1;
-   background-size: contain;
+  background-size: contain;
   font-size: 20px;
 }
 
@@ -257,11 +257,11 @@ input:valid ~ label {
 }
 .slideIn {
   animation: slideIn 0.5s ease-in-out forwards;
-  background-color: #2A3647;
+  background-color: #2a3647;
   border-radius: 20px;
   position: absolute;
   padding: 30px;
-  color: #CDCDCD;
+  color: #cdcdcd;
 }
 
 @keyframes slideIn {
@@ -374,6 +374,7 @@ footer {
   font-size: 21px;
   border-radius: 8px;
   height: 48px;
+  cursor: pointer;
 }
 
 .buttonLogIn {
@@ -382,6 +383,12 @@ footer {
 
 .buttonGuestLogIn {
   width: 177px;
+  font-weight: 700;
+  font-size: 21px;
+  border-radius: 8px;
+  height: 48px;
+  text-align: center;
+  padding: 12px;
 }
 
 .form-valueSignUp {

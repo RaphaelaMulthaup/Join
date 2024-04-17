@@ -18,7 +18,6 @@ async function loadPage(id) {
     });
 }
 
-
 /**
  * This function includes html templates. (menu and header)
  */
@@ -126,6 +125,7 @@ function toggleSubmitButton() {
     var registerBtn = document.getElementById('registerBtn');
     registerBtn.disabled = !checkbox.checked;
 }
+
 /**
  * check for password match
  */

@@ -2,7 +2,7 @@ let users = [];
 let currentUser = []; 
 let reset = [];
 let fillIn = []; //wenn true dann autoFillIn starten, sonst nicht // oder in den Cockies speicher wo ich noch nicht weiß wie das geht X-)
-
+let checkboxValue = [];
 /**
  * load users, currentUser, fillIn if necessery
  */
@@ -15,8 +15,10 @@ async function init() {
  */
 async function loadusers(){
     try {
-    users = JSON.parse(await getItem('users', 'currentUser'));
+    users = JSON.parse(await getItem('users'));
     currentUser = JSON.parse(await getItem('currentUser'));
+    checkboxValue = JSON.parse(await getItem('checkboxValue'));
+    fillInValues();
     } catch (e){
         console.error('Loading error:' , e);
     }
@@ -58,11 +60,21 @@ function logIn(){
 }
 
 async function saveCurrentUser(){
+    var checkboxValue = rememberMe();
     await setItem('reset last currentUser', JSON.stringify(reset));
     await setItem('currentUser', JSON.stringify(currentUser));
-    console.log ('Hochgesendete Daten', currentUser)
+    await setItem('checkboxValue', JSON.stringify(checkboxValue));
+    console.log ('Hochgesendete Daten', currentUser, 'checkbox-Wert', checkboxValue);
 }
- 
-function autoFillIn(){
-    
+
+function rememberMe() {
+    var checkbox = document.getElementById('checkbox');
+    return checkbox.checked;
+}
+
+function fillInValues() {
+    if (checkboxValue) {
+        document.getElementById('email').value = currentUser.email;
+        document.getElementById('password').value = currentUser.password;
+    }
 }
