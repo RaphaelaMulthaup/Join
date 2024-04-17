@@ -11,7 +11,7 @@
     <script src="./js/script.js"></script>
     <script src="./js/addTask.js"></script>
 </head>
-<body class="bodyMainpages" onload="loadPage('menuItemAddTask')" onclick="closeSubMenu(); selectContactsButtonDefault()">
+<body class="bodyMainpages" onload="loadPage('menuItemAddTask')" onclick="closeSubMenu(); selectContactsButtonDefault(); categoryArrowDefault()">
     <div w3-include-html="./assets/templates/menu.html"></div>
     <div class="mainpagesRightSide">
         <div w3-include-html="./assets/templates/header.html"></div>
@@ -74,7 +74,7 @@
                         
                         <div class="formElementAddTask dropdownCategory">
                            <label class="formPointDescription" for="addTaskCategory">Category<span class="colorRed">*</span></label>
-                            <select class="widthFormElementsAddTask heightFormElementsAddTask borderFormElementsAddTask addTaskInputRequired" id="addTaskCategory" name="addTaskCategory" required onfocus="defaultBorder(this)">
+                            <select class="widthFormElementsAddTask heightFormElementsAddTask borderFormElementsAddTask addTaskInputRequired" id="addTaskCategory" name="addTaskCategory" required onfocus="defaultBorder(this)" onclick="toggleCategoryArrow(); dontClose(event)">
                                 <option value="" disabled selected>Select task category</option>
                                 <option value="technicalTask">Technical Task</option>
                                 <option value="userStory">User Story</option>

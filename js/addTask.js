@@ -1,4 +1,5 @@
 let buttonSelectContactClicked = false;
+let categoryArrowUp = false;
 
 /*assigned to*/
 
@@ -129,6 +130,26 @@ function priorityLow(event){
 
 function defaultBorder(selectElement) {
     selectElement.classList.add('defaultBorder');
+}
+
+function toggleCategoryArrow() {
+    let categorySelect = document.getElementById("addTaskCategory");
+    if (categorySelect.style.backgroundImage.includes("arrowdropdownup.svg")) {
+        categorySelect.style.backgroundImage = "url('../assets/img/arrowdropdownDown.svg')";
+        categoryArrowUp = false;
+    } else {
+        categorySelect.style.backgroundImage = "url('../assets/img/arrowdropdownup.svg')";
+        categoryArrowUp = true;
+    }
+}
+
+/**
+ * This function checks whether the arrow in the select tag from the category selection points upwards. If that's the case, the function toggleCategoryArrow is called to use the down arrow.
+*/
+function categoryArrowDefault(){
+    if (categoryArrowUp) {
+        toggleCategoryArrow();
+    }
 }
 
 /*subtasks*/

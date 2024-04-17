@@ -291,7 +291,7 @@
     position: relative;
   }
   
-  .dropdownCategory select {
+  #addTaskCategory {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -302,7 +302,7 @@
     cursor: pointer; /* Mauszeiger auf Zeiger festlegen */
   }
   
-  .dropdownCategory select::-ms-expand {
+  #addTaskCategory::-ms-expand {
     display: none; /* Internet Explorer spezifische Anpassung, um den Standard-Pfeil auszublenden */
   }
   
