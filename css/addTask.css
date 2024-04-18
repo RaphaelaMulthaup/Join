@@ -142,7 +142,6 @@
     right: 0;
     background-color: #f9f9f9;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     padding: 10px 0px 0px 0px;
     z-index: 1;
     border-bottom-left-radius: 10px;
@@ -160,7 +159,6 @@
     align-items: center;
     padding-right: 16px;
     border-radius: 10px;
-
 }
 
 .dropdown.active .dropdown-content {
@@ -182,6 +180,7 @@
 
 .selectContactsName{
     flex: 1;
+    padding-left: 16px;
 }
 
 .dropdown-content > label input[type="checkbox"],
@@ -274,44 +273,55 @@
     transition: 100ms ease-in-out;
 
 }
-
 /*category*/
-#addTaskCategory{
-    padding-left: 13px;
-    font-size: 20px;
+.buttonSelectCategory {
+    padding-left: 16px;
+    align-items: center;
     background-color: #fff;
-}
-
-.defaultBorder{
-    border: 1px solid #D1D1D1;
-    outline: #D1D1D1;
-}
-
-.dropdownCategory {
+    cursor: pointer;
+    font-size: 20px;
+    color: #000;
+    display: flex;
+    justify-content: space-between;
+    z-index: 5;
     position: relative;
-  }
-  
-  #addTaskCategory {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background: url('../assets/img/arrowdropdownDown.svg') no-repeat right center; /* Pfad zur benutzerdefinierten Pfeil-Grafik */
-    background-size: 24px 25px; /* Größe der Pfeil-Grafik anpassen */
-    background-position: right 16px center;
-    padding-right: 40px; /* Platz für die Pfeil-Grafik */
-    cursor: pointer; /* Mauszeiger auf Zeiger festlegen */
-  }
-  
-  #addTaskCategory::-ms-expand {
-    display: none; /* Internet Explorer spezifische Anpassung, um den Standard-Pfeil auszublenden */
-  }
-  
-
-/*#addTaskSubtasks{
-    background-image: url(../assets/img/);
 }
 
-#addTaskSubtasks::placeholder*/
+@keyframes slideDown {
+    from {
+        max-height: 0;
+        opacity: 0;
+    }
+    to {
+        max-height: 106px; /* Höhe anpassen */
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        max-height: 106px; /* Höhe anpassen */
+        opacity: 1;
+    }
+    to {
+        max-height: 0;
+        opacity: 0;
+    }
+}
+
+#addTaskCategory.active .dropdown-content {
+    display: block;
+    animation: slideDown 0.1s ease-out; /* Smart animate */
+}
+
+#addTaskCategory .dropdown-content {
+    display: none;
+    animation: slideUp 0.1s ease-out; /* Smart animate */
+}
+
+#addTaskCategory label{
+    height: 47px;
+}
 
 /*subtasks*/
 .divAddTaskSubtasks{
@@ -330,22 +340,11 @@
     width: 24px;
     background-image: url('../assets/img/plus.svg'); /* Pfad zur benutzerdefinierten Grafik */
     background-repeat: no-repeat; /* Hintergrundwiederholung ausschalten */
-
 }
 
 .circlePlusAddTaskSubtasks:hover{
     background-color: rgba(238, 238, 238, 1);
 }
-
-/*.divAddTaskSubtasks::after {
-    content: attr(data-add);
-    position: absolute;
-    right: 8px;
-    top: 50%;
-    font-size: 15px;
-    transform: translateY(-50%);
-    color: black;
-}*/
 
 /*lower area add task*/
 .lowerAreaAddTask{

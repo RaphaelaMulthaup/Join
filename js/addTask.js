@@ -1,5 +1,6 @@
 let buttonSelectContactClicked = false;
 let categoryArrowUp = false;
+let buttonSelectCategoryClicked = false;
 
 /*assigned to*/
 
@@ -127,28 +128,33 @@ function priorityLow(event){
 }
 
 /*category*/
-
-function defaultBorder(selectElement) {
-    selectElement.classList.add('defaultBorder');
-}
-
-function toggleCategoryArrow() {
-    let categorySelect = document.getElementById("addTaskCategory");
-    if (categorySelect.style.backgroundImage.includes("arrowdropdownup.svg")) {
-        categorySelect.style.backgroundImage = "url('../assets/img/arrowdropdownDown.svg')";
-        categoryArrowUp = false;
-    } else {
-        categorySelect.style.backgroundImage = "url('../assets/img/arrowdropdownup.svg')";
-        categoryArrowUp = true;
-    }
+/**
+ * This function disables validation of the form, prevents the function toggleSelectCategoryButton from being executed twice and calls the function that expands or collapses the div with categorys.
+ * 
+ * @param {click event} event click on buttonSelectCategory
+ */
+function selectCategoryButton(event) {
+    event.preventDefault();
+    event.stopPropagation(); // Verhindert, dass das Klicken auf das Inputfeld das Dropdown schließt
+    toggleSelectCategoryButton();
 }
 
 /**
- * This function checks whether the arrow in the select tag from the category selection points upwards. If that's the case, the function toggleCategoryArrow is called to use the down arrow.
-*/
-function categoryArrowDefault(){
-    if (categoryArrowUp) {
-        toggleCategoryArrow();
+ * This function expands or collapses the div with categorys and changes the arrow from top to bottom and vice versa.
+ */
+function toggleSelectCategoryButton(){
+    let dropdown = document.getElementById('addTaskCategory');
+    let arrowIcon = document.getElementById('arrowIconCategory');
+
+    if (buttonSelectCategoryClicked) {
+        dropdown.classList.remove('active');
+        arrowIcon.src = "./assets/img/arrowdropdownDown.svg";
+        buttonSelectCategoryClicked = false; // Button wurde nicht geklickt
+        
+    } else {
+        dropdown.classList.add('active');
+        arrowIcon.src = "./assets/img/arrowdropdownup.svg";
+        buttonSelectCategoryClicked = true; // Button wurde geklickt
     }
 }
 

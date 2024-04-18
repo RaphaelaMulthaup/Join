@@ -71,15 +71,19 @@
                                 <button formnovalidate class="buttonAddTaskPage" id="addTaskPrioLow" onclick="priorityLow(event)">Low <img id="imgLow" src="./assets/img/capaLow.svg"></button>
                             </div>
                         </div>
-                        
-                        <div class="formElementAddTask dropdownCategory">
-                           <label class="formPointDescription" for="addTaskCategory">Category<span class="colorRed">*</span></label>
-                            <select class="widthFormElementsAddTask heightFormElementsAddTask borderFormElementsAddTask addTaskInputRequired" id="addTaskCategory" name="addTaskCategory" required onfocus="defaultBorder(this)" onclick="toggleCategoryArrow(); dontClose(event)">
-                                <option value="" disabled selected>Select task category</option>
-                                <option value="technicalTask">Technical Task</option>
-                                <option value="userStory">User Story</option>
-                            </select>
-                            <span class="requiredMessage" id="requiredMessageCategoryAddTask">This field is required</span>
+
+                        <div class="formElementAddTask">
+                            <span class="formPointDescription">Category<span class="colorRed">*</span></span>
+                            <div class="dropdown" id="s">
+                                <button formnovalidate id="buttonSelectCategory" class="buttonSelectCategory widthFormElementsAddTask heightFormElementsAddTask borderFormElementsAddTask paddingRightAddTask" onclick="selectCategoryButton(event)">
+                                    <span id="textSelectCategory">Select task category</span>
+                                    <img id="arrowIconCategory" src="./assets/img/arrowdropdownDown.svg">
+                                </button>
+                                <div class="dropdown-content widthFormElementsAddTask"> <!--onclick="dontClose(event)"-->
+                                    <label class="paddingLeftAddTask">Technical Task</label>
+                                    <label class="paddingLeftAddTask">User Story</label>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="formElementAddTask">
