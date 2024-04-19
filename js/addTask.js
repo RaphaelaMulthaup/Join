@@ -158,6 +158,21 @@ function toggleSelectCategoryButton(){
     }
 }
 
+/**
+ * This function closes the dropdown menu, puts the selection inside the button 'buttonSelectCategory' and removes the error massage and the red border around buttonSelectCategory.
+ * 
+ * @param {span} selection the selected category
+ */
+function selectCategory(selection){
+    let button = document.getElementById('buttonSelectCategory');
+    let errorMessageElement = document.getElementById('requiredMessageCategoryAddTask');
+
+    toggleSelectCategoryButton();
+    document.getElementById('textSelectCategory').innerHTML = selection;
+    errorMessageElement.style.visibility = 'hidden';
+    button.classList.remove("borderRed");
+}
+
 /*subtasks*/
 
 /**
@@ -204,20 +219,34 @@ function validateInput(element) {
 }
 
 /**
+ * This function checks whether a category has been selected. If not, the border of buttonSelectCategory will be colored red and the error message will appear.
+ */
+function validateInputCategory(){
+    let textButtonSelectCategory = document.getElementById('textSelectCategory').innerHTML;
+    let button = document.getElementById('buttonSelectCategory');
+    let errorMessageElement = document.getElementById('requiredMessageCategoryAddTask');
+
+    if (textButtonSelectCategory == ('Select task category')) {
+        errorMessageElement.style.visibility = 'visible';
+        button.classList.add("borderRed");
+    }
+}
+
+/**
  * This function checks whether the required input fields are valid and submits the form if necessary.
  */
 function addNewTask() {
     validateInput("Title");
     validateInput("Description");
     validateInput("DueDate");
-    validateInput("Category");
+    validateInputCategory();
 
     let titleInput = document.getElementById("addTaskTitle");
     let descriptionInput = document.getElementById("addTaskDescription");
     let dueDateInput = document.getElementById("addTaskDueDate");
-    let categoryInput = document.getElementById("addTaskCategory");
+    let categoryInput = document.getElementById('textSelectCategory').innerHTML;
       
-    if (titleInput.checkValidity() && descriptionInput.checkValidity() && dueDateInput.checkValidity() && categoryInput.checkValidity()) {
+    if (titleInput.checkValidity() && descriptionInput.checkValidity() && dueDateInput.checkValidity() && categoryInput !== ('Select task category')) {
         document.getElementById("formAddNewTask").submit();
     } 
 }
