@@ -175,14 +175,18 @@ function selectCategory(selection){
 
 /*subtasks*/
 
+function toggleAddTaskSubtasks(){
+    
+}
+
 /**
  * This eventlistener adds a plus sign inside a circular div to the Subtasks form field.
  */
-document.addEventListener("DOMContentLoaded", function() {
+/*document.addEventListener("DOMContentLoaded", function() {
     var divAddTaskSubtasks = document.querySelector(".divAddTaskSubtasks");
     var dataAddContent = divAddTaskSubtasks.getAttribute("data-add");
     divAddTaskSubtasks.innerHTML += dataAddContent;
-});
+});*/
 
 /*form validation*/
 

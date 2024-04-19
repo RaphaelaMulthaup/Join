@@ -251,19 +251,16 @@
 .addTaskPrioMediumActiv{
     background-color: #FFA800 !important;
     transition: 100ms ease-in-out;
-
 }
 
 .addTaskPrioUrgentActiv{
     background-color: #FF3D00 !important;
     transition: 100ms ease-in-out;
-
 }
 
 .addTaskPrioLowActiv{
     background-color: #7AE229 !important;
     transition: 100ms ease-in-out;
-
 }
 
 .addTaskPrioActiv{
@@ -272,8 +269,12 @@
     font-weight: 700;
     box-shadow: none !important;
     transition: 100ms ease-in-out;
-
 }
+
+.addTaskPrioActiv:hover{
+    cursor: default;
+}
+
 /*category*/
 .buttonSelectCategory {
     padding-left: 16px;
@@ -325,25 +326,40 @@
 }
 
 /*subtasks*/
-.divAddTaskSubtasks{
-    position: relative;
-    display: inline-block;
+#addTaskSubtasks{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.circlePlusAddTaskSubtasks {
-    position: absolute;
+#addTaskSubtasks:hover{
+    cursor: pointer;
+    background-color: white;
+}
+
+#addTaskSubtasks span{
+    color: #D1D1D1;
+}
+/*.divAddTaskSubtasks{
+    position: relative;
+    display: inline-block;
+}*/
+
+.circleIconAddTaskSubtasks {
+    /*position: absolute;
     top: 50%;
     right: 16px; /* Passen Sie den Abstand nach Bedarf an */
-    transform: translateY(-50%);
-    cursor: pointer;
+    /*transform: translateY(-50%);
+    cursor: pointer;*/
     border-radius: 50%;
     height: 24px;
     width: 24px;
-    background-image: url('../assets/img/plus.svg'); /* Pfad zur benutzerdefinierten Grafik */
-    background-repeat: no-repeat; /* Hintergrundwiederholung ausschalten */
+    /*background-image: url('../assets/img/plus.svg'); /* Pfad zur benutzerdefinierten Grafik */
+    /*background-repeat: no-repeat; /* Hintergrundwiederholung ausschalten */
 }
 
-.circlePlusAddTaskSubtasks:hover{
+.circleIconAddTaskSubtasks:hover{
     background-color: rgba(238, 238, 238, 1);
 }
 
@@ -364,7 +380,8 @@
     gap: 16px;
 }
 
-.lowerAreaAddTaskButtons button{
+.lowerAreaAddTaskButtons button,
+.lowerAreaAddTaskButtons a{
     border-radius: 10px;
     padding: 16px;
     display: flex;
