@@ -159,6 +159,15 @@ function toggleSelectCategoryButton(){
 }
 
 /**
+ * This function checks whether the “Select category” button was clicked. In this case the function “toggleSelectCategoryButton()” is called.
+ */
+function categoryArrowDefault(){
+    if (buttonSelectCategoryClicked) {
+        toggleSelectCategoryButton();
+    }
+}
+
+/**
  * This function closes the dropdown menu, puts the selection inside the button 'buttonSelectCategory' and removes the error massage and the red border around buttonSelectCategory.
  * 
  * @param {span} selection the selected category
@@ -174,19 +183,70 @@ function selectCategory(selection){
 }
 
 /*subtasks*/
-
+/**
+ * This function activates the input field for adding a subtask.
+ */
 function toggleAddTaskSubtasks(){
-    
+    let buttonText = document.getElementById("textAddSubtask");
+    let circleIcon = document.getElementById('circleIconPlusAddTaskSubtasks');
+    let inputField = document.getElementById("inputAddSubtask");
+    let inputSubtasks = document.getElementById("addTaskSubtasks");
+    let iconsInput = document.getElementById('iconsInputAddSubtask');
+
+    if (inputField.style.display === "none") {
+        buttonText.style.display = "none";
+        circleIcon.style.display = 'none';
+        inputField.style.display = "inline";
+        iconsInput.style.display = 'flex';
+        inputSubtasks.style.border = "1px solid #29ABE2";
+        inputField.focus(); // Inputfeld fokussieren
+    }
 }
 
 /**
- * This eventlistener adds a plus sign inside a circular div to the Subtasks form field.
+ * This function resets 'addTaskSubtasks' to the default value.
  */
-/*document.addEventListener("DOMContentLoaded", function() {
-    var divAddTaskSubtasks = document.querySelector(".divAddTaskSubtasks");
-    var dataAddContent = divAddTaskSubtasks.getAttribute("data-add");
-    divAddTaskSubtasks.innerHTML += dataAddContent;
-});*/
+function inputSubtaskDefault(){
+    let buttonText = document.getElementById("textAddSubtask");
+    let circleIcon = document.getElementById('circleIconPlusAddTaskSubtasks');
+    let inputField = document.getElementById("inputAddSubtask");
+    let inputSubtasks = document.getElementById("addTaskSubtasks");
+    let iconsInput = document.getElementById('iconsInputAddSubtask');
+
+    buttonText.style.display = "inline";
+    circleIcon.style.display = 'flex';
+    inputField.style.display = "none";
+    inputField.value = '';
+    iconsInput.style.display = 'none';
+    inputSubtasks.style.border = "1px solid #D1D1D1";
+}
+
+/**
+ * This function adds the new subtask to the list and resets 'addTaskSubtasks'.
+ */
+function addSubtask(){
+     // Wert aus dem Inputfeld lesen
+     let newSubtask = document.getElementById('inputAddSubtask').value;
+     let list = document.getElementById('subtasks');
+
+     // Überprüfen, ob der Wert nicht leer ist
+     if (newSubtask.trim() !== '') {
+        list.innerHTML += `<li>${newSubtask}</li>`;
+     }
+    inputSubtaskDefault();
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    let inputAddSubtask = document.getElementById('inputAddSubtask');
+
+    inputAddSubtask.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            addSubtask();
+        }
+    });
+});
+
 
 /*form validation*/
 

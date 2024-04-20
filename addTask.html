@@ -39,7 +39,7 @@
                             <div class="dropdown" id="addTaskAssignedTo">
                                 <button formnovalidate id="buttonSelectContacts" class="buttonSelectContacts widthFormElementsAddTask heightFormElementsAddTask borderFormElementsAddTask paddingRightAddTask" onclick="selectContactsButton(event)">
                                     <span id="textSelectContacts">Select contacts to assign</span>
-                                    <input type="text" id="inputSelectContacts" style="display: none;" autocomplete="off">
+                                    <input class="inputInsideDiv" type="text" id="inputSelectContacts" style="display: none;" autocomplete="off">
                                     <img id="arrowIcon" src="./assets/img/arrowdropdownDown.svg" alt="">
                                 </button>
                                 <div class="dropdown-content widthFormElementsAddTask" onclick="dontClose(event)">
@@ -87,31 +87,39 @@
                             <span class="requiredMessage" id="requiredMessageCategoryAddTask">This field is required</span>
                         </div>
 
-                        <!--<div class="formElementAddTask">
-                            <label class="formPointDescription" for="addTaskSubtasks">Subtasks</label>
-                            <div class="divAddTaskSubtasks" data-add="<div class='circlePlusAddTaskSubtasks'></div>">
-                                <input class="widthFormElementsAddTask heightFormElementsAddTask borderFormElementsAddTask paddingLeftAddTask inputTagAddTaskFocus" id="addTaskSubtasks" name="addTaskSubtasks" type="text" placeholder="Add  new subtask">
-                            </div>
-                        </div>-->
-
                         <div class="formElementAddTask">
                             <span class="formPointDescription" for="addTaskSubtasks">Subtasks</span>
                             <div class="widthFormElementsAddTask heightFormElementsAddTask borderFormElementsAddTask paddingLeftAddTask paddingRightAddTask inputTagAddTaskFocus" id="addTaskSubtasks" onclick="toggleAddTaskSubtasks()">
-                                <span>Add new subtask</span>
-                                <div class='circleIconAddTaskSubtasks'>
+                                <span id="textAddSubtask">Add new subtask</span>
+                                <div id="circleIconPlusAddTaskSubtasks" class='circleIconAddTaskSubtasks'>
                                     <img src="./assets/img/plus.svg">
                                 </div>
-                                <input type="text" class="dNone">
-                                <div class="dNone">
-                                    <div class='circleIconAddTaskSubtasks'>
+                                <input id="inputAddSubtask" type="text" class="inputInsideDiv" style="display: none;">
+                                <div id="iconsInputAddSubtask" class="dNone iconsSubtask">
+                                    <div class='circleIconAddTaskSubtasks' onclick="inputSubtaskDefault(), dontClose(event)">
                                         <img src="./assets/img/close.svg">
                                     </div>
                                     <div class="verticalLineAddTaskSubtasks"></div>
-                                    <div class='circleIconAddTaskSubtasks'>
+                                    <div class='circleIconAddTaskSubtasks' onclick="dontClose(event), addSubtask()">
                                         <img src="./assets/img/check.svg">
                                     </div>    
                                 </div>
                             </div>
+                            <ul id="subtasks">
+                                <div class="editSubtask">
+                                    <input type="text" class="inputEditSubtask">
+                                    <div class="iconsSubtask">
+                                        <div class='circleIconAddTaskSubtasks'>
+                                            <img src="./assets/img/close.svg">
+                                        </div>
+                                        <div class="verticalLineAddTaskSubtasks"></div>
+                                        <div class='circleIconAddTaskSubtasks'>
+                                            <img src="./assets/img/check.svg">
+                                        </div>    
+    
+                                    </div>
+                                </div>
+                            </ul>
                         </div>
 
                     </div>
