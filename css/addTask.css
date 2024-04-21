@@ -372,16 +372,31 @@
 }
 
 #subtasks li{
-    margin-left: 24px;
+    padding-left: 24px;
     margin-top: 8px;
+    padding-right: 16px;
     height: 32px;
     display: flex;
     align-items: center;
+    border-radius: 10px;
+}
+
+#subtasks li:hover{
+    background-color: rgba(238, 238, 238, 1);
+    cursor: pointer;
+}
+
+#subtasks li:hover .iconsSubtask{
+    display: flex !important;
 }
 
 #subtasks li::before {
     content: "\2022"; /* Punkt (•) als Inhalt hinzufügen */
     margin-right: 8px; /* Abstand zwischen dem Punkt und dem Text */
+}
+
+#subtasks li span{
+    flex: 1;
 }
 
 .editSubtask{
@@ -405,6 +420,11 @@
 
 .inputEditSubtask:focus{
     outline: none;
+}
+
+.imgEdit{
+    width: 18.28px;
+    height: 18.25px;
 }
 
 /*lower area add task*/

@@ -2,6 +2,16 @@ let buttonSelectContactClicked = false;
 let categoryArrowUp = false;
 let buttonSelectCategoryClicked = false;
 
+/**
+ * This funktion sets clickt elements back to default.
+ */
+function setElementsToDefault(){
+    closeSubMenu();
+    selectContactsButtonDefault();
+    categoryArrowDefault();
+    inputSubtaskDefault();
+}
+
 /*assigned to*/
 
 /**
@@ -231,9 +241,45 @@ function addSubtask(){
 
      // Überprüfen, ob der Wert nicht leer ist
      if (newSubtask.trim() !== '') {
-        list.innerHTML += `<li>${newSubtask}</li>`;
+        list.innerHTML += templateSubtask(newSubtask);
      }
     inputSubtaskDefault();
+}
+
+function templateSubtask(newSubtask){
+    return /*html*/ `
+        <div class="liAndEditSubtask">
+            <li>
+                <span>${newSubtask}</span>
+                <div class="iconsSubtask" style="display: none;">
+                    <div class='circleIconAddTaskSubtasks'>
+                        <img class="imgEdit" src="./assets/img/edit.svg">
+                    </div>
+                    <div class="verticalLineAddTaskSubtasks"></div>
+                    <div class='circleIconAddTaskSubtasks' onclick="deleteSubtask(this)">
+                        <img src="./assets/img/delete.svg">
+                    </div>
+                </div>
+            </li>
+            <div class="editSubtask" style="display: none;">
+                <input type="text" class="inputEditSubtask">
+                <div class="iconsSubtask">
+                    <div class='circleIconAddTaskSubtasks'>
+                        <img src="./assets/img/delete.svg">
+                    </div>
+                    <div class="verticalLineAddTaskSubtasks"></div>
+                    <div class='circleIconAddTaskSubtasks'>
+                        <img src="./assets/img/check.svg">
+                    </div>    
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+function deleteSubtask(deleteButton){
+    let divToDelet = deleteButton.closest('.liAndEditSubtask');
+    divToDelet.remove();
 }
 
 document.addEventListener("DOMContentLoaded", function() {

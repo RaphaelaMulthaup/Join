@@ -11,7 +11,7 @@
     <script src="./js/script.js"></script>
     <script src="./js/addTask.js"></script>
 </head>
-<body class="bodyMainpages" onload="loadPage('menuItemAddTask')" onclick="closeSubMenu(); selectContactsButtonDefault(); categoryArrowDefault()">
+<body class="bodyMainpages" onload="loadPage('menuItemAddTask')" onclick="setElementsToDefault()">
     <div w3-include-html="./assets/templates/menu.html"></div>
     <div class="mainpagesRightSide">
         <div w3-include-html="./assets/templates/header.html"></div>
@@ -89,13 +89,13 @@
 
                         <div class="formElementAddTask">
                             <span class="formPointDescription" for="addTaskSubtasks">Subtasks</span>
-                            <div class="widthFormElementsAddTask heightFormElementsAddTask borderFormElementsAddTask paddingLeftAddTask paddingRightAddTask inputTagAddTaskFocus" id="addTaskSubtasks" onclick="toggleAddTaskSubtasks()">
+                            <div class="widthFormElementsAddTask heightFormElementsAddTask borderFormElementsAddTask paddingLeftAddTask paddingRightAddTask inputTagAddTaskFocus" id="addTaskSubtasks" onclick="toggleAddTaskSubtasks(); dontClose(event)">
                                 <span id="textAddSubtask">Add new subtask</span>
                                 <div id="circleIconPlusAddTaskSubtasks" class='circleIconAddTaskSubtasks'>
                                     <img src="./assets/img/plus.svg">
                                 </div>
                                 <input id="inputAddSubtask" type="text" class="inputInsideDiv" style="display: none;">
-                                <div id="iconsInputAddSubtask" class="dNone iconsSubtask">
+                                <div id="iconsInputAddSubtask" class="iconsSubtask" style="display: none;">
                                     <div class='circleIconAddTaskSubtasks' onclick="inputSubtaskDefault(), dontClose(event)">
                                         <img src="./assets/img/close.svg">
                                     </div>
@@ -106,19 +106,6 @@
                                 </div>
                             </div>
                             <ul id="subtasks">
-                                <div class="editSubtask">
-                                    <input type="text" class="inputEditSubtask">
-                                    <div class="iconsSubtask">
-                                        <div class='circleIconAddTaskSubtasks'>
-                                            <img src="./assets/img/close.svg">
-                                        </div>
-                                        <div class="verticalLineAddTaskSubtasks"></div>
-                                        <div class='circleIconAddTaskSubtasks'>
-                                            <img src="./assets/img/check.svg">
-                                        </div>    
-    
-                                    </div>
-                                </div>
                             </ul>
                         </div>
 
