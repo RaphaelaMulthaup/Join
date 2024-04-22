@@ -1,7 +1,6 @@
-let users = [];
-let currentUser = []; 
 let reset = [];
 let checkboxValue = [];
+
 /**
  * load users, currentUser, fillIn if necessery
  */
@@ -41,7 +40,7 @@ async function register(){
 /**
  * user logIn, passwordcheck and save currentUser for the next page in storage
  */
-function logIn(){
+async function logIn(){
     let email = document.getElementById('email');
     let password = document.getElementById('password');
     let alertPw = document.getElementById('alert');
@@ -49,14 +48,12 @@ function logIn(){
     if(user) {
         console.log ('User gefunden')
         currentUser = user; 
-        saveCurrentUser();
+        await saveCurrentUser();
         window.location.href = 'summary.html';
-
     } else {
         console.log ('User nicht gefunden')
         password.parentElement.style.border = '2px solid #FE818F';
         alertPw.innerHTML =` <span>Wrong password Ups! Try again.</span>`;
-
     }
 }
 
@@ -65,7 +62,7 @@ function logIn(){
  */
 async function saveCurrentUser(){
     var checkboxValue = rememberMe();
-    await setItem('reset', JSON.stringify(currentUser));
+    await setItem('currentUser', JSON.stringify({}));
     await setItem('currentUser', JSON.stringify(currentUser));
     await setItem('checkboxValue', JSON.stringify(checkboxValue));
     console.log ('Hochgesendete Daten', currentUser, 'checkbox-Wert', checkboxValue);
@@ -90,12 +87,10 @@ function fillInValues() {
     }
 }
 
-// document.getElementById("guestLoginBtn").addEventListener("click", resetCurrentUser);
-
-
+/**
+ * reset currentUser when logging in as guest
+ */
 async function resetCurrentUser(){
-    let currentUser = reset; 
-    await setItem('currentUser', JSON.stringify(currentUser));
+    await setItem('currentUser', JSON.stringify({}));
     window.location.href = 'summary.html';
-
 }
