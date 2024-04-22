@@ -1,7 +1,6 @@
 let users = [];
 let currentUser = []; 
 let reset = [];
-let fillIn = []; //wenn true dann autoFillIn starten, sonst nicht // oder in den Cockies speicher wo ich noch nicht weiß wie das geht X-)
 let checkboxValue = [];
 /**
  * load users, currentUser, fillIn if necessery
@@ -19,8 +18,9 @@ async function loadusers(){
     currentUser = JSON.parse(await getItem('currentUser'));
     checkboxValue = JSON.parse(await getItem('checkboxValue'));
     fillInValues();
+
     } catch (e){
-        console.error('Loading error:' , e);
+        console.error('Loading error:' , e);//debugging error
     }
 }
 
@@ -50,7 +50,8 @@ function logIn(){
         console.log ('User gefunden')
         currentUser = user; 
         saveCurrentUser();
-        console.log (currentUser)
+        window.location.href = 'summary.html';
+
     } else {
         console.log ('User nicht gefunden')
         password.parentElement.style.border = '2px solid #FE818F';
@@ -59,22 +60,42 @@ function logIn(){
     }
 }
 
+/**
+ * saves currentUser and the checkboxValue
+ */
 async function saveCurrentUser(){
     var checkboxValue = rememberMe();
-    await setItem('reset last currentUser', JSON.stringify(reset));
+    await setItem('reset', JSON.stringify(currentUser));
     await setItem('currentUser', JSON.stringify(currentUser));
     await setItem('checkboxValue', JSON.stringify(checkboxValue));
     console.log ('Hochgesendete Daten', currentUser, 'checkbox-Wert', checkboxValue);
 }
 
+/**
+ * 
+ * @returns checkboxValue
+ */
 function rememberMe() {
     var checkbox = document.getElementById('checkbox');
     return checkbox.checked;
 }
 
+/**
+ * if checkbox was true last time this time currentUser is filled in
+ */
 function fillInValues() {
     if (checkboxValue) {
         document.getElementById('email').value = currentUser.email;
         document.getElementById('password').value = currentUser.password;
     }
+}
+
+// document.getElementById("guestLoginBtn").addEventListener("click", resetCurrentUser);
+
+
+async function resetCurrentUser(){
+    let currentUser = reset; 
+    await setItem('currentUser', JSON.stringify(currentUser));
+    window.location.href = 'summary.html';
+
 }

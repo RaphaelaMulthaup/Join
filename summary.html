@@ -3,17 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="icon" href="/assets/img/favicon_light.svg">
+    <title title="Join">Join</title>
+    <title>Join</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/fonts.css">
     <link rel="stylesheet" href="./css/raphaela.css">
     <link rel="stylesheet" href="./css/summary.css">
     <link rel="stylesheet" href="./css/templates.css">
+    <script src="./js/storage.js"></script>
     <script src="./js/script.js"></script>
+    <script src="./js/register.js"></script>
     <script src="./js/summary.js"></script>
 </head>
 
-<body class="bodyMainpages" onload="loadPage('menuItemSummary')" onclick="closeSubMenu()">
+<body class="bodyMainpages" onload="loadPage('menuItemSummary'), init()" onclick="closeSubMenu()">
     <div w3-include-html="./assets/templates/menu.html"></div>
     <div class="mainpagesRightSide">
         <div w3-include-html="./assets/templates/header.html"></div>
@@ -86,9 +90,7 @@
                 </div>
                 <div class="greeting">
                     <span class="greetingCurrent">Good morning,</span>
-                    <span class="greetingName">Gast</span> 
-                    <!-- Bitte den "Gast" lassen, wenn der Guest Log in kommt, dann ist das der Standart
-                         einstieg. Mit JS können wir dann die anderen Name eingeben lassen.-->
+                    <span class="greetingName" id="name">Gast</span> 
                 </div>
             </div>
         </main>

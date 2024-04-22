@@ -42,8 +42,9 @@
                             </div>
                             <div class="buttonsLogIn">
                                 <button class="button buttonFilled buttonLogIn" id="registerBtn">Log in</button>
-                                <!-- <button class="button buttonEmpty buttonGuestLogIn"><a href="summary.html" >Guest Log in</a></button> -->
-                                <a class="button buttonEmpty buttonGuestLogIn" href="summary.html" >Guest Log in</a>
+                                <!-- <button class="button buttonEmpty buttonGuestLogIn" onclick="resetCurrentUser()">Guest Log in</button> -->
+                                <a class="button buttonEmpty buttonGuestLogIn" href="summary.html" onclick="resetCurrentUser(); return false;" >Guest Log in</a>
+                                <!-- <a href="summary.html" class="button buttonEmpty buttonGuestLogIn" id="guestLoginBtn" >Guest Log in</a> -->
                             </div>
                         </div>
                         
