@@ -252,7 +252,7 @@ function templateSubtask(newSubtask){
             <li>
                 <span>${newSubtask}</span>
                 <div class="iconsSubtask" style="display: none;">
-                    <div class='circleIconAddTaskSubtasks'>
+                    <div class='circleIconAddTaskSubtasks' onclick="editSubtask(this)">
                         <img class="imgEdit" src="./assets/img/edit.svg">
                     </div>
                     <div class="verticalLineAddTaskSubtasks"></div>
@@ -262,7 +262,7 @@ function templateSubtask(newSubtask){
                 </div>
             </li>
             <div class="editSubtask" style="display: none;">
-                <input type="text" class="inputEditSubtask">
+                <input type="text" class="inputEditSubtask" value="${newSubtask}">
                 <div class="iconsSubtask">
                     <div class='circleIconAddTaskSubtasks'>
                         <img src="./assets/img/delete.svg">
@@ -280,6 +280,18 @@ function templateSubtask(newSubtask){
 function deleteSubtask(deleteButton){
     let divToDelet = deleteButton.closest('.liAndEditSubtask');
     divToDelet.remove();
+}
+
+function editSubtask(editButton){
+    let li = editButton.closest('li');
+    li.style.display = 'none';
+
+    let liAndEditSubtask = editButton.closest('.liAndEditSubtask');
+    let editSubtaskDiv = liAndEditSubtask.querySelector('.editSubtask');
+    let inputEditSubtask = editSubtaskDiv.querySelector('.inputEditSubtask');
+    editSubtaskDiv.style.display = 'flex';
+    inputEditSubtask.focus();
+    inputEditSubtask.setSelectionRange(inputEditSubtask.value.length, inputEditSubtask.value.length);
 }
 
 document.addEventListener("DOMContentLoaded", function() {
