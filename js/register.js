@@ -17,24 +17,9 @@ async function loadusers(){
     currentUser = JSON.parse(await getItem('currentUser'));
     checkboxValue = JSON.parse(await getItem('checkboxValue'));
     fillInValues();
-
     } catch (e){
-        console.error('Loading error:' , e);//debugging error
+        console.error('Loading error:' , e);
     }
-}
-
-/**
- * user registration
- */
-async function register(){
-    submitButton.disabled = true;
-    users.push({
-        name: user.value,
-        email: email.value,
-        password: passwordInput.value,
-    });
-    await setItem('users', JSON.stringify(users)); 
-    console.log ('Hochgesendete Daten', users)
 }
 
 /**
