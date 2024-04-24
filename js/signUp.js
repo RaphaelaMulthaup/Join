@@ -21,11 +21,13 @@ async function register(){
     const emailExists = users.some(user => user.email === email.value);
     if (nameExists) {
         console.log('Der Name existiert bereits.');
+        alert('Der Name existiert bereits.')
         return;
     }
 
     if (emailExists) {
         console.log('Die E-Mail existiert bereits.');
+        alert('Der E-Mail existiert bereits.')
         return;
     }
     users.push({

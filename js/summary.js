@@ -3,6 +3,9 @@ async function init() {
 
 }
 
+/**
+ * loads currentUser and greats the usere or guest
+ */
 async function loadusers(){
     try {
     currentUser = JSON.parse(await getItem('currentUser'));   
@@ -15,6 +18,10 @@ async function loadusers(){
     }
 }
 
+/**
+ * 
+ * @returns greetings appropriate to the time of day.
+ */
 function getGreeting() {
     const currentTime = new Date();
     const currentHour = currentTime.getHours();
