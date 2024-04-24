@@ -42,7 +42,7 @@
                                     <input class="inputInsideDiv" type="text" id="inputSelectContacts" style="display: none;" autocomplete="off">
                                     <img id="arrowIcon" src="./assets/img/arrowdropdownDown.svg" alt="">
                                 </button>
-                                <div class="dropdown-content widthFormElementsAddTask" onclick="dontClose(event)">
+                                <div class="dropdown-content widthFormElementsAddTask dropdownContactsHidden" id="dropdownContacts" onclick="dontClose(event)">
                                     <label class="paddingLeftAddTask">
                                         <div class="coloredCircleInitials">SM</div>
                                         <div class="selectContactsName">Sofia Müller (You)</div> 
@@ -79,7 +79,7 @@
                                     <span id="textSelectCategory">Select task category</span>
                                     <img id="arrowIconCategory" src="./assets/img/arrowdropdownDown.svg">
                                 </button>
-                                <div class="dropdown-content widthFormElementsAddTask"> <!--onclick="dontClose(event)"-->
+                                <div class="dropdown-content widthFormElementsAddTask hidden" id="dropdownCategory"> <!--onclick="dontClose(event)"-->
                                     <label class="paddingLeftAddTask" onclick="selectCategory('Technical Task')">Technical Task</label>
                                     <label class="paddingLeftAddTask" onclick="selectCategory('User Story')">User Story</label>
                                 </div>

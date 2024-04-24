@@ -10,6 +10,7 @@ function setElementsToDefault(){
     selectContactsButtonDefault();
     categoryArrowDefault();
     inputSubtaskDefault();
+    searchSubtaskInEditing();
 }
 
 /*assigned to*/
@@ -32,8 +33,9 @@ function toggleSelectContactsButton(){
     let buttonText = document.getElementById("textSelectContacts");
     let inputField = document.getElementById("inputSelectContacts");
     let button = document.getElementById("buttonSelectContacts");
-    let dropdown = document.getElementById('addTaskAssignedTo');
+    /*let dropdown = document.getElementById('addTaskAssignedTo');*/
     let arrowIcon = document.getElementById('arrowIcon');
+    let dropdownContacts =document.getElementById('dropdownContacts');
 
     if (buttonText.style.display === "none") {
         // Wenn der Text ausgeblendet ist, zeige ihn wieder an und blende das Inputfeld aus
@@ -41,9 +43,10 @@ function toggleSelectContactsButton(){
         inputField.style.display = "none";
         inputField.value = "";
         button.style.border = "1px solid #D1D1D1";
-        dropdown.classList.remove('active');
+        /*dropdown.classList.remove('active');*/
         arrowIcon.src = "./assets/img/arrowdropdownDown.svg";
         buttonSelectContactClicked = false; // Button wurde nicht geklickt
+        dropdownContacts.classList.add('dropdownContactsHidden');
         
     } else {
         // Wenn der Text sichtbar ist, blende ihn aus und zeige das Inputfeld an
@@ -51,9 +54,10 @@ function toggleSelectContactsButton(){
         inputField.style.display = "inline";
         button.style.border = "1px solid #29ABE2";
         inputField.focus(); // Inputfeld fokussieren
-        dropdown.classList.add('active');
+        /*dropdown.classList.add('active');*/
         arrowIcon.src = "./assets/img/arrowdropdownup.svg";
         buttonSelectContactClicked = true; // Button wurde geklickt
+        dropdownContacts.classList.remove('dropdownContactsHidden');
     }
 }
 
@@ -153,18 +157,21 @@ function selectCategoryButton(event) {
  * This function expands or collapses the div with categorys and changes the arrow from top to bottom and vice versa.
  */
 function toggleSelectCategoryButton(){
-    let dropdown = document.getElementById('addTaskCategory');
+    /*let dropdown = document.getElementById('addTaskCategory');*/
     let arrowIcon = document.getElementById('arrowIconCategory');
+    let dropdownCategory = document.getElementById('dropdownCategory');
 
     if (buttonSelectCategoryClicked) {
-        dropdown.classList.remove('active');
+        /*dropdown.classList.remove('active');*/
         arrowIcon.src = "./assets/img/arrowdropdownDown.svg";
         buttonSelectCategoryClicked = false; // Button wurde nicht geklickt
+        dropdownCategory.classList.add('hidden');
         
     } else {
-        dropdown.classList.add('active');
+        /*dropdown.classList.add('active');*/
         arrowIcon.src = "./assets/img/arrowdropdownup.svg";
         buttonSelectCategoryClicked = true; // Button wurde geklickt
+        dropdownCategory.classList.remove('hidden');
     }
 }
 
@@ -244,19 +251,22 @@ function addSubtask(){
         list.innerHTML += templateSubtask(newSubtask);
      }
     inputSubtaskDefault();
+
+    let inputEditSubtask = list.lastElementChild.querySelector('.inputEditSubtask');
+    addEnterKeyListener(inputEditSubtask);
 }
 
 function templateSubtask(newSubtask){
     return /*html*/ `
         <div class="liAndEditSubtask">
-            <li>
+            <li onclick="editSubtask(this), dontClose(event)">
                 <span>${newSubtask}</span>
                 <div class="iconsSubtask" style="display: none;">
-                    <div class='circleIconAddTaskSubtasks' onclick="editSubtask(this)">
+                    <div class='circleIconAddTaskSubtasks'>
                         <img class="imgEdit" src="./assets/img/edit.svg">
                     </div>
                     <div class="verticalLineAddTaskSubtasks"></div>
-                    <div class='circleIconAddTaskSubtasks' onclick="deleteSubtask(this)">
+                    <div class='circleIconAddTaskSubtasks' onclick="deleteSubtask(this), dontClose(event)">
                         <img src="./assets/img/delete.svg">
                     </div>
                 </div>
@@ -264,11 +274,11 @@ function templateSubtask(newSubtask){
             <div class="editSubtask" style="display: none;">
                 <input type="text" class="inputEditSubtask" value="${newSubtask}">
                 <div class="iconsSubtask">
-                    <div class='circleIconAddTaskSubtasks'>
+                    <div class='circleIconAddTaskSubtasks' onclick="deleteSubtask(this)">
                         <img src="./assets/img/delete.svg">
                     </div>
                     <div class="verticalLineAddTaskSubtasks"></div>
-                    <div class='circleIconAddTaskSubtasks'>
+                    <div class='circleIconAddTaskSubtasks displayEditedSubtask' onclick="displayEditedSubtask(this)">
                         <img src="./assets/img/check.svg">
                     </div>    
                 </div>
@@ -277,12 +287,23 @@ function templateSubtask(newSubtask){
     `;
 }
 
+function addEnterKeyListener(inputEditSubtask) {
+    inputEditSubtask.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            searchSubtaskInEditing();
+        }
+    });
+}
+
 function deleteSubtask(deleteButton){
     let divToDelet = deleteButton.closest('.liAndEditSubtask');
     divToDelet.remove();
 }
 
 function editSubtask(editButton){
+    searchSubtaskInEditing();
+
     let li = editButton.closest('li');
     li.style.display = 'none';
 
@@ -292,6 +313,33 @@ function editSubtask(editButton){
     editSubtaskDiv.style.display = 'flex';
     inputEditSubtask.focus();
     inputEditSubtask.setSelectionRange(inputEditSubtask.value.length, inputEditSubtask.value.length);
+}
+
+function displayEditedSubtask(checkIcon){
+    let editSubtask = checkIcon.closest('.editSubtask');
+    let newValueSubtask = editSubtask.querySelector('.inputEditSubtask').value;
+    let newSubtaskDisplayed = checkIcon.closest('.liAndEditSubtask').querySelector('span');
+    let li = newSubtaskDisplayed.closest('li');
+
+    newSubtaskDisplayed.innerHTML = newValueSubtask;
+    li.style.display = 'flex';
+    editSubtask.style.display = 'none';
+}
+
+function searchSubtaskInEditing(){
+    // Alle Elemente mit der Klasse '.editSubtask' abrufen
+    let editSubtasks = document.querySelectorAll('.editSubtask');
+
+    // Durch alle Elemente iterieren und dasjenige finden, das 'display: flex' hat
+    for (let i = 0; i < editSubtasks.length; i++) {
+        let editSubtask = editSubtasks[i];
+        if (window.getComputedStyle(editSubtask).getPropertyValue('display') === 'flex') {
+            // Das gewünschte Element gefunden, weiterverarbeiten...
+            let checkIcon = editSubtask.querySelector('.displayEditedSubtask');
+            displayEditedSubtask(checkIcon);
+            break; // Schleife abbrechen, sobald das Element gefunden wurde
+        }
+    }
 }
 
 document.addEventListener("DOMContentLoaded", function() {

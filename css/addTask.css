@@ -74,6 +74,10 @@
     outline: #29ABE2;
 }
 
+.hidden{
+    transform: scaleY(0);
+}
+
 /*add task form left*/
 .addTaksFormLeft{
     display: flex;
@@ -136,7 +140,6 @@
 }
 
 .dropdown-content {
-    display: none;
     position: absolute;
     top: calc(100% - 10px) ;
     right: 0;
@@ -149,6 +152,20 @@
     max-height: 298px;
     background-color: #fff;
     box-shadow: 0px 0px 14px 3px #0000000A;
+    transform-origin: top;
+}
+
+#dropdownContacts{
+    transition: var(--transition-duration) ease-out;
+}
+
+.dropdownContactsHidden {
+    transform: scaleY(0);
+    --transition-duration: 300ms; /* Standarddauer, wenn die Klasse hidden hinzugefügt wird */
+}
+
+:not(.dropdownContactsHidden)#dropdownContacts {
+    --transition-duration: 100ms; /* Dauer, wenn die Klasse hidden entfernt wird */
 }
 
 .dropdown-content > label {
@@ -162,9 +179,9 @@
     cursor: pointer;
 }
 
-.dropdown.active .dropdown-content {
+/*.dropdown.active .dropdown-content {
     display: block;
-}
+}*/
 
 .coloredCircleInitials{
     background-color: #FF7A00;
@@ -250,17 +267,15 @@
 
 .addTaskPrioMediumActiv{
     background-color: #FFA800 !important;
-    transition: 100ms ease-in-out;
+    
 }
 
 .addTaskPrioUrgentActiv{
     background-color: #FF3D00 !important;
-    transition: 100ms ease-in-out;
 }
 
 .addTaskPrioLowActiv{
     background-color: #7AE229 !important;
-    transition: 100ms ease-in-out;
 }
 
 .addTaskPrioActiv{
@@ -289,20 +304,24 @@
     position: relative;
 }
 
-@keyframes slideDown {
+#dropdownCategory {
+    transition: 100ms ease-out;
+}
+
+/*@keyframes slideDown {
     from {
         max-height: 0;
         opacity: 0;
     }
     to {
-        max-height: 106px; /* Höhe anpassen */
+        max-height: 106px; 
         opacity: 1;
     }
 }
 
 @keyframes slideUp {
     from {
-        max-height: 106px; /* Höhe anpassen */
+        max-height: 106px;
         opacity: 1;
     }
     to {
@@ -313,13 +332,13 @@
 
 #addTaskCategory.active .dropdown-content {
     display: block;
-    animation: slideDown 0.1s ease-out; /* Smart animate */
+    animation: slideDown 0.1s ease-out;
 }
 
 #addTaskCategory .dropdown-content {
     display: none;
-    animation: slideUp 0.1s ease-out; /* Smart animate */
-}
+    animation: slideUp 0.1s ease-out; 
+}*/
 
 #addTaskCategory label{
     height: 47px;
