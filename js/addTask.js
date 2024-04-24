@@ -103,12 +103,17 @@ function changeColorDueDate(input){
  */
 function priorityUrgent(event){
     event.preventDefault();
-    document.getElementById('addTaskPrioMedium').classList.remove('addTaskPrioActiv', 'addTaskPrioMediumActiv');
-    document.getElementById('imgMedium').src = './assets/img/capaMedium.svg';
-    document.getElementById('addTaskPrioLow').classList.remove('addTaskPrioActiv', 'addTaskPrioLowActiv');
-    document.getElementById('imgLow').src = './assets/img/capaLow.svg';
-    document.getElementById('addTaskPrioUrgent').classList.add('addTaskPrioActiv', 'addTaskPrioUrgentActiv');
-    document.getElementById('imgUrgent').src = './assets/img/capaUrgentWhite.svg';
+    if (addTaskPrioUrgent.classList.contains('addTaskPrioActiv')) {
+        document.getElementById('addTaskPrioUrgent').classList.remove('addTaskPrioActiv', 'addTaskPrioUrgentActiv');
+        document.getElementById('imgUrgent').src = './assets/img/capaUrgent.svg';    
+    } else {
+        document.getElementById('addTaskPrioMedium').classList.remove('addTaskPrioActiv', 'addTaskPrioMediumActiv');
+        document.getElementById('imgMedium').src = './assets/img/capaMedium.svg';
+        document.getElementById('addTaskPrioLow').classList.remove('addTaskPrioActiv', 'addTaskPrioLowActiv');
+        document.getElementById('imgLow').src = './assets/img/capaLow.svg';
+        document.getElementById('addTaskPrioUrgent').classList.add('addTaskPrioActiv', 'addTaskPrioUrgentActiv');
+        document.getElementById('imgUrgent').src = './assets/img/capaUrgentWhite.svg';
+    }
 }
 
 /**
@@ -118,12 +123,17 @@ function priorityUrgent(event){
  */
 function priorityMedium(event){
     event.preventDefault();
-    document.getElementById('addTaskPrioUrgent').classList.remove('addTaskPrioActiv', 'addTaskPrioUrgentActiv');
-    document.getElementById('imgUrgent').src = './assets/img/capaUrgent.svg';
-    document.getElementById('addTaskPrioLow').classList.remove('addTaskPrioActiv', 'addTaskPrioLowActiv');
-    document.getElementById('imgLow').src = './assets/img/capaLow.svg';
-    document.getElementById('addTaskPrioMedium').classList.add('addTaskPrioActiv', 'addTaskPrioMediumActiv');
-    document.getElementById('imgMedium').src = './assets/img/capaMediumWhite.svg';
+    if (addTaskPrioMedium.classList.contains('addTaskPrioActiv')) {
+        document.getElementById('addTaskPrioMedium').classList.remove('addTaskPrioActiv', 'addTaskPrioMediumActiv');
+        document.getElementById('imgMedium').src = './assets/img/capaMedium.svg';    
+    } else {
+        document.getElementById('addTaskPrioUrgent').classList.remove('addTaskPrioActiv', 'addTaskPrioUrgentActiv');
+        document.getElementById('imgUrgent').src = './assets/img/capaUrgent.svg';
+        document.getElementById('addTaskPrioLow').classList.remove('addTaskPrioActiv', 'addTaskPrioLowActiv');
+        document.getElementById('imgLow').src = './assets/img/capaLow.svg';
+        document.getElementById('addTaskPrioMedium').classList.add('addTaskPrioActiv', 'addTaskPrioMediumActiv');
+        document.getElementById('imgMedium').src = './assets/img/capaMediumWhite.svg';
+    }
 }
 
 /**
@@ -133,12 +143,17 @@ function priorityMedium(event){
  */
 function priorityLow(event){
     event.preventDefault();
-    document.getElementById('addTaskPrioMedium').classList.remove('addTaskPrioActiv', 'addTaskPrioMediumActiv');
-    document.getElementById('imgMedium').src = './assets/img/capaMedium.svg';
-    document.getElementById('addTaskPrioUrgent').classList.remove('addTaskPrioActiv', 'addTaskPrioUrgentActiv');
-    document.getElementById('imgUrgent').src = './assets/img/capaUrgent.svg';
-    document.getElementById('addTaskPrioLow').classList.add('addTaskPrioActiv', 'addTaskPrioLowActiv');
-    document.getElementById('imgLow').src = './assets/img/capaLowWhite.svg';
+    if (addTaskPrioLow.classList.contains('addTaskPrioActiv')) {
+        document.getElementById('addTaskPrioLow').classList.remove('addTaskPrioActiv', 'addTaskPrioLowActiv');
+        document.getElementById('imgLow').src = './assets/img/capaLow.svg';    
+    } else {
+        document.getElementById('addTaskPrioMedium').classList.remove('addTaskPrioActiv', 'addTaskPrioMediumActiv');
+        document.getElementById('imgMedium').src = './assets/img/capaMedium.svg';
+        document.getElementById('addTaskPrioUrgent').classList.remove('addTaskPrioActiv', 'addTaskPrioUrgentActiv');
+        document.getElementById('imgUrgent').src = './assets/img/capaUrgent.svg';
+        document.getElementById('addTaskPrioLow').classList.add('addTaskPrioActiv', 'addTaskPrioLowActiv');
+        document.getElementById('imgLow').src = './assets/img/capaLowWhite.svg';
+    }
 }
 
 /*category*/
@@ -271,7 +286,7 @@ function templateSubtask(newSubtask){
                     </div>
                 </div>
             </li>
-            <div class="editSubtask" style="display: none;">
+            <div class="editSubtask" style="display: none;" onclick="dontClose(event)">
                 <input type="text" class="inputEditSubtask" value="${newSubtask}">
                 <div class="iconsSubtask">
                     <div class='circleIconAddTaskSubtasks' onclick="deleteSubtask(this)">
