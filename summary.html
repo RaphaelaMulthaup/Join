@@ -14,25 +14,15 @@
     <script src="./js/variables.js"></script>
     <script src="./js/storage.js"></script>
     <script src="./js/script.js"></script>
-    <!-- <script src="./js/register.js"></script> -->
     <script src="./js/summary.js"></script>
   </head>
 
-  <body
-    class="bodyMainpages"
-    onload="loadPage('menuItemSummary'), init()"
-    onclick="closeSubMenu()"
-  >
+  <body class="bodyMainpages" onload="loadPage('menuItemSummary'), init()" onclick="closeSubMenu()" >
     <div w3-include-html="./assets/templates/menu.html"></div>
     <div class="mainpagesRightSide">
       <div w3-include-html="./assets/templates/header.html"></div>
       <main class="mainMainpages mainMainpagesPaddingDefault">
-        <div
-          id="subMenu"
-          class="dNone"
-          w3-include-html="./assets/templates/subMenu.html"
-          onclick="dontClose(event)"
-        ></div>
+        <div id="subMenu" class="dNone" w3-include-html="./assets/templates/subMenu.html" onclick="dontClose(event)" ></div>
         <div class="headlineSummary">
           <h1>Join 360</h1>
           <div class="verticalLineBlue"></div>
@@ -40,86 +30,43 @@
         </div>
         <div class="summaryContent">
           <div class="overviewSummary">
-            <div
-              class="firstAndThirdLineOverviewSummary firstLineOverviewSummary lineOverviewSummary"
-            >
+            <div class="firstAndThirdLineOverviewSummary firstLineOverviewSummary lineOverviewSummary">
               <a href="./board.html" class="overviewNumberTasks">
                 <div class="grayCircleIcon">
-                  <svg
-                    width="25"
-                    height="25"
-                    viewBox="0 0 25 25"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      class="pathFill"
-                      d="M3.0612 22.1418H4.92787L16.4279 10.6418L14.5612 8.7751L3.0612 20.2751V22.1418ZM22.1279 8.70843L16.4612 3.10843L18.3279 1.24176C18.839 0.730653 19.4668 0.475098 20.2112 0.475098C20.9556 0.475098 21.5834 0.730653 22.0945 1.24176L23.9612 3.10843C24.4723 3.61954 24.739 4.23621 24.7612 4.95843C24.7834 5.68065 24.539 6.29732 24.0279 6.80843L22.1279 8.70843ZM20.1945 10.6751L6.0612 24.8084H0.394531V19.1418L14.5279 5.00843L20.1945 10.6751Z"
-                      fill="white"
-                    />
+                  <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path class="pathFill" d="M3.0612 22.1418H4.92787L16.4279 10.6418L14.5612 8.7751L3.0612 20.2751V22.1418ZM22.1279 8.70843L16.4612 3.10843L18.3279 1.24176C18.839 0.730653 19.4668 0.475098 20.2112 0.475098C20.9556 0.475098 21.5834 0.730653 22.0945 1.24176L23.9612 3.10843C24.4723 3.61954 24.739 4.23621 24.7612 4.95843C24.7834 5.68065 24.539 6.29732 24.0279 6.80843L22.1279 8.70843ZM20.1945 10.6751L6.0612 24.8084H0.394531V19.1418L14.5279 5.00843L20.1945 10.6751Z" fill="white"/>
                   </svg>
                 </div>
                 <div class="numberTasks">
                   <span class="numberDisplayed">0</span>
-                  <span class="numberDisplayedDeclarationFirstAndThirdLine"
-                    >To-do</span
-                  >
+                  <span class="numberDisplayedDeclarationFirstAndThirdLine">To-do</span>
                 </div>
               </a>
               <a href="./board.html" class="overviewNumberTasks">
                 <div class="grayCircleIcon">
-                  <svg
-                    width="38"
-                    height="30"
-                    viewBox="0 0 38 30"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M3.92285 14.8085L15.1516 25.8745L33.8662 3.74243"
-                      stroke="white"
-                      stroke-width="7"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
+                  <svg width="38" height="30" viewBox="0 0 38 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3.92285 14.8085L15.1516 25.8745L33.8662 3.74243" stroke="white" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
                 </div>
                 <div class="numberTasks">
                   <span class="numberDisplayed">0</span>
-                  <span class="numberDisplayedDeclarationFirstAndThirdLine"
-                    >Done</span
-                  >
+                  <span class="numberDisplayedDeclarationFirstAndThirdLine">Done</span>
                 </div>
               </a>
             </div>
-            <a
-              href="./board.html"
-              class="secondLineOverviewSummary overviewNumberTasks lineOverviewSummary"
-            >
+            <a href="./board.html" class="secondLineOverviewSummary overviewNumberTasks lineOverviewSummary">
               <div class="secondLineOverviewSummaryLeftSide">
                 <div class="redCircleIcon">
-                  <svg
-                    width="34.19"
-                    height="25.12"
-                    viewBox="0 0 21 16"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M19.2597 15.4464C19.0251 15.4468 18.7965 15.3719 18.6077 15.2328L10.3556 9.14965L2.10356 15.2328C1.98771 15.3184 1.85613 15.3803 1.71633 15.4151C1.57652 15.4498 1.43124 15.4567 1.28877 15.4354C1.14631 15.414 1.00944 15.3648 0.885997 15.2906C0.762552 15.2164 0.654943 15.1186 0.569314 15.0029C0.483684 14.8871 0.421712 14.7556 0.386936 14.6159C0.352159 14.4762 0.345259 14.331 0.366629 14.1887C0.409788 13.9012 0.565479 13.6425 0.799451 13.4697L9.70356 6.89926C9.89226 6.75967 10.1208 6.68433 10.3556 6.68433C10.5904 6.68433 10.819 6.75967 11.0077 6.89926L19.9118 13.4697C20.0977 13.6067 20.2356 13.7988 20.3057 14.0186C20.3759 14.2385 20.3747 14.4749 20.3024 14.6941C20.2301 14.9133 20.0904 15.1041 19.9031 15.2391C19.7159 15.3742 19.4907 15.4468 19.2597 15.4464Z"
-                      fill="white"
-                    />
-                    <path
-                      d="M19.2597 9.69733C19.0251 9.69774 18.7965 9.62289 18.6077 9.48379L10.3556 3.40063L2.10356 9.48379C1.86959 9.6566 1.57651 9.72945 1.28878 9.68633C1.00105 9.6432 0.742254 9.48762 0.569318 9.25383C0.396382 9.02003 0.323475 8.72716 0.366634 8.43964C0.409793 8.15213 0.565483 7.89352 0.799455 7.72072L9.70356 1.15024C9.89226 1.01065 10.1208 0.935303 10.3556 0.935303C10.5904 0.935303 10.819 1.01065 11.0077 1.15024L19.9118 7.72072C20.0977 7.85763 20.2356 8.04974 20.3057 8.26962C20.3759 8.4895 20.3747 8.72591 20.3024 8.94509C20.2301 9.16427 20.0904 9.35503 19.9031 9.49012C19.7159 9.62521 19.4907 9.69773 19.2597 9.69733Z"
-                      fill="white"
-                    />
+                  <svg width="34.19" height="25.12" viewBox="0 0 21 16" fill="none" xmlns="http://www.w3.org/2000/svg" >
+                    <path d="M19.2597 15.4464C19.0251 15.4468 18.7965 15.3719 18.6077 15.2328L10.3556 9.14965L2.10356 15.2328C1.98771 15.3184 1.85613 15.3803 1.71633 15.4151C1.57652 15.4498 1.43124 15.4567 1.28877 15.4354C1.14631 15.414 1.00944 15.3648 0.885997 15.2906C0.762552 15.2164 0.654943 15.1186 0.569314 15.0029C0.483684 14.8871 0.421712 14.7556 0.386936 14.6159C0.352159 14.4762 0.345259 14.331 0.366629 14.1887C0.409788 13.9012 0.565479 13.6425 0.799451 13.4697L9.70356 6.89926C9.89226 6.75967 10.1208 6.68433 10.3556 6.68433C10.5904 6.68433 10.819 6.75967 11.0077 6.89926L19.9118 13.4697C20.0977 13.6067 20.2356 13.7988 20.3057 14.0186C20.3759 14.2385 20.3747 14.4749 20.3024 14.6941C20.2301 14.9133 20.0904 15.1041 19.9031 15.2391C19.7159 15.3742 19.4907 15.4468 19.2597 15.4464Z"
+                      fill="white"/>
+                    <path d="M19.2597 9.69733C19.0251 9.69774 18.7965 9.62289 18.6077 9.48379L10.3556 3.40063L2.10356 9.48379C1.86959 9.6566 1.57651 9.72945 1.28878 9.68633C1.00105 9.6432 0.742254 9.48762 0.569318 9.25383C0.396382 9.02003 0.323475 8.72716 0.366634 8.43964C0.409793 8.15213 0.565483 7.89352 0.799455 7.72072L9.70356 1.15024C9.89226 1.01065 10.1208 0.935303 10.3556 0.935303C10.5904 0.935303 10.819 1.01065 11.0077 1.15024L19.9118 7.72072C20.0977 7.85763 20.2356 8.04974 20.3057 8.26962C20.3759 8.4895 20.3747 8.72591 20.3024 8.94509C20.2301 9.16427 20.0904 9.35503 19.9031 9.49012C19.7159 9.62521 19.4907 9.69773 19.2597 9.69733Z"
+                      fill="white"/>
                   </svg>
                 </div>
                 <div class="numberTasks">
                   <span class="numberDisplayed">0</span>
-                  <span class="numberDisplayedDeclarationSecondLine"
-                    >Urgent</span
-                  >
+                  <span class="numberDisplayedDeclarationSecondLine">Urgent</span>
                 </div>
               </div>
               <div class="verticalLineGray"></div>
@@ -128,35 +75,19 @@
                 <span>Upcoming Deadline</span>
               </div>
             </a>
-            <div
-              class="firstAndThirdLineOverviewSummary ThirdLineOverviewSummary lineOverviewSummary"
-            >
-              <a
-                href="./board.html"
-                class="overviewNumberTasks overviewNumberTasksThirdLine"
-              >
+            <div class="firstAndThirdLineOverviewSummary ThirdLineOverviewSummary lineOverviewSummary">
+              <a href="./board.html" class="overviewNumberTasks overviewNumberTasksThirdLine">
                 <span class="numberDisplayed">0</span>
-                <span class="numberDisplayedDeclarationFirstAndThirdLine"
-                  >Tasks in<br />Board</span
-                >
+                <span class="numberDisplayedDeclarationFirstAndThirdLine">Tasks in<br />Board</span >
               </a>
-              <a
-                href="./board.html"
-                class="overviewNumberTasks overviewNumberTasksThirdLine"
-              >
+              <a href="./board.html" class="overviewNumberTasks overviewNumberTasksThirdLine">
                 <span class="numberDisplayed">0</span>
                 <span class="numberDisplayedDeclarationFirstAndThirdLine"
-                  >Tasks In<br />Progress</span
-                >
+                  >Tasks In<br />Progress</span >
               </a>
-              <a
-                href="./board.html"
-                class="overviewNumberTasks overviewNumberTasksThirdLine"
-              >
+              <a href="./board.html" class="overviewNumberTasks overviewNumberTasksThirdLine">
                 <span class="numberDisplayed">0</span>
-                <span class="numberDisplayedDeclarationFirstAndThirdLine"
-                  >Awaiting<br />Feedback</span
-                >
+                <span class="numberDisplayedDeclarationFirstAndThirdLine">Awaiting<br />Feedback</span >
               </a>
             </div>
           </div>
