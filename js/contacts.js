@@ -25,4 +25,3 @@ function renderContacts() {
 function renderContactsInput() {
     
 }
-
