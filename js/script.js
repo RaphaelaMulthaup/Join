@@ -1,6 +1,7 @@
 /*templates*/
 
 let menuItems = ['menuItemSummary', 'menuItemAddTask', 'menuItemBoard', 'menuItemContacts']
+let subMenuOpen = false;
 
 /**
  * This function is used to load html templates first bevor adjust the menu. The elements are hidden until 'selectActivPage' has finished executing.
@@ -76,10 +77,25 @@ function changeMenuItemToDefault(menuItem){
 }
 
 /**
- * This function opens and closes the sub menu.
+ * This function opens and closes the sub menu. Beforehand, it is checked whether something else is open or activated that should be closed beforehand.
  */
-function openAndCloseSubMenu(){
+function openAndCloseSubMenu(circleInitials){
+    let bodyAddTask = circleInitials.closest('#bodyAddTask');
+    if (bodyAddTask) {
+        if (buttonSelectContactClicked) {
+            toggleSelectContactsButton();
+        }
+        if (buttonSelectCategoryClicked) {
+            toggleSelectCategoryButton();
+        }
+        if (addSubtaskActiv) {
+            inputSubtaskDefault();
+        }
+        searchSubtaskInEditing(); 
+    }
+
     document.getElementById('subMenu').classList.toggle('dNone');
+    subMenuOpen =!subMenuOpen;
 }
 
 /**
@@ -87,6 +103,7 @@ function openAndCloseSubMenu(){
  */
 function closeSubMenu(){
     document.getElementById('subMenu').classList.add('dNone');
+    subMenuOpen = false;
 }
 
 /**
@@ -94,7 +111,7 @@ function closeSubMenu(){
  * 
  * @param {onclick event} event 
  */
-function dontClose(event){
+function stayOpenOrActiv(event){
     event.stopPropagation();
 }
 

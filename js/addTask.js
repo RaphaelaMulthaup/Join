@@ -1,6 +1,7 @@
 let buttonSelectContactClicked = false;
 let categoryArrowUp = false;
 let buttonSelectCategoryClicked = false;
+let addSubtaskActiv = false;
 
 /**
  * This funktion sets clickt elements back to default.
@@ -27,13 +28,12 @@ function selectContactsButton(event) {
 }
 
 /**
- * This function expands or collapses the div with contacts and changes the arrow from top to bottom and vice versa.
+ * This function expands or collapses the div with contacts and changes the arrow from top to bottom and vice versa. Beforehand, it is checked whether something else is open or activated that should be closed beforehand.
  */
 function toggleSelectContactsButton(){
     let buttonText = document.getElementById("textSelectContacts");
     let inputField = document.getElementById("inputSelectContacts");
     let button = document.getElementById("buttonSelectContacts");
-    /*let dropdown = document.getElementById('addTaskAssignedTo');*/
     let arrowIcon = document.getElementById('arrowIcon');
     let dropdownContacts =document.getElementById('dropdownContacts');
 
@@ -43,22 +43,38 @@ function toggleSelectContactsButton(){
         inputField.style.display = "none";
         inputField.value = "";
         button.style.border = "1px solid #D1D1D1";
-        /*dropdown.classList.remove('active');*/
         arrowIcon.src = "./assets/img/arrowdropdownDown.svg";
         buttonSelectContactClicked = false; // Button wurde nicht geklickt
         dropdownContacts.classList.add('dropdownContactsHidden');
         
     } else {
+        closeAndDisableEverythingOutsideSelectContactsButton();
+
         // Wenn der Text sichtbar ist, blende ihn aus und zeige das Inputfeld an
         buttonText.style.display = "none";
         inputField.style.display = "inline";
         button.style.border = "1px solid #29ABE2";
         inputField.focus(); // Inputfeld fokussieren
-        /*dropdown.classList.add('active');*/
         arrowIcon.src = "./assets/img/arrowdropdownup.svg";
         buttonSelectContactClicked = true; // Button wurde geklickt
         dropdownContacts.classList.remove('dropdownContactsHidden');
     }
+}
+
+/**
+ * This function checkes whether elements outside selectContactsButton are open or activated, that should be closed beforehand.
+ */
+function closeAndDisableEverythingOutsideSelectContactsButton(){
+    if (buttonSelectCategoryClicked) {
+        toggleSelectCategoryButton();
+    }
+    if (subMenuOpen) {
+        closeSubMenu();
+    }
+    if (addSubtaskActiv) {
+        inputSubtaskDefault();
+    }
+    searchSubtaskInEditing();
 }
 
 /**
@@ -169,25 +185,40 @@ function selectCategoryButton(event) {
 }
 
 /**
- * This function expands or collapses the div with categorys and changes the arrow from top to bottom and vice versa.
+ * This function expands or collapses the div with categorys and changes the arrow from top to bottom and vice versa. Beforehand, it is checked whether something else is open or activated that should be closed beforehand.
  */
 function toggleSelectCategoryButton(){
-    /*let dropdown = document.getElementById('addTaskCategory');*/
     let arrowIcon = document.getElementById('arrowIconCategory');
     let dropdownCategory = document.getElementById('dropdownCategory');
 
     if (buttonSelectCategoryClicked) {
-        /*dropdown.classList.remove('active');*/
         arrowIcon.src = "./assets/img/arrowdropdownDown.svg";
         buttonSelectCategoryClicked = false; // Button wurde nicht geklickt
         dropdownCategory.classList.add('hidden');
         
-    } else {
-        /*dropdown.classList.add('active');*/
+    } else {   
+        closeAndDisableEverythingOutsideSelectCategroyButton();   
+
         arrowIcon.src = "./assets/img/arrowdropdownup.svg";
         buttonSelectCategoryClicked = true; // Button wurde geklickt
         dropdownCategory.classList.remove('hidden');
     }
+}
+
+/**
+ * This function checkes whether elements outside selectCategoryButton are open or activated, that should be closed beforehand.
+ */
+function closeAndDisableEverythingOutsideSelectCategroyButton(){
+    if (buttonSelectContactClicked) {
+        toggleSelectContactsButton();
+    }
+    if (subMenuOpen) {
+        closeSubMenu();
+    }
+    if (addSubtaskActiv) {
+        inputSubtaskDefault();
+    }
+    searchSubtaskInEditing();
 }
 
 /**
@@ -216,23 +247,42 @@ function selectCategory(selection){
 
 /*subtasks*/
 /**
- * This function activates the input field for adding a subtask.
+ * This function activates the input field for adding a subtask. Beforehand, it is checked whether something else is open or activated that should be closed beforehand.
  */
-function toggleAddTaskSubtasks(){
+function activateAddTaskSubtasks(){
     let buttonText = document.getElementById("textAddSubtask");
     let circleIcon = document.getElementById('circleIconPlusAddTaskSubtasks');
     let inputField = document.getElementById("inputAddSubtask");
     let inputSubtasks = document.getElementById("addTaskSubtasks");
     let iconsInput = document.getElementById('iconsInputAddSubtask');
 
-    if (inputField.style.display === "none") {
+    if (inputField.style.display === "none") { 
+        closeAndDisableEverythingOutsidAddTaskSubtasks();   
+
         buttonText.style.display = "none";
         circleIcon.style.display = 'none';
         inputField.style.display = "inline";
         iconsInput.style.display = 'flex';
         inputSubtasks.style.border = "1px solid #29ABE2";
         inputField.focus(); // Inputfeld fokussieren
+        addSubtaskActiv = true;
     }
+}
+
+/**
+ * This function checkes whether elements outside addTaskSubtasks are open or activated, that should be closed beforehand.
+ */
+function closeAndDisableEverythingOutsidAddTaskSubtasks(){
+    if (buttonSelectContactClicked) {
+        toggleSelectContactsButton();
+    }
+    if (buttonSelectCategoryClicked) {
+        toggleSelectCategoryButton();
+    }
+    if (subMenuOpen) {
+        closeSubMenu();
+    }
+    searchSubtaskInEditing();
 }
 
 /**
@@ -251,10 +301,11 @@ function inputSubtaskDefault(){
     inputField.value = '';
     iconsInput.style.display = 'none';
     inputSubtasks.style.border = "1px solid #D1D1D1";
+    addSubtaskActiv = false;
 }
 
 /**
- * This function adds the new subtask to the list and resets 'addTaskSubtasks'.
+ * This function adds the new subtask to the list, including an eventlistener to display an edited subtask with enter, and resets 'addTaskSubtasks'.
  */
 function addSubtask(){
      // Wert aus dem Inputfeld lesen
@@ -271,22 +322,28 @@ function addSubtask(){
     addEnterKeyListener(inputEditSubtask);
 }
 
+/**
+ * This funktion returns a html template to create a new subtask.
+ * 
+ * @param {span} newSubtask new subtask out of input 'inputAddSubtask'
+ * @returns html template 'new subtask' including li element and a div with a input field to edit the subtask
+ */
 function templateSubtask(newSubtask){
     return /*html*/ `
         <div class="liAndEditSubtask">
-            <li onclick="editSubtask(this), dontClose(event)">
+            <li onclick="editSubtask(this), stayOpenOrActiv(event)">
                 <span>${newSubtask}</span>
                 <div class="iconsSubtask" style="display: none;">
                     <div class='circleIconAddTaskSubtasks'>
                         <img class="imgEdit" src="./assets/img/edit.svg">
                     </div>
                     <div class="verticalLineAddTaskSubtasks"></div>
-                    <div class='circleIconAddTaskSubtasks' onclick="deleteSubtask(this), dontClose(event)">
+                    <div class='circleIconAddTaskSubtasks' onclick="deleteSubtask(this), stayOpenOrActiv(event)">
                         <img src="./assets/img/delete.svg">
                     </div>
                 </div>
             </li>
-            <div class="editSubtask" style="display: none;" onclick="dontClose(event)">
+            <div class="editSubtask" style="display: none;" onclick="stayOpenOrActiv(event)">
                 <input type="text" class="inputEditSubtask" value="${newSubtask}">
                 <div class="iconsSubtask">
                     <div class='circleIconAddTaskSubtasks' onclick="deleteSubtask(this)">
@@ -302,6 +359,11 @@ function templateSubtask(newSubtask){
     `;
 }
 
+/**
+ * This function adds an eventlistener that displays edited subtasks by pressing the enter key.
+ * 
+ * @param {span} inputEditSubtask input field to edit a subtask
+ */
 function addEnterKeyListener(inputEditSubtask) {
     inputEditSubtask.addEventListener('keydown', function(event) {
         if (event.key === 'Enter') {
@@ -311,13 +373,44 @@ function addEnterKeyListener(inputEditSubtask) {
     });
 }
 
+/**
+ * This function deletes a subtask. Beforehand, it is checked whether something else is open or activated that should be closed beforehand.
+ * 
+ * @param {span} deleteButton delete butten which belongs to a subtask
+ */
 function deleteSubtask(deleteButton){
+    closeAndDisableEverythingOutsidTheCurrentSubtask();
+
     let divToDelet = deleteButton.closest('.liAndEditSubtask');
     divToDelet.remove();
 }
 
-function editSubtask(editButton){
+/**
+ * This function checkes whether elements outside the current subtasks are open or activated, that should be closed beforehand.
+ */
+function closeAndDisableEverythingOutsidTheCurrentSubtask(){
+    if (buttonSelectContactClicked) {
+        toggleSelectContactsButton();
+    }
+    if (buttonSelectCategoryClicked) {
+        toggleSelectCategoryButton();
+    }
+    if (subMenuOpen) {
+        closeSubMenu();
+    }
+    if (addSubtaskActiv) {
+        inputSubtaskDefault();
+    }
     searchSubtaskInEditing();
+}
+
+/**
+ * This function hides the li element and opens the div with the input field to edit the subtask. The focus is placed on the input field and the text cursor is placed at the end of the value. Beforehand, it is checked whether something else is open or activated that should be closed beforehand.
+ * 
+ * @param {span} editButton edit butten which belongs to a subtask
+ */
+function editSubtask(editButton){        
+    closeAndDisableEverythingOutsidTheCurrentSubtask();
 
     let li = editButton.closest('li');
     li.style.display = 'none';
@@ -330,6 +423,11 @@ function editSubtask(editButton){
     inputEditSubtask.setSelectionRange(inputEditSubtask.value.length, inputEditSubtask.value.length);
 }
 
+/**
+ * This function displays the edited subtask inside a li element.
+ * 
+ * @param {*} checkIcon check icon which belongs to a subtask
+ */
 function displayEditedSubtask(checkIcon){
     let editSubtask = checkIcon.closest('.editSubtask');
     let newValueSubtask = editSubtask.querySelector('.inputEditSubtask').value;
@@ -341,6 +439,9 @@ function displayEditedSubtask(checkIcon){
     editSubtask.style.display = 'none';
 }
 
+/**
+ * This function looks for all subtasks and checks whether one, and if so, which one, has display flex and is currently being processed. This subtask will be displayed.
+ */
 function searchSubtaskInEditing(){
     // Alle Elemente mit der Klasse '.editSubtask' abrufen
     let editSubtasks = document.querySelectorAll('.editSubtask');
@@ -349,7 +450,6 @@ function searchSubtaskInEditing(){
     for (let i = 0; i < editSubtasks.length; i++) {
         let editSubtask = editSubtasks[i];
         if (window.getComputedStyle(editSubtask).getPropertyValue('display') === 'flex') {
-            // Das gewünschte Element gefunden, weiterverarbeiten...
             let checkIcon = editSubtask.querySelector('.displayEditedSubtask');
             displayEditedSubtask(checkIcon);
             break; // Schleife abbrechen, sobald das Element gefunden wurde
@@ -357,6 +457,9 @@ function searchSubtaskInEditing(){
     }
 }
 
+/**
+ * This function creates an eventlistener that creates a new subtask when the enter key is pressed within 'inputAddSubtask'.
+ */
 document.addEventListener("DOMContentLoaded", function() {
     let inputAddSubtask = document.getElementById('inputAddSubtask');
 
