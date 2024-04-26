@@ -45,29 +45,37 @@
 
 .left {
   color: white;
-  background-color: #000000;
+  background-color: #2A3647;
   height: 494px;
+  min-width: max-content;
+  font-size: 85%;
   border-radius: 16px 0 0 16px;
   align-content: center;
   padding: 30px;
+  box-sizing: border-box;
 }
 
 .middel {
-  align-content: center;
-  position: relative;
-  width: 150px;
+  /* align-content: center; */
+  position: static;
+  width: 200px;
 }
 .middel img {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  /* object-fit: contain; */
+  top: 40%;
+  left: 35%;
+}
+
+.ellipse{
+  border-style: double;
+  border-radius: 103px;
+  border-width: 5px;
+  border-color: #d1d1d1;
 }
 
 .person {
-    /* height: 80% !important; */
+    height: 14% !important;
+    margin: 30px;
 }
 
 .right {
