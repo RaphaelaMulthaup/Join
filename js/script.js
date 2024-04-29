@@ -170,10 +170,39 @@ async function checkPasswords() {
 }
 
 /*Informations*/
+
+/**
+ * This function displays the privacy police.
+ */
 function openPrivacyPolicy(){
     document.getElementById('privacyPolicy').style.display = 'block';
 }
 
+/**
+ * This function closes the privacy police.
+ */
 function closePrivacyPolicy(){
     document.getElementById('privacyPolicy').style.display = 'none';
 }
+
+/**
+ * This function displays the legal notice.
+ */
+function openLegalNotice(){
+    document.getElementById('legalNotice').style.display = 'block';
+}
+
+/**
+ * This function closes the legal notice.
+ */
+function closeLegalNotice(){
+    document.getElementById('legalNotice').style.display = 'none';
+}
+
+/**
+ * This function closes the current tap.
+ */
+function closeTapReturnToPreviousTap(){
+    window.close();   
+}
+

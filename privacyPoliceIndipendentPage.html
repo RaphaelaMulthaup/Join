@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/fonts.css">
+    <link rel="stylesheet" href="./css/legalHelp.css">
+    <link rel="stylesheet" href="./css/templates.css">
+    <script src="./js/script.js"></script>
+</head>
+<body class="bodyMainpages" onload="loadPage()" onclick="closeSubMenu()">
+    <div w3-include-html="./assets/templates/menuInfoPages.html"></div>
+    <div class="mainpagesRightSide">
+        <div w3-include-html="./assets/templates/headerInfoPages.html"></div>
+        <main class="mainMainpages mainMainpagesPaddingDefault">
+            <div id="subMenu" class="dNone" w3-include-html="./assets/templates/subMenu.html" onclick="stayOpenOrActiv(event)"></div>
+            <div id="privacyPolicy" class="informations mainMainpagesPaddingDefault">
+                <div class="headlineAreaInformations">
+                    <h1>Privacy Policy</h1>
+                    <div class="arrowBack" onclick="closeTapReturnToPreviousTap()"></div>
+                </div>
+                <h3 class="h3PrivacyPolicy">Subtitle</h3>
+                <p class="textInformations textPrivacyPolicy">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque odio felis, iaculis ut massa eget, ornare lacinia urna. In dignissim justo eu velit sagittis, in scelerisque nulla convallis. Vestibulum eros lorem, sollicitudin eget eros non, varius aliquam mauris. Sed turpis ipsum, condimentum quis nulla at, lobortis facilisis ipsum. Nunc erat justo, hendrerit vel enim vitae, feugiat mattis dui. In auctor dignissim luctus. Mauris ornare ipsum at ultrices eleifend. Praesent tempus congue magna. Quisque libero erat, pharetra a neque et, imperdiet semper justo.
+                </p>
+                <h3 class="h3PrivacyPolicy">Subtitle</h3>
+                <p class="textInformations">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque odio felis, iaculis ut massa eget, ornare lacinia urna. In dignissim justo eu velit sagittis, in scelerisque nulla convallis. Vestibulum eros lorem, sollicitudin eget eros non, varius aliquam mauris. Sed turpis ipsum, condimentum quis nulla at, lobortis facilisis ipsum. Nunc erat justo, hendrerit vel enim vitae, feugiat mattis dui. In auctor dignissim luctus. Mauris ornare ipsum at ultrices eleifend. Praesent tempus congue magna. Quisque libero erat, pharetra a neque et, imperdiet semper justo.
+                </p>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

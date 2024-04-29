@@ -67,6 +67,17 @@
     cursor: pointer;
 }
 
+/*menu info pages*/
+.menuItemseLegally a {
+    color: #A8A8A8;
+}
+
+.menuItemseLegally a:hover {
+    color: #29ABE2;
+    font-weight: 700;
+    cursor: pointer;
+}
+
 /*header*/
 
 header {
@@ -142,6 +153,7 @@ header h4 {
     display: flex;
     flex-direction: column;
     padding: 10px;
+    z-index: 50;
 }
 
 .subMenu span {
@@ -153,9 +165,18 @@ header h4 {
     cursor: pointer;
 }
 
+.subMenu a {
+    padding: 13.5px 0px 13.5px 16px;
+    color: #CDCDCD;
+}
+
+.subMenu a:hover {
+    cursor: pointer;
+}
+
 /*privacy policy*/
 
-.privacyPolicy {
+.informations {
     position: absolute;
     height: calc(100vh - 96px);
     width: calc(100vw - 232px);
@@ -164,7 +185,7 @@ header h4 {
     background-color: #F6F7F8;
 }
 
-.privacyPolicyTemplate{
+.informationsTemplate{
     display: none;
 }
 
@@ -202,3 +223,24 @@ header h4 {
 .textPrivacyPolicy{
     margin-bottom: 35px;
 }
+
+/*legal notice*/
+.textLegalNotice{
+    width: 1014px;
+    height: 943px;
+    overflow: scroll;
+}
+
+.h3LegalNotice{
+    margin-bottom: 16px;
+}
+
+.textLegalNotice p,
+.textLegalNotice ul{
+    margin-bottom: 24px;
+}
+
+.textLegalNotice span{
+    color: #29ABE2;
+}
+
