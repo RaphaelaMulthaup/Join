@@ -38,6 +38,10 @@ h1 {
   font-size: 61px;
 }
 
+h3{
+  font-size: 27px;
+}
+
 /*checkbox*/
 
 .checkbox+label {

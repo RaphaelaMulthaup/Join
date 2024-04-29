@@ -13,7 +13,9 @@ async function loadPage(id) {
         element.style.display = 'none';
     });
     await includeHTML();
-    selectActivePage(id);
+    if (document.querySelector('.menuItems')) {
+        selectActivePage(id);
+    }
     document.querySelectorAll('.bodyMainpages').forEach(element => {
         element.style.display = 'flex';
     });
@@ -165,4 +167,13 @@ async function checkPasswords() {
         confirm.style.border = '2px solid #FE818F';
         alertPw.innerHTML =` <span>Ups! Your passwords don't match</span>`;
     }
+}
+
+/*Informations*/
+function openPrivacyPolicy(){
+    document.getElementById('privacyPolicy').style.display = 'block';
+}
+
+function closePrivacyPolicy(){
+    document.getElementById('privacyPolicy').style.display = 'none';
 }
