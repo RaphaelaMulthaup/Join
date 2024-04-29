@@ -178,6 +178,10 @@ input:valid ~ label {
   background-image: url(/assets/img/lock.svg);
 }
 
+.phone {
+  background-image: url(/assets/img/phone.svg);
+}
+
 .lock:active,
 .lock:focus {
   background-image: url(/assets/img/visibilityoff.svg);

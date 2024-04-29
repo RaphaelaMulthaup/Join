@@ -35,7 +35,7 @@
   background-color: white;
   position: absolute;
   top: 20vh;
-  left: 10vw;
+  left: 130px;
   height: 492px;
 }
 
@@ -56,14 +56,29 @@
 }
 
 .middel {
-  /* align-content: center; */
-  position: static;
   width: 200px;
+  padding: 35px;
 }
+
+.slideBack{
+  position: absolute;
+  top: 70px;
+  align-self: self-end;
+  padding: 4.3px 8.8px 0 0;
+}
+
+.close{
+}
+
+.slideBack:hover{
+  content: url(/assets/img/closeHover.svg);
+  padding: 0;
+}
+
+
 .middel img {
   position: absolute;
   top: 40%;
-  left: 35%;
 }
 
 .ellipse{
@@ -79,14 +94,101 @@
 }
 
 .right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 40px;
+}
+
+.inputbox {
+  width: 100%;
+  height: 48px;
+  border: 2px solid #80808040;
+  border-radius: 10px;
+  font-size: 15px;
+  padding: 6px;
+  margin-right: 15px;
+  margin-bottom: 16px;
+  color: #80808040;
+  display: flex;
+}
+
+.inputbox label {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 1em;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+input:focus ~ label,
+input:valid ~ label {
+  top: -5px;
+}
+
+.input {
+  width: 422px;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #000000;
+  background-size: 15px;
+  background-repeat: no-repeat;
+  background-position: right;
+  cursor: pointer;
+  padding: 12px 21px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.personInput {
+  background-image: url(/assets/img/person.svg);
+}
+
+.mail {
+  background-image: url(/assets/img/mail.svg);
+}
+
+.phone {
+  background-image: url(/assets/img/phone.svg);
+}
+
+.buttonFilled{
+  width: 250px;
+  font-weight: 700;
+  font-size: 21px;
+  border-radius: 8px;
+  height: 55px;
+  text-align: center;
+  padding: 12px;
+}
+
+.buttonEmpty{
+  font-weight: 700;
+  font-size: 21px;
+  border-radius: 8px;
+  height: 55px;
+  cursor: pointer;
+  margin-right: 16px;
+}
+ 
+.button{
+  margin-top: 16px;
 }
 
 .closeX {
   content: url("/assets/img/close.svg");
+  padding-inline: 6px;
 }
 .button:hover .closeX {
   content: url("/assets/img/closeBlueX.svg");
 }
+
+
 @keyframes animate-in {
   0% {
     opacity: 0;

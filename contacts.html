@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./css/fonts.css">
     <link rel="stylesheet" href="./css/templates.css">
     <link rel="stylesheet" href="./css/contacts.css">
+    <!-- <link rel="stylesheet" href="./css/PageOneLogInSignUp.css"> -->
     <script src="./js/variables.js"></script>
     <script src="./js/storage.js"></script>
     <script src="./js/script.js"></script>
@@ -27,13 +28,23 @@
                 <img class="person" src="./assets/img/personWhite.svg" alt="">
             </div>
             <div class="right" id="">
-                <input type="text">
-                <input type="email">
-                <input type="tel">
+                <div class="slideBack " id="slideBack">
+                    
+                    <img src="/assets/img/close.svg" alt="closeButton">
+                </div>
+                <div class="inputbox">
+                    <input type="name" id="user" class="input personInput" placeholder="Name" >
+                </div>
+                <div class="inputbox">
+                    <input type="email" id="email" class="input mail" placeholder="Email">
+                </div>
+                <div class="inputbox">
+                    <input type="tel" id="phone" class="input phone" placeholder="Phone">
+                </div>
                 <div>
                     <button class="button buttonEmpty">Cancel  <span class="closeX"></span>
                     </button>
-                    <button class="button buttonFilled">Create contact <img src="./assets/img/checkWhite.svg" alt=""></button>
+                    <button class="button buttonFilled">Create contact <img src="./assets/img/checkWhite.svg" style="padding-left: 10px;" alt=""></button>
                 </div>
 
             </div>
