@@ -12,14 +12,12 @@ async function init() {
  * load users form storage
  */
 async function loadusers(){
-    try {
+ 
     users = JSON.parse(await getItem('users'));
     currentUser = JSON.parse(await getItem('currentUser'));
     checkboxValue = JSON.parse(await getItem('checkboxValue'));
-    fillInValues();
-    } catch (e){
-        console.error('Loading error:' , e);
-    }
+    fillInValues(); //if else zur ausgabe schreiben
+    
 }
 
 /**

@@ -26,7 +26,7 @@
   left: 0;
   width: 100%;
   height: 100svh;
-  z-index: 3;
+  z-index: 36;
   background: rgba(0, 0, 0, 0.4);
 }
 
@@ -71,7 +71,7 @@
 }
 
 .slideBack:hover{
-  content: url(/assets/img/closeHover.svg);
+  content: url(../assets/img/closeHover.svg);
   padding: 0;
 }
 
@@ -146,15 +146,15 @@ input:valid ~ label {
 }
 
 .personInput {
-  background-image: url(/assets/img/person.svg);
+  background-image: url(../assets/img/person.svg);
 }
 
 .mail {
-  background-image: url(/assets/img/mail.svg);
+  background-image: url(../assets/img/mail.svg);
 }
 
 .phone {
-  background-image: url(/assets/img/phone.svg);
+  background-image: url(../assets/img/phone.svg);
 }
 
 .buttonFilled{
@@ -181,11 +181,11 @@ input:valid ~ label {
 }
 
 .closeX {
-  content: url("/assets/img/close.svg");
+  content: url("../assets/img/close.svg");
   padding-inline: 6px;
 }
 .button:hover .closeX {
-  content: url("/assets/img/closeBlueX.svg");
+  content: url("../assets/img/closeBlueX.svg");
 }
 
 

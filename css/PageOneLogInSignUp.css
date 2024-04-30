@@ -46,7 +46,7 @@
   top: 35%;
   animation: moveAndResize 1s ease-in-out forwards;
   animation-delay: 0.3s;
-  background: url(/assets/img/favicon_dark.svg) no-repeat;
+  background: url(../assets/img/favicon_dark.svg) no-repeat;
   background-size: 300px;
   height: -webkit-fill-available;
 }
@@ -63,7 +63,7 @@
     top: 70px;
     background-size: 100px;
     background-position: 0 0;
-    z-index: 0;
+    z-index: -1;
   }
 }
 
@@ -114,12 +114,12 @@ section {
   height: 34px;
   width: 32px;
   background-position: center;
-  background-image: url(/assets/img/arrow-left-line.svg);
+  background-image: url(../assets/img/arrow-left-line.svg);
   background-repeat: no-repeat;
 }
 
 .back-arrow:hover {
-  background-image: url(/assets/img/arrowLeftLineHover.svg);
+  background-image: url(../assets/img/arrowLeftLineHover.svg);
 }
 
 .inputbox {
@@ -167,28 +167,28 @@ input:valid ~ label {
 }
 
 .person {
-  background-image: url(/assets/img/person.svg);
+  background-image: url(../assets/img/person.svg);
 }
 
 .mail {
-  background-image: url(/assets/img/mail.svg);
+  background-image: url(../assets/img/mail.svg);
 }
 
 .lock {
-  background-image: url(/assets/img/lock.svg);
+  background-image: url(../assets/img/lock.svg);
 }
 
 .phone {
-  background-image: url(/assets/img/phone.svg);
+  background-image: url(../assets/img/phone.svg);
 }
 
 .lock:active,
 .lock:focus {
-  background-image: url(/assets/img/visibilityoff.svg);
+  background-image: url(../assets/img/visibilityoff.svg);
 }
 
 .visbility {
-  background-image: url(/assets/img/visibility.svg);
+  background-image: url(../assets/img/visibility.svg);
 }
 
 .visibility-icon img {

@@ -208,7 +208,7 @@
 }
 
 .checkboxSelectContacts:hover+label{
-    background: url('/assets/img/checkboxDisabled.svg') no-repeat;
+    background: url('./assets/img/checkboxDisabled.svg') no-repeat;
 }
 
 /*vertical line*/

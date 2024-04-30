@@ -51,20 +51,20 @@ h5{
   display: inline-block;
   width: 24px;
   height: 25px;
-  background: url('/assets/img/checkboxDisabled.svg') no-repeat;
+  background: url('../assets/img/checkboxDisabled.svg') no-repeat;
   cursor: pointer;
 }
 
 #checkbox:checked+label {
-  background: url('/assets/img/checkboxChecked.svg') no-repeat;
+  background: url('../assets/img/checkboxChecked.svg') no-repeat;
 }
 
 .checkbox:hover+label {
-  background: url('/assets/img/checkboxDisabledHover.svg') no-repeat;
+  background: url('../assets/img/checkboxDisabledHover.svg') no-repeat;
 }
 
 #checkbox:checked:hover+label {
-  background: url('/assets/img/checkboxCheckedHover.svg') no-repeat;
+  background: url('../assets/img/checkboxCheckedHover.svg') no-repeat;
 }
 
 /*button*/
