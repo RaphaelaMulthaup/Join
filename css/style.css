@@ -121,3 +121,10 @@ a {
   text-decoration: none; 
   color: #2A3647;
 }
+
+/*informationsIndipendent*/
+
+.informationsIndipendent{
+  display: flex;
+  top: 0 !important;
+}
