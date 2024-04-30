@@ -175,7 +175,8 @@ async function checkPasswords() {
  * This function displays the privacy police.
  */
 function openPrivacyPolicy(){
-    document.getElementById('privacyPolicy').style.display = 'block';
+    closeLegalNotice();
+    document.getElementById('privacyPolicy').style.display = 'flex';
 }
 
 /**
@@ -189,7 +190,8 @@ function closePrivacyPolicy(){
  * This function displays the legal notice.
  */
 function openLegalNotice(){
-    document.getElementById('legalNotice').style.display = 'block';
+    closePrivacyPolicy();
+    document.getElementById('legalNotice').style.display = 'flex';
 }
 
 /**

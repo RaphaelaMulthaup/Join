@@ -177,6 +177,7 @@ header h4 {
 /*privacy policy*/
 
 .informations {
+    flex-direction: column;
     position: absolute;
     height: calc(100vh - 96px);
     width: calc(100vw - 232px);
@@ -229,7 +230,12 @@ header h4 {
     width: 1014px;
     height: 943px;
     overflow: scroll;
+    scrollbar-width: none;
 }
+
+.textLegalNotice::-webkit-scrollbar {
+    display: none;
+  }
 
 .h3LegalNotice{
     margin-bottom: 16px;
