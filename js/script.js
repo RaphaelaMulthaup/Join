@@ -172,10 +172,11 @@ async function checkPasswords() {
 /*Informations*/
 
 /**
- * This function displays the privacy police.
+ * This function displays the privacy police and closes the other help pages if necessary.
  */
 function openPrivacyPolicy(){
     closeLegalNotice();
+    closeHelp();
     document.getElementById('privacyPolicy').style.display = 'flex';
 }
 
@@ -187,10 +188,11 @@ function closePrivacyPolicy(){
 }
 
 /**
- * This function displays the legal notice.
+ * This function displays the legal notice and closes the other help pages if necessary.
  */
 function openLegalNotice(){
     closePrivacyPolicy();
+    closeHelp();
     document.getElementById('legalNotice').style.display = 'flex';
 }
 
@@ -206,5 +208,23 @@ function closeLegalNotice(){
  */
 function closeTapReturnToPreviousTap(){
     window.close();   
+}
+
+/**
+ * This function displays the help page, closes the other help pages if necessary and hides the question mark.
+ */
+function openHelp(){
+    closeLegalNotice();
+    closePrivacyPolicy();
+    document.getElementById('help').style.display = 'flex';
+    document.getElementById('divHelpQuestionMark').classList.add('dNone');
+}
+
+/**
+ * This function closes the help page and displays the queston mark.
+ */
+function closeHelp(){
+    document.getElementById('help').style.display = 'none';
+    document.getElementById('divHelpQuestionMark').classList.remove('dNone');
 }
 

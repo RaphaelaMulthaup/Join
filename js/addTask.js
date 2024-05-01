@@ -39,27 +39,52 @@ function toggleSelectContactsButton(){
 
     if (buttonText.style.display === "none") {
         // Wenn der Text ausgeblendet ist, zeige ihn wieder an und blende das Inputfeld aus
-        buttonText.style.display = "inline";
-        inputField.style.display = "none";
-        inputField.value = "";
-        button.style.border = "1px solid #D1D1D1";
-        arrowIcon.src = "./assets/img/arrowdropdownDown.svg";
-        buttonSelectContactClicked = false; // Button wurde nicht geklickt
-        dropdownContacts.classList.add('dropdownContactsHidden');
-        
+        setButtonSelectContactsToDefault(buttonText, inputField, button, arrowIcon, dropdownContacts);
     } else {
         closeAndDisableEverythingOutsideSelectContactsButton();
-
         // Wenn der Text sichtbar ist, blende ihn aus und zeige das Inputfeld an
-        buttonText.style.display = "none";
-        inputField.style.display = "inline";
-        button.style.border = "1px solid #29ABE2";
-        inputField.focus(); // Inputfeld fokussieren
-        arrowIcon.src = "./assets/img/arrowdropdownup.svg";
-        buttonSelectContactClicked = true; // Button wurde geklickt
-        dropdownContacts.classList.remove('dropdownContactsHidden');
+        activateInputSelectContacts(buttonText, inputField, button, arrowIcon, dropdownContacts);
     }
 }
+
+/**
+ * This function shows 'textSelectContacts' again and turns the border of the button gray. The input field is hidden and the value is deleted. The downward arrow graphic is inserted and the dropdown menu is hidden.
+ * 
+ * @param {span} buttonText request text 'Select contacts to assign'
+ * @param {span} inputField input field to search for a contact
+ * @param {span} button button to open the dropdown menu to select a contact
+ * @param {span} arrowIcon arrow icon belonging to the dropdown menu
+ * @param {span} dropdownContacts the dropdown menu to select a contact
+ */
+function setButtonSelectContactsToDefault(buttonText, inputField, button, arrowIcon, dropdownContacts){
+    buttonText.style.display = "inline";
+    inputField.style.display = "none";
+    inputField.value = "";
+    button.style.border = "1px solid #D1D1D1";
+    arrowIcon.src = "./assets/img/arrowdropdownDown.svg";
+    buttonSelectContactClicked = false; // Button wurde nicht geklickt
+    dropdownContacts.classList.add('dropdownContactsHidden');
+}
+
+/**
+ * This function hides 'textSelectContacts' and turns the border of the button blue. The input field is shown and gets a focus. The upward arrow graphic is inserted and the dropdown menu is shown.
+ * 
+ * @param {span} buttonText request text 'Select contacts to assign'
+ * @param {span} inputField input field to search for a contact
+ * @param {span} button button to open the dropdown menu to select a contact
+ * @param {span} arrowIcon arrow icon belonging to the dropdown menu
+ * @param {span} dropdownContacts the dropdown menu to select a contact
+ */
+function activateInputSelectContacts(buttonText, inputField, button, arrowIcon, dropdownContacts){
+    buttonText.style.display = "none";
+    inputField.style.display = "inline";
+    button.style.border = "1px solid #29ABE2";
+    inputField.focus(); // Inputfeld fokussieren
+    arrowIcon.src = "./assets/img/arrowdropdownup.svg";
+    buttonSelectContactClicked = true; // Button wurde geklickt
+    dropdownContacts.classList.remove('dropdownContactsHidden');
+}
+
 
 /**
  * This function checkes whether elements outside selectContactsButton are open or activated, that should be closed beforehand.
