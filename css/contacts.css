@@ -35,8 +35,41 @@
   background-color: white;
   position: absolute;
   top: 20vh;
-  left: 130px;
-  height: 492px;
+  margin-inline: 8vmax;
+  animation-fill-mode: forwards;
+}
+
+.addContact {
+  animation-name: AddContact;
+  animation-duration: 0.5s;
+}
+
+@keyframes AddContact {
+  0% {
+    transform: translate(100vw, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.d-none {
+  display: none;
+}
+
+.closeContact {
+  animation-name: closeContact;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes closeContact {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(100vw, 0);
+  }
 }
 
 .contactGroup {
@@ -45,7 +78,7 @@
 
 .left {
   color: white;
-  background-color: #2A3647;
+  background-color: #2a3647;
   height: 494px;
   min-width: max-content;
   font-size: 85%;
@@ -60,28 +93,27 @@
   padding: 35px;
 }
 
-.slideBack{
+.slideBack {
   position: absolute;
   top: 70px;
   align-self: self-end;
   padding: 4.3px 8.8px 0 0;
 }
 
-.close{
+.close {
 }
 
-.slideBack:hover{
+.slideBack:hover {
   content: url(../assets/img/closeHover.svg);
   padding: 0;
 }
-
 
 .middel img {
   position: absolute;
   top: 40%;
 }
 
-.ellipse{
+.ellipse {
   border-style: double;
   border-radius: 103px;
   border-width: 5px;
@@ -89,8 +121,8 @@
 }
 
 .person {
-    height: 14% !important;
-    margin: 30px;
+  height: 14% !important;
+  margin: 30px;
 }
 
 .right {
@@ -157,7 +189,7 @@ input:valid ~ label {
   background-image: url(../assets/img/phone.svg);
 }
 
-.buttonFilled{
+.buttonFilled {
   width: 250px;
   font-weight: 700;
   font-size: 21px;
@@ -167,7 +199,7 @@ input:valid ~ label {
   padding: 12px;
 }
 
-.buttonEmpty{
+.buttonEmpty {
   font-weight: 700;
   font-size: 21px;
   border-radius: 8px;
@@ -175,8 +207,8 @@ input:valid ~ label {
   cursor: pointer;
   margin-right: 16px;
 }
- 
-.button{
+
+.button {
   margin-top: 16px;
 }
 
@@ -187,7 +219,6 @@ input:valid ~ label {
 .button:hover .closeX {
   content: url("../assets/img/closeBlueX.svg");
 }
-
 
 @keyframes animate-in {
   0% {

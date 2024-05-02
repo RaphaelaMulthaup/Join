@@ -9,15 +9,14 @@
     <link rel="stylesheet" href="./css/fonts.css">
     <link rel="stylesheet" href="./css/templates.css">
     <link rel="stylesheet" href="./css/contacts.css">
-    <!-- <link rel="stylesheet" href="./css/PageOneLogInSignUp.css"> -->
     <script src="./js/variables.js"></script>
     <script src="./js/storage.js"></script>
     <script src="./js/script.js"></script>
     <script src="./js/contacts.js"></script>
 </head>
 <body class="bodyMainpages" onload="loadPage('menuItemContacts'), init()" onclick="closeSubMenu()">
-    <div class="contactSlideBG">
-    <div class="contactSlide" id="contactSlide">
+    <div class="contactSlideBG d-none" id="contactSlideBG">
+      <div class="contactSlide addContact" id="contactSlide">
         <div class="contactGroup">
             <div class="left" id="">
                 <img src="./assets/img/favicon_light.svg" alt="">
@@ -29,7 +28,7 @@
                 <img class="person" src="./assets/img/personWhite.svg" alt="">
             </div>
             <div class="right" id="">
-                <div class="slideBack " id="slideBack">
+                <div class="slideBack " id="slideBack" onclick="closeAddContact()">
                     
                     <img src="./assets/img/close.svg" alt="closeButton">
                 </div>
@@ -43,7 +42,7 @@
                     <input type="tel" id="phone" class="input phone" placeholder="Phone">
                 </div>
                 <div>
-                    <button class="button buttonEmpty">Cancel  <span class="closeX"></span>
+                    <button class="button buttonEmpty"  onclick="closeAddContact()">Cancel  <span class="closeX"></span>
                     </button>
                     <button class="button buttonFilled">Create contact <img src="./assets/img/checkWhite.svg" style="padding-left: 10px;" alt=""></button>
                 </div>
@@ -59,7 +58,7 @@
             <div id="subMenu" class="dNone" w3-include-html="./assets/templates/subMenu.html" onclick="stayOpenOrActiv(event)"></div>
             <div class="contacts" id="contacts">
                 <div id="contactSide">
-                    <Button class="addButton buttonFilled">Add new contact <img src="./assets/img/personAdd.svg" alt=""> </Button>
+                    <Button class="addButton buttonFilled" id="addContact" onclick="addContact()">Add new contact <img src="./assets/img/personAdd.svg" alt=""> </Button>
                 </div>
                 <div class="contactInput" id="contactInput">
 
