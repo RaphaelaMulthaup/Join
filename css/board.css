@@ -1,0 +1,11 @@
+
+.mainBoard{
+    padding-top: 79.5px;
+    padding-left: 64px
+}
+
+.boardHeadline{
+    width: 1056px;
+    display: flex;
+    justify-content: space-between;
+}

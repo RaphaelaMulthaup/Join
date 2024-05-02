@@ -217,36 +217,51 @@ header h4 {
     background-image: url('../assets/img/arrowLeftLineHover.svg');
 }
 
-.textInformations{
-    width: 1016px;
-}
-
 .textPrivacyPolicy{
     margin-bottom: 35px;
 }
 
 /*legal notice*/
-.textLegalNotice{
+.textInformations{
     width: 1014px;
     height: 943px;
     overflow: scroll;
     scrollbar-width: none;
 }
 
-.textLegalNotice::-webkit-scrollbar {
+.textInformations::-webkit-scrollbar {
     display: none;
   }
 
-.h3LegalNotice{
+.h3LegalNoticeAndHelp{
     margin-bottom: 16px;
 }
 
-.textLegalNotice p,
-.textLegalNotice ul{
+.textInformations p,
+.textInformations ul{
     margin-bottom: 24px;
 }
 
-.textLegalNotice span{
+.textInformations span{
     color: #29ABE2;
 }
 
+.textInformations ul{
+    margin-left: 26px;
+}
+
+/*help page*/
+
+.olHelp li::marker {
+    font-size: 27px;
+    font-weight: 700;
+}
+
+.olHelp{
+    margin-left: 31px;
+}
+
+.olHelp h5,
+.olHelp p{
+    margin-left: 25px;
+}
