@@ -6,7 +6,7 @@ let addSubtaskActiv = false;
 /**
  * This funktion sets clickt elements back to default.
  */
-function setElementsToDefault(){
+function setElementsToDefaultAddTask(){
     closeSubMenu();
     selectContactsButtonDefault();
     categoryArrowDefault();

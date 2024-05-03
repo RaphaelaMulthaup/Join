@@ -11,7 +11,7 @@
     <script src="./js/script.js"></script>
     <script src="./js/board.js"></script>
 </head>
-<body class="bodyMainpages" onload="loadPage('menuItemBoard')" onclick="closeSubMenu()">
+<body id="bodyBoard" class="bodyMainpages" onload="loadPage('menuItemBoard')" onclick="setElementsToDefaultBoard()">
     <div w3-include-html="./assets/templates/menu.html"></div>
     <div class="mainpagesRightSide">
         <div w3-include-html="./assets/templates/header.html"></div>
@@ -20,7 +20,7 @@
             <div class="boardHeadline">
                 <h1>Board</h1>
                 <div class="boardHeadlineActions">
-                    <div id="findTask" class="findTask" onclick="findTaskActive()">
+                    <div id="findTask" class="findTask" onclick="findTaskActive(), stayOpenOrActiv(event)">
                         <input id="inputFindTask" type="text" placeholder="Find Task">
                         <div class="verticalLineBoardFindTask"></div>
                         <svg class="magnifyingGlass" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -37,6 +37,64 @@
                         <img src="./assets/img/plusWhite.svg" alt="">
                     </button>
                 </div>
+            </div>
+            <div class="boardTasks">
+                <div class="statusTasks">
+                    <div class="headlineStatusTasks">
+                        <h5 class="h5StatusTask">To do</h5>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="1" y="1" width="22" height="22" rx="7" stroke="#2A3647" stroke-width="2"/>
+                            <path d="M12 8V16" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M16 12.0754L8 12.0754" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="tasks">
+                        <div class="noTasksExisting">
+                            <span>No tasks To do</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="statusTasks">
+                    <div class="headlineStatusTasks">
+                        <h5 class="h5StatusTask">In progress</h5>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="1" y="1" width="22" height="22" rx="7" stroke="#2A3647" stroke-width="2"/>
+                            <path d="M12 8V16" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M16 12.0754L8 12.0754" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="tasks">
+                        <div class="noTasksExisting">
+                            <span>No tasks In progress</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="statusTasks">
+                    <div class="headlineStatusTasks">
+                        <h5 class="h5StatusTask">Await feedback</h5>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="1" y="1" width="22" height="22" rx="7" stroke="#2A3647" stroke-width="2"/>
+                            <path d="M12 8V16" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M16 12.0754L8 12.0754" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="tasks">
+                        <div class="noTasksExisting">
+                            <span>No tasks Await feedback</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="statusTasks">
+                    <div class="headlineStatusTasks">
+                        <h5 class="h5StatusTask">Done</h5>
+                    </div>
+                    <div class="tasks">
+                        <div class="noTasksExisting">
+                            <span>No tasks Done</span>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </main>
         <div w3-include-html="./assets/templates/privacyPolicy.html"></div>

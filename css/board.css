@@ -4,6 +4,7 @@
     padding-left: 64px
 }
 
+/*headline*/
 .boardHeadline{
     width: 1056px;
     display: flex;
@@ -74,4 +75,25 @@
     width: 160px;
     height: 48px;
     gap: 4px;
+}
+
+/*tasks*/
+.boardTasks{
+    display: flex;
+    align-items: flex-start;
+    gap: 26px;
+}
+
+.statusTasks{
+    display: flex;
+    flex-direction: column;
+    width: 252px;
+}
+
+.headlineStatusTasks{
+    display: flex;
+}
+
+.h5StatusTask{
+    flex: 1;
 }

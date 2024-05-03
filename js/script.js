@@ -96,6 +96,14 @@ function openAndCloseSubMenu(circleInitials){
         searchSubtaskInEditing(); 
     }
 
+    let bodyBoard = circleInitials.closest('#bodyBoard');
+    if (bodyBoard) {
+        if (findTaskFocus) {
+            findTaskDefault();
+        }
+    }
+
+
     document.getElementById('subMenu').classList.toggle('dNone');
     subMenuOpen =!subMenuOpen;
 }
