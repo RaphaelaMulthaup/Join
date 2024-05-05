@@ -9,6 +9,7 @@
     width: 1056px;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 48px;
 }
 
 .boardHeadlineActions{
@@ -92,8 +93,42 @@
 
 .headlineStatusTasks{
     display: flex;
+    margin-bottom: 15.5px;
 }
 
 .h5StatusTask{
     flex: 1;
+    color: #42526E;
+}
+
+.headlineStatusTasks svg:hover{
+    cursor: pointer;
+}
+
+.headlineStatusTasks svg:hover path,
+.headlineStatusTasks svg:hover rect{
+    stroke: #29ABE2;
+}
+
+.headlineStatusTasks svg:active path,
+.headlineStatusTasks svg:active rect{
+    stroke: red;
+    transition: stroke 300ms ease-out;
+}
+
+/*add task overlay*/
+.overlayAddTask {
+    background-color: white;
+    width: 1116px;
+    height: 870px;
+    padding-top: 64px;
+    padding-left: 74px;
+    border-radius: 30px;
+    box-shadow: 0px 0px 4px 0px #0000001A;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation-name: addOverlay;
+    animation-duration: 1000ms;
 }
