@@ -104,7 +104,12 @@
     </div>
         <div class="overlayBackground dNone" id="overlayAddTaskBackground">
             <div class="overlayAddTask" id="overlayAddTask">
-                <h1>Add Task</h1>
+                <div class="headlineAddTaskOverlay">
+                    <h1>Add Task</h1>
+                    <div class="addTaskOverlayCloseButton" onclick="closeOverlayAddTask()">
+                        <img src="./assets/img/close.svg" alt="schließen">
+                    </div>
+                </div>
                 <form onsubmit="addNewTask(); return false;" class="formAddTask" novalidate id="formAddNewTask">
                     <div class="inputTagsAddTask">
                         <div class="addTaksFormLeft">

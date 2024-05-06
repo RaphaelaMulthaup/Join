@@ -47,3 +47,7 @@ function plusButtonToDefault(plusButton) {
 function openOverlayAddTask(){
     document.getElementById('overlayAddTaskBackground').classList.remove('dNone');
 }
+
+function closeOverlayAddTask(){
+    document.getElementById('overlayAddTaskBackground').classList.add('dNone');
+}
