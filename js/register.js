@@ -75,5 +75,4 @@ function fillInValues() {
  */
 async function resetCurrentUser(){
     await setItem('currentUser', JSON.stringify({}));
-    window.location.href = 'summary.html';
 }

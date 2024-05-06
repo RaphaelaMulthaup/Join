@@ -11,6 +11,7 @@ body {
 }
 
 .mainpagesRightSide {
+  overflow: hidden;
   width: 100%;
 }
 
