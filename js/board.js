@@ -33,6 +33,11 @@ function findTaskDefault(){
     findTaskFocus = false;
 }
 
+/**
+ * This function colors the SVG dark for 10ms before it returns to its original color.
+ * 
+ * @param {string} plusButton clicked plus button
+ */
 function plusButtonToDefault(plusButton) {
     let rect = plusButton.querySelector('rect');
     let paths = plusButton.querySelectorAll('path');
@@ -50,6 +55,9 @@ function plusButtonToDefault(plusButton) {
     }, 10);
 }
 
+/**
+ * This function takes away the .dNone class from the div 'overlayAddTaskBackground'. The overlay with animation is displayed.
+ */
 function openOverlayAddTask(){
     document.getElementById('overlayAddTaskBackground').classList.remove('dNone');
 }
