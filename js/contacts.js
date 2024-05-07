@@ -58,12 +58,8 @@ function loadFirstLetter(indexLetter) {
 function renderContactContainer(user) {
     const content = document.getElementById('contactInput');
     content.innerHTML += `
-        <div class="preview-contact-container d_flexdirection_r_c" id="contact-container${user.index}" onclick="openContact(${user.index})">
-            <section class="circle-area d_flex_c_c" id="border-circle${user.index}" style="background-color: ${user.color};">
-                <div class="initial">${user.initials}</div>
-            </section>
-            <div class="name-email-container d_flex_column_sb">
-                <div-white class="first-last-name" id="first-last-name${user.index}">${user.name}</div-white>
+            <div class="userContainer">
+                <div class="name" id="name${user.index}">${user.name}</div-white>
                 <div class="email">${user.email}</div>
             </div>
         </div>
@@ -132,39 +128,26 @@ function renderContactsInput() {
 
 }
 
-
-
-function test(){
-    if (emailExists("beispiel@email.com")) {
-        console.log("Die E-Mail existiert bereits.");
-    } else {
-        console.log("Die E-Mail existiert noch nicht.");
-    }
-}
-
-async function register(){
+async function registerContact(){
     registerBtn.disabled = true;
+       let allUsers = JSON.parse(await getItem('users')) || [];
 
-    const nameExists = users.some(user => user.name === user.value);
-    const emailExists = users.some(user => user.email === email.value);
-    if (nameExists) {
-        console.log('Der Name existiert bereits.');
-        alert('Der Name existiert bereits.')
+    if (allUsers.some(obj => obj.name === user.value)) {
+        alert('Der Name existiert bereits.');
         return;
     }
 
-    if (emailExists) {
-        console.log('Die E-Mail existiert bereits.');
-        alert('Der E-Mail existiert bereits.')
+    if (allUsers.some(obj => obj.email === email.value)) {
+        alert('Die E-Mail existiert bereits.');
         return;
     }
-    users.push({
+    allUsers.push({
         name: user.value,
         email: email.value,
         password: passwordInput.value,
     });
-    await setItem('users', JSON.stringify(users)); 
-    console.log ('Hochgesendete Daten', users)
+       await setItem('users', JSON.stringify(allUsers)); 
+       console.log ('Hochgesendete Daten', allUsers)
 }
 
 

@@ -6,11 +6,11 @@
     <link rel="icon" href="./assets/img/favicon_light.svg">
     <title title="Join">Join</title>
     <title>Join</title>
-    <script src="./js/variables.js"></script>
     <script src="./js/storage.js"></script>
+    <script src="./js/variables.js"></script>
     <script src="./js/signUp.js"></script>
     <script src="./js/script.js"></script>
-    <!-- <script src="/js/register.js"></script> -->
+    <script src="/js/register.js"></script>
 
     <link rel="stylesheet" href="./css/PageOneLogInSignUp.css">
     <link rel="stylesheet" href="./css/style.css">
@@ -18,47 +18,46 @@
 
 </head>
 <body onload="init()">        
-        <section class="sectionPageOneLogInSignUp">
-            <div class="form-box formBoxSignUp">
-                <a class="back-arrow" href="index.html"></a>
-                <div class="form-value form-valueSignUp">
-                    <form class="formSignUp" id="signupForm" onsubmit="checkPasswords(); return false;">
-                        <h1 class="h1PageOneLogInSignUp">Sign up</h1>
-                        <div class="inputbox">
-                            <input type="name" id="user" class="input person inputPageOneLogInSignUp" placeholder="Name" required>
+    <section class="sectionPageOneLogInSignUp">
+        <div class="form-box formBoxSignUp">
+            <a class="back-arrow" href="index.html"></a>
+            <div class="form-value form-valueSignUp">
+                <form class="formSignUp" id="signupForm" onsubmit="register(); return false;">
+                    <h1 class="h1PageOneLogInSignUp">Sign up</h1>
+                    <div class="inputbox">
+                        <input type="name" id="user" class="input person inputPageOneLogInSignUp" placeholder="Name" required>
+                    </div>
+                    <div class="inputbox formBoxSignUp">
+                        <input type="email" id="email" class="input mail inputPageOneLogInSignUp" placeholder="Email" required>
+                    </div>
+                    <div class="inputbox">
+                        <input type="password" minlength="8" id="passwordInput" class="input lock inputPageOneLogInSignUp" placeholder="Password" required>
+                        <span class="visibility-icon" onclick="togglePasswordVisibility('passwordInput')">
+                            <img src="./assets/img/visibility.svg" alt="Visibility Icon">
+                        </span>
+                    </div>
+                    <div class="inputbox" id="confirm">
+                        <input type="password" minlength="8" id="passwordInputConfirm" class="input lock inputPageOneLogInSignUp" placeholder="Confirm Password" required>
+                        <span class="visibility-icon" onclick="togglePasswordVisibility('passwordInputConfirm')">
+                            <img src="./assets/img/visibility.svg" alt="Visibility Icon">
+                        </span>
+                    </div>
+                    <span class="alert al" id="alert"></span>
+                    <div class="position positionSignIn">
+                        <div class="checkboxText checkboxTextSignUp">
+                            <input type="checkbox" id="checkbox" class="checkbox inputPageOneLogInSignUp dNone" onchange="toggleSubmitButton()">
+                            <label for="checkbox"></label>
+                            <span class="checkboxTextSpan">I accept the <a class="underline aPrivacyPolicy" href="privacyPolicy.html">Privacy policy</a></span>
                         </div>
-                        <div class="inputbox formBoxSignUp">
-                            <input type="email" id="email" class="input mail inputPageOneLogInSignUp" placeholder="Email" required>
-                        </div>
-                        <div class="inputbox">
-                            <input type="password" minlength="8" id="passwordInput" class="input lock inputPageOneLogInSignUp" placeholder="Password" required>
-                            <span class="visibility-icon" onclick="togglePasswordVisibility('passwordInput')">
-                                <img src="./assets/img/visibility.svg" alt="Visibility Icon">
-                            </span>
-                           </div>
-                        <div class="inputbox" id="confirm">
-                            <input type="password" minlength="8" id="passwordInputConfirm" class="input lock inputPageOneLogInSignUp" placeholder="Confirm Password" required>
-                            <span class="visibility-icon" onclick="togglePasswordVisibility('passwordInputConfirm')">
-                                <img src="./assets/img/visibility.svg" alt="Visibility Icon">
-                            </span>
-                        </div>
-                        <span class="alert al" id="alert"></span>
-                        <div class="position positionSignIn">
-                            <div class="checkboxText checkboxTextSignUp">
-                                <input type="checkbox" id="checkbox" class="checkbox inputPageOneLogInSignUp" onchange="toggleSubmitButton()" style="display: none;">
-                                <label for="checkbox"></label>
-                                <span class="checkboxTextSpan">I accept the <a class="underline aPrivacyPolicy" href="privacyPolicy.html">Privacy policy</a></span>
-                            </div>
-                            <div>
-                                <form action="index.html">
-                                <button class="button buttonFilled buttonSignIn" id="registerBtn" disabled title="Accept privacyPolicy first, please.">Sign up</button>
-                            </form>
+                        <div>
+                            <button type="submit" class="button buttonFilled buttonSignIn" id="registerBtn" disabled title="Accept privacyPolicy first, please.">Sign up</button>
                         </div>
                     </div>  
                 </form>
             </div>
         </div>
     </section>
+    
     <div class="slideInBG" id="slideInBG">
     <div class="slideIn">You Signed Up successfully</div>
     </div>
