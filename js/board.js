@@ -56,12 +56,16 @@ function plusButtonToDefault(plusButton) {
 }
 
 /**
- * This function takes away the .dNone class from the div 'overlayAddTaskBackground'. The overlay with animation is displayed.
+ * This function takes away the 'dNone' class from the div 'overlayAddTaskBackground'. The overlay with animation is displayed.
  */
 function openOverlayAddTask(){
     document.getElementById('overlayAddTaskBackground').classList.remove('dNone');
 }
 
+
+/**
+ * This function adds class 'removing' to 'overlayAddTask'. This will display the sliding out animation. After the animation plays, the div 'overlayAddTaskBackground' is given the class .dNone. 'removing' is then removed again.
+ */
 function closeOverlayAddTask(){
     let overlayAddTaskBackground = document.getElementById('overlayAddTaskBackground');
     let overlayAddTask = document.getElementById('overlayAddTask');
