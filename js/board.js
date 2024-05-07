@@ -36,12 +36,18 @@ function findTaskDefault(){
 function plusButtonToDefault(plusButton) {
     let rect = plusButton.querySelector('rect');
     let paths = plusButton.querySelectorAll('path');
+    rect.setAttribute('stroke', '#091931');
+    paths.forEach(function(path) {
+        path.setAttribute('stroke', '#091931');
+    });
+
     setTimeout(function() {
         rect.setAttribute('stroke', '#2A3647');
         paths.forEach(function(path) {
             path.setAttribute('stroke', '#2A3647');
         });
-    }, 300);
+    
+    }, 10);
 }
 
 function openOverlayAddTask(){
@@ -49,5 +55,11 @@ function openOverlayAddTask(){
 }
 
 function closeOverlayAddTask(){
-    document.getElementById('overlayAddTaskBackground').classList.add('dNone');
+    let overlayAddTaskBackground = document.getElementById('overlayAddTaskBackground');
+    let overlayAddTask = document.getElementById('overlayAddTask');
+    overlayAddTask.classList.add('removing');
+    setTimeout(function() {
+        overlayAddTaskBackground.classList.add('dNone');
+        overlayAddTask.classList.remove('removing');
+    }, 100); // Dauer der Animation in Millisekunden
 }

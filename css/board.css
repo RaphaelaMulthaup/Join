@@ -112,7 +112,7 @@
 
 .headlineStatusTasks svg:active path,
 .headlineStatusTasks svg:active rect{
-    stroke: red;
+    stroke: #091931;
     transition: stroke 300ms ease-out;
 }
 
@@ -146,6 +146,21 @@
     animation-name: addOverlay;
     animation-duration: 100ms;
     animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+
+.overlayAddTask.removing {
+    animation-name: removeOverlay;
+}
+
+@keyframes removeOverlay {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(100vw, 0);
+    }
 }
 
 .headlineAddTaskOverlay{
