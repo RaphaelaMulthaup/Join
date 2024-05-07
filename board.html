@@ -102,8 +102,8 @@
         <div w3-include-html="./assets/templates/legalNotice.html"></div>
         <div w3-include-html="./assets/templates/help.html"></div>
     </div>
-        <div class="overlayBackground dNone" id="overlayAddTaskBackground">
-            <div class="overlayAddTask" id="overlayAddTask">
+        <div class="overlayBackground dNone" id="overlayAddTaskBackground" onclick="closeOverlayAddTask()">
+            <div class="overlayAddTask" id="overlayAddTask" onclick="stayOpenOrActiv(event)">
                 <div class="headlineAddTaskOverlay">
                     <h1>Add Task</h1>
                     <div class="addTaskOverlayCloseButton" onclick="closeOverlayAddTask()">

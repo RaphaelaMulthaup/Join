@@ -103,7 +103,6 @@ function openAndCloseSubMenu(circleInitials){
         }
     }
 
-
     document.getElementById('subMenu').classList.toggle('dNone');
     subMenuOpen =!subMenuOpen;
 }

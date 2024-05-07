@@ -1,4 +1,5 @@
 let findTaskFocus = false;
+let overlayAddTaskOpen = false;
 
 /**
  * This funktion sets clickt elements back to default.
@@ -56,10 +57,17 @@ function plusButtonToDefault(plusButton) {
 }
 
 /**
- * This function takes away the 'dNone' class from the div 'overlayAddTaskBackground'. The overlay with animation is displayed.
+ * This function takes away the 'dNone' class from the div 'overlayAddTaskBackground'. The overlay with animation is displayed.  Beforehand, it is checked whether something else is open or activated that should be closed beforehand.
  */
 function openOverlayAddTask(){
+    if (subMenuOpen) {
+        closeSubMenu();
+    }
+    if (findTaskFocus) {
+        findTaskDefault();
+    }
     document.getElementById('overlayAddTaskBackground').classList.remove('dNone');
+    overlayAddTaskOpen = true;
 }
 
 
@@ -74,4 +82,5 @@ function closeOverlayAddTask(){
         overlayAddTaskBackground.classList.add('dNone');
         overlayAddTask.classList.remove('removing');
     }, 100); // Dauer der Animation in Millisekunden
+    overlayAddTaskOpen = false;
 }
