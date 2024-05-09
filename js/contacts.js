@@ -17,8 +17,11 @@ async function init() {
 async function loadusers() {
     try {
         users = JSON.parse(await getItem('users'));
+        users = await addInitialsToUsersAndSave(users);
+        return users;
     } catch (error) {
         console.error("Fehler beim Laden der Benutzerdaten:", error);
+        return [];
     }
 }
 
@@ -58,6 +61,10 @@ function loadFirstLetter(indexLetter) {
 function renderContactContainer(user) {
     const content = document.getElementById('contactInput');
     content.innerHTML += `
+        <div class="contactContainer " id="contactContainer${user.index}" onclick="openContact(${user.index})">
+            <section class="circle" id="circle${user.index}" style="background-color: ${user.color};">
+                <div class="initial">${user.initials}</div>
+            </section>
             <div class="userContainer">
                 <div class="name" id="name${user.index}">${user.name}</div-white>
                 <div class="email">${user.email}</div>
@@ -66,8 +73,22 @@ function renderContactContainer(user) {
     `;
 }
 
+document.addEventListener('click', function(event) {
+    const contactContainers = document.querySelectorAll('.contactContainer');
+    contactContainers.forEach(container => {
+        const isActive = container.contains(event.target);
+        container.style.backgroundColor = isActive ? '#2A3647' : '';
+        container.style.color = isActive ? '#ffffff' : '';
+    });
+});
+
+//**
+// * 
+// * @param {initials} users 
+// * @returns firstTwoInitials //not working now
+// */
+const initials = [];
 function extractInitials(users) {
-    const initials = [];
     for (let i = 1; i <= 2 && i < users.length; i++) {
         const name = users[i].name;
         if (name) {
@@ -78,30 +99,6 @@ function extractInitials(users) {
     return initials;
 }
 
-// Beispielaufruf der Funktion
-const firstTwoInitials = extractInitials(users);
-console.log(firstTwoInitials);
-
-// Funktion zur Generierung einer Farbe basierend auf dem Benutzernamen
-function generateColor(username) {
-    // Konvertiere den Benutzernamen in eine Zahl
-    let num = 0;
-    for (let i = 0; i < username.length; i++) {
-        num += username.charCodeAt(i);
-    }
-    // Verwende die Zahl, um eine Farbe zu generieren
-    const hue = num % 360; // Wert zwischen 0 und 360 für den Farbton
-    const saturation = 70; // Sättigung
-    const lightness = 60; // Helligkeit
-    return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
-}
-
-// Beispielaufruf der Funktion mit einem Benutzernamen
-const username = "Anna";
-const userColor = generateColor(username);
-console.log(userColor); // Gibt eine Farbe basierend auf dem Benutzernamen aus
-
-
 async function saveNewUser(newUser) {
     const emailExists = await emailExists(newUser.email);
 
@@ -109,10 +106,30 @@ async function saveNewUser(newUser) {
         console.log("E-Mail existiert bereits.");
         // Hier kannst du entsprechend reagieren, z.B. eine Fehlermeldung anzeigen
     } else {
-        // Hier fügst du den neuen Benutzer hinzu oder führe andere Aktionen aus
         await setItem(newUser);
         console.log("Neuer Benutzer wurde erfolgreich angelegt.");
     }
+}
+
+
+
+async function addInitialsToUserAndSave(user) {
+    const [firstName, lastName] = user.name.split(" ").map(name => name.charAt(0).toUpperCase());
+    user.initials = firstName + lastName;
+
+    try {
+        console.log('users', users);
+        await setItem(`initials_${user.name}`, user.initials);
+    } catch (error) {
+        console.error(`Fehler beim Speichern der Initialen für Benutzer ${user.name}:`, error);
+    }
+}
+
+async function addInitialsToUsersAndSave(users) {
+    for (const user of users) {
+        await addInitialsToUserAndSave(user);
+    }
+    return users;
 }
 
 function emailExists(existingemail) { 

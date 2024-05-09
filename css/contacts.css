@@ -32,6 +32,20 @@
   background-color: #FFFFFF;
 }
 
+.contactContainer{
+  padding: 16px;
+  border-radius: 16px;
+}
+
+.contactContainer:hover{
+  background-color: #80808040;
+}
+
+.contactContainer:active{
+  background-color: #2a3647;
+  color: white;
+}
+
 .contactSlide {
   border-radius: 16px;
   background-color: white;
