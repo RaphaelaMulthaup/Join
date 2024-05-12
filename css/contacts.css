@@ -35,6 +35,8 @@
 .contactContainer{
   padding: 16px;
   border-radius: 16px;
+  display: flex;
+  align-items: center;
 }
 
 .contactContainer:hover{
@@ -53,6 +55,22 @@
   top: 20vh;
   margin-inline: 8vmax;
   animation-fill-mode: forwards;
+}
+
+.circle{
+  padding: 10px;
+  border-radius: 50%;
+  color: white;
+  margin-right: 16px;
+}
+
+.bgColorCircle{
+  background-color: coral;
+}
+
+.initial{
+  width: 26px;
+    text-align: center;
 }
 
 .addContact {
