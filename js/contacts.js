@@ -21,6 +21,7 @@ async function loadusers() {
     try {
         users = JSON.parse(await getItem('users'));
         users = await addInitialsToUsersAndSave(users);
+        // vielleicht funktioniert das speichern der Daten wenn ich hier die setItem anwende?
         return users;
     } catch (error) {
         console.error("Fehler beim Laden der Benutzerdaten:", error);
