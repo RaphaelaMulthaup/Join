@@ -84,3 +84,29 @@ function closeOverlayAddTask(){
     }, 100); // Dauer der Animation in Millisekunden
     overlayAddTaskOpen = false;
 }
+
+/*tasks*/
+
+async function loadBoard(){
+    let tasks = await loadData("/tasks");
+    console.log(tasks);
+
+    for (let i = 0; i < tasks.length; i++) {
+        let task = tasks[i];
+        if (task.status == "to do") {
+            document.getElementById('tasksToDo') += htmlMiniCard(task);
+        } else if (task.status == "in progress") {
+            
+        } else if (task.status == "await feedback") {
+            
+        } else if (task.status == "done") {
+            
+        }
+    }
+}
+
+function htmlMiniCard(task){
+    return /*html*/ `
+        
+    `;
+}

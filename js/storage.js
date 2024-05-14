@@ -34,11 +34,14 @@ function onloadFunc() {
 
 const BASE_URL = "https://remotestorage-d71ae-default-rtdb.europe-west1.firebasedatabase.app/";
 
+/* Ich habe die Funktion mal auskommentiert, weil ich eine fast identische (mit gleichem Namen) schreiben möchte, die wir dann vielleicht global nutzen können. siehe Zeile 116
+
 async function loadData(path = "") {
     let response = await fetch(BASE_URL + path + ".json");
     let responseToJson = await response.json();
     console.log('welcher log?',responseToJson);
 }
+*/
 
 // wird hinzugefügt mit einer einzigartigen ID. Es wird nichts ersetzt
 async function postData(path = "", data = {}) {
@@ -88,8 +91,11 @@ async function putData(path = "", data = {}) {
 
 const firebaseUrl = "https://join-2fe35-default-rtdb.europe-west1.firebasedatabase.app/";
 
+/**
+ * This function loads the example tasks into the database.
+ */
 async function putTasksToDatabase(){
-    let response = await fetch("../tasks.json");
+    let response = await fetch("../json/tasks.json");
     let data = await response.json();
 
     await fetch(firebaseUrl + "/tasks" + ".json", {
@@ -99,4 +105,15 @@ async function putTasksToDatabase(){
         },
         body: JSON.stringify(data)
     });
+}
+
+/**
+ * This function loads data whith are saved in the database and returnes them.
+ * 
+ * @param {string} path The deposit under which the data should be loaded.
+ * @returns the data
+ */
+async function loadData(path=""){
+    let response = await fetch(firebaseUrl + path + ".json");
+    return  responseToJson = await response.json();
 }
