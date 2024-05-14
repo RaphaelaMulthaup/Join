@@ -88,12 +88,12 @@ async function putData(path = "", data = {}) {
 
 const firebaseUrl = "https://join-2fe35-default-rtdb.europe-west1.firebasedatabase.app/";
 
-async function postTasksToDatabase(path=""){
+async function putTasksToDatabase(){
     let response = await fetch("../tasks.json");
     let data = await response.json();
-    
-    await fetch(firebaseUrl + path + ".json", {
-        method: "POST",
+
+    await fetch(firebaseUrl + "/tasks" + ".json", {
+        method: "PUT",
         header: {
             "Content-Type": "application/json",
         },
