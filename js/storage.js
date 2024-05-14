@@ -82,3 +82,21 @@ async function putData(path = "", data = {}) {
 
     // return responseToJson = await response.json();
 }
+
+
+/*Raphaelas Versuche*/
+
+const firebaseUrl = "https://join-2fe35-default-rtdb.europe-west1.firebasedatabase.app/";
+
+async function postTasksToDatabase(path=""){
+    let response = await fetch("../tasks.json");
+    let data = await response.json();
+    
+    await fetch(firebaseUrl + path + ".json", {
+        method: "POST",
+        header: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data)
+    });
+}
