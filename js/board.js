@@ -87,48 +87,64 @@ function closeOverlayAddTask(){
 
 /*tasks*/
 
+/**
+ * This function calls the 'loadBoard' function after the templates have been loaded.
+ */
+async function loadBoardPage(){
+    await loadPage('menuItemBoard');
+    loadBoard();
+}
+
+
 async function loadBoard(){
     let tasks = await loadData("/tasks");
     console.log(tasks);
 
     for (let i = 0; i < tasks.length; i++) {
         let task = tasks[i];
-        if (task.status == "to do") {
-            document.getElementById('tasksToDo').innerHTML += htmlMiniCard(task, i);
-        } else if (task.status == "in progress") {
-            document.getElementById('tasksInProgress').innerHTML += htmlMiniCard(task, i);
-        } else if (task.status == "await feedback") {
-            document.getElementById('tasksAwaitFeedback').innerHTML += htmlMiniCard(task, i);
-        } else if (task.status == "done") {
-            document.getElementById('tasksDone').innerHTML += htmlMiniCard(task, i);
+        checkStatus(task, i);
+        shortenDescription(i);
+        colorCategory(task, i);
+        if (task.subtasks) {
+            let miniCard = document.getElementById('miniCard' + i);
+            let divChartSubtasks = chartSubtasks(i);
+            miniCard.insertBefore(divChartSubtasks, miniCard.querySelector('.miniCardGraphically'));
         }
     }
-
-    // Finde das DOM-Element für die Trunkierung
-let textMiniCard = document.getElementById('.truncate');
-const span = truncateDiv.querySelector('span');
-
-// Maximale Zeilenhöhe (basierend auf der Zeilenhöhe)
-const lineHeight = parseInt(window.getComputedStyle(span).lineHeight);
-const maxLines = 2;
-
-// Berechne die maximale Höhe
-const maxHeight = lineHeight * maxLines;
-
-// Kürze den Text, um höchstens zwei Zeilen umfassen zu können
-while (span.offsetHeight > maxHeight) {
-    span.textContent = span.textContent.replace(/\W*\s(\S)*$/, '...');
 }
 
+/**
+ * This function checks the status of the task and inserts it into the appropriate place in the board.
+ * 
+ * @param {json} task The task whose status is checked.
+ * @param {index} i The index of the task in the tasks json.
+ */
+function checkStatus(task, i){
+    if (task.status == "to do") {
+        document.getElementById('tasksToDo').innerHTML += htmlMiniCard(task, i);
+    } else if (task.status == "in progress") {
+        document.getElementById('tasksInProgress').innerHTML += htmlMiniCard(task, i);
+    } else if (task.status == "await feedback") {
+        document.getElementById('tasksAwaitFeedback').innerHTML += htmlMiniCard(task, i);
+    } else if (task.status == "done") {
+        document.getElementById('tasksDone').innerHTML += htmlMiniCard(task, i);
+    }
 }
 
+/**
+ * This function creates a mini card and returnes it.
+ * 
+ * @param {json} task The task whose status is checked.
+ * @param {index} i The index of the task in the tasks json.
+ * @returns the mini card
+ */
 function htmlMiniCard(task, i){
     return /*html*/ `
-        <div class="miniCard">
-            <div class="category">${task.category}</div>
-            <div class="textMiniCard" id="textMiniCard${i}">
+        <div class="miniCard" id="miniCard${i}">
+            <div class="category" id="category${i}">${task.category}</div>
+            <div class="textMiniCard">
                 <h6 class="title">${task.title}</h6>
-                <span class="description">${task.description}</span>
+                <span class="description" id="description${i}">${task.description}</span>
             </div>
             <div class="miniCardGraphically">
                 <div class="initialsMiniCardGraphically"></div>
@@ -137,3 +153,40 @@ function htmlMiniCard(task, i){
         </div>
     `;
 }
+
+function colorCategory(task, i){
+    let category = document.getElementById('category' + i);
+    if (task.category == "User Story") {
+        category.style.backgroundColor = '#0038FF';
+    } else if (task.category == "Technical Task") {
+        category.style.backgroundColor = '#1FD7C1';
+    }
+}
+
+/**
+ * This function shortens the description to a maximum of two lines and adds three points.
+ * 
+ * @param {index} i The index of the task in the tasks json.
+ */
+function shortenDescription(i){
+    let description = document.getElementById('description' + i);
+    let maxLineHeight = 40;
+
+    while (description.offsetHeight > maxLineHeight) {
+        description.textContent = description.textContent.replace(/\W*\s(\S)*$/, '...');
+    }
+}
+
+function chartSubtasks(i){
+    let chartSubtasks = document.createElement('div');
+
+    chartSubtasks.innerHTML = /*html*/ `
+        <div class="progressBar">
+            <div class="progress"></div>
+        </div>
+  
+    `;
+
+    return chartSubtasks;
+}
+

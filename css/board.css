@@ -116,6 +116,12 @@
     transition: stroke 300ms ease-out;
 }
 
+.tasks{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
 .noTasksExisting{
     width: 100%;
     height: 48px;
@@ -206,8 +212,36 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
+    overflow: hidden;
+    position: relative;
+}
+
+.textMiniCard::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding-left: 10px; /* Abstand zwischen dem Text und den Punkten */
+    background: white; /* Hintergrundfarbe anpassen, um den Text zu überdecken */
 }
 
 .description{
     color: #A8A8A8;
 }
+
+.progressBar{
+    width: 100%;
+    height: 30px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+  
+.progress{
+    height: 100%;
+    background-color: #4caf50;
+    border-radius: 5px;
+    width: 50%;
+    transition: width 0.5s ease; /* Animationseffekt */
+}
+  
+
