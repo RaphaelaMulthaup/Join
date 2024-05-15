@@ -181,3 +181,33 @@
 .addTaskOverlayCloseButton:hover{
     background-color: #EEEEEE;
 }
+
+/*mini Card*/
+
+.miniCard{
+    background-color: white;
+    border-radius: 24px;
+    box-shadow: 0px 0px 10px 3px #00000014;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.category{
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    padding: 4px 16px;
+    width: fit-content;
+}
+
+.textMiniCard{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.description{
+    color: #A8A8A8;
+}

@@ -94,19 +94,46 @@ async function loadBoard(){
     for (let i = 0; i < tasks.length; i++) {
         let task = tasks[i];
         if (task.status == "to do") {
-            document.getElementById('tasksToDo') += htmlMiniCard(task);
+            document.getElementById('tasksToDo').innerHTML += htmlMiniCard(task, i);
         } else if (task.status == "in progress") {
-            
+            document.getElementById('tasksInProgress').innerHTML += htmlMiniCard(task, i);
         } else if (task.status == "await feedback") {
-            
+            document.getElementById('tasksAwaitFeedback').innerHTML += htmlMiniCard(task, i);
         } else if (task.status == "done") {
-            
+            document.getElementById('tasksDone').innerHTML += htmlMiniCard(task, i);
         }
     }
+
+    // Finde das DOM-Element für die Trunkierung
+let textMiniCard = document.getElementById('.truncate');
+const span = truncateDiv.querySelector('span');
+
+// Maximale Zeilenhöhe (basierend auf der Zeilenhöhe)
+const lineHeight = parseInt(window.getComputedStyle(span).lineHeight);
+const maxLines = 2;
+
+// Berechne die maximale Höhe
+const maxHeight = lineHeight * maxLines;
+
+// Kürze den Text, um höchstens zwei Zeilen umfassen zu können
+while (span.offsetHeight > maxHeight) {
+    span.textContent = span.textContent.replace(/\W*\s(\S)*$/, '...');
 }
 
-function htmlMiniCard(task){
+}
+
+function htmlMiniCard(task, i){
     return /*html*/ `
-        
+        <div class="miniCard">
+            <div class="category">${task.category}</div>
+            <div class="textMiniCard" id="textMiniCard${i}">
+                <h6 class="title">${task.title}</h6>
+                <span class="description">${task.description}</span>
+            </div>
+            <div class="miniCardGraphically">
+                <div class="initialsMiniCardGraphically"></div>
+                <div class="prio"></div>
+            </div>
+        </div>
     `;
 }
