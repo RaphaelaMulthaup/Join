@@ -69,7 +69,7 @@
 }
 
 .initial{
-  width: 26px;
+  width: 21px;
     text-align: center;
 }
 
@@ -274,7 +274,7 @@ input:valid ~ label {
 }
 
 .contacts {
-  width: clamp(20em, 2vw, 24px);
+  /* width: clamp(20em, 2vw, 24px); */
   height: 90vh;
   margin: 0 auto;
   background: #fff;

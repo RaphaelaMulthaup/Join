@@ -1,0 +1,83 @@
+[
+    {
+        "id": 1,
+        "name": "Ada Lovelace",
+        "email": "lovelace.ada@example.com",
+        "password": "12341234",
+        "initials": "AL",
+        "color": "#2573e2",
+        "phone": "+44123456789"
+    },
+    {
+        "id": 2,
+        "name": "Charles Darwin",
+        "email": "darwin.charles@example.com",
+        "password": "12341234",
+        "initials": "CD",
+        "color": "#9c59f3",
+        "phone": "+44123456789"
+    },
+    {
+        "id": 3,
+        "name": "Franz NeuBer",
+        "email": "franz.neuber@test.com",
+        "password": "12341234",
+        "initials": "FN",
+        "color": "#ff7f50",
+        "phone": "+43123456789"
+    },
+    {
+        "id": 4,
+        "name": "Isaac Newton",
+        "email": "newton.isaac@example.com",
+        "password": "12341234",
+        "initials": "IN",
+        "color": "#ae667",
+        "phone": "+44123456789"
+    },
+    {
+        "id": 5,
+        "name": "Leonardo da Vinci",
+        "email": "davinci.leonardo@example.com",
+        "password": "12341234",
+        "initials": "LD",
+        "color": "#3423be",
+        "phone": "+44123456789"
+    },
+    {
+        "id": 6,
+        "name": "Marie Curie",
+        "email": "curie.marie@example.com",
+        "password": "12341234",
+        "initials": "MC",
+        "color": "#ae868f",
+        "phone": "+44123456789"
+    },
+    {
+        "id": 7,
+        "name": "Max Planck",
+        "email": "planck.max@example.com",
+        "password": "12341234",
+        "initials": "MP",
+        "color": "#44fde",
+        "phone": "+44123456789"
+    },
+    {
+        "id": 8,
+        "name": "Nikola Tesla",
+        "email": "tesla.nikola@example.com",
+        "password": "12341234",
+        "initials": "NT",
+        "color": "#3aec10",
+        "phone": "+44123456789"
+    },
+    {
+        "id": 9,
+        "name": "Stephen Hawking",
+        "email": "hawking.stephen@example.com",
+        "password": "12341234",
+        "initials": "SH",
+        "color": "#b8857",
+        "phone": "+1123456789"
+    }
+]

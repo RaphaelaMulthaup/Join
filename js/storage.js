@@ -16,75 +16,13 @@ async function getItem(key) {
     });
 }
 
-//work in progress
 function onloadFunc() {
-    loadData("");
-    // loadData("/name"); // zum ausgeben der Daten
-    // postData("/name", {
-    //     "banana": "rama",
-    //     "bananas": "ramas"
-    // })
-    // deleteData("/-Nxkq291cFI_P_KJBPBd");
-    putData("/users/user", {
-        "color": "klecks",
-        "name": "blunt"
-    });
-    // postData()
+    loadData("/users"); // zum ausgeben der Daten
+
 }
 
+// Daten(spiel)platz Franz
 const BASE_URL = "https://remotestorage-d71ae-default-rtdb.europe-west1.firebasedatabase.app/";
-
-/* Ich habe die Funktion mal auskommentiert, weil ich eine fast identische (mit gleichem Namen) schreiben möchte, die wir dann vielleicht global nutzen können. siehe Zeile 116
-
-async function loadData(path = "") {
-    let response = await fetch(BASE_URL + path + ".json");
-    let responseToJson = await response.json();
-    console.log('welcher log?',responseToJson);
-}
-*/
-
-// wird hinzugefügt mit einer einzigartigen ID. Es wird nichts ersetzt
-async function postData(path = "", data = {}) {
-    let response = await fetch(BASE_URL + path + ".json", {
-        method: "POST",
-        header: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data)
-    });
-
-    console.log('data', data);
-
-    setTimeout(() => {
-        console.log('userData', users);
-    }, 3000);
-
-    return await response.json();
-}
-
-async function deleteData(path = "") {
-    let response = await fetch(BASE_URL + path + ".json", {
-        method: "DELETE",
-    });
-
-    return responseToJson = await response.json();
-}
-
-// überschreibt alles was gleich heißt
-async function putData(path = "", data = {}) {
-    setTimeout(() => {
-    let response = fetch(BASE_URL + path + ".json", {
-        method: "PUT",
-        header: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data)
-    }, 3000);
-    console.log('userData', users);
-    });
-
-    // return responseToJson = await response.json();
-}
 
 
 /*Raphaelas Versuche*/
@@ -95,10 +33,10 @@ const firebaseUrl = "https://join-2fe35-default-rtdb.europe-west1.firebasedataba
  * This function loads the example tasks into the database.
  */
 async function putTasksToDatabase(){
-    let response = await fetch("../json/tasks.json");
+    let response = await fetch("../json/users.json");
     let data = await response.json();
 
-    await fetch(firebaseUrl + "/tasks" + ".json", {
+    await fetch(BASE_URL + "/users" + ".json", {
         method: "PUT",
         header: {
             "Content-Type": "application/json",
@@ -117,3 +55,26 @@ async function loadData(path=""){
     let response = await fetch(firebaseUrl + path + ".json");
     return  responseToJson = await response.json();
 }
+
+async function putCurrentUsersToDatabase(){
+    let users = postData;
+
+    await fetch(BASE_URL + "/currentUser" + ".json", { // Der Datenpfad in der Firebase-Datenbank kann hier angepasst werden
+        method: "PUT",
+        header: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(users)
+    });
+}
+
+async function postData(path = "", data = {}) {
+    let response = await fetch(BASE_URL + path + ".json", {
+      method: "POST",
+      header: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    return (responseToJson = await response.json());
+  }

@@ -1,75 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="./assets/img/favicon_light.svg">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./assets/img/favicon_light.svg" />
     <title>Document</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/fonts.css">
-    <link rel="stylesheet" href="./css/templates.css">
-    <link rel="stylesheet" href="./css/contacts.css">
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/fonts.css" />
+    <link rel="stylesheet" href="./css/templates.css" />
+    <link rel="stylesheet" href="./css/contacts.css" />
     <script src="./js/variables.js"></script>
     <script src="./js/storage.js"></script>
     <script src="./js/script.js"></script>
     <script src="./js/contacts.js"></script>
-</head>
-<body class="bodyMainpages" onload="loadPage('menuItemContacts'), init(), onloadFunc()" onclick="closeSubMenu()">
+  </head>
+  <body
+    class="bodyMainpages"
+    onload="loadPage('menuItemContacts'), init(), onloadFunc()"
+    onclick="closeSubMenu()"
+  >
     <div class="overlayBackground d-none" id="contactSlideBG">
       <div class="contactSlide addContact" id="contactSlide">
         <div class="contactGroup">
-            <div class="left" id="">
-                <img src="./assets/img/favicon_light.svg" alt="">
-                <h1>Add contact</h1>
-                <h2>Tasks are better with a team!</h2>
+          <div class="left" id="">
+            <img src="./assets/img/favicon_light.svg" alt="" />
+            <h1>Add contact</h1>
+            <h2>Tasks are better with a team!</h2>
+          </div>
+          <div class="middel" id="">
+            <img class="ellipse" src="./assets/img/ellipse.svg" alt="" />
+            <img class="person" src="./assets/img/personWhite.svg" alt="" />
+          </div>
+          <div class="right" id="">
+            <div class="slideBack" id="slideBack" onclick="closeAddContact()">
+              <img src="./assets/img/close.svg" alt="closeButton" />
             </div>
-            <div class="middel" id="">
-                <img class="ellipse" src="./assets/img/ellipse.svg" alt="">
-                <img class="person" src="./assets/img/personWhite.svg" alt="">
+            <div class="inputbox">
+              <input
+                type="name"
+                id="user"
+                class="input personInput"
+                placeholder="Name"
+              />
             </div>
-            <div class="right" id="">
-                <div class="slideBack " id="slideBack" onclick="closeAddContact()">
-                    
-                    <img src="./assets/img/close.svg" alt="closeButton">
-                </div>
-                <div class="inputbox">
-                    <input type="name" id="user" class="input personInput" placeholder="Name" >
-                </div>
-                <div class="inputbox">
-                    <input type="email" id="email" class="input mail" placeholder="Email">
-                </div>
-                <div class="inputbox">
-                    <input type="tel" id="phone" class="input phone" placeholder="Phone">
-                </div>
-                <div>
-                    <button class="button buttonEmpty"  onclick="closeAddContact()">Cancel  <span class="closeX"></span>
-                    </button>
-                    <button class="button buttonFilled" onclick="registerContact()">Create contact <img src="./assets/img/checkWhite.svg" style="padding-left: 10px;" alt=""></button>
-                </div>
-                <div class="" id="contactList">
-
-                </div>
+            <div class="inputbox">
+              <input
+                type="email"
+                id="email"
+                class="input mail"
+                placeholder="Email"
+              />
             </div>
+            <div class="inputbox">
+              <input
+                type="tel"
+                id="phone"
+                class="input phone"
+                placeholder="Phone"
+              />
+            </div>
+            <div>
+              <button class="button buttonEmpty" onclick="closeAddContact()">
+                Cancel <span class="closeX"></span>
+              </button>
+              <button class="button buttonFilled" onclick="registerContact()">
+                Create contact
+                <img
+                  src="./assets/img/checkWhite.svg"
+                  style="padding-left: 10px"
+                  alt=""
+                />
+              </button>
+            </div>
+            <div class="" id="contactList"></div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
     <div w3-include-html="./assets/templates/menu.html"></div>
-    <div class="mainpagesRightSide ">
-        <div w3-include-html="./assets/templates/header.html"></div>
-        <main class="mainMainpages mainContact">
-            <div id="subMenu" class="dNone" w3-include-html="./assets/templates/subMenu.html" onclick="stayOpenOrActiv(event)"></div>
-            <div class="contacts" id="contacts">
-                <div id="contactSide">
-                    <Button class="addButton buttonFilled" id="addContact" onclick="addContact()">Add new contact <img src="./assets/img/personAdd.svg" alt=""> </Button>
-                </div>
-                <div class="contactInput" id="contactInput">
+    <div class="mainpagesRightSide">
+      <div w3-include-html="./assets/templates/header.html"></div>
+      <main class="mainMainpages mainContact">
+        <div
+          id="subMenu"
+          class="dNone"
+          w3-include-html="./assets/templates/subMenu.html"
+          onclick="stayOpenOrActiv(event)"
+        ></div>
+        <div class="contacts" id="contacts">
+          <div id="contactSide">
+            <button
+              class="addButton buttonFilled"
+              id="addContact"
+              onclick="addContact()"
+            >
+              Add new contact <img src="./assets/img/personAdd.svg" alt="" />
+            </button>
+          </div>
+          <div class="contactInput" id="contactInput"></div>
+        </div>
 
-                </div>
-            </div>
-        </main>
-        <div w3-include-html="./assets/templates/privacyPolicy.html"></div>
-        <div w3-include-html="./assets/templates/legalNotice.html"></div>
-        <div w3-include-html="./assets/templates/help.html"></div>
+      <div id="contactBox">
+        <div class="contact-box-header">
+          <h2>Contacts</h2>
+          <div class="blue-vertical-line-contacts"></div>
+          <p>Better with a team</p>
+        </div>
+        <div id="contact-container" class="contact-container">
+          <div id="contactBoxName"></div>
+          <div id="contactInformation"></div>
+        </div>
+      </div>
+    </main>
+      <div w3-include-html="./assets/templates/privacyPolicy.html"></div>
+      <div w3-include-html="./assets/templates/legalNotice.html"></div>
+      <div w3-include-html="./assets/templates/help.html"></div>
     </div>
-</body>
+  </body>
 </html>

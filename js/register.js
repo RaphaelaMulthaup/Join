@@ -13,7 +13,7 @@ async function init() {
  */
 async function loadusers(){
  
-    users = JSON.parse(await getItem('users'));
+    users = await loadData("/users");
     currentUser = JSON.parse(await getItem('currentUser'));
     checkboxValue = JSON.parse(await getItem('checkboxValue'));
     fillInValues(); //if else zur ausgabe schreiben
@@ -45,8 +45,7 @@ async function logIn(){
  */
 async function saveCurrentUser(){
     var checkboxValue = rememberMe();
-    await setItem('currentUser', JSON.stringify({}));
-    await setItem('currentUser', JSON.stringify(currentUser));
+    await putCurrentUsersToDatabase("/currentUser",currentUser);
     await setItem('checkboxValue', JSON.stringify(checkboxValue));
     console.log ('Hochgesendete Daten', currentUser, 'checkbox-Wert', checkboxValue);
 }

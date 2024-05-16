@@ -1,10 +1,9 @@
 let sortedUser = renderContactList();
-
 /**
  * loadusers
- */
+*/
 async function init() {
-    await loadusers();
+    const users = await loadusers();
     if (users) {
         abcOrder(users);
         renderContactList();
@@ -19,9 +18,8 @@ async function init() {
  */
 async function loadusers() {
     try {
-        users = JSON.parse(await getItem('users'));
+        users = await loadData("/users");
         users = await addInitialsToUsersAndSave(users);
-        // vielleicht funktioniert das speichern der Daten wenn ich hier die setItem anwende?
         return users;
     } catch (error) {
         console.error("Fehler beim Laden der Benutzerdaten:", error);
@@ -57,7 +55,7 @@ function renderContactList() {
  * Renders contact containers for users with names starting with the specified letter.
  * @param {string} letter - The letter to filter users by.
  * @param {Array} sortedUser - The array of users sorted alphabetically.
- */
+*/
 function loadContactIndex(letter, sortedUser) {
     sortedUser.forEach((user, i) => {
         if (letter === user.name.charAt(0).toUpperCase()) {
@@ -188,7 +186,7 @@ function emailExists(existingemail) {
 // work in progress
 async function registerContact(){
     registerBtn.disabled = true;
-       let allUsers = JSON.parse(await getItem('users')) || [];
+       let allUsers = await loadData("/users") || [];
 
     if (allUsers.some(obj => obj.name === user.value)) {
         alert('Der Name existiert bereits.');
@@ -225,3 +223,17 @@ function addContact() {
     document.body.style.overflowY = 'hidden';
 }
 
+function openContact(user) {
+    const content = document.getElementById('contactDetailContainer');
+    content.innerHTML = `
+        <div class="bigCircle bgColorCircleBig" 
+          style="background-color: ${user.color};">
+            <div class="initial">${user.initials}</div>
+        </div>
+        <div class="userContainerBig">
+          <p class="nameBig" id="name${user.index}">${user.name}</p>
+        </div>
+    `;
+}
+
+  
