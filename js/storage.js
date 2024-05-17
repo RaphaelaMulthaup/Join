@@ -48,7 +48,7 @@ async function putTasksToDatabase(){
 /**
  * This function loads the example users into the database.
  */
-/*async function putTasksToDatabase(){
+async function putUsersToDatabase(){
     let response = await fetch("../json/users.json");
     let data = await response.json();
 
@@ -59,7 +59,7 @@ async function putTasksToDatabase(){
         },
         body: JSON.stringify(data)
     });
-}*/
+}
 
 /**
  * This function loads data whith are saved in the database and returnes them.

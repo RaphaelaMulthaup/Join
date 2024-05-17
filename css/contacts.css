@@ -14,36 +14,35 @@
   width: 352px;
 }
 
-.indexContainer{
+.indexContainer {
   padding: 16px;
- 
 }
 
-.line{
+.line {
   height: 1px;
-    width: 320px;
-    margin: 8px 0;
-    background-color: #D1D1D1;
+  width: 320px;
+  margin: 8px 0;
+  background-color: #d1d1d1;
 }
 .contactInput {
   padding-left: 32px;
-  height: 83%;
+  height: 82%;
   overflow: scroll;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 }
 
-.contactContainer{
+.contactContainer {
   padding: 16px;
   border-radius: 16px;
   display: flex;
   align-items: center;
 }
 
-.contactContainer:hover{
+.contactContainer:hover {
   background-color: #80808040;
 }
 
-.contactContainer:active{
+.contactContainer:active {
   background-color: #2a3647;
   color: white;
 }
@@ -57,20 +56,34 @@
   animation-fill-mode: forwards;
 }
 
-.circle{
+.circle {
   padding: 10px;
   border-radius: 50%;
   color: white;
   margin-right: 16px;
 }
 
-.bgColorCircle{
+.bgColorCircle {
   background-color: coral;
 }
 
-.initial{
+.initial {
   width: 21px;
-    text-align: center;
+  text-align: center;
+}
+
+.contactDetailContainer{
+  position: absolute;
+    display: flex;
+    left: 800px;
+    align-items: center;
+}
+
+.bigCircle{
+  padding: 28px 0 0 26px;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
 }
 
 .addContact {
@@ -267,7 +280,7 @@ input:valid ~ label {
   }
 }
 
-#list-view li {
+#list-view li, .contactContainerBig {
   animation: animate-in linear forwards, animate-out linear forwards;
   animation-timeline: view();
   animation-range: entry, exit;
@@ -329,6 +342,24 @@ input:valid ~ label {
   height: 2.5em;
   background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSIzMnB4IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAzMiAzMjsiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDMyIDMyIiB3aWR0aD0iMzJweCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+PHN0eWxlIHR5cGU9InRleHQvY3NzIj4KCS5zdDB7ZmlsbDpub25lO3N0cm9rZTojNDM0MzQ1O3N0cm9rZS13aWR0aDoyO3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9Cgkuc3Qxe2ZpbGw6IzQzNDM0NTt9Cjwvc3R5bGU+PGcgaWQ9IkxheWVyXzIiLz48ZyBpZD0iTGF5ZXJfMSI+PGc+PHBhdGggY2xhc3M9InN0MCIgZD0iTTMxLDE2YzAsNC42NTk5Ny0yLjEzLDguODI5OTYtNS40Njk5NywxMS41Nzk5NkMyMi45NCwyOS43MTk5NywxOS42MiwzMSwxNiwzMSAgICBzLTYuOTQtMS4yODAwMy05LjUzMDAzLTMuNDIwMDRDMy4xMywyNC44Mjk5NiwxLDIwLjY1OTk3LDEsMTZDMSw3LjcxOTk3LDcuNzE5OTcsMSwxNiwxUzMxLDcuNzE5OTcsMzEsMTZ6Ii8+PHBhdGggY2xhc3M9InN0MCIgZD0iTTIyLjUsMTEuNWMwLDIuNDUyNjMtMS4zNjA2Nyw1LjQwNzk5LTMuMzgwMDIsNy4wMjg2NWMtMC4wMzQ2NSwwLjAyNjAzLTAuMDY5MjksMC4wNTItMC4xMDM5OSwwLjA3ODAyICAgIGMtMC45MDEzMiwwLjcwMi0xLjkyMzk3LDEuMTI2NjYtMy4wMTU5OCwxLjEyNjY2cy0yLjExNDY3LTAuNDI0NjYtMy4wMTU5OC0xLjEyNjY2Yy0wLjAzNDctMC4wMjYwMy0wLjA2OTM1LTAuMDUyLTAuMTA0LTAuMDc4MDIgICAgQzEwLjg2MDY3LDE2LjkwNzk5LDkuNSwxMy45NTI2Myw5LjUsMTEuNUM5LjUsNy45MTE5OSwxMi40MTE5OSw1LDE2LDVTMjIuNSw3LjkxMTk5LDIyLjUsMTEuNXoiLz48cGF0aCBjbGFzcz0ic3QwIiBkPSJNMjUuNTMwMDMsMjcuNTI5OTd2MC4wNDk5OUMyMi45NCwyOS43MTk5NywxOS42MiwzMSwxNiwzMXMtNi45NC0xLjI4MDAzLTkuNTMwMDMtMy40MjAwNHYtMC4wNDk5OSAgICBjMC00LjE2OTk4LDIuNjcwMDQtNy43MTk5Nyw2LjQxMDAzLTljMC4wMjk5NywwLjAyMDAyLDAuMDcwMDEsMC4wNDk5OSwwLjA5OTk4LDAuMDgwMDIgICAgYzAuOTEwMDMsMC43MDAwMSwxLjkyOTk5LDEuMTIsMy4wMjAwMiwxLjEyczIuMTA5OTktMC40MTk5OCwzLjAyMDAyLTEuMTJjMC4wMjk5Ny0wLjAzMDAzLDAuMDcwMDEtMC4wNiwwLjA5OTk4LTAuMDgwMDIgICAgQzIyLjg1OTk5LDE5LjgxLDI1LjUzMDAzLDIzLjM1OTk5LDI1LjUzMDAzLDI3LjUyOTk3eiIvPjwvZz48L2c+PC9zdmc+");
   background-size: 100%;
+}
+
+.positionContactBox {
+  width: fit-content;
+  position: sticky;
+  left: 500px;
+}
+
+.contactBox {
+  display: flex;
+  align-items: center;
+}
+
+.blueLineContacts {
+  background-color: #29abe2;
+  width: 1px;
+  height: 50px;
+  margin: auto 0.75rem;
 }
 
 /* scrollbar */

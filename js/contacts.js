@@ -91,7 +91,7 @@ async function randomBackgroundColor() {
       }
     });
   }
-
+//   let users = [];
   /**
  * Renders a contact container element based on user information.
  * @param {Object} user - User information object.
@@ -102,27 +102,76 @@ async function randomBackgroundColor() {
  * @param {string} user.color - Background color for the profile image.
  * @returns {void}
  */
-function renderContactContainer(user) {
+  function renderContactContainer(user) {
     const content = document.getElementById('contactInput');
+    console.log('User object before calling openContact:', user);
+
+    // Use user.id instead of user.index
+    if (typeof user.id === 'undefined') {
+        console.error('user.id is undefined');
+        return;
+    }
+
     content.innerHTML += `
-        <div class="contactContainer " id="contactContainer${user.index}" onclick="openContact(${user.index})">
-            <section class="circle bgColorCircle" id="circle${user.index}" style="background-color: ${user.color};">
+        <div class="contactContainer" id="contactContainer${user.id}" onclick="openContact(${user.id})">
+            <section class="circle bgColorCircle" id="circle${user.id}" style="background-color: ${user.color};">
                 <div class="initial">${user.initials}</div>
             </section>
             <div class="userContainer">
-                <div class="name" id="name${user.index}">${user.name}</div-white>
+                <div class="name" id="name${user.id}">${user.name}</div>
                 <div class="email">${user.email}</div>
             </div>
         </div>
     `;
 }
 
+function openContact(id) {
+    console.log('openContact called with id:', id);
+
+    // Find the user object with the matching id
+    const user = users.find(user => user.id === id);
+    console.log('User object in openContact:', user);
+
+    if (!user || !user.color || !user.initials || !user.name || !user.id) {
+        console.error('Invalid user object:', user);
+        return;
+    }
+
+    const content = document.getElementById('contactDetailContainer');
+    if (!content) {
+        console.error('Element with id "contactDetailContainer" not found');
+        return;
+    }
+
+    content.innerHTML = /*html*/`
+        <div class="bigCircle bgColorCircleBig" id="bigCircle" style="background-color: ${user.color};">
+            <div class="initial">${user.initials}</div>
+        </div>
+        <div class="userContainerBig">
+          <p class="nameBig" id="name${user.id}">${user.name}</p>
+          <div class="editDelete">
+            <div class="edit-delete" id="edit" onclick="editContact(${user.id}, '${user.color}', '${user.initials}')">
+              <img class="edit" src="./assets/img/edit.svg" alt="">
+              <img class="editBlue" src="./assets/img/editBlue.svg" alt="">
+              <p>Edit</p>
+            </div>
+            <div class="edit-delete" onclick="deleteContact(${user.id})" id="delete">
+              <img class="img-black" src="./assets/img/delete.svg" alt="">
+              <img class="img-blue" src="./assets/img/deleteBlue.svg" alt="">
+              <p>Delete</p>
+            </div>
+          </div>
+        </div>
+    `;
+}
+
+
 /**
  * Listens for click events on the document and updates the style of contact containers accordingly.
  * @param {Event} event - The click event.
  */
 document.addEventListener('click', function(event) {
-    const contactContainers = document.querySelectorAll('.contactContainer');
+    const contactContainers = document.querySelectorAll('.contactContainer, bigCircle');
     contactContainers.forEach(container => {
         const isActive = container.contains(event.target);
         container.style.backgroundColor = isActive ? '#2A3647' : '';
@@ -223,17 +272,6 @@ function addContact() {
     document.body.style.overflowY = 'hidden';
 }
 
-function openContact(user) {
-    const content = document.getElementById('contactDetailContainer');
-    content.innerHTML = `
-        <div class="bigCircle bgColorCircleBig" 
-          style="background-color: ${user.color};">
-            <div class="initial">${user.initials}</div>
-        </div>
-        <div class="userContainerBig">
-          <p class="nameBig" id="name${user.index}">${user.name}</p>
-        </div>
-    `;
-}
+
 
   
