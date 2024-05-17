@@ -2,7 +2,20 @@
     {
         "title": "Kochwelt Page & Recipe Recommender",
         "description": "Build start page with recipe recommendation.",
-        "assignedTo": ["Emmanuel Mauer", "Marcel Bauer", "Anton Mayer"],
+        "assignedTo": [
+            {
+                "name": "Emmanuel Mauer", 
+                "color": "#1FD7C1"
+            },
+            {
+                "name": "Marcel Bauer", 
+                "color": "#462F8A"  
+            },
+            {
+                "name": "Anton Mayer", 
+                "color": "#0038FF"  
+            }
+        ],
         "dueDate": "10/05/2023",
         "prio": "Medium",
         "category": "User Story",
@@ -21,7 +34,16 @@
     {
         "title": "CSS Architecture Planning",
         "description": "Define CSS naming conventions and structure.",
-        "assignedTo": ["Sofia Müller", "Benedikt Ziegler"],
+        "assignedTo": [
+            {
+                "name": "Sofia Müller", 
+                "color": "#00BEE8"
+            },
+            {
+                "name": "Benedikt Ziegler", 
+                "color": "#6E52FF"  
+            }
+        ],
         "dueDate": "02/09/2023",
         "prio": "Urgent",
         "category": "Technical Task",
@@ -40,7 +62,20 @@
     {
         "title": "HTML Base Template Creation",
         "description": "Create reusable HTML base templates.",
-        "assignedTo": ["David Eisenberg", "Benedikt Ziegler", "Anja Schulz"],
+        "assignedTo": [
+            {
+                "name": "David Eisenberg", 
+                "color": "#FC71FF"
+            },
+            {
+                "name": "Benedikt Ziegler", 
+                "color": "#6E52FF"  
+            },
+            {
+                "name": "Anja Schulz", 
+                "color": "#9327FF"  
+            }
+        ],
         "dueDate": "17/10/2023",
         "prio": "Low",
         "category": "Technical Task",
@@ -50,7 +85,20 @@
     {
         "title": "Daily Kochwelt Recipe",
         "description": "Implement a daily recipe and portion calculator.",
-        "assignedTo": ["Eva Fischer", "Anja Schulz", "Tatjana Wolf"],
+        "assignedTo": [
+            {
+                "name": "Eva Fischer", 
+                "color": "#FFBB2B"
+            },
+            {
+                "name": "Tatjana Wolf", 
+                "color": "#FF4646"  
+            },
+            {
+                "name": "Anja Schulz", 
+                "color": "#9327FF"  
+            }
+        ],
         "dueDate": "31/09/2023",
         "prio": "Medium",
         "category": "User Story",

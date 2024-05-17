@@ -254,5 +254,20 @@
 .progressInNumbers{
     font-size: 12px;
 }
-  
 
+.initialsMiniCardGraphically{
+    display: flex;
+}
+
+.initialsMiniCard{
+    border-radius: 50%;
+    color: white;
+    height: 32px;
+    width: 32px;
+    border: 1px solid #FFFFFF;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: -8px;
+}

@@ -221,9 +221,15 @@ function chartSubtasks(i){
 }
 
 function initials(task, i){
-    for (let i = 0; i < task.assignedTo.length; i++) {
-        let user = task.assignedTo[i];
-        
+    let initialsMiniCardGraphically = document.getElementById('initialsMiniCardGraphically' + i);
+    for (let index = 0; index < task.assignedTo.length; index++) {
+        let user = task.assignedTo[index].name;
+        let initials = user.split(' ').map(word => word.charAt(0)).join('');
+        initialsMiniCardGraphically.innerHTML += /*html*/ `
+            <div class="initialsMiniCard" id="initialsMiniCard${i}.${index}">
+                <span>${initials}</span>
+            </div>
+        `;
+        document.getElementById('initialsMiniCard' + i + '.' + index).style.backgroundColor =  task.assignedTo[index].color;
     }
-
 }
