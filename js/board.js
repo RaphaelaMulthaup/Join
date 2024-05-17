@@ -105,11 +105,8 @@ async function loadBoard(){
         checkStatus(task, i);
         shortenDescription(i);
         colorCategory(task, i);
-        if (task.subtasks) {
-            let miniCard = document.getElementById('miniCard' + i);
-            let divChartSubtasks = chartSubtasks(i);
-            miniCard.insertBefore(divChartSubtasks, miniCard.querySelector('.miniCardGraphically'));
-        }
+        subtasks(task, i);
+        initials(task, i);
     }
 }
 
@@ -134,7 +131,7 @@ function checkStatus(task, i){
 /**
  * This function creates a mini card and returnes it.
  * 
- * @param {json} task The task whose status is checked.
+ * @param {json} task The task that is displayed.
  * @param {index} i The index of the task in the tasks json.
  * @returns the mini card
  */
@@ -147,13 +144,19 @@ function htmlMiniCard(task, i){
                 <span class="description" id="description${i}">${task.description}</span>
             </div>
             <div class="miniCardGraphically">
-                <div class="initialsMiniCardGraphically"></div>
+                <div class="initialsMiniCardGraphically" id="initialsMiniCardGraphically${i}"></div>
                 <div class="prio"></div>
             </div>
         </div>
     `;
 }
 
+/**
+ * This function colors the background of category.
+ * 
+ * @param {json} task The task that is displayed.
+ * @param {index} i The index of the task in the tasks json.
+ */
 function colorCategory(task, i){
     let category = document.getElementById('category' + i);
     if (task.category == "User Story") {
@@ -177,16 +180,50 @@ function shortenDescription(i){
     }
 }
 
+/**
+ * This function checks whether there are subtasks. If this is the case, a new div with progress bar and information about the progress is created and inserted into the mini card. For the progress bar, the progress is calculated in percent and the number of subtasks in total, as well as the number of completed subtasks, is also shown in writing.
+ * 
+ * @param {json} task The task that is displayed.
+ * @param {index} i The index of the task in the tasks json.
+ */
+function subtasks(task, i){
+    if (task.subtasks) {
+        let miniCard = document.getElementById('miniCard' + i);
+        let divChartSubtasks = chartSubtasks(i);
+        miniCard.insertBefore(divChartSubtasks, miniCard.querySelector('.miniCardGraphically'));
+        let numberOfSubtasks = task.subtasks.length;
+        let numberOfDoneSubtasks = task.subtasks.filter(subtask => subtask.status === "done").length;
+        let progressInPercent = (numberOfDoneSubtasks / numberOfSubtasks) * 100;
+        document.getElementById('progress' + i).style.width = progressInPercent + '%';
+        document.getElementById('progressInNumbers' + i).innerHTML = `${numberOfDoneSubtasks}/${numberOfSubtasks}`;
+    }
+}
+
+/**
+ * This function creates a new div for subtasks progress, assigns it a class and fills it with html elements. In the end it will be returned.
+ * 
+ * @param {index} i The index of the task in the tasks json.
+ * @returns the new created div
+ */
 function chartSubtasks(i){
     let chartSubtasks = document.createElement('div');
-
+    chartSubtasks.classList.add('progressInfos');
     chartSubtasks.innerHTML = /*html*/ `
         <div class="progressBar">
-            <div class="progress"></div>
+            <div class="progress" id="progress${i}"></div>
         </div>
-  
+        <div class="progressInNumbers">
+            <span id="progressInNumbers${i}"></span>
+            <span>Subtasks</span>
+        </div>
     `;
-
     return chartSubtasks;
 }
 
+function initials(task, i){
+    for (let i = 0; i < task.assignedTo.length; i++) {
+        let user = task.assignedTo[i];
+        
+    }
+
+}

@@ -33,6 +33,22 @@ const firebaseUrl = "https://join-2fe35-default-rtdb.europe-west1.firebasedataba
  * This function loads the example tasks into the database.
  */
 async function putTasksToDatabase(){
+    let response = await fetch("../json/tasks.json");
+    let data = await response.json();
+
+    await fetch(firebaseUrl + "/tasks" + ".json", {
+        method: "PUT",
+        header: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data)
+    });
+}
+
+/**
+ * This function loads the example users into the database.
+ */
+/*async function putTasksToDatabase(){
     let response = await fetch("../json/users.json");
     let data = await response.json();
 
@@ -43,7 +59,7 @@ async function putTasksToDatabase(){
         },
         body: JSON.stringify(data)
     });
-}
+}*/
 
 /**
  * This function loads data whith are saved in the database and returnes them.

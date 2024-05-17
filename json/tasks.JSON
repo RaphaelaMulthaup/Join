@@ -2,8 +2,8 @@
     {
         "title": "Kochwelt Page & Recipe Recommender",
         "description": "Build start page with recipe recommendation.",
-        "assigned to": ["Emmanuel Mauer", "Marcel Bauer", "Anton Mayer"],
-        "due date": "10/05/2023",
+        "assignedTo": ["Emmanuel Mauer", "Marcel Bauer", "Anton Mayer"],
+        "dueDate": "10/05/2023",
         "prio": "Medium",
         "category": "User Story",
         "subtasks": [
@@ -21,8 +21,8 @@
     {
         "title": "CSS Architecture Planning",
         "description": "Define CSS naming conventions and structure.",
-        "assigned to": ["Sofia Müller", "Benedikt Ziegler"],
-        "due date": "02/09/2023",
+        "assignedTo": ["Sofia Müller", "Benedikt Ziegler"],
+        "dueDate": "02/09/2023",
         "prio": "Urgent",
         "category": "Technical Task",
         "subtasks": [
@@ -40,8 +40,8 @@
     {
         "title": "HTML Base Template Creation",
         "description": "Create reusable HTML base templates.",
-        "assigned to": ["David Eisenberg", "Benedikt Ziegler", "Anja Schulz"],
-        "due date": "17/10/2023",
+        "assignedTo": ["David Eisenberg", "Benedikt Ziegler", "Anja Schulz"],
+        "dueDate": "17/10/2023",
         "prio": "Low",
         "category": "Technical Task",
         "subtasks": [],
@@ -50,8 +50,8 @@
     {
         "title": "Daily Kochwelt Recipe",
         "description": "Implement a daily recipe and portion calculator.",
-        "assigned to": ["Eva Fischer", "Anja Schulz", "Tatjana Wolf"],
-        "due date": "31/09/2023",
+        "assignedTo": ["Eva Fischer", "Anja Schulz", "Tatjana Wolf"],
+        "dueDate": "31/09/2023",
         "prio": "Medium",
         "category": "User Story",
         "subtasks": [],
