@@ -1,7 +1,10 @@
 
 .mainBoard{
     padding-top: 79.5px;
-    padding-left: 64px
+    padding-left: 64px;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 96px);
 }
 
 /*headline*/
@@ -83,17 +86,21 @@
     display: flex;
     align-items: flex-start;
     gap: 26px;
+    overflow: auto;
+    flex-grow: 1;
+    padding-bottom: 16px;
 }
 
-.statusTasks{
+.headlineBoardStatusTasks{
     display: flex;
-    flex-direction: column;
-    width: 252px;
+    align-items: flex-start;
+    gap: 26px;
 }
 
 .headlineStatusTasks{
     display: flex;
     margin-bottom: 15.5px;
+    width: 252px;
 }
 
 .h5StatusTask{
@@ -120,6 +127,7 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
+    width: 252px;
 }
 
 .noTasksExisting{
@@ -255,6 +263,12 @@
     font-size: 12px;
 }
 
+.miniCardGraphically{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .initialsMiniCardGraphically{
     display: flex;
 }
@@ -270,4 +284,8 @@
     align-items: center;
     justify-content: center;
     margin-right: -8px;
+}
+
+.prioImgMiniCard{
+    width: 17px;
 }

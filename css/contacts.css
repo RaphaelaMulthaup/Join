@@ -275,7 +275,7 @@ input:valid ~ label {
 
 .contacts {
   /* width: clamp(20em, 2vw, 24px); */
-  height: 90vh;
+  height: calc(100vh - 96px);
   margin: 0 auto;
   background: #fff;
   border: 1px solid #ddd;

@@ -100,6 +100,11 @@ async function loadBoard(){
     let tasks = await loadData("/tasks");
     console.log(tasks);
 
+    let numberOfTasksToDo = tasks.filter(task => task.status === "to do").length;
+    if (numberOfTasksToDo > 0) {
+        toggle
+    }
+
     for (let i = 0; i < tasks.length; i++) {
         let task = tasks[i];
         checkStatus(task, i);
@@ -107,6 +112,7 @@ async function loadBoard(){
         colorCategory(task, i);
         subtasks(task, i);
         initials(task, i);
+        prio(task, i);
     }
 }
 
@@ -145,7 +151,7 @@ function htmlMiniCard(task, i){
             </div>
             <div class="miniCardGraphically">
                 <div class="initialsMiniCardGraphically" id="initialsMiniCardGraphically${i}"></div>
-                <div class="prio"></div>
+                <div class="prio" id="prio${i}"></div>
             </div>
         </div>
     `;
@@ -220,6 +226,12 @@ function chartSubtasks(i){
     return chartSubtasks;
 }
 
+/**
+ * This function converts the names of those assigned to the task into initials and displays them inside a cicle. In addition, the background of the circle is colored in the color that corresponds to the person.
+ * 
+ * @param {json} task The task that is displayed.
+ * @param {index} i The index of the task in the tasks json.
+ */
 function initials(task, i){
     let initialsMiniCardGraphically = document.getElementById('initialsMiniCardGraphically' + i);
     for (let index = 0; index < task.assignedTo.length; index++) {
@@ -231,5 +243,28 @@ function initials(task, i){
             </div>
         `;
         document.getElementById('initialsMiniCard' + i + '.' + index).style.backgroundColor =  task.assignedTo[index].color;
+    }
+}
+
+/**
+ * This function checks what priority the task has and inserts the corresponding icon.
+ * 
+ * @param {json} task The task that is displayed.
+ * @param {index} i The index of the task in the tasks json.
+ */
+function prio(task, i){
+    let prioDivMiniCard = document.getElementById('prio' + i);
+    if (task.prio == 'Low') {
+        prioDivMiniCard.innerHTML = /*html*/`
+        <img class="prioImgMiniCard" src="./assets/img/capaLow.svg" alt="low">
+        `;
+    } else  if (task.prio == 'Medium') {
+        prioDivMiniCard.innerHTML = /*html*/`
+        <img class="prioImgMiniCard" src="./assets/img/capaMedium.svg" alt="medium">
+        `;
+    } else if (task.prio == 'Urgent') {
+        prioDivMiniCard.innerHTML = /*html*/`
+        <img class="prioImgMiniCard" src="./assets/img/capaUrgent.svg" alt="urgent">
+        `;
     }
 }
