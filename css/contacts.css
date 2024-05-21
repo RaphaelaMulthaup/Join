@@ -75,15 +75,20 @@
 .contactDetailContainer{
   position: absolute;
     display: flex;
-    left: 800px;
+    left: 700px;
     align-items: center;
 }
 
 .bigCircle{
-  padding: 28px 0 0 26px;
+  padding: 0 0 0 16px;
   border-radius: 50%;
+  border: 4px solid white;
   width: 80px;
   height: 80px;
+  color: white;
+  font-size: xx-large;
+  display: flex;
+  align-items: center;
 }
 
 .addContact {
@@ -347,7 +352,12 @@ input:valid ~ label {
 .positionContactBox {
   width: fit-content;
   position: sticky;
-  left: 500px;
+  left: 700px;
+}
+
+.userContainerBig{
+  padding: 28px;
+  margin-top: 8px;
 }
 
 .contactBox {
@@ -362,6 +372,55 @@ input:valid ~ label {
   margin: auto 0.75rem;
 }
 
+.nameBig{
+  font-size: x-large;
+    font-weight: 600;
+}
+
+.editDelete {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.edit{
+  height: 20px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url(/assets/img/edit.svg);
+}
+
+.edit:hover{
+  background-repeat: no-repeat;
+  background-image: url(/assets/img/editBlue.svg);
+}
+
+.edit p {
+  padding-left: 24px;
+}
+.edit p:hover{
+
+  color: #29abe2;
+}
+
+.delete{
+  height: 20px;
+  background-size: contain;  
+  background-repeat: no-repeat;
+  background-image: url(/assets/img/delete.svg);
+}
+
+.delete p {
+  padding-left: 24px;
+}
+.delete p:hover{
+
+  color: #29abe2;
+}
+.delete:hover {
+  background-repeat: no-repeat;
+  background-image: url(/assets/img/deleteBlue.svg);
+}
 /* scrollbar */
 /* width */
 ::-webkit-scrollbar {
@@ -383,3 +442,4 @@ input:valid ~ label {
 ::-webkit-scrollbar-thumb:hover {
   background: #000000;
 }
+

@@ -150,14 +150,12 @@ function openContact(id) {
         <div class="userContainerBig">
           <p class="nameBig" id="name${user.id}">${user.name}</p>
           <div class="editDelete">
-            <div class="edit-delete" id="edit" onclick="editContact(${user.id}, '${user.color}', '${user.initials}')">
-              <img class="edit" src="./assets/img/edit.svg" alt="">
-              <img class="editBlue" src="./assets/img/editBlue.svg" alt="">
+            <div class="editDelete" id="edit" onclick="editContact(${user.id}, '${user.color}', '${user.initials}')">
+              <a class="edit" alt="">
               <p>Edit</p>
             </div>
-            <div class="edit-delete" onclick="deleteContact(${user.id})" id="delete">
-              <img class="img-black" src="./assets/img/delete.svg" alt="">
-              <img class="img-blue" src="./assets/img/deleteBlue.svg" alt="">
+            <div class="editDelete" onclick="deleteContact(${user.id})" id="delete">
+              <a class="delete" alt="">
               <p>Delete</p>
             </div>
           </div>
