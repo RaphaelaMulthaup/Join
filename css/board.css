@@ -1,7 +1,7 @@
 
 .mainBoard{
     padding-top: 79.5px;
-    padding-left: 64px;
+    padding-left: 48px;
     display: flex;
     flex-direction: column;
     height: calc(100vh - 96px);
@@ -13,6 +13,8 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 48px;
+    padding-left: 16px;
+    padding-right: 16px;
 }
 
 .boardHeadlineActions{
@@ -89,17 +91,21 @@
     overflow: auto;
     flex-grow: 1;
     padding-bottom: 16px;
+    padding-top: 15.5px;
+    padding-left: 16px;
+    padding-right: 16px;
 }
 
 .headlineBoardStatusTasks{
     display: flex;
     align-items: flex-start;
     gap: 26px;
+    padding-left: 16px;
+    padding-right: 16px;
 }
 
 .headlineStatusTasks{
     display: flex;
-    margin-bottom: 15.5px;
     width: 252px;
 }
 
@@ -288,4 +294,27 @@
 
 .prioImgMiniCard{
     width: 17px;
+}
+
+/*big card*/
+
+.overlayBigCard {
+    background-color: white;
+    width: 525px;
+    padding: 48px 40px;
+    border-radius: 30px;
+    box-shadow: 0px 0px 4px 0px #00000029;
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    /*animation cantrollieren*/
+    animation-name: addOverlay;
+    animation-duration: 100ms;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+
+.overlayBigCard.removing {
+    animation-name: removeOverlay;
 }

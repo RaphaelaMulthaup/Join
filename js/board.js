@@ -95,15 +95,14 @@ async function loadBoardPage(){
     loadBoard();
 }
 
-
+/**
+ * This function loads the example tasks, checks whether tasks of a status exist and displays the tasks.
+ */
 async function loadBoard(){
     let tasks = await loadData("/tasks");
     console.log(tasks);
 
-    let numberOfTasksToDo = tasks.filter(task => task.status === "to do").length;
-    if (numberOfTasksToDo > 0) {
-        toggle
-    }
+    checkWhetherTasksExist(tasks);
 
     for (let i = 0; i < tasks.length; i++) {
         let task = tasks[i];
@@ -113,6 +112,30 @@ async function loadBoard(){
         subtasks(task, i);
         initials(task, i);
         prio(task, i);
+    }
+}
+
+/**
+ * This function checks whether tasks of a status exist and shows or hides a message accordingly.
+ * 
+ * @param {json} tasks all example tasks
+ */
+function checkWhetherTasksExist(tasks){
+        let numberOfTasksToDo = tasks.filter(task => task.status === "to do").length;
+    if (numberOfTasksToDo > 0) {
+        document.getElementById('noTasksExistingToDo').classList.toggle('dNone');
+    }
+    let numberOfTasksInProgress = tasks.filter(task => task.status === "in progress").length;
+    if (numberOfTasksInProgress > 0) {
+        document.getElementById('noTasksExistingInProgress').classList.toggle('dNone');
+    }
+    let numberOfTasksAwaitFeedback = tasks.filter(task => task.status === "await feedback").length;
+    if (numberOfTasksAwaitFeedback > 0) {
+        document.getElementById('noTasksExistingAwaitFeedback').classList.toggle('dNone');
+    }
+    let numberOfTasksDone = tasks.filter(task => task.status === "done").length;
+    if (numberOfTasksDone > 0) {
+        document.getElementById('noTasksExistingDone').classList.toggle('dNone');
     }
 }
 
