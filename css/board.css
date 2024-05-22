@@ -318,9 +318,54 @@
     animation-duration: 100ms;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    font-size: 20px;
 }
-
 
 .overlayBigCard.removing {
     animation-name: removeOverlay;
+}
+
+.firstLineBigCard{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.categoryBigCard{
+    color: white;
+    font-size: 23px;
+    padding: 4px 24px;
+    border-radius: 8px;
+}
+
+.bigCardCloseButton{
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bigCardCloseButton:hover{
+    background-color: #EEEEEE;
+    cursor: pointer;
+}
+
+.middleLineTableBigCard{
+    height: 24px;
+}
+
+.firstColumn{
+    width: 117px;
+    color: #2A3647;
+}
+
+.priorityBigCard{
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }

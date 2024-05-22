@@ -60,7 +60,7 @@ h6{
   cursor: pointer;
 }
 
-#checkbox:checked+label {
+.checkbox:checked+label {
   background: url('../assets/img/checkboxChecked.svg') no-repeat;
 }
 
@@ -68,7 +68,7 @@ h6{
   background: url('../assets/img/checkboxDisabledHover.svg') no-repeat;
 }
 
-#checkbox:checked:hover+label {
+.checkbox:checked:hover+label {
   background: url('../assets/img/checkboxCheckedHover.svg') no-repeat;
 }
 

@@ -405,23 +405,34 @@ function htmlAssignedToBigCardUsers(i, initials, user){
     `;
 }
 
-function subtasksBigCard(task){
+
+function subtasksBigCard(task) {
     if (task.subtasks) {
         let subtasksBigCardChecklist = document.getElementById('subtasksBigCardChecklist');
+        let subtasksHtml = ''; // Sammeln aller HTML-Elemente in einer Variable
+        
         for (let i = 0; i < task.subtasks.length; i++) {
             let subtask = task.subtasks[i].subtask;
-            subtasksBigCardChecklist.innerHTML += htmlSubtaskBigCard(subtask);
-        } 
+            subtasksHtml += htmlSubtaskBigCard(i, subtask); // HTML-Elemente sammeln
+        }
+
+        subtasksBigCardChecklist.innerHTML = subtasksHtml; // Einmalig innerHTML setzen
+        
+        for (let i = 0; i < task.subtasks.length; i++) {
+            if (task.subtasks[i].status === 'done') {
+                document.getElementById('checkboxSubtask' + i).checked = true;
+            }
+        }
     } else {
         document.getElementById('subtasksBigCard').classList.add('dNone');
     }
 }
 
-function htmlSubtaskBigCard(subtask){
+function htmlSubtaskBigCard(i, subtask){
     return /*html*/ `
     <div>
-        <input type="checkbox" class="checkbox" style="display: none;">
-        <label for="checkbox"></label>
+        <input type="checkbox" class="checkbox" id="checkboxSubtask${i}" style="display: none;">
+        <label for="checkboxSubtask${i}"></label>
         <span>${subtask}</span>
     </div>
     `;
