@@ -214,6 +214,10 @@
     gap: 24px;
 }
 
+.miniCard:hover{
+    cursor: pointer;
+}
+
 .category{
     border-radius: 8px;
     color: white;
@@ -301,6 +305,8 @@
 .overlayBigCard {
     background-color: white;
     width: 525px;
+    min-height: fit-content;
+    max-height: fit-content;
     padding: 48px 40px;
     border-radius: 30px;
     box-shadow: 0px 0px 4px 0px #00000029;

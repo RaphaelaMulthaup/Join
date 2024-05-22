@@ -1,5 +1,6 @@
 let findTaskFocus = false;
 let overlayAddTaskOpen = false;
+let tasks = {};
 
 /**
  * This funktion sets clickt elements back to default.
@@ -99,10 +100,10 @@ async function loadBoardPage(){
  * This function loads the example tasks, checks whether tasks of a status exist and displays the tasks.
  */
 async function loadBoard(){
-    let tasks = await loadData("/tasks");
+    tasks = await loadData("/tasks");
     console.log(tasks);
 
-    checkWhetherTasksExist(tasks);
+    checkWhetherTasksExist();
 
     for (let i = 0; i < tasks.length; i++) {
         let task = tasks[i];
@@ -120,7 +121,7 @@ async function loadBoard(){
  * 
  * @param {json} tasks all example tasks
  */
-function checkWhetherTasksExist(tasks){
+function checkWhetherTasksExist(){
         let numberOfTasksToDo = tasks.filter(task => task.status === "to do").length;
     if (numberOfTasksToDo > 0) {
         document.getElementById('noTasksExistingToDo').classList.toggle('dNone');
@@ -142,7 +143,7 @@ function checkWhetherTasksExist(tasks){
 /**
  * This function checks the status of the task and inserts it into the appropriate place in the board.
  * 
- * @param {json} task The task whose status is checked.
+ * @param {object} task The task whose status is checked.
  * @param {index} i The index of the task in the tasks json.
  */
 function checkStatus(task, i){
@@ -160,13 +161,13 @@ function checkStatus(task, i){
 /**
  * This function creates a mini card and returnes it.
  * 
- * @param {json} task The task that is displayed.
+ * @param {object} task The task that is displayed.
  * @param {index} i The index of the task in the tasks json.
  * @returns the mini card
  */
 function htmlMiniCard(task, i){
     return /*html*/ `
-        <div class="miniCard" id="miniCard${i}">
+        <div class="miniCard" id="miniCard${i}" onclick="openBigCard(${i})">
             <div class="category" id="category${i}">${task.category}</div>
             <div class="textMiniCard">
                 <h6 class="title">${task.title}</h6>
@@ -183,7 +184,7 @@ function htmlMiniCard(task, i){
 /**
  * This function colors the background of category.
  * 
- * @param {json} task The task that is displayed.
+ * @param {object} task The task that is displayed.
  * @param {index} i The index of the task in the tasks json.
  */
 function colorCategory(task, i){
@@ -212,7 +213,7 @@ function shortenDescription(i){
 /**
  * This function checks whether there are subtasks. If this is the case, a new div with progress bar and information about the progress is created and inserted into the mini card. For the progress bar, the progress is calculated in percent and the number of subtasks in total, as well as the number of completed subtasks, is also shown in writing.
  * 
- * @param {json} task The task that is displayed.
+ * @param {object} task The task that is displayed.
  * @param {index} i The index of the task in the tasks json.
  */
 function subtasks(task, i){
@@ -252,7 +253,7 @@ function chartSubtasks(i){
 /**
  * This function converts the names of those assigned to the task into initials and displays them inside a cicle. In addition, the background of the circle is colored in the color that corresponds to the person.
  * 
- * @param {json} task The task that is displayed.
+ * @param {object} task The task that is displayed.
  * @param {index} i The index of the task in the tasks json.
  */
 function initials(task, i){
@@ -272,7 +273,7 @@ function initials(task, i){
 /**
  * This function checks what priority the task has and inserts the corresponding icon.
  * 
- * @param {json} task The task that is displayed.
+ * @param {object} task The task that is displayed.
  * @param {index} i The index of the task in the tasks json.
  */
 function prio(task, i){
@@ -290,4 +291,138 @@ function prio(task, i){
         <img class="prioImgMiniCard" src="./assets/img/capaUrgent.svg" alt="urgent">
         `;
     }
+}
+
+/*big card*/
+
+function openBigCard(i){
+    document.getElementById('overlayBidCardkBackground').classList.remove('dNone');
+    let task = tasks[i];
+
+    categoryBigCard(task);
+    titleBigCard(task);
+    descriptionBigCard(task);
+    dueDateBigCard(task);
+    priorityBigCard(task);
+    assignedToBigCard(task);
+    subtasksBigCard(task);
+}
+
+
+/**
+ * This function displays the category in the big card and colors the div in the corresponding color.
+ * 
+ * @param {object} task The task that is displayed.
+ */
+function categoryBigCard(task){
+    let categoryBigCard = document.getElementById('categoryBigCard');
+    categoryBigCard.innerHTML = `${task.category}`;
+
+    if (task.category == "User Story") {
+        categoryBigCard.style.backgroundColor = '#0038FF';
+    } else if (task.category == "Technical Task") {
+        categoryBigCard.style.backgroundColor = '#1FD7C1';
+    }
+}
+
+/**
+ * This function displays the title in the big card.
+ * 
+ * @param {object} task The task that is displayed.
+ */
+function titleBigCard(task){
+    let titleBigCard = document.getElementById('titleBigCard');
+    titleBigCard.innerHTML = `${task.title}`;
+}
+
+/**
+ * This function displays the description in the big card.
+ * 
+ * @param {object} task The task that is displayed.
+ */
+function descriptionBigCard(task){
+    let descriptionBigCard = document.getElementById('descriptionBigCard');
+    descriptionBigCard.innerHTML = `${task.description}`;
+}
+
+/**
+ * This function displays the due date in the big card.
+ * 
+ * @param {object} task The task that is displayed.
+ */
+function dueDateBigCard(task){
+    let dueDateBigCard = document.getElementById('dueDateBigCard');
+    dueDateBigCard.innerHTML = `${task.dueDate}`;
+}
+
+/**
+ * This function displays the priority in the big card and adds the corresponding icon.
+ * 
+ * @param {object} task The task that is displayed.
+ */
+function priorityBigCard(task){
+    let priorityBigCard = document.getElementById('priorityBigCard');
+    priorityBigCard.innerHTML = `${task.prio}`;
+    let imgPriorityBigCard = document.getElementById('imgPriorityBigCard');
+    imgPriorityBigCard.src = ('./assets/img/capa' + task.prio + '.svg');
+}
+
+/**
+ * This function checks whether there are assigned users. If this is the case, the users and their initials will be displayed in the appropriate color. If this is not the case, assignedToBigCard is output.
+ * 
+ * @param {object} task The task that is displayed.
+ */
+function assignedToBigCard(task){
+    if (task.assignedTo) {
+        let assignedToBigCardUsers = document.getElementById('assignedToBigCardUsers');
+        for (let i = 0; i < task.assignedTo.length; i++) {
+            let user = task.assignedTo[i];
+            let initials = user.name.split(' ').map(word => word.charAt(0)).join('');
+            assignedToBigCardUsers.innerHTML += htmlAssignedToBigCardUsers(i, initials, user);
+            document.getElementById('initialsUserBigCard' + i).style.backgroundColor =  user.color;
+        } 
+    } else {
+        document.getElementById('assignedToBigCard').classList.add('dNone');
+    }
+}
+
+/**
+ * This function creates a div to display the unser name and returns it.
+ * 
+ * @param {index} i The index of the user in the assignedTo json.
+ * @param {span} initials user initials
+ * @param {object} user information about the user
+ * @returns 
+ */
+function htmlAssignedToBigCardUsers(i, initials, user){
+    return /*html*/ `
+    <div>
+        <div class="initialsUserBigCard" id="initialsUserBigCard${i}">
+            <span>${initials}</span>
+        </div>
+        <span>${user.name}</span>
+    </div>
+    `;
+}
+
+function subtasksBigCard(task){
+    if (task.subtasks) {
+        let subtasksBigCardChecklist = document.getElementById('subtasksBigCardChecklist');
+        for (let i = 0; i < task.subtasks.length; i++) {
+            let subtask = task.subtasks[i].subtask;
+            subtasksBigCardChecklist.innerHTML += htmlSubtaskBigCard(subtask);
+        } 
+    } else {
+        document.getElementById('subtasksBigCard').classList.add('dNone');
+    }
+}
+
+function htmlSubtaskBigCard(subtask){
+    return /*html*/ `
+    <div>
+        <input type="checkbox" class="checkbox" style="display: none;">
+        <label for="checkbox"></label>
+        <span>${subtask}</span>
+    </div>
+    `;
 }

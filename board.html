@@ -101,7 +101,7 @@
             <div class="headlineAddTaskOverlay">
                 <h1>Add Task</h1>
                 <div class="addTaskOverlayCloseButton" onclick="closeOverlayAddTask()">
-                    <img src="./assets/img/close.svg" alt="schließen">
+                    <img src="./assets/img/close.svg" alt="close">
                 </div>
             </div>
             <form onsubmit="addNewTask(); return false;" class="formAddTask" novalidate id="formAddNewTask">
@@ -222,24 +222,32 @@
     </div>
     <div class="overlayBackground dNone" id="overlayBidCardkBackground">
         <div class="overlayBigCard" id="overlayBigCard" onclick="stayOpenOrActiv(event)">
-            <div class="categoryBigCard" id="categoryBigCard"></div>
+            <div class="firstLineBigCard">
+                <div class="categoryBigCard" id="categoryBigCard"></div>
+                <div class="bigCardCloseButton" onclick="closeBigCard()">
+                    <img src="./assets/img/close.svg" alt="close">
+                </div>
+            </div>
             <h1 class="titleBigCard" id="titleBigCard"></h1>
             <span class="descriptionBigCard" id="descriptionBigCard"></span>
             <table>
                 <tr>
                     <td>Due date:</td>
-                    <td></td>
+                    <td id="dueDateBigCard"></td>
                 </tr>
                 <tr>
                     <td>Priority:</td>
-                    <td></td>
+                    <td>
+                        <span id="priorityBigCard"></span>
+                        <img id="imgPriorityBigCard" src="">
+                    </td>
                 </tr>
             </table>
-            <div class="assignedToBigCard">
+            <div class="assignedToBigCard" id="assignedToBigCard">
                 <span>Assigned To:</span>
                 <div id="assignedToBigCardUsers"></div>
             </div>
-            <div class="subtasksBigCard">
+            <div class="subtasksBigCard" id="subtasksBigCard">
                 <span>Subtasks</span>
                 <div id="subtasksBigCardChecklist"></div>
             </div>
