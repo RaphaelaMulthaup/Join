@@ -32,7 +32,7 @@
         "email": "newton.isaac@example.com",
         "password": "12341234",
         "initials": "IN",
-        "color": "#ae667",
+        "color": "#aeb667",
         "phone": "+44123456789"
     },
     {
@@ -59,7 +59,7 @@
         "email": "planck.max@example.com",
         "password": "12341234",
         "initials": "MP",
-        "color": "#44fde",
+        "color": "#b44fde",
         "phone": "+44123456789"
     },
     {
@@ -77,7 +77,7 @@
         "email": "hawking.stephen@example.com",
         "password": "12341234",
         "initials": "SH",
-        "color": "#b8857",
+        "color": "#b885b7",
         "phone": "+1123456789"
     }
 ]

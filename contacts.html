@@ -24,7 +24,7 @@
         <div class="contactGroup">
           <div class="left" id="">
             <img src="./assets/img/favicon_light.svg" alt="" />
-            <h1>Add contact</h1>
+            <h1 id="formTitle">Add contact</h1>
             <h2>Tasks are better with a team!</h2>
           </div>
           <div class="middel" id="">
@@ -36,40 +36,21 @@
               <img src="./assets/img/close.svg" alt="closeButton" />
             </div>
             <div class="inputbox">
-              <input
-                type="name"
-                id="user"
-                class="input personInput"
-                placeholder="Name"
-              />
+              <input type="name" id="user" class="input personInput" placeholder="Name"/>
             </div>
             <div class="inputbox">
-              <input
-                type="email"
-                id="email"
-                class="input mail"
-                placeholder="Email"
-              />
+              <input type="email" id="email" class="input mail" placeholder="Email"/>
             </div>
             <div class="inputbox">
-              <input
-                type="tel"
-                id="phone"
-                class="input phone"
-                placeholder="Phone"
-              />
+              <input type="tel" id="phone" class="input phone" placeholder="Phone"/>
             </div>
             <div>
-              <button class="button buttonEmpty" onclick="closeAddContact()">
+              <button id="leftButton" class="button buttonEmpty" onclick="closeAddContact()">
                 Cancel <span class="closeX"></span>
               </button>
-              <button class="button buttonFilled" onclick="registerContact()">
+              <button id="registerBtn" class="button buttonFilled" onclick="registerContact()">
                 Create contact
-                <img
-                  src="./assets/img/checkWhite.svg"
-                  style="padding-left: 10px"
-                  alt=""
-                />
+                <img src="./assets/img/checkWhite.svg" style="padding-left: 10px" alt="" />
               </button>
             </div>
             <div class="" id="contactList"></div>
@@ -81,19 +62,10 @@
     <div class="mainpagesRightSide">
       <div w3-include-html="./assets/templates/header.html"></div>
       <main class="mainMainpages mainContact">
-        <div
-          id="subMenu"
-          class="dNone"
-          w3-include-html="./assets/templates/subMenu.html"
-          onclick="stayOpenOrActiv(event)"
-        ></div>
+        <div id="subMenu" class="dNone" w3-include-html="./assets/templates/subMenu.html" onclick="stayOpenOrActiv(event)"></div>
         <div class="contacts" id="contacts">
           <div id="contactSide">
-            <button
-              class="addButton buttonFilled"
-              id="addContact"
-              onclick="addContact()"
-            >
+            <button class="addButton buttonFilled" id="addContact" onclick="addContact()">
               Add new contact <img src="./assets/img/personAdd.svg" alt="" />
             </button>
           </div>
@@ -104,10 +76,10 @@
         <div class="contactBox">
           <h2>Contacts</h2>
           <div class="blueLineContacts"></div>
-          <p style="-webkit-text-stroke-width: medium;">Better with a team</p>
+          <p style="-webkit-text-stroke-width: medium">Better with a team</p>
         </div>
       </div>
-      <div id="contactDetailContainer" class="contactDetailContainer"></div>
+      <div id="contactDetailContainer" class="contactDetailContainer contactSlideIn"></div>
       <div w3-include-html="./assets/templates/privacyPolicy.html"></div>
       <div w3-include-html="./assets/templates/legalNotice.html"></div>
       <div w3-include-html="./assets/templates/help.html"></div>

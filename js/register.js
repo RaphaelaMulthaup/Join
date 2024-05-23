@@ -12,12 +12,10 @@ async function init() {
  * load users form storage
  */
 async function loadusers(){
- 
-    users = await loadData("/users");
-    currentUser = JSON.parse(await getItem('currentUser'));
-    checkboxValue = JSON.parse(await getItem('checkboxValue'));
-    fillInValues(); //if else zur ausgabe schreiben
-    
+    users = await loadData("users");
+    currentUser = await loadData("currentUser");
+    checkboxValue = await loadData('checkboxValue');
+    fillInValues();
 }
 
 /**
@@ -45,8 +43,8 @@ async function logIn(){
  */
 async function saveCurrentUser(){
     var checkboxValue = rememberMe();
-    await putCurrentUsersToDatabase("/currentUser",currentUser);
-    await setItem('checkboxValue', JSON.stringify(checkboxValue));
+    await putData("/currentUser",currentUser);
+    await putData('/checkboxValue', checkboxValue);
     console.log ('Hochgesendete Daten', currentUser, 'checkbox-Wert', checkboxValue);
 }
 
@@ -73,5 +71,6 @@ function fillInValues() {
  * reset currentUser when logging in as guest
  */
 async function resetCurrentUser(){
-    await setItem('currentUser', JSON.stringify({}));
+    await putData('currentUser');
+    await putData('checkboxValue', false);
 }

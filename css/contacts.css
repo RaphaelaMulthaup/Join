@@ -76,19 +76,19 @@
   position: absolute;
     display: flex;
     left: 700px;
-    align-items: center;
+    flex-direction: column;
 }
 
 .bigCircle{
-  padding: 0 0 0 16px;
   border-radius: 50%;
   border: 4px solid white;
-  width: 80px;
-  height: 80px;
+  width: 120px;
+  height: 120px;
   color: white;
   font-size: xx-large;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .addContact {
@@ -349,6 +349,22 @@ input:valid ~ label {
   background-size: 100%;
 }
 
+@keyframes contactSlideIn {
+    from {
+        margin-left: 75%;
+    }
+
+    to {
+        margin-left: 0%;
+    }
+}
+.contactSlideIn {
+    animation: contactSlideIn 1s ease-in-out;
+}
+
+.displayFlex{
+  display: flex;
+}
 .positionContactBox {
   width: fit-content;
   position: sticky;
@@ -387,12 +403,12 @@ input:valid ~ label {
   height: 20px;
   background-size: contain;
   background-repeat: no-repeat;
-  background-image: url(/assets/img/edit.svg);
+  background-image: url(../assets/img/edit.svg);
 }
 
 .edit:hover{
   background-repeat: no-repeat;
-  background-image: url(/assets/img/editBlue.svg);
+  background-image: url(../assets/img/editBlue.svg);
 }
 
 .edit p {
@@ -407,7 +423,7 @@ input:valid ~ label {
   height: 20px;
   background-size: contain;  
   background-repeat: no-repeat;
-  background-image: url(/assets/img/delete.svg);
+  background-image: url(../assets/img/delete.svg);
 }
 
 .delete p {
@@ -419,7 +435,7 @@ input:valid ~ label {
 }
 .delete:hover {
   background-repeat: no-repeat;
-  background-image: url(/assets/img/deleteBlue.svg);
+  background-image: url(../assets/img/deleteBlue.svg);
 }
 /* scrollbar */
 /* width */

@@ -1,32 +1,11 @@
-const STORAGE_TOKEN = '39QCOR1Z1NVJZHWNBMOEMDPO2Y6VX0RI1KUJ7OM7';
-const STORAGE_URL = 'https://remote-storage.developerakademie.org/item';
-
-async function setItem(key, value) {
-    const payload = { key, value, token: STORAGE_TOKEN };
-    return fetch(STORAGE_URL, { method: 'POST', body: JSON.stringify(payload) })
-        .then(res => res.json());
-}
-
-async function getItem(key) {
-    const url = `${STORAGE_URL}?key=${key}&token=${STORAGE_TOKEN}`;
-    return fetch(url).then(res => res.json()).then(res => {
-        if (res.data) {
-            return res.data.value;
-        } throw `Could not find data with key "${key}".`;
-    });
-}
-
 function onloadFunc() {
-    loadData("/users"); // zum ausgeben der Daten
-
+    loadData("/users");
 }
 
 // Daten(spiel)platz Franz
 const BASE_URL = "https://remotestorage-d71ae-default-rtdb.europe-west1.firebasedatabase.app/";
 
-
-/*Raphaelas Versuche*/
-
+/*Haupt URL*/
 const firebaseUrl = "https://join-2fe35-default-rtdb.europe-west1.firebasedatabase.app/";
 
 /**
@@ -52,7 +31,7 @@ async function putUsersToDatabase(){
     let response = await fetch("../json/users.json");
     let data = await response.json();
 
-    await fetch(BASE_URL + "/users" + ".json", {
+    await fetch(firebaseUrl + "/users" + ".json", {
         method: "PUT",
         header: {
             "Content-Type": "application/json",
@@ -75,7 +54,7 @@ async function loadData(path=""){
 async function putCurrentUsersToDatabase(){
     let users = postData;
 
-    await fetch(BASE_URL + "/currentUser" + ".json", { // Der Datenpfad in der Firebase-Datenbank kann hier angepasst werden
+    await fetch(BASE_URL + "/currentUser" + ".json", { 
         method: "PUT",
         header: {
             "Content-Type": "application/json",
@@ -84,13 +63,13 @@ async function putCurrentUsersToDatabase(){
     });
 }
 
-async function postData(path = "", data = {}) {
-    let response = await fetch(BASE_URL + path + ".json", {
-      method: "POST",
-      header: {
+async function putData(path = "", data = {}) {
+    let response = await fetch(firebaseUrl + path + ".json", {
+      method: "PUT",
+      headers: {  // Korrektur hier
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
     });
-    return (responseToJson = await response.json());
-  }
+    return await response.json();
+}

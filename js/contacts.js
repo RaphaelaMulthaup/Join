@@ -84,25 +84,25 @@ function loadFirstLetter(indexLetter) {
  */
 async function randomBackgroundColor() {
     users.forEach(async user => {
-      if (user && !user.color) {
-        let color = '#' + Array.from({length: 3}, () => Math.floor(Math.random() * 255)).map(c => c.toString(16)).join('');
-        user.color = color;
-        await setItem(`user_${user.id}_color`, color);
-      }
+        if (user && !user.color) {
+            let color = '#' + Array.from({ length: 3 }, () => Math.floor(Math.random() * 255)).map(c => c.toString(16)).join('');
+            user.color = color;
+            await setItem(`user_${user.id}_color`, color);
+        }
     });
-  }
+}
 //   let users = [];
-  /**
- * Renders a contact container element based on user information.
- * @param {Object} user - User information object.
- * @param {number} user.index - User index.
- * @param {string} user.name - User name.
- * @param {string} user.email - User email.
- * @param {string} user.initials - User initials for profile image.
- * @param {string} user.color - Background color for the profile image.
- * @returns {void}
- */
-  function renderContactContainer(user) {
+/**
+* Renders a contact container element based on user information.
+* @param {Object} user - User information object.
+* @param {number} user.index - User index.
+* @param {string} user.name - User name.
+* @param {string} user.email - User email.
+* @param {string} user.initials - User initials for profile image.
+* @param {string} user.color - Background color for the profile image.
+* @returns {void}
+*/
+function renderContactContainer(user) {
     const content = document.getElementById('contactInput');
     console.log('User object before calling openContact:', user);
 
@@ -143,32 +143,46 @@ function openContact(id) {
         return;
     }
 
+    content.classList.remove('contactSlideIn');
+    content.offsetWidth;
+    content.classList.add('contactSlideIn');
+
     content.innerHTML = /*html*/`
+    <div class="displayFlex" >
         <div class="bigCircle bgColorCircleBig" id="bigCircle" style="background-color: ${user.color};">
-            <div class="initial">${user.initials}</div>
+            <div class="initialBig">${user.initials}</div>
         </div>
         <div class="userContainerBig">
           <p class="nameBig" id="name${user.id}">${user.name}</p>
-          <div class="editDelete">
-            <div class="editDelete" id="edit" onclick="editContact(${user.id}, '${user.color}', '${user.initials}')">
-              <a class="edit" alt="">
-              <p>Edit</p>
-            </div>
-            <div class="editDelete" onclick="deleteContact(${user.id})" id="delete">
-              <a class="delete" alt="">
+            <div class="editDelete">
+                <div class="edit" id="edit" onclick="editContact(${user.id}, '${user.color}', '${user.initials}')">
+                    <a class="edit" alt="">
+                    <p>Edit</p>
+                </div>
+            <div class="delete" id="delete" onclick="deleteContact(${user.id})">
+              <a alt="">
               <p>Delete</p>
             </div>
           </div>
-        </div>
+      </div>
+      
+    </div>
+                <div class="userContactBig">
+                        <p>Contact information</p>
+                        <p>Email</p>
+                    <div class="email">${user.email}</div>
+                        <p>Phone</p>
+                    <div class="name" id="name${user.id}">${user.phone}
+                </div>
+            </div>
     `;
 }
-
 
 /**
  * Listens for click events on the document and updates the style of contact containers accordingly.
  * @param {Event} event - The click event.
  */
-document.addEventListener('click', function(event) {
+document.addEventListener('click', function (event) {
     const contactContainers = document.querySelectorAll('.contactContainer, bigCircle');
     contactContainers.forEach(container => {
         const isActive = container.contains(event.target);
@@ -226,31 +240,39 @@ async function addInitialsToUsersAndSave(users) {
  * @param {string} existingemail - The email to check for existence.
  * @returns {boolean} - True if the email exists, false otherwise.
  */
-function emailExists(existingemail) { 
+function emailExists(existingemail) {
     return users.some(user => user.email === existingemail);
 }
 
 // work in progress
-async function registerContact(){
+async function registerContact() {
     registerBtn.disabled = true;
-       let allUsers = await loadData("/users") || [];
+    let allUsers = await loadData("/users") || [];
 
     if (allUsers.some(obj => obj.name === user.value)) {
         alert('Der Name existiert bereits.');
+        registerBtn.disabled = false;
         return;
     }
 
     if (allUsers.some(obj => obj.email === email.value)) {
         alert('Die E-Mail existiert bereits.');
+        registerBtn.disabled = false;
         return;
     }
-    allUsers.push({
+
+    let newUser = {
         name: user.value,
         email: email.value,
         password: passwordInput.value,
-    });
-       await setItem('users', JSON.stringify(allUsers)); 
-       console.log ('Hochgesendete Daten', allUsers)
+    };
+
+    // Neuen Benutzer zu Firebase hinzufügen
+    let response = await postData("/users", newUser);
+
+    console.log('Hochgesendete Daten', response);
+
+    registerBtn.disabled = false;
 }
 
 /**
@@ -272,4 +294,3 @@ function addContact() {
 
 
 
-  

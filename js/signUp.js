@@ -1,13 +1,11 @@
-let allUsers = [];
-
 async function init(){
-    loadusers();
+    await loadusers();
+   checkPasswords();
 }
 
 async function loadusers(){
     try {
-    users = JSON.parse(await getItem('users'));
-    allUsers = JSON.parse(await getItem('allUsers'));
+        users = await loadData("users");
     } catch (e){
         console.error('Loading error:' , e);
     }
@@ -18,22 +16,23 @@ async function loadusers(){
  */
 async function register(){
     registerBtn.disabled = true;
-       let allUsers = JSON.parse(await getItem('users')) || [];
+       let users = await loadData('users') || [];
 
-    if (allUsers.some(obj => obj.name === user.value)) {
+    if (users.some(obj => obj.name === user.value)) {
         alert('Der Name existiert bereits.');
-        return;
+        return
     }
 
-    if (allUsers.some(obj => obj.email === email.value)) {
+    if (users.some(obj => obj.email === email.value)) {
         alert('Die E-Mail existiert bereits.');
         return;
     }
-    allUsers.push({
+    users.push({
         name: user.value,
         email: email.value,
         password: passwordInput.value,
     });
-       await setItem('users', JSON.stringify(allUsers)); 
-       console.log ('Hochgesendete Daten', allUsers)
+       await putData("/users",users);
+       console.log ('Hochgesendete Daten', users)
+
 }

@@ -8,7 +8,7 @@ async function init() {
  */
 async function loadusers(){
     try {
-    currentUser = JSON.parse(await getItem('currentUser'));   
+    currentUser = await loadData('currentUser');   
     if (currentUser && currentUser.name) {
         document.querySelector('.greetingCurrent').innerText = getGreeting();
         document.getElementById('currentUser').innerText = currentUser.name;
