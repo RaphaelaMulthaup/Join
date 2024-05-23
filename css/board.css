@@ -450,13 +450,22 @@
     gap: 11px;
 }
 
+.editAndDeleteBigCard > div:hover{
+    font-weight: 700;
+    color: #29ABE2;
+}
+
+.editAndDeleteBigCard > div:hover path{
+    fill: #29ABE2;
+}
+
 .verticalLineEditAndDeleteBigCard{
     height: 24px;
     width: 1px;
     background-color: #D1D1D1;
 }
 
-.editAndDeleteBigCard img{
+.editAndDeleteBigCard svg{
     width: 18.28px;
     height: 18.25px;
     margin-left: 3px;

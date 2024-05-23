@@ -392,7 +392,7 @@ function assignedToBigCard(task){
  * @param {index} i The index of the user in the assignedTo json.
  * @param {span} initials user initials
  * @param {object} user information about the user
- * @returns 
+ * @returns returns the created div with the user name
  */
 function htmlAssignedToBigCardUsers(i, initials, user){
     return /*html*/ `
@@ -405,7 +405,11 @@ function htmlAssignedToBigCardUsers(i, initials, user){
     `;
 }
 
-
+/**
+ * This function checks whether there are subtasks. If this is the case, the subtasks with a checkbox will be displayed. If this is not the case, assignedToBigCard is output. In addition, the checkboxes are set to checked if the subtask has already been completed.
+ * 
+ * @param {object} task The task that is displayed.
+ */
 function subtasksBigCard(task) {
     if (task.subtasks) {
         let subtasksBigCardChecklist = document.getElementById('subtasksBigCardChecklist');
@@ -428,6 +432,13 @@ function subtasksBigCard(task) {
     }
 }
 
+/**
+ * This function creates a div to display the subtask and returns it.
+ * 
+ * @param {index} i The index of the subtask in the subtasks json.
+ * @param {span} subtask the subtasks that is displayed
+ * @returns returns the created div with the subtask
+ */
 function htmlSubtaskBigCard(i, subtask){
     return /*html*/ `
     <div class="subtaskBidCard" onclick="toggleCheckboxSubtasks('checkboxSubtask${i}')">
