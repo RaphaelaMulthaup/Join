@@ -293,7 +293,7 @@ function prio(task, i){
     }
 }
 
-/*big card*/
+/*display big card*/
 
 function openBigCard(i){
     document.getElementById('overlayBidCardkBackground').classList.remove('dNone');
@@ -396,7 +396,7 @@ function assignedToBigCard(task){
  */
 function htmlAssignedToBigCardUsers(i, initials, user){
     return /*html*/ `
-    <div>
+    <div class="userBigCard">
         <div class="initialsUserBigCard" id="initialsUserBigCard${i}">
             <span>${initials}</span>
         </div>
@@ -430,10 +430,23 @@ function subtasksBigCard(task) {
 
 function htmlSubtaskBigCard(i, subtask){
     return /*html*/ `
-    <div>
+    <div class="subtaskBidCard" onclick="toggleCheckboxSubtasks('checkboxSubtask${i}')">
         <input type="checkbox" class="checkbox" id="checkboxSubtask${i}" style="display: none;">
         <label for="checkboxSubtask${i}"></label>
         <span>${subtask}</span>
     </div>
     `;
 }
+
+/*use big card*/
+
+/**
+ * This function changes the status of the checkbox that belongs to the subtasks, when the parent div is clicked.
+ * 
+ * @param {span} checkboxId ID of the checkbox
+ */
+function toggleCheckboxSubtasks(checkboxId) {
+    let checkbox = document.getElementById(checkboxId);
+    checkbox.checked = !checkbox.checked;
+}
+  
