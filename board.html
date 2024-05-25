@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="./css/addTask.css">
     <script src="./js/script.js"></script>
     <script src="./js/board.js"></script>
+    <script src="./js/boardMiniCards.js"></script>
+    <script src="./js/boardBigCard.js"></script>
     <script src="./js/storage.js"></script>
 </head>
 <body id="bodyBoard" class="bodyMainpages" onload="loadBoardPage()" onclick="setElementsToDefaultBoard()">
@@ -69,7 +71,7 @@
                     <h5 class="h5StatusTask">Done</h5>
                 </div>
             </div>
-            <div class="boardTasks">
+            <div class="boardTasks" id="boardTasks">
                 <div class="tasks" id="tasksToDo">
                     <div class="noTasksExisting" id="noTasksExistingToDo">
                         <span>No tasks To do</span>
@@ -220,7 +222,7 @@
             </form>
         </div>
     </div>
-    <div class="overlayBackground dNone" id="overlayBidCardkBackground">
+    <div class="overlayBackground dNone" id="overlayBidCardkBackground" onclick="closeBigCard()">
         <div class="overlayBigCard" id="overlayBigCard" onclick="stayOpenOrActiv(event)">
             <div class="firstLineBigCard">
                 <div class="categoryBigCard" id="categoryBigCard"></div>
