@@ -11,7 +11,7 @@ async function putTasksToDatabase(){
     let response = await fetch("../json/tasks.json");
     let data = await response.json();
 
-    await fetch(BASE_URL + "/tasks" + ".json", {
+    await fetch(firebaseUrl + "/tasks" + ".json", {
         method: "PUT",
         header: {
             "Content-Type": "application/json",
@@ -43,12 +43,12 @@ async function putUsersToDatabase(){
  * @returns the data
  */
 async function loadData(path=""){
-    let response = await fetch(BASE_URL + path + ".json");
+    let response = await fetch(firebaseUrl + path + ".json");
     return  responseToJson = await response.json();
 }
 
 async function putData(path = "", data = {}) {
-    let response = await fetch(BASE_URL + path + ".json", {
+    let response = await fetch(firebaseUrl + path + ".json", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
