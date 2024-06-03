@@ -6,7 +6,7 @@ let checkboxValue = [];
  */
 async function init() {
     loadusers();
-}
+} 
 
 /**
  * load users form storage

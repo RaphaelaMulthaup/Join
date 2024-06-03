@@ -1,7 +1,3 @@
-function onloadFunc() {
-    loadData("/users");
-}
-
 // Daten(spiel)platz Franz
 const BASE_URL = "https://remotestorage-d71ae-default-rtdb.europe-west1.firebasedatabase.app/";
 
@@ -15,7 +11,7 @@ async function putTasksToDatabase(){
     let response = await fetch("../json/tasks.json");
     let data = await response.json();
 
-    await fetch(firebaseUrl + "/tasks" + ".json", {
+    await fetch(BASE_URL + "/tasks" + ".json", {
         method: "PUT",
         header: {
             "Content-Type": "application/json",
@@ -47,26 +43,14 @@ async function putUsersToDatabase(){
  * @returns the data
  */
 async function loadData(path=""){
-    let response = await fetch(firebaseUrl + path + ".json");
+    let response = await fetch(BASE_URL + path + ".json");
     return  responseToJson = await response.json();
 }
 
-async function putCurrentUsersToDatabase(){
-    let users = postData;
-
-    await fetch(BASE_URL + "/currentUser" + ".json", { 
-        method: "PUT",
-        header: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(users)
-    });
-}
-
 async function putData(path = "", data = {}) {
-    let response = await fetch(firebaseUrl + path + ".json", {
+    let response = await fetch(BASE_URL + path + ".json", {
       method: "PUT",
-      headers: {  // Korrektur hier
+      headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),

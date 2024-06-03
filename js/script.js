@@ -152,30 +152,6 @@ function toggleSubmitButton() {
     registerBtn.disabled = !checkbox.checked;
 }
 
-/**
- * check for password match
- */
-async function checkPasswords() {
-    event.preventDefault();
-
-    let password = document.getElementById("passwordInput").value;
-    let confirmPassword = document.getElementById("passwordInputConfirm").value;
-    let confirm = document.getElementById('confirm');
-    let alertPw = document.getElementById('alert');
-
-    if (password === confirmPassword) {
-        await register();
-        document.getElementById('slideInBG').style.display = 'block';
-        document.getElementById('signupForm').reset();
-        window.location.href = 'index.html';
-        return true;
-
-    } else {
-        confirm.style.border = '2px solid #FE818F';
-        alertPw.innerHTML =` <span>Ups! Your passwords don't match</span>`;
-    }
-}
-
 /*Informations*/
 
 /**
