@@ -301,27 +301,29 @@
 }
 
 /*big card*/
-
-.overlayBigCard {
+.overlayCard{
     background-color: white;
     width: 525px;
     min-height: fit-content;
-    max-height: fit-content;
+    max-height: 930px;
     padding: 48px 40px;
     border-radius: 30px;
     box-shadow: 0px 0px 4px 0px #00000029;
     position: fixed;
     inset: 0;
     margin: auto;
-    /*animation cantrollieren*/
     animation-name: addOverlay;
     animation-duration: 100ms;
     animation-timing-function: ease-in-out;
     animation-fill-mode: forwards;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    
     font-size: 20px;
+}
+
+.overlayBigCard {
+    gap: 24px;
 }
 
 .overlayBigCard.removing {
@@ -453,6 +455,7 @@
 .editAndDeleteBigCard > div:hover{
     font-weight: 700;
     color: #29ABE2;
+    cursor: pointer;
 }
 
 .editAndDeleteBigCard > div:hover path{
@@ -469,4 +472,76 @@
     width: 18.28px;
     height: 18.25px;
     margin-left: 3px;
+}
+
+/*edit task*/
+
+.overlayEditTask{
+    padding-left: 0;
+}
+
+.firstLineOverlayCard{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.formEditTask{
+    margin-top: 28px;
+    margin-bottom: 24px;
+}
+
+.formEditTask input{
+    font-size: 20px;
+}
+
+.inputTagsEditTask{
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    gap: 24px;
+}
+
+.formEditTaskUpperArea{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-left: 40px;
+}
+
+.formEditTaskLowerArea{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+
+
+.formEditTaskLowerArea > div:nth-child(n+2){
+    padding-left: 40px;
+}
+
+.lowerAreaEditTask{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.buttonOkEditTask{
+    border-radius: 10px;
+    height: 57px;
+    width: 89px;
+    font-size: 21px;
+    font-weight: 700;
+    gap: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hookOkEditTask{
+    height: 24px;
+    width: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

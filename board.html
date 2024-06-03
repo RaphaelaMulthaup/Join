@@ -223,7 +223,7 @@
         </div>
     </div>
     <div class="overlayBackground dNone" id="overlayBidCardkBackground" onclick="closeBigCard()">
-        <div class="overlayBigCard" id="overlayBigCard" onclick="stayOpenOrActiv(event)">
+        <div class="overlayBigCard overlayCard" id="overlayBigCard" onclick="stayOpenOrActiv(event)">
             <div class="firstLineBigCard">
                 <div class="categoryBigCard" id="categoryBigCard"></div>
                 <div class="bigCardCloseButton" onclick="closeBigCard()">
@@ -258,14 +258,14 @@
                 <div id="subtasksBigCardChecklist"></div>
             </div>
             <div class="editAndDeleteBigCard">
-                <div class="deleteBigCard">
+                <div class="deleteBigCard" onclick="deleteTask()">
                     <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M3.14453 18C2.59453 18 2.1237 17.8042 1.73203 17.4125C1.34036 17.0208 1.14453 16.55 1.14453 16V3C0.861198 3 0.623698 2.90417 0.432031 2.7125C0.240365 2.52083 0.144531 2.28333 0.144531 2C0.144531 1.71667 0.240365 1.47917 0.432031 1.2875C0.623698 1.09583 0.861198 1 1.14453 1H5.14453C5.14453 0.716667 5.24036 0.479167 5.43203 0.2875C5.6237 0.0958333 5.8612 0 6.14453 0H10.1445C10.4279 0 10.6654 0.0958333 10.857 0.2875C11.0487 0.479167 11.1445 0.716667 11.1445 1H15.1445C15.4279 1 15.6654 1.09583 15.857 1.2875C16.0487 1.47917 16.1445 1.71667 16.1445 2C16.1445 2.28333 16.0487 2.52083 15.857 2.7125C15.6654 2.90417 15.4279 3 15.1445 3V16C15.1445 16.55 14.9487 17.0208 14.557 17.4125C14.1654 17.8042 13.6945 18 13.1445 18H3.14453ZM3.14453 3V16H13.1445V3H3.14453ZM5.14453 13C5.14453 13.2833 5.24036 13.5208 5.43203 13.7125C5.6237 13.9042 5.8612 14 6.14453 14C6.42786 14 6.66536 13.9042 6.85703 13.7125C7.0487 13.5208 7.14453 13.2833 7.14453 13V6C7.14453 5.71667 7.0487 5.47917 6.85703 5.2875C6.66536 5.09583 6.42786 5 6.14453 5C5.8612 5 5.6237 5.09583 5.43203 5.2875C5.24036 5.47917 5.14453 5.71667 5.14453 6V13ZM9.14453 13C9.14453 13.2833 9.24037 13.5208 9.43203 13.7125C9.6237 13.9042 9.8612 14 10.1445 14C10.4279 14 10.6654 13.9042 10.857 13.7125C11.0487 13.5208 11.1445 13.2833 11.1445 13V6C11.1445 5.71667 11.0487 5.47917 10.857 5.2875C10.6654 5.09583 10.4279 5 10.1445 5C9.8612 5 9.6237 5.09583 9.43203 5.2875C9.24037 5.47917 9.14453 5.71667 9.14453 6V13Z" fill="#2A3647"/>
                     </svg>                        
                     <span>Delete</span>
                 </div>
                 <div class="verticalLineEditAndDeleteBigCard"></div>
-                <div class="editBigCard">
+                <div class="editBigCard" onclick="editTask()">
                     <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M3.0612 22.1418H4.92787L16.4279 10.6418L14.5612 8.7751L3.0612 20.2751V22.1418ZM22.1279 8.70843L16.4612 3.10843L18.3279 1.24176C18.839 0.730653 19.4668 0.475098 20.2112 0.475098C20.9556 0.475098 21.5834 0.730653 22.0945 1.24176L23.9612 3.10843C24.4723 3.61954 24.739 4.23621 24.7612 4.95843C24.7834 5.68065 24.539 6.29732 24.0279 6.80843L22.1279 8.70843ZM20.1945 10.6751L6.0612 24.8084H0.394531V19.1418L14.5279 5.00843L20.1945 10.6751Z" fill="#2A3647"/>
                     </svg>                        
@@ -274,6 +274,104 @@
             </div>
         </div>
     </div>
+    <div class="overlayBackground dNone" id="overlayEditTaskBackground" onclick="closeOverlayEditTask()">
+        <div class="overlayEditTask overlayCard" id="overlayEditTask" onclick="stayOpenOrActiv(event)">
+            <div class="firstLineOverlayCard">
+                <div class="categoryBigCard" id="categoryBigCard"></div>
+                <div class="bigCardCloseButton" onclick="closeBigCard()">
+                    <img src="./assets/img/close.svg" alt="close">
+                </div>
+            </div>
+            <form onsubmit="addNewTask(); return false;" class="formEditTask" novalidate id="formEditTask">
+                <div class="inputTagsEditTask">
+                    <div class="formEditTaskUpperArea">
 
+                        <div class="formElementAddTask">
+                            <label class="formPointDescription" for="addTaskTitle">Title</label>
+                            <input class="widthFormElementsAddTask heightFormElementsAddTask borderFormElementsAddTask inputTagAddTaskFocus addTaskInputRequired" id="addTaskTitle" name="addTaskTitle" type="text" required placeholder="Enter a title" autocomplete="off">
+                            <span class="requiredMessage" id="requiredMessageTitleAddTask">This field is required</span>
+                        </div>
+
+                        <div class="formElementAddTask">
+                            <label class="formPointDescription" for="addTaskDescription">Description</label>
+                            <textarea class="widthFormElementsAddTask borderFormElementsAddTask paddingLeftAddTask inputTagAddTaskFocus addTaskInputRequired" name="addTaskDescription" id="addTaskDescription" required placeholder="Enter a description"></textarea>
+                            <span class="requiredMessage" id="requiredMessageDescriptionAddTask">This field is required</span>
+                        </div>
+
+                        <div class="formElementAddTask">
+                            <label class="formPointDescription" for="addTaskDueDate">Due date</label>
+                            <input class="widthFormElementsAddTask heightFormElementsAddTask borderFormElementsAddTask paddingLeftAddTask paddingRightAddTask inputTagAddTaskFocus addTaskInputRequired" id="addTaskDueDate" name="addTaskDueDate" type="date" required onfocus="blackColorDueDate(this)" oninput="blackColorDueDate(this)" onblur="changeColorDueDate(this)">
+                            <span class="requiredMessage" id="requiredMessageDueDateAddTask">This field is required</span>
+                        </div>
+
+                    </div>
+                    <div class="formEditTaskLowerArea">
+
+                        <div class="formElementAddTask">
+                            <span class="formPointDescription">Prio</span>
+                            <div class="addTaskPrioButtons widthFormElementsAddTask">
+                                <button formnovalidate class="buttonAddTaskPage" id="addTaskPrioUrgent" onclick="priorityUrgent(event)">Urgent <img id="imgUrgent" src="./assets/img/capaUrgent.svg"></button>
+                                <button formnovalidate class="buttonAddTaskPage addTaskPrioActiv addTaskPrioMediumActiv" id="addTaskPrioMedium" onclick="priorityMedium(event)">Medium <img id="imgMedium" src="./assets/img/capaMediumWhite.svg"></button>
+                                <button formnovalidate class="buttonAddTaskPage" id="addTaskPrioLow" onclick="priorityLow(event)">Low <img id="imgLow" src="./assets/img/capaLow.svg"></button>
+                            </div>
+                        </div>
+
+                        <div class="formElementAddTask">
+                            <span class="formPointDescription">Assigned to</span>
+                            <div class="dropdown" id="addTaskAssignedTo">
+                                <button formnovalidate id="buttonSelectContacts" class="buttonSelectContacts widthFormElementsAddTask heightFormElementsAddTask borderFormElementsAddTask paddingRightAddTask" onclick="selectContactsButton(event)">
+                                    <span id="textSelectContacts">Select contacts to assign</span>
+                                    <input class="inputInsideDiv" type="text" id="inputSelectContacts" style="display: none;" autocomplete="off">
+                                    <img id="arrowIcon" src="./assets/img/arrowdropdownDown.svg" alt="">
+                                </button>
+                                <div class="dropdown-content widthFormElementsAddTask dropdownContactsHidden" id="dropdownContacts" onclick="stayOpenOrActiv(event)">
+                                    <label class="paddingLeftAddTask">
+                                        <div class="coloredCircleInitials">SM</div>
+                                        <div class="selectContactsName">Sofia Müller (You)</div> 
+                                        <input type="checkbox" id="checkboxSelectContacts" class="checkbox checkboxSelectContacts" style="display: none;">
+                                        <label for="checkboxSelectContacts"></label>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="formElementAddTask">
+                            <span class="formPointDescription" for="addTaskSubtasks">Subtasks</span>
+                            <div class="widthFormElementsAddTask heightFormElementsAddTask borderFormElementsAddTask paddingLeftAddTask paddingRightAddTask inputTagAddTaskFocus" id="addTaskSubtasks" onclick="activateAddTaskSubtasks(); stayOpenOrActiv(event)">
+                                <span id="textAddSubtask">Add new subtask</span>
+                                <div id="circleIconPlusAddTaskSubtasks" class='circleIconAddTaskSubtasks'>
+                                    <img src="./assets/img/plus.svg">
+                                </div>
+                                <input id="inputAddSubtask" type="text" class="inputInsideDiv" style="display: none;" autocomplete="off">
+                                <div id="iconsInputAddSubtask" class="iconsSubtask" style="display: none;">
+                                    <div class='circleIconAddTaskSubtasks' onclick="inputSubtaskDefault(), stayOpenOrActiv(event)">
+                                        <img src="./assets/img/close.svg">
+                                    </div>
+                                    <div class="verticalLineAddTaskSubtasks"></div>
+                                    <div class='circleIconAddTaskSubtasks' onclick="stayOpenOrActiv(event), addSubtask()">
+                                        <img src="./assets/img/check.svg">
+                                    </div>    
+                                </div>
+                            </div>
+                            <ul id="subtasks">
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+            <div class="lowerAreaEditTask">
+                <button class="button buttonFilled buttonWithIcon buttonOkEditTask">
+                    Ok
+                    <div class="hookOkEditTask">
+                        <svg width="15.49" height="11.22" viewBox="0 0 38 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3.92285 14.8085L15.1516 25.8745L33.8662 3.74243" stroke="white" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+
+                </button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

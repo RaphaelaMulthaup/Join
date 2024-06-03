@@ -9,20 +9,26 @@ async function loadBoardPage(){
 }
 
 /**
- * This function loads the example tasks. After that 'boardTasks' is set to default, it is being checked checks whether tasks of a status exist and displays the tasks.
+ * This function loads the example tasks and displays them.
  */
 async function loadBoard(){
     let newTasks = await loadData("/tasks");
     /*den console.log später noch raus nehmen*/
     console.log(newTasks);
-
     if (newTasks && newTasks.length > 0) {
         tasks = newTasks;
-        document.getElementById('boardTasks').innerHTML = htmlboard();
-        checkWhetherTasksExist();
-        for (let i = 0; i < tasks.length; i++) {
-            displayMiniCard(i);
-        }
+        displayBoard();
+    }
+}
+
+/**
+ * 'boardTasks' is set to default, it is being checked whether tasks of a status exist and displays the tasks.
+ */
+function displayBoard(){
+    document.getElementById('boardTasks').innerHTML = htmlboard();
+    checkWhetherTasksExist();
+    for (let i = 0; i < tasks.length; i++) {
+        displayMiniCard(i);
     }
 }
 
@@ -60,7 +66,7 @@ function htmlboard(){
  * This function checks whether tasks of a status exist and shows or hides a message accordingly.
  */
 function checkWhetherTasksExist(){
-        let numberOfTasksToDo = tasks.filter(task => task.status === "to do").length;
+    let numberOfTasksToDo = tasks.filter(task => task.status === "to do").length;
     if (numberOfTasksToDo > 0) {
         document.getElementById('noTasksExistingToDo').classList.toggle('dNone');
     }
