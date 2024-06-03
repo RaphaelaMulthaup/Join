@@ -1,6 +1,4 @@
 const initials = [];
-
-// let sortedUser = renderContactList();
 /**
  * loadusers
 */
@@ -39,7 +37,6 @@ async function abcOrder(users) {
     users.forEach((user, index) => {
         user.id = index +1;
     });
-    // putData("/users", users)
 }
 
 /**
@@ -103,16 +100,6 @@ function loadFirstLetter(indexLetter) {
  * Colors are randomly generated and stored for each user.
  * @returns {Promise<void>} Resolves when all user colors are set.
  */
-// async function randomBackgroundColor() {
-//     users.forEach(async user => {
-//         if (user && !user.color) {
-//             let color = '#' + Array.from({ length: 3 }, () => Math.floor(Math.random() * 255)).map(c => c.toString(16)).join('');
-//             user.color = color;
-//             await putData(`user_${user.id}_color`, color);
-//         }
-//     });
-// }
-
 async function randomBackgroundColor(users) {
     for (const user of users) {
         if (!user.color) {
@@ -184,13 +171,6 @@ function validateUser(user) {
     }
     return true;
 }
-// function validateUser(user) {
-//     if (!user || !user.color || !user.initials || !user.name || !user.id) {
-//         console.error('Invalid user object:', user);
-//         return false;
-//     }
-//     return true;
-// }
 
 function getContentElement() {
     const content = document.getElementById('contactDetailContainer');
@@ -216,7 +196,7 @@ function updateUserContent(content, user) {
             <div class="userContainerBig">
                 <p class="nameBig" id="name${user.id}">${user.name}</p>
                 <div class="editDelete">
-                    <div class="edit" id="edit" onclick="editContact(${user.id}, '${user.color}', '${user.initials}')">
+                    <div class="edit" id="edit" onclick="editContactSlide(${user.id}, '${user.color}', '${user.initials}')">
                         <a class="edit" alt=""><p>Edit</p></a>
                     </div>
                     <div class="delete" id="delete" onclick="deleteUserAndReassignIds(${user.id})">
@@ -327,9 +307,7 @@ async function registerContact() {
     registerBtn.disabled = false;
     closeAddContact();
     console.log('geladene Benutzer', users);
-    await renderContactList(users);
-    // await loadusers();
-    
+    await renderContactList(users);    
 }
 
 function isNameTaken(users) {
@@ -383,8 +361,17 @@ async function deleteUserAndReassignIds(userId) {
  */
 function closeAddContact() {
     document.getElementById('contactSlide').classList.add('closeContact');
-    setTimeout(() => document.getElementById('contactSlideBG').classList.add('d-none'), 500);
+    setTimeout(() => {
+        document.getElementById('contactSlideBG').classList.add('d-none');
+        //original data resored
+        document.getElementById('formTitle').innerHTML = "<img src='./assets/img/favicon_light.svg' alt=''><h1>Add contact</h1><h2>Tasks are better with a team!</h2><div class='blueLineAddContacts'></div>";
+        document.getElementById('registerBtn').innerText = "Create contact";
+        document.getElementById('leftButton').innerText = "Cancel";
+        document.getElementById('leftButton').setAttribute('onclick', 'closeAddContact()');
+        document.getElementById('registerBtn').setAttribute('onclick', 'registerContact()');
+    }, 1000);
 }
+
 
 /**
  * Opens the add contact interface.
@@ -395,5 +382,12 @@ function addContact() {
     document.body.style.overflowY = 'hidden';
 }
 
-
+function editContactSlide(user) {
+    document.getElementById('formTitle').innerHTML = "<img src='./assets/img/favicon_light.svg' alt=''><h1>Edit contact</h1><div class='blueLineAddContacts'></div>";
+    document.getElementById('registerBtn').innerText = "Save Button";
+    document.getElementById('leftButton').innerText = "Delete Button";
+    document.getElementById('leftButton').setAttribute('onclick', `deleteUserAndReassignIds(${user.id})`);
+    document.getElementById('registerBtn').setAttribute('onclick', 'saveContactChange()');
+    addContact();
+}
 

@@ -19,8 +19,9 @@
     onload="loadPage('menuItemContacts'), init()"
     onclick="closeSubMenu()"
   >
-    <div class="overlayBackground d-none" id="contactSlideBG">
-      <div class="contactSlide addContact" id="contactSlide">
+  <div class="d-none" id="overlayEditBG"></div>
+  <div class="overlayBackground d-none" id="contactSlideBG">
+  <div class="contactSlide addContact" id="contactSlide">
         <div class="contactGroup">
           <div class="left" id="formTitle">
             <img src="./assets/img/favicon_light.svg" alt="" />
@@ -29,8 +30,8 @@
             <div class="blueLineAddContacts"></div>
           </div>
           <div class="middel" id="">
-            <img class="ellipse" src="./assets/img/ellipse.svg" alt="" />
-            <img class="person" src="./assets/img/personWhite.svg" alt="" />
+            <img class="ellipse" id="ellipse" src="./assets/img/ellipse.svg" alt="" />
+            <img class="person" id="person" src="./assets/img/personWhite.svg" alt="" />
           </div>
           <div class="right" id="">
             <div class="slideBack" id="slideBack" onclick="closeAddContact()">
