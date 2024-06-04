@@ -169,7 +169,6 @@
     animation-fill-mode: forwards;
 }
 
-
 .overlayAddTask.removing {
     animation-name: removeOverlay;
 }
@@ -200,6 +199,22 @@
 
 .addTaskOverlayCloseButton:hover{
     background-color: #EEEEEE;
+}
+
+
+#addTaskOnBoardDescription{
+    padding-top: 18px;
+    background-image: url('../assets/img/resize.svg'); /* Pfad zur benutzerdefinierten Grafik */
+    background-repeat: no-repeat;
+    background-position: calc(100% - 6.1px) calc(100% - 6.1px); /* Position der benutzerdefinierten Grafik */
+    padding-bottom: 25.1px; /* Platz für die benutzerdefinierte Grafik (19px + 6.1px Abstand) */
+    padding-right: 25.1px; /* Platz für die benutzerdefinierte Grafik (19px + 6.1px Abstand) */
+    height: 120px;
+    font-size: 20px;
+}
+
+#addTaskOnBoardDescription::-webkit-resizer {
+    display: none;
 }
 
 /*mini Card*/
@@ -502,11 +517,34 @@
     gap: 24px;
 }
 
+.formPointEditTaskHeadline{
+    color: #42526E;
+}
+
 .formEditTaskUpperArea{
     display: flex;
     flex-direction: column;
     gap: 16px;
     padding-left: 40px;
+}
+
+#editTaskTitle{
+    padding-left: 21px;
+}
+
+#editTaskDescription{
+    padding-top: 18px;
+    background-image: url('../assets/img/resize.svg'); /* Pfad zur benutzerdefinierten Grafik */
+    background-repeat: no-repeat;
+    background-position: calc(100% - 6.1px) calc(100% - 6.1px); /* Position der benutzerdefinierten Grafik */
+    padding-bottom: 25.1px; /* Platz für die benutzerdefinierte Grafik (19px + 6.1px Abstand) */
+    padding-right: 25.1px; /* Platz für die benutzerdefinierte Grafik (19px + 6.1px Abstand) */
+    height: 120px;
+    font-size: 20px;
+}
+
+#editTaskDescription::-webkit-resizer {
+    display: none;
 }
 
 .formEditTaskLowerArea{
@@ -515,7 +553,19 @@
     gap: 24px;
 }
 
+.editTaskHeadlinePrio{
+    padding-left: 40px;
+    font-weight: 700;
+    font-size: 19px;
+}
 
+.editTaskPrioButtons{
+    width: auto !important;
+}
+
+.buttonUrgentEditTask{
+    margin-left: 40px;
+}
 
 .formEditTaskLowerArea > div:nth-child(n+2){
     padding-left: 40px;

@@ -211,3 +211,24 @@ function closeHelp(){
     document.getElementById('divHelpQuestionMark').classList.remove('dNone');
 }
 
+/*form validation*/
+
+/**
+ * This function taskes away the required attribute from an element.
+ * 
+ * @param {string} id the id of the element
+ */
+function preventNotice(id) {
+    let input = document.getElementById(id);
+    input.removeAttribute('required');
+}
+
+/**
+ * This function adds the required attribute to an element.
+ * 
+ * @param {string} id the id of the element
+ */
+function restoreRequired(id) {
+    let input = document.getElementById(id);
+    input.setAttribute('required', 'required');
+}

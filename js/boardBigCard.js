@@ -268,4 +268,8 @@ async function deleteTask(){
 
 function editTask(){
     document.getElementById('overlayEditTaskBackground').classList.remove('dNone');
+    document.getElementById('editTaskTitle').value = taskBigCard.title;
+    document.getElementById('editTaskDescription').value = taskBigCard.description;
+    document.getElementById('editTaskDueDate').value = taskBigCard.dueDate;
+
 }
