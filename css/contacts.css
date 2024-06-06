@@ -133,6 +133,8 @@
 }
 
 .middel {
+  display: flex;
+  align-items: center;
   width: 200px;
   padding: 35px;
 }
@@ -141,10 +143,6 @@
   position: absolute;
   top: 70px;
   align-self: self-end;
-  padding: 4.3px 8.8px 0 0;
-}
-
-.close {
 }
 
 .slideBack:hover {
@@ -167,6 +165,8 @@
 .person {
   height: 14% !important;
   margin: 30px;
+  color: white;
+  font-size: xx-large;
 }
 
 .right {
@@ -257,7 +257,7 @@ input:valid ~ label {
 }
 
 .closeX {
-  content: url("../assets/img/close.svg");
+  content: url("../assets/img/closeS.svg");
   padding-inline: 6px;
 }
 .button:hover .closeX {
@@ -447,6 +447,55 @@ input:valid ~ label {
   background-repeat: no-repeat;
   background-image: url(../assets/img/deleteBlue.svg);
 }
+
+/* .signUp {
+  position: absolute;
+  right: 40px;
+  top: 70px;
+  display: flex;
+  align-items: center;
+} */
+
+.slideInBG {
+  display: none;
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: #80808045;
+}
+.slideIn {
+  width: max-content;
+  animation: slideIn 2.5s ease-in-out forwards;
+  background-color: #2a3647;
+  border-radius: 20px;
+  position: absolute;
+  padding: 30px;
+  color: #cdcdcd;
+}
+
+@keyframes slideIn {
+  0% {
+    top: 77vh;
+    left: 100vw;
+  }
+
+  40% {
+    top: 77vh;
+    left: 57vw;
+  }
+  60% {
+    top: 77vh;
+    left: 57vw;
+  }
+  100%{
+    top: 77vh;
+    left: 100vw;
+  }
+
+
+}
+
 /* scrollbar */
 /* width */
 ::-webkit-scrollbar {

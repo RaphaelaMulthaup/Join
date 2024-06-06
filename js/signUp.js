@@ -46,9 +46,10 @@ async function register() {
     addUser(users, user.value, email.value, password);
     await putData("/users", users);
     console.log('Hochgesendete Daten', users);
-
-    redirectToHome();
+    
     resetForm();
+    setTimeout(() => { redirectToHome();
+    }, 1500);
 }
 
 /**

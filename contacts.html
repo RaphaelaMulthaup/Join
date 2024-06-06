@@ -14,14 +14,9 @@
     <script src="./js/script.js"></script>
     <script src="./js/contacts.js"></script>
   </head>
-  <body
-    class="bodyMainpages"
-    onload="loadPage('menuItemContacts'), init()"
-    onclick="closeSubMenu()"
-  >
-  <div class="d-none" id="overlayEditBG"></div>
+  <body class="bodyMainpages" onload="loadPage('menuItemContacts'), init()" onclick="closeSubMenu()" >
   <div class="overlayBackground d-none" id="contactSlideBG">
-  <div class="contactSlide addContact" id="contactSlide">
+    <div class="contactSlide addContact" id="contactSlide">
         <div class="contactGroup">
           <div class="left" id="formTitle">
             <img src="./assets/img/favicon_light.svg" alt="" />
@@ -29,11 +24,11 @@
             <h2>Tasks are better with a team!</h2>
             <div class="blueLineAddContacts"></div>
           </div>
-          <div class="middel" id="">
+          <div class="middel" id="middel">
             <img class="ellipse" id="ellipse" src="./assets/img/ellipse.svg" alt="" />
             <img class="person" id="person" src="./assets/img/personWhite.svg" alt="" />
           </div>
-          <div class="right" id="">
+          <div class="right" id="right">
             <div class="slideBack" id="slideBack" onclick="closeAddContact()">
               <img src="./assets/img/close.svg" alt="closeButton" />
             </div>
@@ -48,11 +43,11 @@
             </div>
             <div>
               <button id="leftButton" class="button buttonEmpty" onclick="closeAddContact()">
-                Cancel <span class="closeX"></span>
+                Cancel <span id="closeX" class="closeX"></span>
               </button>
               <button id="registerBtn" class="button buttonFilled" onclick="registerContact()">
                 Create contact
-                <img src="./assets/img/checkWhite.svg" style="padding-left: 10px" alt="" />
+                <img id="checkWhite" src="./assets/img/checkWhite.svg" style="padding-left: 10px" alt="" />
               </button>
             </div>
             <div class="" id="contactList"></div>
@@ -86,5 +81,10 @@
       <div w3-include-html="./assets/templates/legalNotice.html"></div>
       <div w3-include-html="./assets/templates/help.html"></div>
     </div>
+    <!-- <div class="slideInBG" id="slideInBG" style="display: none;"> -->
+    <div class="slideInBG" id="slideInBG">
+      <div class="slideIn">Contact successfully created</div>
+      </div>
+      
   </body>
 </html>
