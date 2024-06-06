@@ -268,4 +268,27 @@ async function deleteTask(){
 
 function editTask(){
     document.getElementById('overlayEditTaskBackground').classList.remove('dNone');
+    document.getElementById('editTaskTitle').value = taskBigCard.title;
+    document.getElementById('editTaskDescription').value = taskBigCard.description;
+
+    let partsOfDateArray = taskBigCard.dueDate.split('/');
+    let [day, month, year] = partsOfDateArray;
+    let dateISO = new Date(year, month, day);
+    let partsOfDate = formatDate(dateISO);
+    document.getElementById('editTaskDueDate').value = partsOfDate;
+}
+
+/**
+ * This function extracts the year, month and day of the ISO date and writes the month and day in two digits.
+ * 
+ * @param {date ISO} partsOfDate the date in the SO 8601-format
+ * @returns year, month and day in the individually format
+ */
+function formatDate(dateISO){
+
+    let year = dateISO.getFullYear();
+    let month = String(dateISO.getMonth()).padStart(2, '0'); // Monat ist 0-basiert, daher +1
+    let day = String(dateISO.getDate()).padStart(2, '0');
+
+    return `${year}-${month}-${day}`;
 }

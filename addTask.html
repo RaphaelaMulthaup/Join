@@ -30,7 +30,8 @@
 
                         <div class="formElementAddTask">
                             <label class="formPointDescription" for="addTaskDescription">Description<span class="colorRed">*</span></label>
-                            <textarea class="widthFormElementsAddTask borderFormElementsAddTask paddingLeftAddTask inputTagAddTaskFocus addTaskInputRequired" name="addTaskDescription" id="addTaskDescription" required placeholder="Enter a description"></textarea>
+                            <textarea class="widthFormElementsAddTask borderFormElementsAddTask paddingLeftAddTask inputTagAddTaskFocus addTaskInputRequired" name="addTaskDescription" onmouseover="preventNotice('addTaskDescription')" 
+                            onmouseout="restoreRequired('addTaskDescription')"  id="addTaskDescription" required placeholder="Enter a description"></textarea>
                             <span class="requiredMessage" id="requiredMessageDescriptionAddTask">This field is required</span>
                         </div>
 

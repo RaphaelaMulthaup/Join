@@ -14,6 +14,7 @@
     <script src="./js/boardMiniCards.js"></script>
     <script src="./js/boardBigCard.js"></script>
     <script src="./js/storage.js"></script>
+    <script src="./js/addTask.js"></script>
 </head>
 <body id="bodyBoard" class="bodyMainpages" onload="loadBoardPage()" onclick="setElementsToDefaultBoard()">
     <div w3-include-html="./assets/templates/menu.html"></div>
@@ -118,7 +119,8 @@
 
                         <div class="formElementAddTask">
                             <label class="formPointDescription" for="addTaskDescription">Description<span class="colorRed">*</span></label>
-                            <textarea class="widthFormElementsAddTask borderFormElementsAddTask paddingLeftAddTask inputTagAddTaskFocus addTaskInputRequired" name="addTaskDescription" id="addTaskDescription" required placeholder="Enter a description"></textarea>
+                            <textarea class="widthFormElementsAddTask borderFormElementsAddTask paddingLeftAddTask inputTagAddTaskFocus addTaskInputRequired" name="addTaskDescription" id="addTaskOnBoardDescription" onmouseover="preventNotice('addTaskOnBoardDescription')" 
+                            onmouseout="restoreRequired('addTaskOnBoardDescription')" required placeholder="Enter a description"></textarea>
                             <span class="requiredMessage" id="requiredMessageDescriptionAddTask">This field is required</span>
                         </div>
 
@@ -287,20 +289,21 @@
                     <div class="formEditTaskUpperArea">
 
                         <div class="formElementAddTask">
-                            <label class="formPointDescription" for="addTaskTitle">Title</label>
-                            <input class="widthFormElementsAddTask heightFormElementsAddTask borderFormElementsAddTask inputTagAddTaskFocus addTaskInputRequired" id="addTaskTitle" name="addTaskTitle" type="text" required placeholder="Enter a title" autocomplete="off">
+                            <label class="formPointDescription formPointEditTaskHeadline" for="addTaskTitle">Title</label>
+                            <input class="widthFormElementsAddTask heightFormElementsAddTask borderFormElementsAddTask inputTagAddTaskFocus addTaskInputRequired" id="editTaskTitle" name="addTaskTitle" type="text" required placeholder="Enter a title" autocomplete="off">
                             <span class="requiredMessage" id="requiredMessageTitleAddTask">This field is required</span>
                         </div>
 
                         <div class="formElementAddTask">
-                            <label class="formPointDescription" for="addTaskDescription">Description</label>
-                            <textarea class="widthFormElementsAddTask borderFormElementsAddTask paddingLeftAddTask inputTagAddTaskFocus addTaskInputRequired" name="addTaskDescription" id="addTaskDescription" required placeholder="Enter a description"></textarea>
+                            <label class="formPointDescription formPointEditTaskHeadline" for="addTaskDescription" >Description</label>
+                            <textarea class="widthFormElementsAddTask borderFormElementsAddTask paddingLeftAddTask inputTagAddTaskFocus addTaskInputRequired" name="addTaskDescription" onmouseover="preventNotice('editTaskDescription')" 
+                            onmouseout="restoreRequired('editTaskDescription')" id="editTaskDescription" required placeholder="Enter a description"></textarea>
                             <span class="requiredMessage" id="requiredMessageDescriptionAddTask">This field is required</span>
                         </div>
 
                         <div class="formElementAddTask">
-                            <label class="formPointDescription" for="addTaskDueDate">Due date</label>
-                            <input class="widthFormElementsAddTask heightFormElementsAddTask borderFormElementsAddTask paddingLeftAddTask paddingRightAddTask inputTagAddTaskFocus addTaskInputRequired" id="addTaskDueDate" name="addTaskDueDate" type="date" required onfocus="blackColorDueDate(this)" oninput="blackColorDueDate(this)" onblur="changeColorDueDate(this)">
+                            <label class="formPointDescription formPointEditTaskHeadline" for="addTaskDueDate">Due date</label>
+                            <input class="widthFormElementsAddTask heightFormElementsAddTask borderFormElementsAddTask paddingLeftAddTask paddingRightAddTask inputTagAddTaskFocus addTaskInputRequired" id="editTaskDueDate" name="addTaskDueDate" type="date" required onfocus="blackColorDueDate(this)" oninput="blackColorDueDate(this)" onblur="changeColorDueDate(this)">
                             <span class="requiredMessage" id="requiredMessageDueDateAddTask">This field is required</span>
                         </div>
 
@@ -308,16 +311,16 @@
                     <div class="formEditTaskLowerArea">
 
                         <div class="formElementAddTask">
-                            <span class="formPointDescription">Prio</span>
-                            <div class="addTaskPrioButtons widthFormElementsAddTask">
-                                <button formnovalidate class="buttonAddTaskPage" id="addTaskPrioUrgent" onclick="priorityUrgent(event)">Urgent <img id="imgUrgent" src="./assets/img/capaUrgent.svg"></button>
+                            <span class="formPointDescription editTaskHeadlinePrio formPointEditTaskHeadline">Priority</span>
+                            <div class="addTaskPrioButtons widthFormElementsAddTask editTaskPrioButtons">
+                                <button formnovalidate class="buttonAddTaskPage buttonUrgentEditTask" id="addTaskPrioUrgent" onclick="priorityUrgent(event)">Urgent <img id="imgUrgent" src="./assets/img/capaUrgent.svg"></button>
                                 <button formnovalidate class="buttonAddTaskPage addTaskPrioActiv addTaskPrioMediumActiv" id="addTaskPrioMedium" onclick="priorityMedium(event)">Medium <img id="imgMedium" src="./assets/img/capaMediumWhite.svg"></button>
                                 <button formnovalidate class="buttonAddTaskPage" id="addTaskPrioLow" onclick="priorityLow(event)">Low <img id="imgLow" src="./assets/img/capaLow.svg"></button>
                             </div>
                         </div>
 
                         <div class="formElementAddTask">
-                            <span class="formPointDescription">Assigned to</span>
+                            <span class="formPointDescription formPointEditTaskHeadline">Assigned to</span>
                             <div class="dropdown" id="addTaskAssignedTo">
                                 <button formnovalidate id="buttonSelectContacts" class="buttonSelectContacts widthFormElementsAddTask heightFormElementsAddTask borderFormElementsAddTask paddingRightAddTask" onclick="selectContactsButton(event)">
                                     <span id="textSelectContacts">Select contacts to assign</span>
@@ -336,7 +339,7 @@
                         </div>
 
                         <div class="formElementAddTask">
-                            <span class="formPointDescription" for="addTaskSubtasks">Subtasks</span>
+                            <span class="formPointDescription formPointEditTaskHeadline" for="addTaskSubtasks">Subtasks</span>
                             <div class="widthFormElementsAddTask heightFormElementsAddTask borderFormElementsAddTask paddingLeftAddTask paddingRightAddTask inputTagAddTaskFocus" id="addTaskSubtasks" onclick="activateAddTaskSubtasks(); stayOpenOrActiv(event)">
                                 <span id="textAddSubtask">Add new subtask</span>
                                 <div id="circleIconPlusAddTaskSubtasks" class='circleIconAddTaskSubtasks'>
