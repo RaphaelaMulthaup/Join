@@ -179,10 +179,6 @@
     cursor: pointer;
 }
 
-/*.dropdown.active .dropdown-content {
-    display: block;
-}*/
-
 .coloredCircleInitials{
     background-color: #FF7A00;
     border-radius: 50%;
@@ -207,7 +203,7 @@
     vertical-align: middle;
 }
 
-.checkboxSelectContacts:hover+label{
+.checkboxSelectContacts:hover label{
     background: url('./assets/img/checkboxDisabled.svg') no-repeat;
 }
 
@@ -284,10 +280,6 @@
     font-weight: 700;
     box-shadow: none !important;
     transition: background-color 100ms ease-in-out;
-}
-
-.addTaskPrioActiv:hover{
-    cursor: default;
 }
 
 /*category*/

@@ -490,9 +490,9 @@
 }
 
 /*edit task*/
-
 .overlayEditTask{
     padding-left: 0;
+    padding-right: 18.68px;
 }
 
 .firstLineOverlayCard{
@@ -502,19 +502,16 @@
 }
 
 .formEditTask{
-    margin-top: 28px;
+    margin-top: 28px !important;
     margin-bottom: 24px;
 }
 
-.formEditTask input{
-    font-size: 20px;
-}
-
 .inputTagsEditTask{
-    display: flex;
     flex-direction: column;
-    overflow: auto;
-    gap: 24px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    gap: 24px !important;
+    max-height: 693px;
 }
 
 .formPointEditTaskHeadline{
@@ -526,25 +523,6 @@
     flex-direction: column;
     gap: 16px;
     padding-left: 40px;
-}
-
-#editTaskTitle{
-    padding-left: 21px;
-}
-
-#editTaskDescription{
-    padding-top: 18px;
-    background-image: url('../assets/img/resize.svg'); /* Pfad zur benutzerdefinierten Grafik */
-    background-repeat: no-repeat;
-    background-position: calc(100% - 6.1px) calc(100% - 6.1px); /* Position der benutzerdefinierten Grafik */
-    padding-bottom: 25.1px; /* Platz für die benutzerdefinierte Grafik (19px + 6.1px Abstand) */
-    padding-right: 25.1px; /* Platz für die benutzerdefinierte Grafik (19px + 6.1px Abstand) */
-    height: 120px;
-    font-size: 20px;
-}
-
-#editTaskDescription::-webkit-resizer {
-    display: none;
 }
 
 .formEditTaskLowerArea{
@@ -559,10 +537,6 @@
     font-size: 19px;
 }
 
-.editTaskPrioButtons{
-    width: auto !important;
-}
-
 .buttonUrgentEditTask{
     margin-left: 40px;
 }
@@ -574,6 +548,10 @@
 .lowerAreaEditTask{
     display: flex;
     justify-content: flex-end;
+}
+
+.editTaskPrioButtons{
+    width: auto !important;
 }
 
 .buttonOkEditTask{
@@ -595,3 +573,48 @@
     justify-content: center;
     align-items: center;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+.formEditTask input{
+    font-size: 20px;
+}
+
+
+
+#editTaskTitle{
+    padding-left: 21px;
+}
+
+#editTaskDescription{
+    padding-top: 18px;
+    background-image: url('../assets/img/resize.svg'); /* Pfad zur benutzerdefinierten Grafik */
+    background-repeat: no-repeat;
+    background-position: calc(100% - 6.1px) calc(100% - 6.1px); /* Position der benutzerdefinierten Grafik */
+    padding-bottom: 25.1px; /* Platz für die benutzerdefinierte Grafik (19px + 6.1px Abstand) */
+    padding-right: 25.1px; /* Platz für die benutzerdefinierte Grafik (19px + 6.1px Abstand) */
+    height: 120px;
+    font-size: 20px;
+}
+
+#editTaskDescription::-webkit-resizer {
+    display: none;
+}
+
+
+
+
+
+
+
+
+

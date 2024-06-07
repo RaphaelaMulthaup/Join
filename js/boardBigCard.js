@@ -1,6 +1,10 @@
 /*display big card*/
 
 let taskBigCard;
+let buttonSelectCategoryEditTaskClicked = false;
+let buttonSelectContactEditTaskClicked = false;
+
+
 
 /**
  * This function shows the big card and displays the selected task.
@@ -8,7 +12,7 @@ let taskBigCard;
  * @param {index} i The index of the task in the tasks json.
  */
 function openBigCard(i){
-    document.getElementById('overlayBidCardkBackground').classList.remove('dNone');
+    document.getElementById('overlayBidCardBackground').classList.remove('dNone');
     taskBigCard = tasks[i];
 
     categoryBigCard();
@@ -165,14 +169,14 @@ function toggleCheckboxSubtasks(checkboxId) {
 }
 
 /**
- * This function adds class 'removing' to 'overlayBigCard'. This will display the sliding out animation. After the animation plays, the div 'overlayBidCardkBackground' is given the class .dNone. 'overlayBigCard' is set to default. 'removing' is then removed again.
+ * This function adds class 'removing' to 'overlayBigCard'. This will display the sliding out animation. After the animation plays, the div 'overlayBidCardBackground' is given the class .dNone. 'overlayBigCard' is set to default. 'removing' is then removed again.
  */
 function closeBigCard(){
-    let overlayBidCardkBackground = document.getElementById('overlayBidCardkBackground');
+    let overlayBidCardBackground = document.getElementById('overlayBidCardBackground');
     let overlayBigCard = document.getElementById('overlayBigCard');
     overlayBigCard.classList.add('removing');
     setTimeout(function() {
-        overlayBidCardkBackground.classList.add('dNone');
+        overlayBidCardBackground.classList.add('dNone');
         document.getElementById('overlayBigCard').innerHTML = htmlBigCard();
         overlayBigCard.classList.remove('removing');
     }, 100); // Dauer der Animation in Millisekunden
@@ -267,15 +271,137 @@ async function deleteTask(){
 }
 
 function editTask(){
+    document.getElementById('overlayEditTask').innerHTML = htmlOverlayEditTask();
     document.getElementById('overlayEditTaskBackground').classList.remove('dNone');
-    document.getElementById('editTaskTitle').value = taskBigCard.title;
-    document.getElementById('editTaskDescription').value = taskBigCard.description;
+
+    document.getElementById('addTaskTitle').value = taskBigCard.title;
+    document.getElementById('addTaskDescription').value = taskBigCard.description;
 
     let partsOfDateArray = taskBigCard.dueDate.split('/');
     let [day, month, year] = partsOfDateArray;
     let dateISO = new Date(year, month, day);
     let partsOfDate = formatDate(dateISO);
-    document.getElementById('editTaskDueDate').value = partsOfDate;
+
+    let addTaskDueDate = document.getElementById('addTaskDueDate');
+    addTaskDueDate.value = partsOfDate;
+    addTaskDueDate.style.color = 'black';
+
+    if (taskBigCard.prio == 'Low') {
+        let buttonLow = document.getElementById('addTaskPrioLow');
+        buttonLow.click();
+    } else if (taskBigCard.prio == 'Medium') {
+        let buttonMedium = document.getElementById('addTaskPrioMedium');
+        buttonMedium.click();
+    } else if (taskBigCard.prio == 'Urgent') {
+        let buttonUrgent = document.getElementById('addTaskPrioUrgent');
+        buttonUrgent.click();
+    }
+
+    let subtasks = document.getElementById('subtasks');
+    for (let i = 0; i < taskBigCard.subtasks.length; i++) {
+        let subtask = taskBigCard.subtasks[i];
+        subtasks.innerHTML += templateSubtask(subtask.subtask);
+    }
+}
+
+function htmlOverlayEditTask(){
+    return /*html*/ `
+        <div class="firstLineOverlayCard">
+            <div class="bigCardCloseButton" onclick="closeBigCard()">
+                <img src="./assets/img/close.svg" alt="close">
+            </div>
+        </div>
+        <form onsubmit="addNewTask(); return false;" class="formAddTask formEditTask" novalidate id="formAddNewTask">
+            <div class="inputTagsAddTask inputTagsEditTask">
+                <div class="formEditTaskUpperArea">
+
+                    <div class="formElementAddTask">
+                        <label class="formPointDescription formPointEditTaskHeadline" for="addTaskTitle">Title</label>
+                        <input class="widthFormElementsAddTask heightFormElementsAddTask borderFormElementsAddTask inputTagAddTaskFocus addTaskInputRequired" id="addTaskTitle" name="addTaskTitle" type="text" required placeholder="Enter a title" autocomplete="off">
+                        <span class="requiredMessage" id="requiredMessageTitleAddTask">This field is required</span>
+                    </div>
+
+                    <div class="formElementAddTask">
+                        <label class="formPointDescription formPointEditTaskHeadline" for="addTaskDescription" >Description</label>
+                        <textarea class="widthFormElementsAddTask borderFormElementsAddTask paddingLeftAddTask inputTagAddTaskFocus addTaskInputRequired" name="addTaskDescription" onmouseover="preventNotice('addTaskDescription')" 
+                        onmouseout="restoreRequired('addTaskDescription')" id="addTaskDescription" required placeholder="Enter a description"></textarea>
+                        <span class="requiredMessage" id="requiredMessageDescriptionAddTask">This field is required</span>
+                    </div>
+
+                    <div class="formElementAddTask">
+                        <label class="formPointDescription formPointEditTaskHeadline" for="addTaskDueDate">Due date</label>
+                        <input class="widthFormElementsAddTask heightFormElementsAddTask borderFormElementsAddTask paddingLeftAddTask paddingRightAddTask inputTagAddTaskFocus addTaskInputRequired" id="addTaskDueDate" name="addTaskDueDate" type="date" required onfocus="blackColorDueDate(this)" oninput="blackColorDueDate(this)" onblur="changeColorDueDate(this)">
+                        <span class="requiredMessage" id="requiredMessageDueDateAddTask">This field is required</span>
+                    </div>
+
+                </div>
+                <div class="formEditTaskLowerArea">
+
+                    <div class="formElementAddTask">
+                        <span class="formPointDescription editTaskHeadlinePrio formPointEditTaskHeadline">Priority</span>
+                        <div class="addTaskPrioButtons editTaskPrioButtons widthFormElementsAddTask addTaskPrioButtons">
+                            <button formnovalidate class="buttonAddTaskPage buttonUrgentEditTask" id="addTaskPrioUrgent" onclick="priorityUrgent(event)">Urgent <img id="imgUrgent" src="./assets/img/capaUrgent.svg"></button>
+                            <button formnovalidate class="buttonAddTaskPage" id="addTaskPrioMedium" onclick="priorityMedium(event)">Medium <img id="imgMedium" src="./assets/img/capaMediumWhite.svg"></button>
+                            <button formnovalidate class="buttonAddTaskPage" id="addTaskPrioLow" onclick="priorityLow(event)">Low <img id="imgLow" src="./assets/img/capaLow.svg"></button>
+                        </div>
+                    </div>
+
+                    <div class="formElementAddTask">
+                        <span class="formPointDescription formPointEditTaskHeadline">Assigned to</span>
+                        <div class="dropdown" id="addTaskAssignedTo">
+                            <button formnovalidate id="buttonSelectContacts" class="buttonSelectContacts widthFormElementsAddTask heightFormElementsAddTask borderFormElementsAddTask paddingRightAddTask" onclick="selectContactsButton(event)">
+                                <span id="textSelectContacts">Select contacts to assign</span>
+                                <input class="inputInsideDiv" type="text" id="inputSelectContacts" style="display: none;" autocomplete="off">
+                                <img id="arrowIcon" src="./assets/img/arrowdropdownDown.svg" alt="">
+                            </button>
+                            <div class="dropdown-content widthFormElementsAddTask dropdownContactsHidden" id="dropdownContacts" onclick="stayOpenOrActiv(event)">
+                                <label class="paddingLeftAddTask">
+                                    <div class="coloredCircleInitials">SM</div>
+                                    <div class="selectContactsName">Sofia Müller (You)</div> 
+                                    <input type="checkbox" id="checkboxSelectContacts" class="checkbox checkboxSelectContacts" style="display: none;">
+                                    <label for="checkboxSelectContacts"></label>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="formElementAddTask">
+                        <span class="formPointDescription formPointEditTaskHeadline" for="addTaskSubtasks">Subtasks</span>
+                        <div class="widthFormElementsAddTask heightFormElementsAddTask borderFormElementsAddTask paddingLeftAddTask paddingRightAddTask inputTagAddTaskFocus" id="addTaskSubtasks" onclick="activateAddTaskSubtasks(); stayOpenOrActiv(event)">
+                            <span id="textAddSubtask">Add new subtask</span>
+                            <div id="circleIconPlusAddTaskSubtasks" class='circleIconAddTaskSubtasks'>
+                                <img src="./assets/img/plus.svg">
+                            </div>
+                            <input id="inputAddSubtask" type="text" class="inputInsideDiv" style="display: none;" autocomplete="off">
+                            <div id="iconsInputAddSubtask" class="iconsSubtask" style="display: none;">
+                                <div class='circleIconAddTaskSubtasks' onclick="inputSubtaskDefault(), stayOpenOrActiv(event)">
+                                    <img src="./assets/img/close.svg">
+                                </div>
+                                <div class="verticalLineAddTaskSubtasks"></div>
+                                <div class='circleIconAddTaskSubtasks' onclick="stayOpenOrActiv(event), addSubtask()">
+                                    <img src="./assets/img/check.svg">
+                                </div>    
+                            </div>
+                        </div>
+                        <ul id="subtasks">
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+        <div class="lowerAreaEditTask">
+            <button class="button buttonFilled buttonWithIcon buttonOkEditTask">
+                Ok
+                <div class="hookOkEditTask">
+                    <svg width="15.49" height="11.22" viewBox="0 0 38 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3.92285 14.8085L15.1516 25.8745L33.8662 3.74243" stroke="white" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+
+            </button>
+        </div>
+    `;
 }
 
 /**
@@ -291,4 +417,9 @@ function formatDate(dateISO){
     let day = String(dateISO.getDate()).padStart(2, '0');
 
     return `${year}-${month}-${day}`;
+}
+
+
+function closeOverlayEditTask(){
+
 }
