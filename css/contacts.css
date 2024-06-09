@@ -33,6 +33,7 @@
 
 .contactContainer {
   padding: 16px;
+  margin-right: 19px;
   border-radius: 16px;
   display: flex;
   align-items: center;
@@ -60,7 +61,8 @@
   padding: 10px;
   border-radius: 50%;
   color: white;
-  margin-right: 16px;
+  margin-right: 20px;
+  border: 3px solid white;
 }
 
 .bgColorCircle {
@@ -233,8 +235,11 @@ input:valid ~ label {
   background-image: url(../assets/img/phone.svg);
 }
 
+.email{
+  color: #29ABE2;
+}
+
 .buttonFilled {
-  width: 250px;
   font-weight: 700;
   font-size: 21px;
   border-radius: 8px;
@@ -365,6 +370,7 @@ input:valid ~ label {
 
 .displayFlex{
   display: flex;
+  align-items: center;
 }
 .positionContactBox {
   width: fit-content;
@@ -377,9 +383,26 @@ input:valid ~ label {
   margin-top: 8px;
 }
 
+.userContactBig{
+  margin-top: 40px;
+}
+
+.userContactBig P{
+  font-size: large;
+  margin: 0 0 32px 0;
+}
+
+.userContactBig h6{
+  margin: 15px 0 15px 0;
+}
+
 .contactBox {
   display: flex;
   align-items: center;
+}
+
+.contactBox h2{
+  font-size: xxx-large;
 }
 
 .blueLineContacts {
@@ -399,8 +422,9 @@ input:valid ~ label {
 }
 
 .nameBig{
-  font-size: x-large;
+  font-size: xx-large;
     font-weight: 600;
+    width: max-content;
 }
 
 .editDelete {
@@ -410,7 +434,6 @@ input:valid ~ label {
 }
 
 .edit{
-  height: 20px;
   background-size: contain;
   background-repeat: no-repeat;
   background-image: url(../assets/img/edit.svg);
@@ -430,7 +453,7 @@ input:valid ~ label {
 }
 
 .delete{
-  height: 20px;
+  margin: 12px;
   background-size: contain;  
   background-repeat: no-repeat;
   background-image: url(../assets/img/delete.svg);
@@ -457,7 +480,7 @@ input:valid ~ label {
 } */
 
 .slideInBG {
-  display: none;
+  /* display: none; */
   position: fixed;
   top: 0;
   height: 100vh;

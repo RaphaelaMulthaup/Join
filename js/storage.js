@@ -47,6 +47,19 @@ async function loadData(path=""){
     return  responseToJson = await response.json();
 }
 
+/**
+ * Sends a PUT request to the specified path with the provided data.
+ *
+ * @async
+ * @function putData
+ * @param {string} [path=""] - The path to append to the base URL for the request.
+ * @param {Object} [data={}] - The data to send in the body of the request.
+ * @returns {Promise<Object>} The response data as a JSON object.
+ *
+ * @example
+ * const result = await putData('/users/123', { name: 'John Doe', email: 'john@example.com' });
+ * console.log(result);
+ */
 async function putData(path = "", data = {}) {
     let response = await fetch(firebaseUrl + path + ".json", {
       method: "PUT",
