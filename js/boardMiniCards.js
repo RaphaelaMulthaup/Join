@@ -13,6 +13,8 @@ async function loadBoardPage(){
  */
 async function loadBoard(){
     let newTasks = await loadData("/tasks");
+    contactsAddTask = await loadData('/users');
+
     /*den console.log später noch raus nehmen*/
     console.log(newTasks);
     if (newTasks && newTasks.length > 0) {

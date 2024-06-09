@@ -157,6 +157,7 @@
 
 #dropdownContacts{
     transition: var(--transition-duration) ease-out;
+    overflow: overlay;
 }
 
 .dropdownContactsHidden {
@@ -180,7 +181,6 @@
 }
 
 .coloredCircleInitials{
-    background-color: #FF7A00;
     border-radius: 50%;
     height: 42px;
     width: 42px;

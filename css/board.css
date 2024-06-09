@@ -493,6 +493,7 @@
 .overlayEditTask{
     padding-left: 0;
     padding-right: 18.68px;
+    animation: none;
 }
 
 .firstLineOverlayCard{
@@ -554,6 +555,11 @@
     width: auto !important;
 }
 
+.dropdownContactsEditTask{
+   right: 18.5px !important; 
+}
+
+
 .buttonOkEditTask{
     border-radius: 10px;
     height: 57px;
@@ -579,36 +585,6 @@
 
 
 
-
-
-
-
-
-
-.formEditTask input{
-    font-size: 20px;
-}
-
-
-
-#editTaskTitle{
-    padding-left: 21px;
-}
-
-#editTaskDescription{
-    padding-top: 18px;
-    background-image: url('../assets/img/resize.svg'); /* Pfad zur benutzerdefinierten Grafik */
-    background-repeat: no-repeat;
-    background-position: calc(100% - 6.1px) calc(100% - 6.1px); /* Position der benutzerdefinierten Grafik */
-    padding-bottom: 25.1px; /* Platz für die benutzerdefinierte Grafik (19px + 6.1px Abstand) */
-    padding-right: 25.1px; /* Platz für die benutzerdefinierte Grafik (19px + 6.1px Abstand) */
-    height: 120px;
-    font-size: 20px;
-}
-
-#editTaskDescription::-webkit-resizer {
-    display: none;
-}
 
 
 
