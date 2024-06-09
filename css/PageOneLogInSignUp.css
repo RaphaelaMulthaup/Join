@@ -48,13 +48,14 @@
   animation-delay: 0.3s;
   background: url(../assets/img/favicon_dark.svg) no-repeat;
   background-size: 300px;
-  height: -webkit-fill-available;
+  height: 300px;
 }
 
 @keyframes moveAndResize {
   0% {
     left: 35%;
     top: 35%;
+    background-size: 300px;
     z-index: 1;
   }
 
@@ -123,13 +124,13 @@ section {
 }
 
 .inputbox {
-  width: 100%;
+  max-width: 30vmax;
   height: 48px;
   border: 2px solid #80808040;
   border-radius: 10px;
   font-size: 15px;
   padding: 6px;
-  margin-right: 15px;
+  /* margin-right: 15px; */
   color: #80808040;
   display: flex;
 }
@@ -160,7 +161,7 @@ input:valid ~ label {
   background-repeat: no-repeat;
   background-position: right;
   cursor: pointer;
-  padding: 12px 21px;
+  /* padding: 0px 15px; */
   font-size: 20px;
   display: flex;
   align-items: center;
@@ -244,6 +245,7 @@ input:valid ~ label {
 }
 
 .signUp {
+  transition: right 0.5s ease, top 0.5s ease, font-size 0.5s ease;
   position: absolute;
   right: 40px;
   top: 70px;
@@ -382,7 +384,7 @@ footer {
 }
 
 .buttonLogIn {
-  width: 110px;
+  width: max-content;
 }
 
 .buttonGuestLogIn {
@@ -401,4 +403,54 @@ footer {
 
 .buttonOnIndexToSignUp {
   border-radius: 8px;
+}
+
+@media (max-width: 700px) {
+  .signUp{
+    transition: right 0.5s ease, top 0.5s ease, font-size 0.5s ease; /* Füge diese Zeile hinzu */
+    position: absolute;
+    /* right: 25vw; */
+    top: 80svh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-size: x-large;
+  }
+
+  .buttonOnIndexToSignUp{
+    border-radius: 8px;
+    padding: 16px 20px 16px 20px;
+    font-weight: bold;
+    margin-left: 24px;
+    text-align: center;
+  }
+
+  .formBoxLogIn{
+    height: 493px;
+    width: -webkit-fill-available;
+    margin: 20px;
+  }
+}
+
+@media (max-width: 550px){
+
+  .inputbox{
+    max-width: 30vmax;
+    height: 48px;
+    margin: 0;
+    color: #80808040;
+    display: flex;
+  }
+  .buttonsLogIn{
+    gap: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+.buttonsLogIn button{
+  width: 177px;
+}
+
 }
