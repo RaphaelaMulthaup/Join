@@ -2,6 +2,30 @@ let buttonSelectContactClicked = false;
 let categoryArrowUp = false;
 let buttonSelectCategoryClicked = false;
 let addSubtaskActiv = false;
+let contactsAddTask =[];
+let selectedContacts =[];
+
+async function loadContacts(){
+    contactsAddTask = await loadData('/users');
+    console.log(contactsAddTask);
+
+    let dropdownContacts = document.getElementById('dropdownContacts');
+    for (let i = 0; i < contactsAddTask.length; i++) {
+        let contactForDropdown = contactsAddTask[i];
+        dropdownContacts.innerHTML += htmlContactDropdown(contactForDropdown, i);
+    }
+}
+
+function htmlContactDropdown(contactForDropdown, i){
+    return /*html*/ `
+        <label class="paddingLeftAddTask">
+            <div class="coloredCircleInitials" style="background-color: ${contactForDropdown.color}">${contactForDropdown.initials}</div>
+            <div class="selectContactsName">${contactForDropdown.name}</div> 
+            <input type="checkbox" id="checkboxSelectContacts${i}" class="checkbox checkboxSelectContacts" style="display: none;">
+            <label for="checkboxSelectContacts${i}"></label>
+        </label>
+    `;
+}
 
 /**
  * This funktion sets clickt elements back to default.
@@ -64,6 +88,20 @@ function setButtonSelectContactsToDefault(buttonText, inputField, button, arrowI
     arrowIcon.src = "./assets/img/arrowdropdownDown.svg";
     buttonSelectContactClicked = false; // Button wurde nicht geklickt
     dropdownContacts.classList.add('dropdownContactsHidden');
+    displayInitials();
+}
+
+function displayInitials(){
+    selectedContacts = [];
+    console.log(selectedContacts);
+    for (let i = 0; i < contactsAddTask.length; i++) {
+        let checkbox = 'checkboxSelectContacts' + i;
+        if (checkbox.checked) {
+            selectedContacts.push(contactsAddTask[i]);
+        } 
+    }
+    console.log(selectedContacts);
+
 }
 
 /**

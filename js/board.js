@@ -58,7 +58,7 @@ function plusButtonToDefault(plusButton) {
 }
 
 /**
- * This function takes away the 'dNone' class from the div 'overlayAddTaskBackground'. The overlay with animation is displayed.  Beforehand, it is checked whether something else is open or activated that should be closed beforehand.
+ * This function takes away the 'dNone' class from the div 'overlayAddTaskBackground'. The overlay with animation is displayed including contacts.  Beforehand, it is checked whether something else is open or activated that should be closed beforehand.
  */
 function openOverlayAddTask(){
     if (subMenuOpen) {
@@ -68,6 +68,13 @@ function openOverlayAddTask(){
         findTaskDefault();
     }
     document.getElementById('overlayAddTask').innerHTML = htmlAddTaskOverlay();
+
+    let dropdownContacts = document.getElementById('dropdownContacts');
+    for (let i = 0; i < contactsAddTask.length; i++) {
+        let contactForDropdown = contactsAddTask[i];
+        dropdownContacts.innerHTML += htmlContactDropdown(contactForDropdown, i);
+    }
+
     document.getElementById('overlayAddTaskBackground').classList.remove('dNone');
 
     overlayAddTaskOpen = true;
@@ -112,14 +119,7 @@ function htmlAddTaskOverlay(){
                             <input class="inputInsideDiv" type="text" id="inputSelectContacts" style="display: none;" autocomplete="off">
                             <img id="arrowIcon" src="./assets/img/arrowdropdownDown.svg" alt="">
                         </button>
-                        <div class="dropdown-content widthFormElementsAddTask dropdownContactsHidden" id="dropdownContacts" onclick="stayOpenOrActiv(event)">
-                            <label class="paddingLeftAddTask">
-                                <div class="coloredCircleInitials">SM</div>
-                                <div class="selectContactsName">Sofia Müller (You)</div> 
-                                <input type="checkbox" id="checkboxSelectContacts" class="checkbox checkboxSelectContacts" style="display: none;">
-                                <label for="checkboxSelectContacts"></label>
-                            </label>
-                        </div>
+                        <div class="dropdown-content widthFormElementsAddTask dropdownContactsHidden" id="dropdownContacts" onclick="stayOpenOrActiv(event)"></div>
                     </div>
                 </div>
         

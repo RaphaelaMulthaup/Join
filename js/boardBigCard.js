@@ -297,6 +297,12 @@ function editTask(){
         buttonUrgent.click();
     }
 
+    let dropdownContacts = document.getElementById('dropdownContacts');
+    for (let i = 0; i < contactsAddTask.length; i++) {
+        let contactForDropdown = contactsAddTask[i];
+        dropdownContacts.innerHTML += htmlContactDropdown(contactForDropdown, i);
+    }
+
     let subtasks = document.getElementById('subtasks');
     for (let i = 0; i < taskBigCard.subtasks.length; i++) {
         let subtask = taskBigCard.subtasks[i];
@@ -307,7 +313,7 @@ function editTask(){
 function htmlOverlayEditTask(){
     return /*html*/ `
         <div class="firstLineOverlayCard">
-            <div class="bigCardCloseButton" onclick="closeBigCard()">
+            <div class="bigCardCloseButton" onclick="closeOverlayEditTask()">
                 <img src="./assets/img/close.svg" alt="close">
             </div>
         </div>
@@ -354,14 +360,7 @@ function htmlOverlayEditTask(){
                                 <input class="inputInsideDiv" type="text" id="inputSelectContacts" style="display: none;" autocomplete="off">
                                 <img id="arrowIcon" src="./assets/img/arrowdropdownDown.svg" alt="">
                             </button>
-                            <div class="dropdown-content widthFormElementsAddTask dropdownContactsHidden" id="dropdownContacts" onclick="stayOpenOrActiv(event)">
-                                <label class="paddingLeftAddTask">
-                                    <div class="coloredCircleInitials">SM</div>
-                                    <div class="selectContactsName">Sofia Müller (You)</div> 
-                                    <input type="checkbox" id="checkboxSelectContacts" class="checkbox checkboxSelectContacts" style="display: none;">
-                                    <label for="checkboxSelectContacts"></label>
-                                </label>
-                            </div>
+                            <div class="dropdown-content widthFormElementsAddTask dropdownContactsHidden dropdownContactsEditTask" id="dropdownContacts" onclick="stayOpenOrActiv(event)"></div>
                         </div>
                     </div>
 
@@ -421,5 +420,12 @@ function formatDate(dateISO){
 
 
 function closeOverlayEditTask(){
+    document.getElementById('overlayEditTaskBackground').classList.add('dNone');
+    document.getElementById('overlayEditTask').innerHTML = '';
+}
 
+function saveEdit(){
+    //speichen der Daten: on submit, Felder auslesen, alten Datensatz ersetzen
+    //big card neu laden 
+    closeOverlayEditTask();
 }
