@@ -96,9 +96,14 @@ function displayInitials(){
     console.log(selectedContacts);
     for (let i = 0; i < contactsAddTask.length; i++) {
         let checkbox = 'checkboxSelectContacts' + i;
-        if (checkbox.checked) {
-            selectedContacts.push(contactsAddTask[i]);
-        } 
+        if (checkbox && checkbox.type === 'checkbox') {
+            if (checkbox.checked) {
+                selectedContacts.push(contactsAddTask[i]);
+            } 
+        } else {
+            console.log(checkbox + 'ist keine Checkbox');
+        }
+        
     }
     console.log(selectedContacts);
 
@@ -598,6 +603,45 @@ function addNewTask() {
     let categoryInput = document.getElementById('textSelectCategory').innerHTML;
       
     if (titleInput.checkValidity() && descriptionInput.checkValidity() && dueDateInput.checkValidity() && categoryInput !== ('Select task category')) {
-        document.getElementById("formAddNewTask").submit();
+        addNewTaskRecordAndSaveData();
     } 
+}
+
+function addNewTaskRecordAndSaveData(){
+    let titleNewTask = document.getElementById('')
+
+
+   /* {
+        "title": "Kochwelt Page & Recipe Recommender",
+        "description": "Build start page with recipe recommendation.",
+        "assignedTo": [
+            {
+                "name": "Emmanuel Mauer", 
+                "color": "#1FD7C1"
+            },
+            {
+                "name": "Marcel Bauer", 
+                "color": "#462F8A"  
+            },
+            {
+                "name": "Anton Mayer", 
+                "color": "#0038FF"  
+            }
+        ],
+        "dueDate": "10/05/2023",
+        "prio": "Medium",
+        "category": "User Story",
+        "subtasks": [
+            {
+                "subtask": "Implement Recipe Recommendation",
+                "status": "done"
+            },
+            {
+                "subtask": "Start Page Layout",
+                "status": "to do"
+            }
+        ],
+        "status": "in progress"
+    }*/
+
 }
