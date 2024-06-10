@@ -1,0 +1,47 @@
+@media only screen {
+    .start-logo {
+      animation: moveAndResize 1.25s ease-in-out forwards;
+      animation-delay: 0.3s;
+    background: url(../assets/img/favicon_light.svg) no-repeat;
+      }
+      
+      @keyframes moveAndResize {
+        0% {
+        background: url(../assets/img/favicon_light.svg) no-repeat;
+        /* background-color: #2a3647; */
+        height: 400px;
+        left: 35%;
+        top: 35%;
+        background-size: 300px;
+        z-index: 40;
+      }
+    
+      100% {
+        background: url(../assets/img/favicon_dark.svg) no-repeat;
+        height: 150px;
+        left: 70px;
+        top: 70px;
+        background-size: 100px;
+        background-position: 0 0;
+        z-index: -1;
+      }
+    }
+  
+    body{
+      background-color: #2a3647;
+      animation: BGColorChang 1.25s ease-in-out forwards;
+      animation-delay: 0.3s;
+      background-size: 100svh;
+    }
+      @keyframes BGColorChang {
+        0% {
+          background-color: #2a3647;
+          z-index: 1000;
+      }
+    
+    100% { 
+      background-color: #f7f7f8; 
+      z-index: 0;
+  }
+  }
+  }

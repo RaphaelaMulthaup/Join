@@ -40,39 +40,47 @@
   margin-top: 2px;
 }
 
+.logo{
+  position: absolute;
+  height: 150px;
+  left: 70px;
+  top: 70px;
+}
+
 .start-logo {
   position: absolute;
   left: 35%;
   top: 35%;
-  animation: moveAndResize 1s ease-in-out forwards;
+  animation: moveAndResize 1.75s ease-in-out forwards;
   animation-delay: 0.3s;
   background: url(../assets/img/favicon_dark.svg) no-repeat;
   background-size: 300px;
-  height: 300px;
 }
 
 @keyframes moveAndResize {
   0% {
+    height: 400px;
     left: 35%;
     top: 35%;
     background-size: 300px;
-    z-index: 1;
+    z-index: 1000;
   }
 
   100% {
+    height: 150px;
     left: 70px;
     top: 70px;
     background-size: 100px;
     background-position: 0 0;
-    z-index: -1;
+    z-index: 1;
   }
 }
 
-section {
+/* section {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
 .form-box {
   position: relative;
@@ -86,6 +94,14 @@ section {
   align-items: center;
 }
 
+.formBoxLogIn {
+  height: 493px;
+  width: 652px;
+  opacity: 0;
+  animation: startDelay 1.25s ease-in-out forwards;
+  animation-delay: 0.7s;
+}
+
 @keyframes startDelay {
   0% {
     opacity: 0;
@@ -96,17 +112,10 @@ section {
   }
 }
 
-.formBoxLogIn {
-  height: 493px;
-  width: 652px;
-  opacity: 0;
-  animation: startDelay 0.5s ease-in-out forwards;
-  animation-delay: 0.7s;
-}
-
 .formBoxSignUp {
   height: 630px;
   width: 598px;
+  margin-inline: 16px;
 }
 
 .back-arrow {
@@ -124,7 +133,7 @@ section {
 }
 
 .inputbox {
-  max-width: 30vmax;
+  max-width: 82vmax;
   height: 48px;
   border: 2px solid #80808040;
   border-radius: 10px;
@@ -157,7 +166,7 @@ input:valid ~ label {
   border: none;
   outline: none;
   color: #000000;
-  background-size: 15px;
+  /* background-size: 15px; */
   background-repeat: no-repeat;
   background-position: right;
   cursor: pointer;
@@ -245,7 +254,7 @@ input:valid ~ label {
 }
 
 .signUp {
-  transition: right 0.5s ease, top 0.5s ease, font-size 0.5s ease;
+  transition: right 0.75s ease, top 0.75s ease, font-size 0.75s ease;
   position: absolute;
   right: 40px;
   top: 70px;
@@ -262,7 +271,7 @@ input:valid ~ label {
   background-color: #80808045;
 }
 .slideIn {
-  animation: slideIn 0.5s ease-in-out forwards;
+  animation: slideIn 0.75s ease-in-out forwards;
   background-color: #2a3647;
   border-radius: 20px;
   position: absolute;
@@ -407,12 +416,8 @@ footer {
 
 @media (max-width: 700px) {
   .signUp{
-    transition: right 0.5s ease, top 0.5s ease, font-size 0.5s ease; /* Füge diese Zeile hinzu */
-    position: absolute;
-    /* right: 25vw; */
+    transition: right 0.75s ease, top 0.75s ease, font-size 0.75s ease;
     top: 80svh;
-    display: flex;
-    align-items: center;
     text-align: center;
     font-size: x-large;
   }
@@ -437,7 +442,6 @@ footer {
   .inputbox{
     max-width: 30vmax;
     height: 48px;
-    margin: 0;
     color: #80808040;
     display: flex;
   }
@@ -453,4 +457,31 @@ footer {
   width: 177px;
 }
 
+}
+
+@media (max-width: 440px) {
+  .inputbox{
+    width: 28vmax;
+  }
+}
+
+@media only screen and (max-width: 1024px)  {
+  .sectionPageOneLogInSignUp {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: 16px;
+    min-height: 95vh;
+  }
+
+  .logo{
+    height: 100px;
+  }
+  .button{
+    padding: 13px 50px 13px 50px;
+  }
+
+  .back-arrow{
+    left: 25px;
+  }
 }
