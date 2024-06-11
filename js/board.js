@@ -1,6 +1,5 @@
 let findTaskFocus = false;
 let overlayAddTaskOpen = false;
-let tasks = {};
 
 /**
  * This funktion sets clickt elements back to default.
