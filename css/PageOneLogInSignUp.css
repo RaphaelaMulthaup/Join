@@ -47,44 +47,9 @@
   top: 70px;
 }
 
-.start-logo {
-  position: absolute;
-  left: 35%;
-  top: 35%;
-  animation: moveAndResize 1.75s ease-in-out forwards;
-  animation-delay: 0.3s;
-  background: url(../assets/img/favicon_dark.svg) no-repeat;
-  background-size: 300px;
-}
-
-@keyframes moveAndResize {
-  0% {
-    height: 400px;
-    left: 35%;
-    top: 35%;
-    background-size: 300px;
-    z-index: 1000;
-  }
-
-  100% {
-    height: 150px;
-    left: 70px;
-    top: 70px;
-    background-size: 100px;
-    background-position: 0 0;
-    z-index: 1;
-  }
-}
-
-/* section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
-
 .form-box {
   position: relative;
-  width: 400px;
+  /* width: 400px; */
   background: white;
   border: 2px solid rgba(255, 255, 255, 0.5);
   border-radius: 20px;
@@ -114,13 +79,13 @@
 
 .formBoxSignUp {
   height: 630px;
-  width: 598px;
+  width: 600px;
   margin-inline: 16px;
 }
 
 .back-arrow {
   position: relative;
-  top: -37%;
+  top: -36%;
   height: 34px;
   width: 32px;
   background-position: center;
@@ -133,13 +98,11 @@
 }
 
 .inputbox {
-  max-width: 82vmax;
+  width: 430px;
   height: 48px;
   border: 2px solid #80808040;
   border-radius: 10px;
   font-size: 15px;
-  padding: 6px;
-  /* margin-right: 15px; */
   color: #80808040;
   display: flex;
 }
@@ -161,16 +124,16 @@ input:valid ~ label {
 }
 
 .input {
-  width: 422px;
+  width: 100%;
   background: transparent;
   border: none;
   outline: none;
   color: #000000;
-  /* background-size: 15px; */
   background-repeat: no-repeat;
   background-position: right;
+  background-position-x: 95%;
   cursor: pointer;
-  /* padding: 0px 15px; */
+  padding: 8px;
   font-size: 20px;
   display: flex;
   align-items: center;
@@ -406,15 +369,31 @@ footer {
   padding: 12px;
 }
 
-.form-valueSignUp {
+/* .form-valueSignUp {
   height: 630px;
-}
+} */
 
 .buttonOnIndexToSignUp {
   border-radius: 8px;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 1000px) {
+
+.logo{
+position: absolute;
+    height: 80px;
+    left: 20px;
+    top: 20px;
+} 
+}
+
+/* @media (max-width: 700px) { */
+@media (max-width: 600px) {
+
+  .inputbox{
+    width: 71vw;
+  }
+
   .signUp{
     transition: right 0.75s ease, top 0.75s ease, font-size 0.75s ease;
     top: 80svh;
@@ -439,8 +418,11 @@ footer {
 
 @media (max-width: 550px){
 
+  /* .back-arrow{
+    left: 10%;
+  } */
+
   .inputbox{
-    max-width: 30vmax;
     height: 48px;
     color: #80808040;
     display: flex;
@@ -450,29 +432,27 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
   }
 
-.buttonsLogIn button{
-  width: 177px;
-}
-
-}
-
-@media (max-width: 440px) {
-  .inputbox{
-    width: 28vmax;
+  .buttonsLogIn button{
+    width: 177px;
   }
+  .sectionPageOneLogInSignUp {
+    min-height: 73svh;
 }
+
+  footer{
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+  }
+
+}
+
+/* @media (max-width: 440px) {
 
 @media only screen and (max-width: 1024px)  {
-  .sectionPageOneLogInSignUp {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    margin-bottom: 16px;
-    min-height: 95vh;
-  }
 
   .logo{
     height: 100px;

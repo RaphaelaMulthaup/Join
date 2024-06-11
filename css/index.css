@@ -1,47 +1,86 @@
-@media only screen {
-    .start-logo {
-      animation: moveAndResize 1.25s ease-in-out forwards;
-      animation-delay: 0.3s;
+@media only screen and (max-width: 550px) {
+
+  .logo{
+    height: 50px;
+    left: 70px;
+    top: 70px;
+  }
+
+  .start-logo {
+    position: absolute;
+    animation: moveAndResize 1.25s ease-in-out forwards;
+    animation-delay: 0.3s;
     background: url(../assets/img/favicon_light.svg) no-repeat;
-      }
-      
-      @keyframes moveAndResize {
-        0% {
-        background: url(../assets/img/favicon_light.svg) no-repeat;
-        /* background-color: #2a3647; */
-        height: 400px;
-        left: 35%;
-        top: 35%;
-        background-size: 300px;
-        z-index: 40;
-      }
-    
-      100% {
-        background: url(../assets/img/favicon_dark.svg) no-repeat;
-        height: 150px;
-        left: 70px;
-        top: 70px;
-        background-size: 100px;
-        background-position: 0 0;
-        z-index: -1;
-      }
+  }
+
+  @keyframes moveAndResize {
+    0% {
+      height: 400px;
+      left: 25%;
+      top: 35%;
+      background-size: 200px;
+      z-index: 40;
     }
-  
-    body{
+
+    100% {
+      background: url(../assets/img/favicon_dark.svg) no-repeat;
+      height: 100px;
+      left: 10px;
+      top: 10px;
+      background-size: 60px;
+      background-position: 26px 0;
+      z-index: -1;
+    }
+  }
+
+  body {
+    background-color: #2a3647;
+    animation: BGColorChang 1.25s ease-in-out forwards;
+    animation-delay: 0.3s;
+    background-size: 100svh;
+  }
+  @keyframes BGColorChang {
+    0% {
       background-color: #2a3647;
-      animation: BGColorChang 1.25s ease-in-out forwards;
-      animation-delay: 0.3s;
-      background-size: 100svh;
-    }
-      @keyframes BGColorChang {
-        0% {
-          background-color: #2a3647;
-          z-index: 1000;
       }
-    
-    100% { 
-      background-color: #f7f7f8; 
+      50%{
+        background-color: #2a3647;
+        }
+
+    100% {
+      background-color: #f7f7f8;
       z-index: 0;
+    }
   }
+}
+
+@media (min-width: 550px) {
+  .start-logo {
+    position: absolute;
+    left: 35%;
+    top: 35%;
+    animation: moveAndResize 1.75s ease-in-out forwards;
+    animation-delay: 0.3s;
+    background: url(../assets/img/favicon_dark.svg) no-repeat;
+    background-size: 300px;
   }
+
+  @keyframes moveAndResize {
+    0% {
+      height: 400px;
+      left: 35%;
+      top: 35%;
+      background-size: 300px;
+      z-index: 1000;
+    }
+
+    100% {
+      height: 150px;
+      left: 70px;
+      top: 70px;
+      background-size: 100px;
+      background-position: 0 0;
+      z-index: 1;
+    }
   }
+}

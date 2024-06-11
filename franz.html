@@ -7,8 +7,47 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/franz.css">
     <link rel="stylesheet" href="./css/fonts.css">
+    <link rel="stylesheet" href="./css/PageOneLogInSignUp.css">
 </head>
-<body>
-    
+<body style="background-color: brown;">
+    <section class="sectionPageOneLogInSignUp">
+        <div class="form-box formBoxSignUp">
+            <a class="back-arrow" href="index.html"></a>
+            <div class="form-valueSignUp">
+                <form class="formSignUp" id="signupForm" onsubmit="register(); return false;">
+                    <h1 class="h1PageOneLogInSignUp">Sign up</h1>
+                    <div class="inputbox">
+                        <input type="name" id="user" class="input person inputPageOneLogInSignUp" placeholder="Name" required>
+                    </div>
+                    <div class="inputbox">
+                        <input type="email" id="email" class="input mail inputPageOneLogInSignUp" placeholder="Email" required>
+                    </div>
+                    <div class="inputbox">
+                        <input type="password" minlength="8" id="passwordInput" class="input lock inputPageOneLogInSignUp" placeholder="Password" required>
+                        <span class="visibility-icon" onclick="togglePasswordVisibility('passwordInput')">
+                            <img src="./assets/img/visibility.svg" alt="Visibility Icon">
+                        </span>
+                    </div>
+                    <div class="inputbox" id="confirm">
+                        <input type="password" minlength="8" id="passwordInputConfirm" class="input lock inputPageOneLogInSignUp" placeholder="Confirm Password" required>
+                        <span class="visibility-icon" onclick="togglePasswordVisibility('passwordInputConfirm')">
+                            <img src="./assets/img/visibility.svg" alt="Visibility Icon">
+                        </span>
+                    </div>
+                    <span class="alert al" id="alert"></span>
+                    <div class="position positionSignIn">
+                        <div class="checkboxText checkboxTextSignUp">
+                            <input type="checkbox" id="checkbox" class="checkbox inputPageOneLogInSignUp dNone" onchange="toggleSubmitButton()">
+                            <label for="checkbox"></label>
+                            <span class="checkboxTextSpan">I accept the <a class="underline aPrivacyPolicy" href="privacyPolicy.html">Privacy policy</a></span>
+                        </div>
+                        <div>
+                            <button type="submit" class="button buttonFilled buttonSignIn" id="registerBtn" disabled title="Accept privacyPolicy first, please.">Sign up</button>
+                        </div>
+                    </div>  
+                </form>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
