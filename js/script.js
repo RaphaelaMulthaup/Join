@@ -2,6 +2,8 @@
 
 let menuItems = ['menuItemSummary', 'menuItemAddTask', 'menuItemBoard', 'menuItemContacts']
 let subMenuOpen = false;
+let tasks = {};
+
 
 /**
  * This function is used to load html templates first bevor adjust the menu. The elements are hidden until 'selectActivPage' has finished executing.

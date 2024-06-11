@@ -96,14 +96,9 @@ function displayInitials(){
     console.log(selectedContacts);
     for (let i = 0; i < contactsAddTask.length; i++) {
         let checkbox = 'checkboxSelectContacts' + i;
-        if (checkbox && checkbox.type === 'checkbox') {
-            if (checkbox.checked) {
-                selectedContacts.push(contactsAddTask[i]);
-            } 
-        } else {
-            console.log(checkbox + 'ist keine Checkbox');
-        }
-        
+        if (checkbox.checked) {
+            selectedContacts.push(contactsAddTask[i]);
+        } 
     }
     console.log(selectedContacts);
 
@@ -608,40 +603,55 @@ function addNewTask() {
 }
 
 function addNewTaskRecordAndSaveData(){
-    let titleNewTask = document.getElementById('')
+    let titleNewTask = document.getElementById('addTaskTitle');
+    let descriptionNewTask = document.getElementById('addTaskDescription');
+
+    let dueDateNewTask = document.getElementById('addTaskDueDate');
+    let prioNewTask;
+    if (condition) {
+        
+    }
+
+    let newTask = createNewTask(titleNewTask, descriptionNewTask, dueDateNewTask);
+    tasks.push(newTask);
 
 
-   /* {
-        "title": "Kochwelt Page & Recipe Recommender",
-        "description": "Build start page with recipe recommendation.",
-        "assignedTo": [
-            {
-                "name": "Emmanuel Mauer", 
-                "color": "#1FD7C1"
-            },
-            {
-                "name": "Marcel Bauer", 
-                "color": "#462F8A"  
-            },
-            {
-                "name": "Anton Mayer", 
-                "color": "#0038FF"  
-            }
-        ],
-        "dueDate": "10/05/2023",
-        "prio": "Medium",
-        "category": "User Story",
-        "subtasks": [
-            {
-                "subtask": "Implement Recipe Recommendation",
-                "status": "done"
-            },
-            {
-                "subtask": "Start Page Layout",
-                "status": "to do"
-            }
-        ],
-        "status": "in progress"
-    }*/
 
+}
+
+function createNewTask(titleNewTask, descriptionNewTask, dueDateNewTask){
+    return `
+       {
+            "title": "${titleNewTask}",
+            "description": "${descriptionNewTask}",
+            "assignedTo": [
+                {
+                    "name": "Emmanuel Mauer", 
+                    "color": "#1FD7C1"
+                },
+                {
+                    "name": "Marcel Bauer", 
+                    "color": "#462F8A"  
+                },
+                {
+                    "name": "Anton Mayer", 
+                    "color": "#0038FF"  
+                }
+            ],
+            "dueDate": "${dueDateNewTask}",
+            "prio": "Medium",
+            "category": "User Story",
+            "subtasks": [
+                {
+                    "subtask": "Implement Recipe Recommendation",
+                    "status": "done"
+                },
+                {
+                    "subtask": "Start Page Layout",
+                    "status": "to do"
+                }
+            ],
+            "status": "in progress"
+        }
+    `;
 }
