@@ -5,9 +5,11 @@ let addSubtaskActiv = false;
 let contactsAddTask =[];
 let selectedContacts =[];
 
+/**
+ * This function loads the contacts and displays them.
+ */
 async function loadContacts(){
     contactsAddTask = await loadData('/users');
-    console.log(contactsAddTask);
 
     let dropdownContacts = document.getElementById('dropdownContacts');
     for (let i = 0; i < contactsAddTask.length; i++) {
@@ -16,6 +18,13 @@ async function loadContacts(){
     }
 }
 
+/**
+ * This function creates a selection point in the dropdown menu and returns it.
+ * 
+ * @param {object} contactForDropdown the contact that is displayed
+ * @param {index} i index of the contact in the contactsAddTask JSON
+ * @returns 
+ */
 function htmlContactDropdown(contactForDropdown, i){
     return /*html*/ `
         <label class="paddingLeftAddTask">
@@ -91,17 +100,36 @@ function setButtonSelectContactsToDefault(buttonText, inputField, button, arrowI
     displayInitials();
 }
 
+/**
+ * This function displays the initials of the selected contacts. The JSON 'selectedContacts' is emtied and filled again with the contacts with a checked Checkbox. After that the initals are displayed in 'initialsSelectedContacts' whitch was also emtied bevor.
+ */
 function displayInitials(){
     selectedContacts = [];
-    console.log(selectedContacts);
     for (let i = 0; i < contactsAddTask.length; i++) {
-        let checkbox = 'checkboxSelectContacts' + i;
+        let checkbox = document.getElementById('checkboxSelectContacts' + i);
         if (checkbox.checked) {
             selectedContacts.push(contactsAddTask[i]);
         } 
     }
-    console.log(selectedContacts);
 
+    let initialsSelectedContacts = document.getElementById('initialsSelectedContacts');
+    initialsSelectedContacts.innerHTML = '';
+    for (let i = 0; i < selectedContacts.length; i++) {
+        initialsSelectedContacts.innerHTML += htmlInitialsSelectedContacts(selectedContacts[i].color, selectedContacts[i].initials);
+    }
+}
+
+/**
+ * This function creates and returnes a div with the initails of the selected contacts.
+ * 
+ * @param {string} color the background color of the div
+ * @param {string} initials the initials
+ * @returns the created div
+ */
+function htmlInitialsSelectedContacts(color, initials){
+    return /*html*/ `
+        <div class="coloredCircleInitials" style="background-color: ${color}">${initials}</div>
+    `;
 }
 
 /**

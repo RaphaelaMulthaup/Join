@@ -7,10 +7,18 @@ const firebaseUrl = "https://join-2fe35-default-rtdb.europe-west1.firebasedataba
 /**
  * This function loads the example tasks into the database.
  */
-async function putTasksToDatabase(){
+async function putExampleTasksToDatabase(){
     let response = await fetch("../json/tasks.json");
     let data = await response.json();
+    putTasksToDatabase(data);
+}
 
+/**
+ * This function loads tasks into the database.
+ * 
+ * @param {JSON} data The JSON with tasks to be saved in the database. 
+ */
+async function putTasksToDatabase(data){
     await fetch(firebaseUrl + "/tasks" + ".json", {
         method: "PUT",
         header: {

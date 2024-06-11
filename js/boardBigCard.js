@@ -362,6 +362,7 @@ function htmlOverlayEditTask(){
                             </button>
                             <div class="dropdown-content widthFormElementsAddTask dropdownContactsHidden dropdownContactsEditTask" id="dropdownContacts" onclick="stayOpenOrActiv(event)"></div>
                         </div>
+                        <div id="initialsSelectedContacts" class="initialsSelectedContacts"></div>
                     </div>
 
                     <div class="formElementAddTask">

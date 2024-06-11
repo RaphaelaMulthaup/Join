@@ -187,14 +187,14 @@
     border: 2px solid #FFFFFF;
     color: white;
     font-size: 12px;
+    display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 16px;
 }
 
 .selectContactsName{
     flex: 1;
-    padding-left: 16px;
+    padding-left: 32px;
 }
 
 .dropdown-content > label input[type="checkbox"],
@@ -205,6 +205,12 @@
 
 .checkboxSelectContacts:hover label{
     background: url('./assets/img/checkboxDisabled.svg') no-repeat;
+}
+
+.initialsSelectedContacts{
+    display: flex;
+    padding-top: 8px;
+    gap: 8px;
 }
 
 /*vertical line*/
