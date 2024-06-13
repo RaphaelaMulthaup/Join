@@ -2,14 +2,25 @@ let buttonSelectContactClicked = false;
 let categoryArrowUp = false;
 let buttonSelectCategoryClicked = false;
 let addSubtaskActiv = false;
-let contactsAddTask =[];
-let selectedContacts =[];
+let contactsAddTask = [];
+let selectedContacts = [];
+let selectedCategory;
+let subtasksForm = [];
+/**
+ * This function loads the add task page with the contacts and resets the selected category and the subtasks.
+ */
+async function loadAddTaskPage(){
+    await loadPage('menuItemAddTask');
+    await loadTasksAndContacts();
+    await displayContacts();
+    selectedCategory = '';
+    subtasksForm = [];
+}
 
 /**
  * This function loads the contacts and displays them.
  */
-async function loadContacts(){
-    contactsAddTask = await loadData('/users');
+async function displayContacts(){
 
     let dropdownContacts = document.getElementById('dropdownContacts');
     for (let i = 0; i < contactsAddTask.length; i++) {
@@ -322,7 +333,7 @@ function categoryArrowDefault(){
 }
 
 /**
- * This function closes the dropdown menu, puts the selection inside the button 'buttonSelectCategory' and removes the error massage and the red border around buttonSelectCategory.
+ * This function closes the dropdown menu, puts the selection inside the button 'buttonSelectCategory' and removes the error massage and the red border around buttonSelectCategory. In addition, the selected category is saved in a global variable.
  * 
  * @param {span} selection the selected category
  */
@@ -331,6 +342,8 @@ function selectCategory(selection){
     let errorMessageElement = document.getElementById('requiredMessageCategoryAddTask');
 
     toggleSelectCategoryButton();
+    selectedCategory = selection;
+    console.log(selectedCategory);
     document.getElementById('textSelectCategory').innerHTML = selection;
     errorMessageElement.style.visibility = 'hidden';
     button.classList.remove("borderRed");
@@ -405,25 +418,30 @@ function addSubtask(){
 
      // Überprüfen, ob der Wert nicht leer ist
      if (newSubtask.trim() !== '') {
-        list.innerHTML += templateSubtask(newSubtask);
+        subtasksForm.push(newSubtask);
+
+        list.innerHTML = '';
+        for (let i = 0; i < subtasksForm.length; i++) {
+            list.innerHTML += templateSubtask(subtasksForm[i], i);
+        }
+
+        let inputEditSubtask = list.lastElementChild.querySelector('.inputEditSubtask');
+        addEnterKeyListener(inputEditSubtask);
      }
     inputSubtaskDefault();
-
-    let inputEditSubtask = list.lastElementChild.querySelector('.inputEditSubtask');
-    addEnterKeyListener(inputEditSubtask);
 }
 
 /**
  * This funktion returns a html template to create a new subtask.
  * 
- * @param {span} newSubtask new subtask out of input 'inputAddSubtask'
+ * @param {span} subtask new subtask out of input 'inputAddSubtask'
  * @returns html template 'new subtask' including li element and a div with a input field to edit the subtask
  */
-function templateSubtask(newSubtask){
+function templateSubtask(subtask, i){
     return /*html*/ `
         <div class="liAndEditSubtask">
             <li onclick="editSubtask(this), stayOpenOrActiv(event)">
-                <span>${newSubtask}</span>
+                <span>${subtask}</span>
                 <div class="iconsSubtask" style="display: none;">
                     <div class='circleIconAddTaskSubtasks'>
                         <img class="imgEdit" src="./assets/img/edit.svg">
@@ -435,7 +453,7 @@ function templateSubtask(newSubtask){
                 </div>
             </li>
             <div class="editSubtask" style="display: none;" onclick="stayOpenOrActiv(event)">
-                <input type="text" class="inputEditSubtask" value="${newSubtask}">
+                <input type="text" class="inputEditSubtask" value="${subtask}" id="inputEditSubtask${i}">
                 <div class="iconsSubtask">
                     <div class='circleIconAddTaskSubtasks' onclick="deleteSubtask(this)">
                         <img src="./assets/img/delete.svg">
@@ -630,56 +648,101 @@ function addNewTask() {
     } 
 }
 
-function addNewTaskRecordAndSaveData(){
-    let titleNewTask = document.getElementById('addTaskTitle');
-    let descriptionNewTask = document.getElementById('addTaskDescription');
 
-    let dueDateNewTask = document.getElementById('addTaskDueDate');
-    let prioNewTask;
-    if (condition) {
-        
+/**
+ * This function records the data for a new task and pushes them to 'tasks'.
+ */
+async function addNewTaskRecordAndSaveData(){
+    let titleNewTask = document.getElementById('addTaskTitle').value;
+    let descriptionNewTask = document.getElementById('addTaskDescription').value;
+
+    let dueDateNewTask = document.getElementById('addTaskDueDate').value;
+
+    let assignedToNewTask = [];
+    for (let i = 0; i < selectedContacts.length; i++) {
+        let selectedContactforNewTaskAllInformations = selectedContacts[i];
+        let  selectedContactforNewTask = htmlContactInTaskJson(selectedContactforNewTaskAllInformations);
+        assignedToNewTask.push(selectedContactforNewTask);
     }
 
-    let newTask = createNewTask(titleNewTask, descriptionNewTask, dueDateNewTask);
+    let addTaskPrioUrgent = document.getElementById('addTaskPrioUrgent');
+    let addTaskPrioMedium = document.getElementById('addTaskPrioMedium');
+    let addTaskPrioLow = document.getElementById('addTaskPrioLow');
+    let prioNewTask;
+    if (addTaskPrioUrgent.classList.contains('addTaskPrioActiv')) {
+        prioNewTask = 'Urgent'
+    } else if (addTaskPrioMedium.classList.contains('addTaskPrioActiv')) {
+        prioNewTask = 'Medium'
+    } else if (addTaskPrioLow.classList.contains('addTaskPrioActiv')) {
+        prioNewTask = 'Low'
+    }
+
+    let subtasksNewTask = [];
+    for (let i = 0; i < subtasksForm.length; i++) {
+        let subtask = htmlSubtasktInTaskJson(subtasksForm[i]);
+        subtasksNewTask.push(subtask);
+    }
+
+    let newTask = createNewTask(titleNewTask, descriptionNewTask, assignedToNewTask, dueDateNewTask, prioNewTask, selectedCategory, subtasksNewTask);
     tasks.push(newTask);
-
-
-
+    console.log(tasks);
+    await putTasksToDatabase(tasks);
 }
 
-function createNewTask(titleNewTask, descriptionNewTask, dueDateNewTask){
+/**
+ * This function creates an object with the data of a contact and returns it.
+ * 
+ * @param {object} selectedContactforNewTaskAllInformations the detailed informations about a contact
+ * @returns an object with the data of a contact
+ */
+function htmlContactInTaskJson(selectedContactforNewTaskAllInformations){
+    return `
+    {
+        "name": "${selectedContactforNewTaskAllInformations.name}", 
+        "color": "${selectedContactforNewTaskAllInformations.color}"
+    }
+    `;
+}
+
+/**
+ * This function creates an object with the data of a subtask and returns it.
+ * 
+ * @param {string} subtask the subtask
+ * @returns an object with the data of a subtask
+ */
+function htmlSubtasktInTaskJson(subtask){
+    return `
+    {
+        "subtask": "${subtask}",
+        "status": "to do"
+    }
+    `;
+}
+
+
+/**
+ * This function creates an object with the data of a new task and returns it.
+ * 
+ * @param {string} titleNewTask title
+ * @param {string} descriptionNewTask description
+ * @param {object} assignedToNewTask name and color of each contact
+ * @param {string} dueDateNewTask date
+ * @param {string} prioNewTask priority
+ * @param {string} selectedCategory category
+ * @param {object} subtasksNewTask subtasks
+ * @returns  an object with the data of a new task
+ */
+function createNewTask(titleNewTask, descriptionNewTask, assignedToNewTask, dueDateNewTask, prioNewTask, selectedCategory, subtasksNewTask){
     return `
        {
             "title": "${titleNewTask}",
             "description": "${descriptionNewTask}",
-            "assignedTo": [
-                {
-                    "name": "Emmanuel Mauer", 
-                    "color": "#1FD7C1"
-                },
-                {
-                    "name": "Marcel Bauer", 
-                    "color": "#462F8A"  
-                },
-                {
-                    "name": "Anton Mayer", 
-                    "color": "#0038FF"  
-                }
-            ],
+            "assignedTo": "${assignedToNewTask}",
             "dueDate": "${dueDateNewTask}",
-            "prio": "Medium",
-            "category": "User Story",
-            "subtasks": [
-                {
-                    "subtask": "Implement Recipe Recommendation",
-                    "status": "done"
-                },
-                {
-                    "subtask": "Start Page Layout",
-                    "status": "to do"
-                }
-            ],
-            "status": "in progress"
+            "prio": "${prioNewTask}",
+            "category": "${selectedCategory}",
+            "subtasks": "${subtasksNewTask}",
+            "status": "to do"
         }
     `;
 }

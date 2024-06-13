@@ -2,7 +2,7 @@
 
 let menuItems = ['menuItemSummary', 'menuItemAddTask', 'menuItemBoard', 'menuItemContacts']
 let subMenuOpen = false;
-let tasks = {};
+let tasks = [];
 
 
 /**

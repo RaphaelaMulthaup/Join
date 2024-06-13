@@ -5,13 +5,14 @@
  */
 async function loadBoardPage(){
     await loadPage('menuItemBoard');
-    loadBoard();
+    await loadTasksAndContacts();
+    displayBoard();
 }
 
 /**
  * This function loads the example tasks and displays them.
  */
-async function loadBoard(){
+async function loadTasksAndContacts(){
     let newTasks = await loadData("/tasks");
     contactsAddTask = await loadData('/users');
 
@@ -19,7 +20,6 @@ async function loadBoard(){
     console.log(newTasks);
     if (newTasks && newTasks.length > 0) {
         tasks = newTasks;
-        displayBoard();
     }
 }
 
