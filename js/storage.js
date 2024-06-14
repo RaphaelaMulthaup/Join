@@ -10,7 +10,7 @@ const firebaseUrl = "https://join-2fe35-default-rtdb.europe-west1.firebasedataba
 async function putExampleTasksToDatabase(){
     let response = await fetch("../json/tasks.json");
     let data = await response.json();
-    putTasksToDatabase(data);
+    await putTasksToDatabase(data);
 }
 
 /**

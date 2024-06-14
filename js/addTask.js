@@ -645,7 +645,9 @@ function addNewTask() {
       
     if (titleInput.checkValidity() && descriptionInput.checkValidity() && dueDateInput.checkValidity() && categoryInput !== ('Select task category')) {
         addNewTaskRecordAndSaveData();
-    } 
+        location.reload();
+    }
+
 }
 
 
@@ -696,12 +698,10 @@ async function addNewTaskRecordAndSaveData(){
  * @returns an object with the data of a contact
  */
 function htmlContactInTaskJson(selectedContactforNewTaskAllInformations){
-    return `
-    {
-        "name": "${selectedContactforNewTaskAllInformations.name}", 
-        "color": "${selectedContactforNewTaskAllInformations.color}"
-    }
-    `;
+    return {
+        name: selectedContactforNewTaskAllInformations.name, 
+        color: selectedContactforNewTaskAllInformations.color
+    };
 }
 
 /**
@@ -711,12 +711,10 @@ function htmlContactInTaskJson(selectedContactforNewTaskAllInformations){
  * @returns an object with the data of a subtask
  */
 function htmlSubtasktInTaskJson(subtask){
-    return `
-    {
-        "subtask": "${subtask}",
-        "status": "to do"
-    }
-    `;
+    return {
+        subtask: subtask,
+        status: 'to do'
+    };
 }
 
 
@@ -733,16 +731,14 @@ function htmlSubtasktInTaskJson(subtask){
  * @returns  an object with the data of a new task
  */
 function createNewTask(titleNewTask, descriptionNewTask, assignedToNewTask, dueDateNewTask, prioNewTask, selectedCategory, subtasksNewTask){
-    return `
-       {
-            "title": "${titleNewTask}",
-            "description": "${descriptionNewTask}",
-            "assignedTo": "${assignedToNewTask}",
-            "dueDate": "${dueDateNewTask}",
-            "prio": "${prioNewTask}",
-            "category": "${selectedCategory}",
-            "subtasks": "${subtasksNewTask}",
-            "status": "to do"
-        }
-    `;
+    return {
+            title: titleNewTask,
+            description: descriptionNewTask,
+            assignedTo: assignedToNewTask,
+            dueDate: dueDateNewTask,
+            prio: prioNewTask,
+            category: selectedCategory,
+            subtasks: subtasksNewTask,
+            status: "to do"
+        };
 }
