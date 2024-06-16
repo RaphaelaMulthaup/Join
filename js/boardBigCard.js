@@ -272,6 +272,20 @@ async function deleteTask(){
 
 function editTask(){
     document.getElementById('overlayEditTask').innerHTML = htmlOverlayEditTask();
+
+
+    /**
+     * This eventlistener creates a new subtask when the enter key is pressed within 'inputAddSubtask'.
+     */
+    let inputAddSubtask = document.getElementById('inputAddSubtask');
+
+    inputAddSubtask.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            addSubtask();
+        }
+    });
+
     document.getElementById('overlayEditTaskBackground').classList.remove('dNone');
 
     document.getElementById('addTaskTitle').value = taskBigCard.title;

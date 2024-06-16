@@ -95,7 +95,9 @@ function displayMiniCard(i){
     shortenDescription(i);
     colorCategory(task, i);
     subtasks(task, i);
-    initials(task, i);
+    if (task.assignedTo) {
+        initials(task, i);
+    }
     prio(task, i);
 }
 

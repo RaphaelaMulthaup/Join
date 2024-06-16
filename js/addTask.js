@@ -15,6 +15,19 @@ async function loadAddTaskPage(){
     await displayContacts();
     selectedCategory = '';
     subtasksForm = [];
+
+
+    /**
+     * This eventlistener creates a new subtask when the enter key is pressed within 'inputAddSubtask'.
+     */
+    let inputAddSubtask = document.getElementById('inputAddSubtask');
+
+    inputAddSubtask.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            addSubtask();
+        }
+    });
 }
 
 /**
@@ -420,15 +433,20 @@ function addSubtask(){
      if (newSubtask.trim() !== '') {
         subtasksForm.push(newSubtask);
 
-        list.innerHTML = '';
-        for (let i = 0; i < subtasksForm.length; i++) {
-            list.innerHTML += templateSubtask(subtasksForm[i], i);
-        }
-
-        let inputEditSubtask = list.lastElementChild.querySelector('.inputEditSubtask');
-        addEnterKeyListener(inputEditSubtask);
+        renderSubtasks();
      }
     inputSubtaskDefault();
+}
+
+function renderSubtasks(){
+    let list = document.getElementById('subtasks');
+
+    list.innerHTML = '';
+    for (let i = 0; i < subtasksForm.length; i++) {
+        list.innerHTML += templateSubtask(subtasksForm[i], i);
+        let id = 'inputEditSubtask' + i;
+        addEnterKeyListener(id);
+    }
 }
 
 /**
@@ -447,19 +465,19 @@ function templateSubtask(subtask, i){
                         <img class="imgEdit" src="./assets/img/edit.svg">
                     </div>
                     <div class="verticalLineAddTaskSubtasks"></div>
-                    <div class='circleIconAddTaskSubtasks' onclick="deleteSubtask(this), stayOpenOrActiv(event)">
+                    <div class='circleIconAddTaskSubtasks' onclick="deleteSubtask(${i}), stayOpenOrActiv(event)">
                         <img src="./assets/img/delete.svg">
                     </div>
                 </div>
             </li>
-            <div class="editSubtask" style="display: none;" onclick="stayOpenOrActiv(event)">
+            <div class="editSubtask" style="display: none;" onclick="stayOpenOrActiv(event)" id="editSubtask${i}">
                 <input type="text" class="inputEditSubtask" value="${subtask}" id="inputEditSubtask${i}">
                 <div class="iconsSubtask">
-                    <div class='circleIconAddTaskSubtasks' onclick="deleteSubtask(this)">
+                    <div class='circleIconAddTaskSubtasks' onclick="deleteSubtask(${i})">
                         <img src="./assets/img/delete.svg">
                     </div>
                     <div class="verticalLineAddTaskSubtasks"></div>
-                    <div class='circleIconAddTaskSubtasks displayEditedSubtask' onclick="displayEditedSubtask(this)">
+                    <div class='circleIconAddTaskSubtasks displayEditedSubtask' onclick="displayEditedSubtask(${i})">
                         <img src="./assets/img/check.svg">
                     </div>    
                 </div>
@@ -471,9 +489,10 @@ function templateSubtask(subtask, i){
 /**
  * This function adds an eventlistener that displays edited subtasks by pressing the enter key.
  * 
- * @param {span} inputEditSubtask input field to edit a subtask
+ * @param {span} id input field to edit a subtask
  */
-function addEnterKeyListener(inputEditSubtask) {
+function addEnterKeyListener(id) {
+    let inputEditSubtask = document.getElementById(id);
     inputEditSubtask.addEventListener('keydown', function(event) {
         if (event.key === 'Enter') {
             event.preventDefault();
@@ -487,11 +506,12 @@ function addEnterKeyListener(inputEditSubtask) {
  * 
  * @param {span} deleteButton delete butten which belongs to a subtask
  */
-function deleteSubtask(deleteButton){
+function deleteSubtask(index){
     closeAndDisableEverythingOutsidTheCurrentSubtask();
 
-    let divToDelet = deleteButton.closest('.liAndEditSubtask');
-    divToDelet.remove();
+    subtasksForm.splice(index, 1);
+
+    renderSubtasks();
 }
 
 /**
@@ -535,17 +555,13 @@ function editSubtask(editButton){
 /**
  * This function displays the edited subtask inside a li element.
  * 
- * @param {*} checkIcon check icon which belongs to a subtask
+ * @param {index} index check icon which belongs to a subtask
  */
-function displayEditedSubtask(checkIcon){
-    let editSubtask = checkIcon.closest('.editSubtask');
-    let newValueSubtask = editSubtask.querySelector('.inputEditSubtask').value;
-    let newSubtaskDisplayed = checkIcon.closest('.liAndEditSubtask').querySelector('span');
-    let li = newSubtaskDisplayed.closest('li');
-
-    newSubtaskDisplayed.innerHTML = newValueSubtask;
-    li.style.display = 'flex';
-    editSubtask.style.display = 'none';
+function displayEditedSubtask(index){
+    let Input = document.getElementById('inputEditSubtask' + index);
+    let newValueSubtask = Input.value;
+    subtasksForm[index] = newValueSubtask;
+    renderSubtasks();
 }
 
 /**
@@ -559,27 +575,13 @@ function searchSubtaskInEditing(){
     for (let i = 0; i < editSubtasks.length; i++) {
         let editSubtask = editSubtasks[i];
         if (window.getComputedStyle(editSubtask).getPropertyValue('display') === 'flex') {
-            let checkIcon = editSubtask.querySelector('.displayEditedSubtask');
-            displayEditedSubtask(checkIcon);
+            let id = editSubtask.id;
+            let index = id.replace("editSubtask", "");
+            displayEditedSubtask(index);
             break; // Schleife abbrechen, sobald das Element gefunden wurde
         }
     }
 }
-
-/**
- * This function creates an eventlistener that creates a new subtask when the enter key is pressed within 'inputAddSubtask'.
- */
-document.addEventListener("DOMContentLoaded", function() {
-    let inputAddSubtask = document.getElementById('inputAddSubtask');
-
-    inputAddSubtask.addEventListener('keydown', function(event) {
-        if (event.key === 'Enter') {
-            event.preventDefault();
-            addSubtask();
-        }
-    });
-});
-
 
 /*form validation*/
 
@@ -632,7 +634,7 @@ function validateInputCategory(){
 /**
  * This function checks whether the required input fields are valid and submits the form if necessary.
  */
-function addNewTask() {
+async function addNewTask() {
     validateInput("Title");
     validateInput("Description");
     validateInput("DueDate");
@@ -644,7 +646,7 @@ function addNewTask() {
     let categoryInput = document.getElementById('textSelectCategory').innerHTML;
       
     if (titleInput.checkValidity() && descriptionInput.checkValidity() && dueDateInput.checkValidity() && categoryInput !== ('Select task category')) {
-        addNewTaskRecordAndSaveData();
+        await addNewTaskRecordAndSaveData();
         location.reload();
     }
 

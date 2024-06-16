@@ -68,6 +68,19 @@ function openOverlayAddTask(){
     }
     document.getElementById('overlayAddTask').innerHTML = htmlAddTaskOverlay();
 
+
+    /**
+     * This eventlistener creates a new subtask when the enter key is pressed within 'inputAddSubtask'.
+     */
+    let inputAddSubtask = document.getElementById('inputAddSubtask');
+
+    inputAddSubtask.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            addSubtask();
+        }
+    });
+
     let dropdownContacts = document.getElementById('dropdownContacts');
     for (let i = 0; i < contactsAddTask.length; i++) {
         let contactForDropdown = contactsAddTask[i];
