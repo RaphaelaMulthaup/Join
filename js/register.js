@@ -73,4 +73,5 @@ function fillInValues() {
 async function resetCurrentUser(){
     await putData('currentUser');
     await putData('checkboxValue', false);
+    window.location.href = 'summary.html';
 }

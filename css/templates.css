@@ -82,7 +82,8 @@
 
 header {
     min-height: 96px;
-    padding: 20px 40px 20px 348px;
+    padding: 20px 40px 20px 48px;
+    width: calc(100vw - 232px);
     display: flex;
     justify-content: space-between;
     align-items: center;
