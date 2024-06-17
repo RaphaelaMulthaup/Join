@@ -1,6 +1,7 @@
 /*display big card*/
 
 let taskBigCard;
+let indextaskBigCard;
 let buttonSelectCategoryEditTaskClicked = false;
 let buttonSelectContactEditTaskClicked = false;
 
@@ -14,6 +15,7 @@ let buttonSelectContactEditTaskClicked = false;
 function openBigCard(i){
     document.getElementById('overlayBidCardBackground').classList.remove('dNone');
     taskBigCard = tasks[i];
+    indextaskBigCard = [i];
 
     categoryBigCard();
     titleBigCard();
@@ -273,7 +275,6 @@ async function deleteTask(){
 function editTask(){
     document.getElementById('overlayEditTask').innerHTML = htmlOverlayEditTask();
 
-
     /**
      * This eventlistener creates a new subtask when the enter key is pressed within 'inputAddSubtask'.
      */
@@ -331,7 +332,7 @@ function htmlOverlayEditTask(){
                 <img src="./assets/img/close.svg" alt="close">
             </div>
         </div>
-        <form onsubmit="addNewTask(); return false;" class="formAddTask formEditTask" novalidate id="formAddNewTask">
+        <form class="formAddTask formEditTask" id="formAddNewTask">
             <div class="inputTagsAddTask inputTagsEditTask">
                 <div class="formEditTaskUpperArea">
 
@@ -405,7 +406,7 @@ function htmlOverlayEditTask(){
             </div>
         </form>
         <div class="lowerAreaEditTask">
-            <button class="button buttonFilled buttonWithIcon buttonOkEditTask">
+            <button class="button buttonFilled buttonWithIcon buttonOkEditTask" onclick="saveEdit()">
                 Ok
                 <div class="hookOkEditTask">
                     <svg width="15.49" height="11.22" viewBox="0 0 38 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -441,6 +442,7 @@ function closeOverlayEditTask(){
 
 function saveEdit(){
     //speichen der Daten: on submit, Felder auslesen, alten Datensatz ersetzen
-    //big card neu laden 
+    //big card neu laden
+    addNewTask();
     closeOverlayEditTask();
 }

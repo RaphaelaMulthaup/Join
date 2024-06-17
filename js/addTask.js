@@ -621,14 +621,17 @@ function validateInput(element) {
  * This function checks whether a category has been selected. If not, the border of buttonSelectCategory will be colored red and the error message will appear.
  */
 function validateInputCategory(){
-    let textButtonSelectCategory = document.getElementById('textSelectCategory').innerHTML;
-    let button = document.getElementById('buttonSelectCategory');
-    let errorMessageElement = document.getElementById('requiredMessageCategoryAddTask');
+    if (document.getElementById('textSelectCategory') !== null) {
+        let textButtonSelectCategory = document.getElementById('textSelectCategory').innerHTML;
+        let button = document.getElementById('buttonSelectCategory');
+        let errorMessageElement = document.getElementById('requiredMessageCategoryAddTask');
 
-    if (textButtonSelectCategory == ('Select task category')) {
-        errorMessageElement.style.visibility = 'visible';
-        button.classList.add("borderRed");
+        if (textButtonSelectCategory == ('Select task category')) {
+            errorMessageElement.style.visibility = 'visible';
+            button.classList.add("borderRed");
+        }
     }
+
 }
 
 /**
@@ -643,9 +646,15 @@ async function addNewTask() {
     let titleInput = document.getElementById("addTaskTitle");
     let descriptionInput = document.getElementById("addTaskDescription");
     let dueDateInput = document.getElementById("addTaskDueDate");
-    let categoryInput = document.getElementById('textSelectCategory').innerHTML;
+    let categoryValid = true;
+
+    let categoryElement = document.getElementById('textSelectCategory');
+    if (categoryElement !== null) {
+        let categoryInput = categoryElement.innerHTML;
+        categoryValid = categoryInput !== 'Select task category';
+    }
       
-    if (titleInput.checkValidity() && descriptionInput.checkValidity() && dueDateInput.checkValidity() && categoryInput !== ('Select task category')) {
+    if (titleInput.checkValidity() && descriptionInput.checkValidity() && dueDateInput.checkValidity() && categoryValid) {
         await addNewTaskRecordAndSaveData();
         location.reload();
     }
