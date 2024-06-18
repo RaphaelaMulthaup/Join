@@ -6,6 +6,8 @@ let contactsAddTask = [];
 let selectedContacts = [];
 let selectedCategory;
 let subtasksForm = [];
+let formValidated = false;
+
 /**
  * This function loads the add task page with the contacts and resets the selected category and the subtasks.
  */
@@ -638,6 +640,18 @@ function validateInputCategory(){
  * This function checks whether the required input fields are valid and submits the form if necessary.
  */
 async function addNewTask() {
+    let newTask = await validateForm();
+    if (formValidated) {
+        newTask.category = "selectedCategory";
+        tasks.push(newTask);  
+        console.log(tasks);
+        await putTasksToDatabase(tasks);
+        location.reload(); 
+    }
+    formValidated = false;
+}
+
+async function validateForm(){
     validateInput("Title");
     validateInput("Description");
     validateInput("DueDate");
@@ -655,12 +669,11 @@ async function addNewTask() {
     }
       
     if (titleInput.checkValidity() && descriptionInput.checkValidity() && dueDateInput.checkValidity() && categoryValid) {
-        await addNewTaskRecordAndSaveData();
-        location.reload();
+        let newTask = await addNewTaskRecordAndSaveData();
+        formValidated = true;
+        return newTask;
     }
-
 }
-
 
 /**
  * This function records the data for a new task and pushes them to 'tasks'.
@@ -696,10 +709,8 @@ async function addNewTaskRecordAndSaveData(){
         subtasksNewTask.push(subtask);
     }
 
-    let newTask = createNewTask(titleNewTask, descriptionNewTask, assignedToNewTask, dueDateNewTask, prioNewTask, selectedCategory, subtasksNewTask);
-    tasks.push(newTask);
-    console.log(tasks);
-    await putTasksToDatabase(tasks);
+    let newTask = createNewTask(titleNewTask, descriptionNewTask, assignedToNewTask, dueDateNewTask, prioNewTask, subtasksNewTask);
+    return newTask;
 }
 
 /**
@@ -737,18 +748,16 @@ function htmlSubtasktInTaskJson(subtask){
  * @param {object} assignedToNewTask name and color of each contact
  * @param {string} dueDateNewTask date
  * @param {string} prioNewTask priority
- * @param {string} selectedCategory category
  * @param {object} subtasksNewTask subtasks
  * @returns  an object with the data of a new task
  */
-function createNewTask(titleNewTask, descriptionNewTask, assignedToNewTask, dueDateNewTask, prioNewTask, selectedCategory, subtasksNewTask){
+function createNewTask(titleNewTask, descriptionNewTask, assignedToNewTask, dueDateNewTask, prioNewTask, subtasksNewTask){
     return {
             title: titleNewTask,
             description: descriptionNewTask,
             assignedTo: assignedToNewTask,
             dueDate: dueDateNewTask,
             prio: prioNewTask,
-            category: selectedCategory,
             subtasks: subtasksNewTask,
             status: "to do"
         };

@@ -440,9 +440,15 @@ function closeOverlayEditTask(){
     document.getElementById('overlayEditTask').innerHTML = '';
 }
 
-function saveEdit(){
+async function saveEdit(){
     //speichen der Daten: on submit, Felder auslesen, alten Datensatz ersetzen
     //big card neu laden
-    addNewTask();
-    closeOverlayEditTask();
+    let newTask = await validateForm();
+    if (formValidated) {
+        tasks[indextaskBigCard] = newTask;
+        console.log(tasks);
+        await putTasksToDatabase(tasks);
+        closeOverlayEditTask();
+    }  
+    formValidated = false;
 }
