@@ -321,7 +321,7 @@ function editTask(){
     
     for (let i = 0; i < selectedContacts.length; i++) {
         let selectedContact = selectedContacts[i];
-        let index = contactsAddTask.indexOf(selectedContact);
+        let index = contactsAddTask.findIndex(obj => obj.color === selectedContact.color && obj.name === selectedContact.name);
         let checkboxOfSelectedContact = document.getElementById('checkboxSelectContacts' + index);
         checkboxOfSelectedContact.checked = true;
     }

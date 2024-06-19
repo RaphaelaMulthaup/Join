@@ -79,5 +79,87 @@
         "initials": "SH",
         "color": "#b885b7",
         "phone": "+1123456789"
+    },
+    {
+        "id": 10,
+        "name": "Emmanuel Mauer",
+        "email": "emmanuelma@gmail.com",
+        "password": "12341234",
+        "initials": "EM",
+        "color": "#1FD7C1",
+        "phone": "+1123456789"
+    },
+    {
+        "id": 11,
+        "name": "Marcel Bauer",
+        "email": "bauer@gmail.com",
+        "password": "12341234",
+        "initials": "MB",
+        "color": "#462F8A",
+        "phone": "+1123456789"
+    },
+    {
+        "id": 12,
+        "name": "Anton Mayer",
+        "email": "antom@gmail.com",
+        "password": "12341234",
+        "initials": "AM",
+        "color": "#0038FF",
+        "phone": "+1123456789"
+    },
+    {
+        "id": 13,
+        "name": "Sofia Müller",
+        "email": "sofiaMueller@gmail.com",
+        "password": "12341234",
+        "initials": "SM",
+        "color": "#00BEE8",
+        "phone": "+1123456789"
+    },
+    {
+        "id": 14,
+        "name": "Benedikt Ziegler",
+        "email": "bziegler@gmail.com",
+        "password": "12341234",
+        "initials": "BZ",
+        "color": "#6E52FF",
+        "phone": "+1123456789"
+    },
+    {
+        "id": 15,
+        "name": "David Eisenberg",
+        "email": "eisenbergdavid@gmail.com",
+        "password": "12341234",
+        "initials": "DE",
+        "color": "#FC71FF",
+        "phone": "+1123456789"
+    },
+    {
+        "id": 16,
+        "name": "Anja Schulz",
+        "email": "schulz@gmail.com",
+        "password": "12341234",
+        "initials": "AS",
+        "color": "#9327FF",
+        "phone": "+1123456789"
+    },
+    {
+        "id": 17,
+        "name": "Eva Fischer",
+        "email": "evafischer@gmail.com",
+        "password": "12341234",
+        "initials": "EF",
+        "color": "#FFBB2B",
+        "phone": "+1123456789"
+    },
+    {
+        "id": 18,
+        "name": "Tatjana Wolf",
+        "email": "tanjawolf@gmail.com",
+        "password": "12341234",
+        "initials": "TW",
+        "color": "#FF4646",
+        "phone": "+1123456789"
     }
+
 ]
