@@ -102,7 +102,7 @@ function htmlAddTaskOverlay(){
     return /*html*/ `
     <div class="headlineAddTaskOverlay">
         <h1>Add Task</h1>
-        <div class="addTaskOverlayCloseButton" onclick="closeOverlayAddTask()">
+        <div class="addTaskOverlayCloseButton" onclick="stayOpenOrActiv(event); firstDefaultThenClosing()">
             <img src="./assets/img/close.svg" alt="close">
         </div>
     </div>
@@ -217,6 +217,11 @@ function htmlAddTaskOverlay(){
     </form>
     
     `;
+}
+
+function firstDefaultThenClosing(){
+    setElementsToDefaultAddTask();
+    closeOverlayAddTask();
 }
 
 /**

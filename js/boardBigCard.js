@@ -318,11 +318,14 @@ function editTask(){
         dropdownContacts.innerHTML += htmlContactDropdown(contactForDropdown, i);
     }
 
-    let subtasks = document.getElementById('subtasks');
-    for (let i = 0; i < taskBigCard.subtasks.length; i++) {
-        let subtask = taskBigCard.subtasks[i];
-        subtasks.innerHTML += templateSubtask(subtask.subtask);
+    if (taskBigCard.subtasks) {
+        let subtasks = document.getElementById('subtasks');
+        for (let i = 0; i < taskBigCard.subtasks.length; i++) {
+            let subtask = taskBigCard.subtasks[i];
+            subtasks.innerHTML += templateSubtask(subtask.subtask);
+        }
     }
+    
 }
 
 function htmlOverlayEditTask(){
@@ -443,8 +446,12 @@ function closeOverlayEditTask(){
 async function saveEdit(){
     //speichen der Daten: on submit, Felder auslesen, alten Datensatz ersetzen
     //big card neu laden
+    let satusOfTaskBigCard = taskBigCard.status;
+    let categoryOfTaskBigCard = taskBigCard.category;
     let newTask = await validateForm();
     if (formValidated) {
+        newTask.status = satusOfTaskBigCard;
+        newTask.category = categoryOfTaskBigCard;
         tasks[indextaskBigCard] = newTask;
         console.log(tasks);
         await putTasksToDatabase(tasks);

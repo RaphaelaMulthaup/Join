@@ -7,6 +7,7 @@ let selectedContacts = [];
 let selectedCategory;
 let subtasksForm = [];
 let formValidated = false;
+let satusNewTask
 
 /**
  * This function loads the add task page with the contacts and resets the selected category and the subtasks.
@@ -642,7 +643,8 @@ function validateInputCategory(){
 async function addNewTask() {
     let newTask = await validateForm();
     if (formValidated) {
-        newTask.category = "selectedCategory";
+        newTask.category = selectedCategory;
+        newTask.status = "to do";
         tasks.push(newTask);  
         console.log(tasks);
         await putTasksToDatabase(tasks);
@@ -758,7 +760,6 @@ function createNewTask(titleNewTask, descriptionNewTask, assignedToNewTask, dueD
             assignedTo: assignedToNewTask,
             dueDate: dueDateNewTask,
             prio: prioNewTask,
-            subtasks: subtasksNewTask,
-            status: "to do"
+            subtasks: subtasksNewTask
         };
 }
