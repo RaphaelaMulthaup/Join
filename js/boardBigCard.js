@@ -317,6 +317,16 @@ function editTask(){
         let contactForDropdown = contactsAddTask[i];
         dropdownContacts.innerHTML += htmlContactDropdown(contactForDropdown, i);
     }
+    selectedContacts = taskBigCard.assignedTo;
+    
+    for (let i = 0; i < selectedContacts.length; i++) {
+        let selectedContact = selectedContacts[i];
+        let index = contactsAddTask.indexOf(selectedContact);
+        let checkboxOfSelectedContact = document.getElementById('checkboxSelectContacts' + index);
+        checkboxOfSelectedContact.checked = true;
+    }
+
+    displayInitials();
 
     if (taskBigCard.subtasks) {
         let subtasks = document.getElementById('subtasks');

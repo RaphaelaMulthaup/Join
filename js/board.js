@@ -219,6 +219,11 @@ function htmlAddTaskOverlay(){
     `;
 }
 
+function openOverlayAddTaskCertainStatus(status){
+    satusNewTask = status;
+    openOverlayAddTask();
+}
+
 function firstDefaultThenClosing(){
     setElementsToDefaultAddTask();
     closeOverlayAddTask();
@@ -228,6 +233,7 @@ function firstDefaultThenClosing(){
  * This function adds class 'removing' to 'overlayAddTask'. This will display the sliding out animation. After the animation plays, the div 'overlayAddTaskBackground' is given the class .dNone. 'removing' is then removed again.
  */
 function closeOverlayAddTask(){
+    satusNewTask = "to do";
     let overlayAddTaskBackground = document.getElementById('overlayAddTaskBackground');
     let overlayAddTask = document.getElementById('overlayAddTask');
     overlayAddTask.classList.add('removing');

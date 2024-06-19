@@ -7,7 +7,7 @@ let selectedContacts = [];
 let selectedCategory;
 let subtasksForm = [];
 let formValidated = false;
-let satusNewTask
+let satusNewTask = "to do";
 
 /**
  * This function loads the add task page with the contacts and resets the selected category and the subtasks.
@@ -610,7 +610,14 @@ document.addEventListener("DOMContentLoaded", function() {
  * @param {string} element The element that is to be checked is named.
  */
 function validateInput(element) {
-    let inputElement = document.getElementById("addTask" + element);
+
+    let inputElement;
+    if (document.getElementById("addTask" + element)) {
+        inputElement = document.getElementById("addTask" + element);
+    } else {
+        inputElement = document.getElementById('addTaskOnBoard' + element);
+    }
+
     let errorMessageElement = document.getElementById("requiredMessage" + element + "AddTask");
     
     if (!inputElement.checkValidity()) {
@@ -644,7 +651,7 @@ async function addNewTask() {
     let newTask = await validateForm();
     if (formValidated) {
         newTask.category = selectedCategory;
-        newTask.status = "to do";
+        newTask.status = satusNewTask;
         tasks.push(newTask);  
         console.log(tasks);
         await putTasksToDatabase(tasks);
@@ -660,7 +667,14 @@ async function validateForm(){
     validateInputCategory();
 
     let titleInput = document.getElementById("addTaskTitle");
-    let descriptionInput = document.getElementById("addTaskDescription");
+
+    let descriptionInput;
+    if (document.getElementById("addTaskDescription")) {
+        descriptionInput = document.getElementById("addTaskDescription");
+    } else {
+        descriptionInput = document.getElementById('addTaskOnBoardDescription');
+    }
+
     let dueDateInput = document.getElementById("addTaskDueDate");
     let categoryValid = true;
 
@@ -671,7 +685,7 @@ async function validateForm(){
     }
       
     if (titleInput.checkValidity() && descriptionInput.checkValidity() && dueDateInput.checkValidity() && categoryValid) {
-        let newTask = await addNewTaskRecordAndSaveData();
+        let newTask = await addNewTaskRecordAndSaveData(descriptionInput);
         formValidated = true;
         return newTask;
     }
@@ -680,11 +694,11 @@ async function validateForm(){
 /**
  * This function records the data for a new task and pushes them to 'tasks'.
  */
-async function addNewTaskRecordAndSaveData(){
+async function addNewTaskRecordAndSaveData(descriptionInput){
     let titleNewTask = document.getElementById('addTaskTitle').value;
-    let descriptionNewTask = document.getElementById('addTaskDescription').value;
+    let descriptionNewTask = descriptionInput.value;
 
-    let dueDateNewTask = document.getElementById('addTaskDueDate').value;
+    let dueDateNewTask = getDate();
 
     let assignedToNewTask = [];
     for (let i = 0; i < selectedContacts.length; i++) {
@@ -713,6 +727,20 @@ async function addNewTaskRecordAndSaveData(){
 
     let newTask = createNewTask(titleNewTask, descriptionNewTask, assignedToNewTask, dueDateNewTask, prioNewTask, subtasksNewTask);
     return newTask;
+}
+
+function getDate() {
+    // Datum in ein Date-Objekt umwandeln
+    let dateString = document.getElementById('addTaskDueDate').value;
+    let date = new Date(dateString);
+
+    // Tag, Monat und Jahr aus dem Date-Objekt extrahieren
+    let day = String(date.getDate()).padStart(2, '0');
+    let month = String(date.getMonth() + 1).padStart(2, '0'); // getMonth() gibt Monate von 0 bis 11 zurück, daher +1
+    let year = date.getFullYear();
+
+    // Datum im gewünschten Format zurückgeben
+    return `${day}/${month}/${year}`;
 }
 
 /**
