@@ -13,10 +13,15 @@ let buttonSelectContactEditTaskClicked = false;
  * @param {index} i The index of the task in the tasks json.
  */
 function openBigCard(i){
-    document.getElementById('overlayBidCardBackground').classList.remove('dNone');
+    document.getElementById('overlayBigCardBackground').classList.remove('dNone');
     taskBigCard = tasks[i];
-    indextaskBigCard = [i];
+    indextaskBigCard = i;
 
+    displayDataInBigCard(i);
+
+}
+
+function displayDataInBigCard(i){
     categoryBigCard();
     titleBigCard();
     descriptionBigCard();
@@ -25,7 +30,6 @@ function openBigCard(i){
     assignedToBigCard();
     subtasksBigCard(i);
 }
-
 /**
  * This function displays the category in the big card and colors the div in the corresponding color.
  */
@@ -174,11 +178,11 @@ function toggleCheckboxSubtasks(checkboxId) {
  * This function adds class 'removing' to 'overlayBigCard'. This will display the sliding out animation. After the animation plays, the div 'overlayBidCardBackground' is given the class .dNone. 'overlayBigCard' is set to default. 'removing' is then removed again.
  */
 function closeBigCard(){
-    let overlayBidCardBackground = document.getElementById('overlayBidCardBackground');
+    let overlayBigCardBackground = document.getElementById('overlayBigCardBackground');
     let overlayBigCard = document.getElementById('overlayBigCard');
     overlayBigCard.classList.add('removing');
     setTimeout(function() {
-        overlayBidCardBackground.classList.add('dNone');
+        overlayBigCardBackground.classList.add('dNone');
         document.getElementById('overlayBigCard').innerHTML = htmlBigCard();
         overlayBigCard.classList.remove('removing');
     }, 100); // Dauer der Animation in Millisekunden
@@ -465,7 +469,16 @@ async function saveEdit(){
         tasks[indextaskBigCard] = newTask;
         console.log(tasks);
         await putTasksToDatabase(tasks);
+        displayBoard();
+    //    closeBigCard();
+      //  openBigCard(indextaskBigCard);
+        displayDataInBigCard(indextaskBigCard);
+
         closeOverlayEditTask();
     }  
     formValidated = false;
 }
+
+//function renewBigCard(){
+
+//}
