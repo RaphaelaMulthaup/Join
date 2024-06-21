@@ -95,7 +95,8 @@ header {
 
 header h4 {
     font-size: 20px;
-    height: 24px;
+    /* height: 24px; änderung vom 21.6.
+    Falls es etwas kaputt macht bitte rückmelden*/ 
     font-weight: 400;
 }
 
@@ -265,4 +266,12 @@ header h4 {
 .olHelp h5,
 .olHelp p{
     margin-left: 25px;
+}
+
+@media (max-width: 1170px){
+header{
+    width: 100vw;
+    /* margin-left: -232px; */
+}
+
 }

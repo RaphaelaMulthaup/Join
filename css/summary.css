@@ -252,3 +252,33 @@
     font-size: 64px;
     color: #29ABE2;
 }
+
+@media (max-width: 1170px){
+.greeting{
+    position: absolute;
+    display: flex;
+    height: 80svh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    margin: -332px 0px -51px -329px;
+    animation: fade 3.5s ease-in-out;
+background-color: #f7f7f8;
+    }
+    
+    @keyframes fade {
+        0%{
+            opacity: 99;
+            z-index: 100;
+            /* position: absolute; */
+    }
+        100%{
+            /* flex-direction: column;
+            margin-left: 80px; */
+    }
+}
+
+.mobileMenu{
+    
+}
+}
