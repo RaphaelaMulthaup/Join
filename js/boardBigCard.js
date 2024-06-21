@@ -14,14 +14,13 @@ let buttonSelectContactEditTaskClicked = false;
  */
 function openBigCard(i){
     document.getElementById('overlayBigCardBackground').classList.remove('dNone');
-    taskBigCard = tasks[i];
-    indextaskBigCard = i;
-
     displayDataInBigCard(i);
-
 }
 
 function displayDataInBigCard(i){
+    taskBigCard = tasks[i];
+    indextaskBigCard = i;
+
     categoryBigCard();
     titleBigCard();
     descriptionBigCard();
@@ -82,8 +81,9 @@ function priorityBigCard(){
  * This function checks whether there are assigned users. If this is the case, the users and their initials will be displayed in the appropriate color. If this is not the case, assignedToBigCard is output.
  */
 function assignedToBigCard(){
+    let assignedToBigCardUsers = document.getElementById('assignedToBigCardUsers');
+    assignedToBigCardUsers.innerHTML = '';
     if (taskBigCard.assignedTo) {
-        let assignedToBigCardUsers = document.getElementById('assignedToBigCardUsers');
         for (let i = 0; i < taskBigCard.assignedTo.length; i++) {
             let user = taskBigCard.assignedTo[i];
             let initials = user.name.split(' ').map(word => word.charAt(0)).join('');
@@ -263,7 +263,7 @@ async function changeStatusSubtask(index, i) {
         body: JSON.stringify(newStatus)
     });
 
-    await loadBoard();
+    displayBoard();
 }
 
 /**
@@ -458,8 +458,10 @@ function closeOverlayEditTask(){
 }
 
 async function saveEdit(){
-    //speichen der Daten: on submit, Felder auslesen, alten Datensatz ersetzen
-    //big card neu laden
+    if (buttonSelectContactClicked) {
+        toggleSelectContactsButton();
+    }
+
     let satusOfTaskBigCard = taskBigCard.status;
     let categoryOfTaskBigCard = taskBigCard.category;
     let newTask = await validateForm();
