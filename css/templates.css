@@ -268,10 +268,46 @@ header h4 {
     margin-left: 25px;
 }
 
-@media (max-width: 1170px){
-header{
-    width: 100vw;
-    /* margin-left: -232px; */
-}
 
+@media (max-width: 1170px){
+    header{
+        width: 100vw;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .mobileMenu{
+        width: 100vw;
+        background: #2A3647;
+        color: beige;
+        text-align: center;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        position: fixed;
+        bottom: 0px;
+    }
+
+    .mobileDiv{
+        display: flex;
+        flex-direction: column;
+    }
+    .mobileIcon{
+        height: 40px;
+    }
+    .mobileMenu a{
+        color: white !important;
+        padding: 16px;
+        border-radius: 10px;
+    }
+
+    .mobileMenu a:hover{
+        background:#091931b0;
+    }
+
+    .mobileMenu a:active{
+        background: #091931;
+    }
 }
