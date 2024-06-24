@@ -254,6 +254,7 @@ function htmlBigCard(){
  */
 async function changeStatusSubtask(index, i) {
     let newStatus = tasks[index].subtasks[i].status == 'to do' ? 'done' : 'to do';
+    tasks[index].subtasks[i].status = newStatus;
 
     await fetch(`${firebaseUrl}/tasks/${index}/subtasks/${i}/status.json`, {
         method: "PUT",
@@ -332,6 +333,7 @@ function editTask(){
 
     displayInitials();
 
+    subtasksForm = taskBigCard.subtasks;
     if (taskBigCard.subtasks) {
         let subtasks = document.getElementById('subtasks');
         for (let i = 0; i < taskBigCard.subtasks.length; i++) {
