@@ -66,6 +66,7 @@ function openOverlayAddTask(){
     if (findTaskFocus) {
         findTaskDefault();
     }
+    subtasksForm = [];
     document.getElementById('overlayAddTask').innerHTML = htmlAddTaskOverlay();
 
 
