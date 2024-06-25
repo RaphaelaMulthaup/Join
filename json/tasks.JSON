@@ -13,7 +13,7 @@
             },
             {
                 "name": "Anton Mayer", 
-                "color": "#0038FF"  
+                "color": "#00BEE8"  
             }
         ],
         "dueDate": "10/05/2023",
@@ -41,7 +41,7 @@
             },
             {
                 "name": "Benedikt Ziegler", 
-                "color": "#6E52FF"  
+                "color": "#FF745E"  
             }
         ],
         "dueDate": "02/09/2023",
@@ -69,11 +69,11 @@
             },
             {
                 "name": "Benedikt Ziegler", 
-                "color": "#6E52FF"  
+                "color": "#FF745E"  
             },
             {
                 "name": "Anja Schulz", 
-                "color": "#9327FF"  
+                "color": "#FF5EB3"  
             }
         ],
         "dueDate": "17/10/2023",
@@ -96,7 +96,7 @@
             },
             {
                 "name": "Anja Schulz", 
-                "color": "#9327FF"  
+                "color": "#FF5EB3"  
             }
         ],
         "dueDate": "30/09/2023",

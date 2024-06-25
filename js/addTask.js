@@ -430,11 +430,11 @@ function inputSubtaskDefault(){
 function addSubtask(){
      // Wert aus dem Inputfeld lesen
      let newSubtask = document.getElementById('inputAddSubtask').value;
-     let list = document.getElementById('subtasks');
-
+   
      // Überprüfen, ob der Wert nicht leer ist
      if (newSubtask.trim() !== '') {
-        subtasksForm.push(newSubtask);
+        let newSubtaskWithStatus = htmlSubtasktInTaskJson(newSubtask);
+        subtasksForm.push(newSubtaskWithStatus);
 
         renderSubtasks();
      }
@@ -446,7 +446,7 @@ function renderSubtasks(){
 
     list.innerHTML = '';
     for (let i = 0; i < subtasksForm.length; i++) {
-        list.innerHTML += templateSubtask(subtasksForm[i], i);
+        list.innerHTML += templateSubtask(subtasksForm[i].subtask, i);
         let id = 'inputEditSubtask' + i;
         addEnterKeyListener(id);
     }
@@ -719,13 +719,13 @@ async function addNewTaskRecordAndSaveData(descriptionInput){
         prioNewTask = 'Low'
     }
 
-    let subtasksNewTask = [];
-    for (let i = 0; i < subtasksForm.length; i++) {
-        let subtask = htmlSubtasktInTaskJson(subtasksForm[i]);
-        subtasksNewTask.push(subtask);
-    }
+    //let subtasksNewTask = [];
+    //for (let i = 0; i < subtasksForm.length; i++) {
+      //  let subtask = htmlSubtasktInTaskJson(subtasksForm[i]);
+        //subtasksNewTask.push(subtask);
+    //}
 
-    let newTask = createNewTask(titleNewTask, descriptionNewTask, assignedToNewTask, dueDateNewTask, prioNewTask, subtasksNewTask);
+    let newTask = createNewTask(titleNewTask, descriptionNewTask, assignedToNewTask, dueDateNewTask, prioNewTask, subtasksForm);
     return newTask;
 }
 
