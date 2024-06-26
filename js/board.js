@@ -2,7 +2,7 @@ let findTaskFocus = false;
 let overlayAddTaskOpen = false;
 
 /**
- * This funktion sets clickt elements back to default.
+ * This funktion sets clicked elements back to default.
  */
 function setElementsToDefaultBoard(){
     closeSubMenu();
@@ -57,7 +57,7 @@ function plusButtonToDefault(plusButton) {
 }
 
 /**
- * This function takes away the 'dNone' class from the div 'overlayAddTaskBackground'. The overlay with animation is displayed including contacts.  Beforehand, it is checked whether something else is open or activated that should be closed beforehand.
+ * This function emptys the subtasksForm array, displays the add task overlay and sets overlayAddTaskOpen to true. Beforehand, it is checked whether something else is open or activated that should be closed beforehand.
  */
 function openOverlayAddTask(){
     if (subMenuOpen) {
@@ -67,9 +67,30 @@ function openOverlayAddTask(){
         findTaskDefault();
     }
     subtasksForm = [];
+    displayOverlayAddTask();
+    overlayAddTaskOpen = true;
+}
+
+/**
+ * This function fills overlayAddTask with the corresponding html code, sets event listerner, displays the contacts and takes away the 'dNone' class from the div 'overlayAddTaskBackground'. The overlay with animation is displayed including contacts. 
+ */
+function displayOverlayAddTask(){
     document.getElementById('overlayAddTask').innerHTML = htmlAddTaskOverlay();
+    addEventListener();
 
+    let dropdownContacts = document.getElementById('dropdownContacts');
+    for (let i = 0; i < contactsAddTask.length; i++) {
+        let contactForDropdown = contactsAddTask[i];
+        dropdownContacts.innerHTML += htmlContactDropdown(contactForDropdown, i);
+    }
 
+    document.getElementById('overlayAddTaskBackground').classList.remove('dNone');
+}
+
+/**
+ * This function sets two event listener. One for an enter event at inputAddSubtask and one to hide th form validation hints.
+ */
+function addEventListener(){
     /**
      * This eventlistener creates a new subtask when the enter key is pressed within 'inputAddSubtask'.
      */
@@ -82,17 +103,23 @@ function openOverlayAddTask(){
         }
     });
 
-    let dropdownContacts = document.getElementById('dropdownContacts');
-    for (let i = 0; i < contactsAddTask.length; i++) {
-        let contactForDropdown = contactsAddTask[i];
-        dropdownContacts.innerHTML += htmlContactDropdown(contactForDropdown, i);
-    }
+    /**
+     * This event listener checks validity. If the value is valid, the error display and red border are removed, if applicable.
+     */
 
-    document.getElementById('overlayAddTaskBackground').classList.remove('dNone');
-
-    overlayAddTaskOpen = true;
+    document.querySelectorAll('.addTaskInputRequired').forEach(inputElement => {
+        inputElement.addEventListener("input", function() {
+            if (inputElement.checkValidity()) {
+                // Wenn das Eingabefeld gültig ist, entfernen Sie die Fehlermeldung und den roten Rahmen
+                let errorMessageElement = document.getElementById("requiredMessage" + inputElement.id.replace("addTask", "") + "AddTask");
+                if (errorMessageElement) {
+                    errorMessageElement.style.visibility = 'hidden';
+                }
+                inputElement.classList.remove("borderRed");
+            }
+        });
+    });
 }
-
 
 /**
  * This function creates the overlay add task.
@@ -220,18 +247,26 @@ function htmlAddTaskOverlay(){
     `;
 }
 
+/**
+ * This function sets the status of the task before the overlay opens.
+ * 
+ * @param {string} status The status that a new task should have.
+ */
 function openOverlayAddTaskCertainStatus(status){
     satusNewTask = status;
     openOverlayAddTask();
 }
 
+/**
+ * This function first sets other elements to default bevor closing overlay add task.
+ */
 function firstDefaultThenClosing(){
     setElementsToDefaultAddTask();
     closeOverlayAddTask();
 }
 
 /**
- * This function adds class 'removing' to 'overlayAddTask'. This will display the sliding out animation. After the animation plays, the div 'overlayAddTaskBackground' is given the class .dNone. 'removing' is then removed again.
+ * This function adds class 'removing' to 'overlayAddTask'. This will display the sliding out animation. After the animation plays, the div 'overlayAddTaskBackground' is given the class .dNone. 'removing' is then removed again. The html in overlayAddTask will be deleted. StatusNewTask is set back to 'to do' and overlayAddTaskOpen back to false.
  */
 function closeOverlayAddTask(){
     satusNewTask = "to do";
