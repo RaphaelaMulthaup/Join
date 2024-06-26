@@ -269,6 +269,19 @@ header h4 {
 }
 
 
+.mobileMenu{
+    width: 100vw;
+    background: #2A3647;
+    color: beige;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    position: fixed;
+    transition: all 175ms ease-in-out;
+    bottom: -10vh;
+}
+
 @media (max-width: 1170px){
     header{
         width: 100vw;

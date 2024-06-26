@@ -178,3 +178,9 @@ a {
   background: #000000;
 }
 
+@media (max-width: 945px){
+  .mainMainpagesPaddingDefault{
+    padding-top: 10px;
+    padding-left: 8px;
+  }
+}
