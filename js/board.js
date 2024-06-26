@@ -134,7 +134,7 @@ function htmlAddTaskOverlay(){
             <img src="./assets/img/close.svg" alt="close">
         </div>
     </div>
-    <form onsubmit="addNewTask(); return false;" class="formAddTask" novalidate id="formAddNewTask">
+    <form onsubmit="addNewTask('OnBoardDescription'); return false;" class="formAddTask" novalidate id="formAddNewTask">
         <div class="inputTagsAddTask">
             <div class="addTaksFormLeft">
         
@@ -145,10 +145,10 @@ function htmlAddTaskOverlay(){
                 </div>
         
                 <div class="formElementAddTask">
-                    <label class="formPointDescription" for="addTaskDescription">Description<span class="colorRed">*</span></label>
+                    <label class="formPointDescription" for="addTaskOnBoardDescription">Description<span class="colorRed">*</span></label>
                     <textarea class="widthFormElementsAddTask borderFormElementsAddTask paddingLeftAddTask inputTagAddTaskFocus addTaskInputRequired" name="addTaskDescription" id="addTaskOnBoardDescription" onmouseover="preventNotice('addTaskOnBoardDescription')" 
                     onmouseout="restoreRequired('addTaskOnBoardDescription')" required placeholder="Enter a description"></textarea>
-                    <span class="requiredMessage" id="requiredMessageDescriptionAddTask">This field is required</span>
+                    <span class="requiredMessage" id="requiredMessageOnBoardDescriptionAddTask">This field is required</span>
                 </div>
         
                 <div class="formElementAddTask">
@@ -243,7 +243,6 @@ function htmlAddTaskOverlay(){
             </div>
         </div>
     </form>
-    
     `;
 }
 

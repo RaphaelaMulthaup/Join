@@ -454,7 +454,7 @@ async function saveEdit(){
 
     let satusOfTaskBigCard = taskBigCard.status;
     let categoryOfTaskBigCard = taskBigCard.category;
-    let newTask = await validateForm();
+    let newTask = await validateForm('Description');
     if (formValidated) {
         newTask.status = satusOfTaskBigCard;
         newTask.category = categoryOfTaskBigCard;

@@ -51,31 +51,51 @@ function validateInputCategory(){
             button.classList.add("borderRed");
         }
     }
-
 }
 
 /**
- * This function checks whether the required input fields are valid and submits the form if necessary.
+ * This function creates a new task. If the form is valid, selectedCategory and satusNewTask are added and then the newTask is pushed into tasks. The database is updated and the page is reloaded. In the end formValidated is set to false.
+ * 
+ * @param {string} descriptionOrigin origin of the description
  */
-async function addNewTask() {
-    let newTask = await validateForm();
+async function addNewTask(descriptionOrigin) {
+    let newTask = await validateForm(descriptionOrigin);
     if (formValidated) {
         newTask.category = selectedCategory;
         newTask.status = satusNewTask;
         tasks.push(newTask);  
-        console.log(tasks);
         await putTasksToDatabase(tasks);
         location.reload(); 
     }
     formValidated = false;
 }
 
-async function validateForm(){
+/**
+ * This function checks whether the required input fields are valid and submits the form if necessary.
+ * 
+ * @param {string} descriptionOrigin origin of the description
+ */
+async function validateForm(descriptionOrigin){
     validateInput("Title");
-    validateInput("Description");
+    validateInput(descriptionOrigin);
     validateInput("DueDate");
     validateInputCategory();
 
+    let { titleInput, descriptionInput, dueDateInput, categoryValid } = getFormInputs();
+      
+    if (titleInput.checkValidity() && descriptionInput.checkValidity() && dueDateInput.checkValidity() && categoryValid) {
+        let newTask = await addNewTaskRecordAndSaveData(descriptionInput);
+        formValidated = true;
+        return newTask;
+    }
+}
+
+/**
+ * This function sets variables for the form's input fields, checks whether there is a query of the category, and then sets categoryValid to true if a category is selected.
+ * 
+ * @returns the variables and categoryValid
+ */
+function getFormInputs(){
     let titleInput = document.getElementById("addTaskTitle");
 
     let descriptionInput;
@@ -93,12 +113,8 @@ async function validateForm(){
         let categoryInput = categoryElement.innerHTML;
         categoryValid = categoryInput !== 'Select task category';
     }
-      
-    if (titleInput.checkValidity() && descriptionInput.checkValidity() && dueDateInput.checkValidity() && categoryValid) {
-        let newTask = await addNewTaskRecordAndSaveData(descriptionInput);
-        formValidated = true;
-        return newTask;
-    }
+
+    return { titleInput, descriptionInput, dueDateInput, categoryValid };
 }
 
 /**
@@ -113,32 +129,21 @@ async function addNewTaskRecordAndSaveData(descriptionInput){
     let assignedToNewTask = [];
     for (let i = 0; i < selectedContacts.length; i++) {
         let selectedContactforNewTaskAllInformations = selectedContacts[i];
-        let  selectedContactforNewTask = htmlContactInTaskJson(selectedContactforNewTaskAllInformations);
+        let  selectedContactforNewTask = ContactInTaskJson(selectedContactforNewTaskAllInformations);
         assignedToNewTask.push(selectedContactforNewTask);
     }
 
-    let addTaskPrioUrgent = document.getElementById('addTaskPrioUrgent');
-    let addTaskPrioMedium = document.getElementById('addTaskPrioMedium');
-    let addTaskPrioLow = document.getElementById('addTaskPrioLow');
-    let prioNewTask;
-    if (addTaskPrioUrgent.classList.contains('addTaskPrioActiv')) {
-        prioNewTask = 'Urgent'
-    } else if (addTaskPrioMedium.classList.contains('addTaskPrioActiv')) {
-        prioNewTask = 'Medium'
-    } else if (addTaskPrioLow.classList.contains('addTaskPrioActiv')) {
-        prioNewTask = 'Low'
-    }
-
-    //let subtasksNewTask = [];
-    //for (let i = 0; i < subtasksForm.length; i++) {
-      //  let subtask = htmlSubtasktInTaskJson(subtasksForm[i]);
-        //subtasksNewTask.push(subtask);
-    //}
+    let prioNewTask = determinePrioNewTask();
 
     let newTask = createNewTask(titleNewTask, descriptionNewTask, assignedToNewTask, dueDateNewTask, prioNewTask, subtasksForm);
     return newTask;
 }
 
+/**
+ * This function reads the date from the input field and converts it into the required format.
+ * 
+ * @returns the date in the required format
+ */
 function getDate() {
     // Datum in ein Date-Objekt umwandeln
     let dateString = document.getElementById('addTaskDueDate').value;
@@ -154,12 +159,32 @@ function getDate() {
 }
 
 /**
+ * This function checks which of the prio buttons is activated and assigns the corresponding importance to the variable 'prioNewTask'.
+ * 
+ * @returns the status of importance
+ */
+function determinePrioNewTask(){
+    let addTaskPrioUrgent = document.getElementById('addTaskPrioUrgent');
+    let addTaskPrioMedium = document.getElementById('addTaskPrioMedium');
+    let addTaskPrioLow = document.getElementById('addTaskPrioLow');
+    let prioNewTask;
+    if (addTaskPrioUrgent.classList.contains('addTaskPrioActiv')) {
+        prioNewTask = 'Urgent'
+    } else if (addTaskPrioMedium.classList.contains('addTaskPrioActiv')) {
+        prioNewTask = 'Medium'
+    } else if (addTaskPrioLow.classList.contains('addTaskPrioActiv')) {
+        prioNewTask = 'Low'
+    }
+    return prioNewTask;
+}
+
+/**
  * This function creates an object with the data of a contact and returns it.
  * 
  * @param {object} selectedContactforNewTaskAllInformations the detailed informations about a contact
  * @returns an object with the data of a contact
  */
-function htmlContactInTaskJson(selectedContactforNewTaskAllInformations){
+function ContactInTaskJson(selectedContactforNewTaskAllInformations){
     return {
         name: selectedContactforNewTaskAllInformations.name, 
         color: selectedContactforNewTaskAllInformations.color
@@ -172,13 +197,12 @@ function htmlContactInTaskJson(selectedContactforNewTaskAllInformations){
  * @param {string} subtask the subtask
  * @returns an object with the data of a subtask
  */
-function htmlSubtasktInTaskJson(subtask){
+function SubtasktInTaskJson(subtask){
     return {
         subtask: subtask,
         status: 'to do'
     };
 }
-
 
 /**
  * This function creates an object with the data of a new task and returns it.

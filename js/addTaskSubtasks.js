@@ -65,7 +65,7 @@ function addSubtask(){
    
      // Überprüfen, ob der Wert nicht leer ist
      if (newSubtask.trim() !== '') {
-        let newSubtaskWithStatus = htmlSubtasktInTaskJson(newSubtask);
+        let newSubtaskWithStatus = SubtasktInTaskJson(newSubtask);
         subtasksForm.push(newSubtaskWithStatus);
 
         renderSubtasks();
