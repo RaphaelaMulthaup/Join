@@ -104,7 +104,7 @@
         "email": "antom@gmail.com",
         "password": "12341234",
         "initials": "AM",
-        "color": "#0038FF",
+        "color": "#00BEE8",
         "phone": "+1123456789"
     },
     {
@@ -122,7 +122,7 @@
         "email": "bziegler@gmail.com",
         "password": "12341234",
         "initials": "BZ",
-        "color": "#6E52FF",
+        "color": "#FF745E",
         "phone": "+1123456789"
     },
     {
@@ -140,7 +140,7 @@
         "email": "schulz@gmail.com",
         "password": "12341234",
         "initials": "AS",
-        "color": "#9327FF",
+        "color": "#FF5EB3",
         "phone": "+1123456789"
     },
     {
