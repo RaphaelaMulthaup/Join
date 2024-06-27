@@ -18,8 +18,9 @@
     <script src="./js/addTaskSubtasks.js"></script>
     <script src="./js/addTaskFormValidation.js"></script>
     <script src="./js/editTask.js"></script>
+    <script src="./js/dragAndDrop.js"></script>
 </head>
-<body id="bodyBoard" class="bodyMainpages" onload="loadBoardPage()" onclick="setElementsToDefaultBoard()">
+<body id="bodyBoard" class="bodyMainpages" onload="loadBoardPage(), updateHTML()" onclick="setElementsToDefaultBoard()">
     <div w3-include-html="./assets/templates/menu.html"></div>
     <div class="mainpagesRightSide">
         <div w3-include-html="./assets/templates/header.html"></div>
@@ -76,22 +77,22 @@
                 </div>
             </div>
             <div class="boardTasks" id="boardTasks">
-                <div class="tasks" id="tasksToDo">
+                <div class="tasks" id="tasksToDo" ondrop="moveTo('tasksToDo')" ondragleave="removeHiglight('tasksToDo')" ondragover="allowDrop(event); highlight('tasksToDo')">
                     <div class="noTasksExisting" id="noTasksExistingToDo">
                         <span>No tasks To do</span>
                     </div>
                 </div>
-                <div class="tasks" id="tasksInProgress">
+                <div class="tasks" id="tasksInProgress"  ondrop="moveTo('tasksInProgress')" ondragleave="removeHiglight('tasksInProgress')" ondragover="allowDrop(event); highlight('tasksInProgress')">
                     <div class="noTasksExisting" id="noTasksExistingInProgress">
                         <span>No tasks In progress</span>
                     </div>
                 </div>
-                <div class="tasks" id="tasksAwaitFeedback">
+                <div class="tasks" id="tasksAwaitFeedback"  ondrop="moveTo('tasksAwaitFeedback')" ondragleave="removeHiglight('tasksAwaitFeedback')" ondragover="allowDrop(event); highlight('tasksAwaitFeedback')">
                     <div class="noTasksExisting" id="noTasksExistingAwaitFeedback">
                         <span>No tasks Await feedback</span>
                     </div>
                 </div>
-                <div class="tasks" id="tasksDone">
+                <div class="tasks" id="tasksDone"  ondrop="moveTo('tasksDone')" ondragleave="removeHiglight('tasksDone')" ondragover="allowDrop(event); highlight('tasksDone')">
                     <div class="noTasksExisting" id="noTasksExistingDone">
                         <span>No tasks Done</span>
                     </div>
