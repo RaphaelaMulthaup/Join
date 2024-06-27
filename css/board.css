@@ -340,6 +340,8 @@
 
 .overlayBigCard {
     gap: 24px;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .overlayBigCard.removing {

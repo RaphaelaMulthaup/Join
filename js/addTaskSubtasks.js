@@ -91,6 +91,7 @@ function renderSubtasks(){
  * This funktion returns a html template to create a new subtask.
  * 
  * @param {span} subtask new subtask out of input 'inputAddSubtask'
+ * @param {index} i the index of the subtask
  * @returns html template 'new subtask' including li element and a div with a input field to edit the subtask
  */
 function templateSubtask(subtask, i){

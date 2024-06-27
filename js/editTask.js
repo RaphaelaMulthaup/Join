@@ -190,7 +190,7 @@ function displaySubtasksEditTask(){
         let subtasks = document.getElementById('subtasks');
         for (let i = 0; i < taskBigCard.subtasks.length; i++) {
             let subtask = taskBigCard.subtasks[i];
-            subtasks.innerHTML += templateSubtask(subtask.subtask);
+            subtasks.innerHTML += templateSubtask(subtask.subtask, i);
         }
     }
 }
