@@ -1,3 +1,6 @@
+/**
+ * This function fills overlayEditTask with the appropriate html, adds eventlistener and makes everything appear with an animation. The form is then pre-filled with the existing data.
+ */
 function editTask(){
     document.getElementById('overlayEditTask').innerHTML = htmlOverlayEditTask();
     addEventListener();    
@@ -8,19 +11,14 @@ function editTask(){
     displayDueDateEditTask();
     displayPrioEditTask();
     displayContactsEditTask();
-    
-    if (taskBigCard.subtasks) {
-        subtasksForm = taskBigCard.subtasks;
-        if (taskBigCard.subtasks) {
-            let subtasks = document.getElementById('subtasks');
-            for (let i = 0; i < taskBigCard.subtasks.length; i++) {
-                let subtask = taskBigCard.subtasks[i];
-                subtasks.innerHTML += templateSubtask(subtask.subtask);
-            }
-        }
-    }
+    displaySubtasksEditTask();
 }
 
+/**
+ * This function creates the html code for the edit task overlay.
+ * 
+ * @returns the html code
+ */
 function htmlOverlayEditTask(){
     return /*html*/ `
         <div class="firstLineOverlayCard">
@@ -183,11 +181,31 @@ function displayContactsEditTask(){
     }
 }
 
+/**
+ * This function displays the subtasks.
+ */
+function displaySubtasksEditTask(){
+    if (taskBigCard.subtasks) {
+        subtasksForm = taskBigCard.subtasks;
+        let subtasks = document.getElementById('subtasks');
+        for (let i = 0; i < taskBigCard.subtasks.length; i++) {
+            let subtask = taskBigCard.subtasks[i];
+            subtasks.innerHTML += templateSubtask(subtask.subtask);
+        }
+    }
+}
+
+/**
+ * This function makes the edit task overlay disappear and empties it.
+ */
 function closeOverlayEditTask(){
     document.getElementById('overlayEditTaskBackground').classList.add('dNone');
     document.getElementById('overlayEditTask').innerHTML = '';
 }
 
+/**
+ * This function creates a new version of the original task. The old one is replaced and the data on the page is re-rendered. If the dropdown menu for the contacts was previously open, it will be closed and the clicked contacts will be included. At the end, the status of the form validation is reset again.
+ */
 async function saveEdit(){
     if (buttonSelectContactClicked) {
         toggleSelectContactsButton();
@@ -199,15 +217,21 @@ async function saveEdit(){
     if (formValidated) {
         newTask.status = satusOfTaskBigCard;
         newTask.category = categoryOfTaskBigCard;
-        tasks[indextaskBigCard] = newTask;
-        console.log(tasks);
-        await putTasksToDatabase(tasks);
-        displayBoard();
-    //    closeBigCard();
-      //  openBigCard(indextaskBigCard);
-        displayDataInBigCard(indextaskBigCard);
 
-        closeOverlayEditTask();
+        await replaceTaskAndRender(newTask);
     }  
     formValidated = false;
+}
+
+/**
+ * This function replaces the old task with the revised version, saves it to the database, re-renders everything and closes the overlay edit task.
+ * 
+ * @param {object} newTask the revised task
+ */
+async function replaceTaskAndRender(newTask){
+    tasks[indextaskBigCard] = newTask;
+    await putTasksToDatabase(tasks);
+    displayBoard();
+    displayDataInBigCard(indextaskBigCard);
+    closeOverlayEditTask();
 }
