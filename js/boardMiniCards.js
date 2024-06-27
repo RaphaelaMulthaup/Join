@@ -126,9 +126,10 @@ function checkStatus(task, i){
  * @param {index} i The index of the task in the tasks json.
  * @returns the mini card
  */
+// ID wird noch benötigt beim erstellen einer neuen Task Karte
 function htmlMiniCard(task, i){
     return /*html*/ `
-        <div class="miniCard" id="miniCard${i}" onclick="openBigCard(${i})">
+        <div class="miniCard" id="miniCard${i}" onclick="openBigCard(${i})" draggable="true" ondragstart="startDragging(${task['i']})">
             <div class="category" id="category${i}">${task.category}</div>
             <div class="textMiniCard">
                 <h6 class="title">${task.title}</h6>

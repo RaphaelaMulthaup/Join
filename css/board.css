@@ -150,6 +150,20 @@
     box-shadow: 0px 0px 4px 0px #00000029;
 }
 
+/* drag and drop optik vielleicht */
+.drag-area {
+    height: 200px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 1px dashed black;
+    margin-bottom: 50px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.drag-area-highlight {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
 /*add task overlay*/
 .overlayAddTask {
     background-color: white;
