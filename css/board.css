@@ -134,6 +134,7 @@
     flex-direction: column;
     gap: 16px;
     width: 252px;
+    height: -webkit-fill-available;
 }
 
 .noTasksExisting{

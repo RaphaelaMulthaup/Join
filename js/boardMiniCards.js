@@ -39,22 +39,22 @@ function displayBoard(){
  */
 function htmlboard(){
     return /*html*/ `
-        <div class="tasks" id="tasksToDo">
+        <div class="tasks" id="tasksToDo" ondrop="moveTo(event, 'tasksToDo')" ondragleave="removeHiglight('tasksToDo')" ondragover="allowDrop(event); highlight('tasksToDo')">
             <div class="noTasksExisting" id="noTasksExistingToDo">
                 <span>No tasks To do</span>
             </div>
         </div>
-        <div class="tasks" id="tasksInProgress">
+        <div class="tasks" id="tasksInProgress"  ondrop="moveTo(event, 'tasksInProgress')" ondragleave="removeHiglight('tasksInProgress')" ondragover="allowDrop(event); highlight('tasksInProgress')">
             <div class="noTasksExisting" id="noTasksExistingInProgress">
                 <span>No tasks In progress</span>
             </div>
         </div>
-        <div class="tasks" id="tasksAwaitFeedback">
+        <div class="tasks" id="tasksAwaitFeedback"  ondrop="moveTo(event, 'tasksAwaitFeedback')" ondragleave="removeHiglight('tasksAwaitFeedback')" ondragover="allowDrop(event); highlight('tasksAwaitFeedback')">
             <div class="noTasksExisting" id="noTasksExistingAwaitFeedback">
                 <span>No tasks Await feedback</span>
             </div>
         </div>
-        <div class="tasks" id="tasksDone">
+        <div class="tasks" id="tasksDone"  ondrop="moveTo(event, 'tasksDone')" ondragleave="removeHiglight('tasksDone')" ondragover="allowDrop(event); highlight('tasksDone')">
             <div class="noTasksExisting" id="noTasksExistingDone">
                 <span>No tasks Done</span>
             </div>
@@ -92,13 +92,13 @@ function checkWhetherTasksExist(){
 function displayMiniCard(i){
     let task = tasks[i];
     checkStatus(task, i);
-    shortenDescription(i);
-    colorCategory(task, i);
-    subtasks(task, i);
+    // shortenDescription(i);
+    // colorCategory(task, i);
+    // subtasks(task, i);
     if (task.assignedTo) {
-        initials(task, i);
+        // initials(task, i);
     }
-    prio(task, i);
+    // prio(task, i);
 }
 
 /**
@@ -129,7 +129,7 @@ function checkStatus(task, i){
 // ID wird noch benötigt beim erstellen einer neuen Task Karte
 function htmlMiniCard(task, i){
     return /*html*/ `
-        <div class="miniCard" id="miniCard${i}" onclick="openBigCard(${i})" draggable="true" ondragstart="startDragging(${task['i']})">
+        <div class="miniCard" id="miniCard${i}" onclick="openBigCard(${i})" draggable="true" ondragstart="startDragging(${i})" >
             <div class="category" id="category${i}">${task.category}</div>
             <div class="textMiniCard">
                 <h6 class="title">${task.title}</h6>
@@ -142,6 +142,8 @@ function htmlMiniCard(task, i){
         </div>
     `;
 }
+
+// window.onload = updateHTML;
 
 /**
  * This function colors the background of category.

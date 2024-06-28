@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>TestPlatzFranz</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/franz.css">
     <link rel="stylesheet" href="./css/fonts.css">
@@ -84,15 +84,18 @@ function allowDrop(ev) {
 }
 
 function moveTo(category) {
+    console.log(category);
     todos[currentDraggedElement]['category'] = category;
     updateHTML();
 }
 
 function highlight(id) {
+    console.log('added', id);
     document.getElementById(id).classList.add('drag-area-highlight');
 }
 
 function removeHighlight(id) {
+    console.log('removed', id);
     document.getElementById(id).classList.remove('drag-area-highlight');
 }
     </script>
