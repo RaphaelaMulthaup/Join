@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/fonts.css">
     <link rel="stylesheet" href="./css/board.css">
+    <link rel="stylesheet" href="./css/bigCardEditTask.css">
     <link rel="stylesheet" href="./css/templates.css">
     <link rel="stylesheet" href="./css/addTask.css">
     <script src="./js/script.js"></script>
@@ -110,38 +111,41 @@
     </div>
     <div class="overlayBackground dNone" id="overlayBigCardBackground" onclick="closeBigCard()">
         <div class="overlayBigCard overlayCard" id="overlayBigCard" onclick="stayOpenOrActiv(event)">
-            <div class="firstLineBigCard">
-                <div class="categoryBigCard" id="categoryBigCard"></div>
-                <div class="bigCardCloseButton" onclick="closeBigCard()">
-                    <img src="./assets/img/close.svg" alt="close">
+            <div class="bigCardData">
+                <div class="firstLineBigCard">
+                    <div class="categoryBigCard" id="categoryBigCard"></div>
+                    <div class="bigCardCloseButton" onclick="closeBigCard()">
+                        <img src="./assets/img/close.svg" alt="close">
+                    </div>
                 </div>
-            </div>
-            <h1 class="titleBigCard" id="titleBigCard"></h1>
-            <span class="descriptionBigCard" id="descriptionBigCard"></span>
-            <table>
-                <tr>
-                    <td class="firstColumn">Due date:</td>
-                    <td id="dueDateBigCard"></td>
-                </tr>
-                <tr class="middleLineTableBigCard">
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td class="firstColumn">Priority:</td>
-                    <td class="priorityBigCard">
-                        <span id="priorityBigCard"></span>
-                        <img id="imgPriorityBigCard" src="">
-                    </td>
-                </tr>
-            </table>
-            <div class="assignedToBigCard" id="assignedToBigCard">
-                <span>Assigned To:</span>
-                <div id="assignedToBigCardUsers"></div>
-            </div>
-            <div class="subtasksBigCard" id="subtasksBigCard">
-                <span>Subtasks</span>
-                <div id="subtasksBigCardChecklist"></div>
+                <h1 class="titleBigCard" id="titleBigCard"></h1>
+                <span class="descriptionBigCard" id="descriptionBigCard"></span>
+                <table>
+                    <tr>
+                        <td class="firstColumn">Due date:</td>
+                        <td id="dueDateBigCard"></td>
+                    </tr>
+                    <tr class="middleLineTableBigCard">
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="firstColumn">Priority:</td>
+                        <td class="priorityBigCard">
+                            <span id="priorityBigCard"></span>
+                            <img id="imgPriorityBigCard" src="">
+                        </td>
+                    </tr>
+                </table>
+                <div class="assignedToBigCard" id="assignedToBigCard">
+                    <span>Assigned To:</span>
+                    <div id="assignedToBigCardUsers"></div>
+                </div>
+                <div class="subtasksBigCard" id="subtasksBigCard">
+                    <span>Subtasks</span>
+                    <div id="subtasksBigCardChecklist"></div>
+                </div>
+    
             </div>
             <div class="editAndDeleteBigCard">
                 <div class="deleteBigCard" onclick="deleteTask()">

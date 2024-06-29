@@ -1,0 +1,279 @@
+.overlayCard{
+    background-color: white;
+    width: 525px;
+    min-height: fit-content;
+    max-height: 930px;
+    padding: 48px 40px;
+    border-radius: 30px;
+    box-shadow: 0px 0px 4px 0px #00000029;
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    animation-name: addOverlay;
+    animation-duration: 100ms;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    display: flex;
+    flex-direction: column;
+    
+    font-size: 20px;
+}
+
+.overlayBigCard {
+    gap: 24px;
+    padding: 48px 0 48px 0 !important;
+
+}
+
+.overlayBigCard.removing {
+    animation-name: removeOverlay;
+}
+
+.bigCardData{
+    overflow-y: scroll;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 0px 40px 0px 40px;
+    scroll-margin-top: 20px;
+}
+
+.firstLineBigCard{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.categoryBigCard{
+    color: white;
+    font-size: 23px;
+    padding: 4px 24px;
+    border-radius: 8px;
+}
+
+.editAndDeleteBigCard{
+    padding-right: 40px;
+}
+
+.bigCardCloseButton{
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bigCardCloseButton:hover{
+    background-color: #EEEEEE;
+    cursor: pointer;
+}
+
+.middleLineTableBigCard{
+    height: 24px;
+}
+
+.firstColumn{
+    width: 117px;
+    color: #2A3647;
+}
+
+.priorityBigCard{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.assignedToBigCard > span{
+
+    color: #2A3647;
+}
+
+#assignedToBigCardUsers{
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-top: 15px;
+    margin-left: 16px;
+}
+
+.userBigCard{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.initialsUserBigCard{
+    width: 42px;
+    height: 42px;
+    border: 2px solid #FFFFFF;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+.subtasksBigCard > span{
+    color: #2A3647;
+}
+
+#subtasksBigCardChecklist{
+    margin-top: 14.5px;
+    margin-left: 16px;
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+}
+
+.subtaskBidCard{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 16px;
+    width: fit-content;
+    padding: 4px 16px;
+    border-radius: 10px;
+}
+
+.subtaskBidCard:hover{
+    background-color: #EEEEEE;
+    cursor: pointer;
+}
+
+.subtaskBidCard:hover .checkbox+label {
+    background: url('../assets/img/checkboxDisabledHover.svg') no-repeat;
+}
+  
+.subtaskBidCard:hover .checkbox:checked+label {
+    background: url('../assets/img/checkboxCheckedHover.svg') no-repeat;
+}
+
+.editAndDeleteBigCard{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 16px;
+    gap: 8px;
+}
+
+.editAndDeleteBigCard > div{
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.editAndDeleteBigCard > div:hover{
+    font-weight: 700;
+    color: #29ABE2;
+    cursor: pointer;
+}
+
+.editAndDeleteBigCard > div:hover path{
+    fill: #29ABE2;
+}
+
+.verticalLineEditAndDeleteBigCard{
+    height: 24px;
+    width: 1px;
+    background-color: #D1D1D1;
+}
+
+.editAndDeleteBigCard svg{
+    width: 18.28px;
+    height: 18.25px;
+    margin-left: 3px;
+}
+
+/*edit task*/
+.overlayEditTask{
+    padding-left: 0;
+    padding-right: 18.68px;
+    animation: none;
+}
+
+.firstLineOverlayCard{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.formEditTask{
+    margin-top: 28px !important;
+    margin-bottom: 24px;
+}
+
+.inputTagsEditTask{
+    flex-direction: column;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    gap: 24px !important;
+    max-height: 693px;
+}
+
+.formPointEditTaskHeadline{
+    color: #42526E;
+}
+
+.formEditTaskUpperArea{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-left: 40px;
+}
+
+.formEditTaskLowerArea{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.editTaskHeadlinePrio{
+    padding-left: 40px;
+    font-weight: 700;
+    font-size: 19px;
+}
+
+.buttonUrgentEditTask{
+    margin-left: 40px;
+}
+
+.formEditTaskLowerArea > div:nth-child(n+2){
+    padding-left: 40px;
+}
+
+.lowerAreaEditTask{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.editTaskPrioButtons{
+    width: auto !important;
+}
+
+.dropdownContactsEditTask{
+   right: 18.5px !important; 
+}
+
+
+.buttonOkEditTask{
+    border-radius: 10px;
+    height: 57px;
+    width: 89px;
+    font-size: 21px;
+    font-weight: 700;
+    gap: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hookOkEditTask{
+    height: 24px;
+    width: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
