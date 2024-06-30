@@ -1,6 +1,26 @@
+.mainpagesRightSideAddTask{
+    display: flex;
+    flex-direction: column;
+}
+
+.mainMainpagesAddTask{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    max-height: 928px;
+}
+
+.mainMainpagesAddTask form{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .inputTagsAddTask{
     display: flex;
     gap: 48px;
+    flex: 1;
 }
 
 .formElementAddTask{
@@ -224,6 +244,7 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
+    flex: 1;
 }
 
 /*due date*/
@@ -343,6 +364,10 @@
 }
 
 /*subtasks*/
+.formElementAddTaskSubtasks{
+    flex: 1;
+}
+
 #addTaskSubtasks{
     background-color: white;
     display: flex;
@@ -384,8 +409,14 @@
 }
 
 #subtasks{
-    
+    overflow-y: scroll;
+    overflow-x: hidden;
     font-size: 16px;
+    flex: 1;
+}
+
+.ulSubtasksAddTask{
+    flex: 1;
 }
 
 #subtasks li{
@@ -447,18 +478,19 @@
 /*lower area add task*/
 .lowerAreaAddTask{
     display: flex;
-    height: 273px;
     justify-content: space-between;
+    max-width: 978px;
+    align-items: flex-end;
+    margin-bottom: 71px;
 }
 
 .lowerAreaAddTaskNecessity{
-    padding-top: 175px;
 }
 
 .lowerAreaAddTaskButtons{
-    padding-top: 138px;
     display: flex;
     gap: 16px;
+    margin-bottom: 8px;
 }
 
 .lowerAreaAddTaskButtons button,
