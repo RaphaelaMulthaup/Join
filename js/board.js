@@ -136,7 +136,7 @@ function htmlAddTaskOverlay(){
     </div>
     <form onsubmit="addNewTask('OnBoardDescription'); return false;" class="formAddTask" novalidate id="formAddNewTask">
         <div class="inputTagsAddTask">
-            <div class="addTaksFormLeft">
+            <div class="addTaskFormLeft">
         
                 <div class="formElementAddTask">
                     <label class="formPointDescription" for="addTaskTitle">Title<span class="colorRed">*</span></label>
@@ -166,7 +166,7 @@ function htmlAddTaskOverlay(){
         
             </div>
             <div class="verticalLineAddTask"></div>
-            <div class="addTaksFormRight">
+            <div class="addTaskFormRight">
         
                 <div class="formElementAddTask">
                     <label class="formPointDescription" for="addTaskDueDate">Due date<span class="colorRed">*</span></label>
