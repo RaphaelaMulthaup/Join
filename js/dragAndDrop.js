@@ -62,6 +62,7 @@ function moveTo(ev, status) {
     console.log(status);
     ev.preventDefault();
     tasks[currentDraggedElement].status = status;
+    console.log('tasks', tasks);
     putData(tasks);
     updateHTML();
 }

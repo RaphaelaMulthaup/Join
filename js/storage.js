@@ -1,5 +1,6 @@
 // Daten(spiel)platz Franz
 const BASE_URL = "https://remotestorage-d71ae-default-rtdb.europe-west1.firebasedatabase.app/";
+// const BASE_URL = "https://joinin-71c4e-default-rtdb.europe-west1.firebasedatabase.app/";
 
 /*Haupt URL*/
 const firebaseUrl = "https://join-2fe35-default-rtdb.europe-west1.firebasedatabase.app/";
@@ -32,10 +33,10 @@ async function putTasksToDatabase(data){
  * This function loads the example users into the database.
  */
 async function putUsersToDatabase(){
-    let response = await fetch("../json/users.json");
+    let response = await fetch("../json/tasks.json");
     let data = await response.json();
 
-    await fetch(firebaseUrl + "/users" + ".json", {
+    await fetch(firebaseUrl + "/tasks" + ".json", {
         method: "PUT",
         header: {
             "Content-Type": "application/json",
