@@ -92,13 +92,13 @@ function checkWhetherTasksExist(){
 function displayMiniCard(i){
     let task = tasks[i];
     checkStatus(task, i);
-    // shortenDescription(i);
-    // colorCategory(task, i);
-    // subtasks(task, i);
+    shortenDescription(i);
+    colorCategory(task, i);
+    subtasks(task, i);
     if (task.assignedTo) {
-        // initials(task, i);
+        initials(task, i);
     }
-    // prio(task, i);
+    prio(task, i);
 }
 
 /**
