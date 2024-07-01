@@ -52,7 +52,6 @@ async function putUsersToDatabase(){
  * @returns the data
  */
 async function loadData(path=""){
-    let response = await fetch(firebaseUrl + path + ".json");
     return  responseToJson = await response.json();
 }
 
@@ -70,7 +69,6 @@ async function loadData(path=""){
  * console.log(result);
  */
 async function putData(path = "", data = {}) {
-    let response = await fetch(firebaseUrl + path + ".json", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

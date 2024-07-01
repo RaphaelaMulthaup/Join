@@ -17,12 +17,12 @@
 </head>
 <body id="bodyAddTask" class="bodyMainpages" onload="loadAddTaskPage()" onclick="setElementsToDefaultAddTask()">
     <div w3-include-html="./assets/templates/menu.html"></div>
-    <div class="mainpagesRightSide mainpagesRightSideAddTask">
+    <div class="mainpagesRightSide">
         <div w3-include-html="./assets/templates/header.html"></div>
-        <main class="mainMainpages mainMainpagesPaddingDefault mainMainpagesAddTask">
+        <main class="mainMainpages mainMainpagesPaddingDefault">
             <div id="subMenu" class="dNone" w3-include-html="./assets/templates/subMenu.html" onclick="stayOpenOrActiv(event)"></div>
             <h1>Add Task</h1>
-            <form onsubmit="addNewTask('Description'); return false;" class="formAddTask" novalidate id="formAddNewTask">
+            <form onsubmit="addNewTask(); return false;" class="formAddTask" novalidate id="formAddNewTask">
                 <div class="inputTagsAddTask">
                     <div class="addTaskFormLeft">
 
@@ -86,7 +86,7 @@
                             <span class="requiredMessage" id="requiredMessageCategoryAddTask">This field is required</span>
                         </div>
 
-                        <div class="formElementAddTask formElementAddTaskSubtasks">
+                        <div class="formElementAddTask">
                             <span class="formPointDescription" for="addTaskSubtasks">Subtasks</span>
                             <div class="widthFormElementsAddTask heightFormElementsAddTask borderFormElementsAddTask paddingLeftAddTask paddingRightAddTask inputTagAddTaskFocus" id="addTaskSubtasks" onclick="activateAddTaskSubtasks(); stayOpenOrActiv(event)">
                                 <span id="textAddSubtask">Add new subtask</span>
@@ -104,7 +104,7 @@
                                     </div>    
                                 </div>
                             </div>
-                            <ul id="subtasks" class="ulSubtasks ulSubtasksAddTask">
+                            <ul id="subtasks" class="ulSubtasks">
                             </ul>
                         </div>
 

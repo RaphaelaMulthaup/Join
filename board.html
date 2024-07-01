@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/fonts.css">
     <link rel="stylesheet" href="./css/board.css">
-    <link rel="stylesheet" href="./css/bigCardEditTask.css">
     <link rel="stylesheet" href="./css/templates.css">
     <link rel="stylesheet" href="./css/addTask.css">
     <script src="./js/script.js"></script>
@@ -18,7 +17,6 @@
     <script src="./js/addTask.js"></script>
     <script src="./js/addTaskSubtasks.js"></script>
     <script src="./js/addTaskFormValidation.js"></script>
-    <script src="./js/editTask.js"></script>
     <script src="./js/dragAndDrop.js"></script>
 </head>
 <body id="bodyBoard" class="bodyMainpages" onload="loadBoardPage()" onclick="setElementsToDefaultBoard()">
@@ -78,22 +76,22 @@
                 </div>
             </div>
             <div class="boardTasks" id="boardTasks">
-                <div class="tasks" id="tasksToDo" ondrop="moveTo(event, 'tasksToDo')" ondragleave="removeHiglight('tasksToDo')" ondragover="allowDrop(event); highlight('tasksToDo')">
+                <div class="tasks" id="tasksToDo">
                     <div class="noTasksExisting" id="noTasksExistingToDo">
                         <span>No tasks To do</span>
                     </div>
                 </div>
-                <div class="tasks" id="tasksInProgress"  ondrop="moveTo(event, 'tasksInProgress')" ondragleave="removeHiglight('tasksInProgress')" ondragover="allowDrop(event); highlight('tasksInProgress')">
+                <div class="tasks" id="tasksInProgress">
                     <div class="noTasksExisting" id="noTasksExistingInProgress">
                         <span>No tasks In progress</span>
                     </div>
                 </div>
-                <div class="tasks" id="tasksAwaitFeedback"  ondrop="moveTo(event, 'tasksAwaitFeedback')" ondragleave="removeHiglight('tasksAwaitFeedback')" ondragover="allowDrop(event); highlight('tasksAwaitFeedback')">
+                <div class="tasks" id="tasksAwaitFeedback">
                     <div class="noTasksExisting" id="noTasksExistingAwaitFeedback">
                         <span>No tasks Await feedback</span>
                     </div>
                 </div>
-                <div class="tasks" id="tasksDone"  ondrop="moveTo(event, 'tasksDone')" ondragleave="removeHiglight('tasksDone')" ondragover="allowDrop(event); highlight('tasksDone')">
+                <div class="tasks" id="tasksDone">
                     <div class="noTasksExisting" id="noTasksExistingDone">
                         <span>No tasks Done</span>
                     </div>
@@ -111,41 +109,38 @@
     </div>
     <div class="overlayBackground dNone" id="overlayBigCardBackground" onclick="closeBigCard()">
         <div class="overlayBigCard overlayCard" id="overlayBigCard" onclick="stayOpenOrActiv(event)">
-            <div class="bigCardData">
-                <div class="firstLineBigCard">
-                    <div class="categoryBigCard" id="categoryBigCard"></div>
-                    <div class="bigCardCloseButton" onclick="closeBigCard()">
-                        <img src="./assets/img/close.svg" alt="close">
-                    </div>
+            <div class="firstLineBigCard">
+                <div class="categoryBigCard" id="categoryBigCard"></div>
+                <div class="bigCardCloseButton" onclick="closeBigCard()">
+                    <img src="./assets/img/close.svg" alt="close">
                 </div>
-                <h1 class="titleBigCard" id="titleBigCard"></h1>
-                <span class="descriptionBigCard" id="descriptionBigCard"></span>
-                <table>
-                    <tr>
-                        <td class="firstColumn">Due date:</td>
-                        <td id="dueDateBigCard"></td>
-                    </tr>
-                    <tr class="middleLineTableBigCard">
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td class="firstColumn">Priority:</td>
-                        <td class="priorityBigCard">
-                            <span id="priorityBigCard"></span>
-                            <img id="imgPriorityBigCard" src="">
-                        </td>
-                    </tr>
-                </table>
-                <div class="assignedToBigCard" id="assignedToBigCard">
-                    <span>Assigned To:</span>
-                    <div id="assignedToBigCardUsers"></div>
-                </div>
-                <div class="subtasksBigCard" id="subtasksBigCard">
-                    <span>Subtasks</span>
-                    <div id="subtasksBigCardChecklist"></div>
-                </div>
-    
+            </div>
+            <h1 class="titleBigCard" id="titleBigCard"></h1>
+            <span class="descriptionBigCard" id="descriptionBigCard"></span>
+            <table>
+                <tr>
+                    <td class="firstColumn">Due date:</td>
+                    <td id="dueDateBigCard"></td>
+                </tr>
+                <tr class="middleLineTableBigCard">
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="firstColumn">Priority:</td>
+                    <td class="priorityBigCard">
+                        <span id="priorityBigCard"></span>
+                        <img id="imgPriorityBigCard" src="">
+                    </td>
+                </tr>
+            </table>
+            <div class="assignedToBigCard" id="assignedToBigCard">
+                <span>Assigned To:</span>
+                <div id="assignedToBigCardUsers"></div>
+            </div>
+            <div class="subtasksBigCard" id="subtasksBigCard">
+                <span>Subtasks</span>
+                <div id="subtasksBigCardChecklist"></div>
             </div>
             <div class="editAndDeleteBigCard">
                 <div class="deleteBigCard" onclick="deleteTask()">
@@ -165,7 +160,7 @@
         </div>
     </div>
     <div class="overlayBackground dNone" id="overlayEditTaskBackground" onclick="closeOverlayEditTask()">
-        <div class="overlayEditTask overlayCard" id="overlayEditTask" onclick="stayOpenOrActiv(event); setElementsToDefaultAddTask()"></div>
+        <div class="overlayEditTask overlayCard" id="overlayEditTask" onclick="stayOpenOrActiv(event)"></div>
     </div>
 </body>
 </html>
