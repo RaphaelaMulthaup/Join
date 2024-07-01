@@ -246,11 +246,26 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
+    transition: transform 0.3s ease-in-out;
 }
 
 .miniCard:hover{
     cursor: pointer;
 }
+
+.miniCard:active{
+    animation: shake 0.5s ease-in-out;
+    /* animation-delay: 0.2s; */
+}
+
+@keyframes shake {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(8deg); }
+    50% { transform: rotate(-8deg); }
+    75% { transform: rotate(8deg); }
+    100% { transform: rotate(0deg);}
+}
+
 
 .category{
     border-radius: 8px;

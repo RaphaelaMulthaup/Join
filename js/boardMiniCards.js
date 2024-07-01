@@ -38,23 +38,24 @@ function displayBoard(){
  * @returns the default board
  */
 function htmlboard(){
+    // ondrop="moveTo('the string is written in hear is sent to the the task status'"
     return /*html*/ `
-        <div class="tasks" id="tasksToDo" ondrop="moveTo('tasksToDo')" ondragleave="removeHiglight('tasksToDo')" ondragover="allowDrop(event); highlight('tasksToDo')">
+        <div class="tasks" id="tasksToDo" ondrop="moveTo('to do')" ondragleave="removeHiglight('tasksToDo')" ondragover="allowDrop(event); highlight('tasksToDo')">
             <div class="noTasksExisting" id="noTasksExistingToDo">
                 <span>No tasks To do</span>
             </div>
         </div>
-        <div class="tasks" id="tasksInProgress"  ondrop="moveTo('tasksInProgress')" ondragleave="removeHiglight('tasksInProgress')" ondragover="allowDrop(event); highlight('tasksInProgress')">
+        <div class="tasks" id="tasksInProgress"  ondrop="moveTo('in progress')" ondragleave="removeHiglight('tasksInProgress')" ondragover="allowDrop(event); highlight('tasksInProgress')">
             <div class="noTasksExisting" id="noTasksExistingInProgress">
                 <span>No tasks In progress</span>
             </div>
         </div>
-        <div class="tasks" id="tasksAwaitFeedback"  ondrop="moveTo('tasksAwaitFeedback')" ondragleave="removeHiglight('tasksAwaitFeedback')" ondragover="allowDrop(event); highlight('tasksAwaitFeedback')">
+        <div class="tasks" id="tasksAwaitFeedback"  ondrop="moveTo('await feedback')" ondragleave="removeHiglight('tasksAwaitFeedback')" ondragover="allowDrop(event); highlight('tasksAwaitFeedback')">
             <div class="noTasksExisting" id="noTasksExistingAwaitFeedback">
                 <span>No tasks Await feedback</span>
             </div>
         </div>
-        <div class="tasks" id="tasksDone"  ondrop="moveTo('tasksDone')" ondragleave="removeHiglight('tasksDone')" ondragover="allowDrop(event); highlight('tasksDone')">
+        <div class="tasks" id="tasksDone"  ondrop="moveTo('done')" ondragleave="removeHiglight('tasksDone')" ondragover="allowDrop(event); highlight('tasksDone')">
             <div class="noTasksExisting" id="noTasksExistingDone">
                 <span>No tasks Done</span>
             </div>
