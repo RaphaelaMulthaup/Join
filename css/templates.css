@@ -84,6 +84,7 @@ header {
     min-height: 96px;
     padding: 20px 40px 20px 48px;
     width: calc(100vw - 232px);
+    /* width: calc(100vw - 240px); */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -276,7 +277,6 @@ header h4 {
     text-align: center;
     display: flex;
     justify-content: space-around;
-    flex-wrap: wrap;
     position: fixed;
     transition: all 175ms ease-in-out;
     bottom: -10vh;
@@ -298,7 +298,6 @@ header h4 {
         text-align: center;
         display: flex;
         justify-content: space-around;
-        flex-wrap: wrap;
         position: fixed;
         bottom: 0px;
     }
@@ -312,7 +311,7 @@ header h4 {
     }
     .mobileMenu a{
         color: white !important;
-        padding: 16px;
+        padding: 1vmax;
         border-radius: 10px;
     }
 
@@ -323,4 +322,8 @@ header h4 {
     .mobileMenu a:active{
         background: #091931;
     }
+}
+
+@media (max-width: 760px){
+
 }

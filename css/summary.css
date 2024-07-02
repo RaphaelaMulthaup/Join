@@ -298,3 +298,10 @@
     }
 }
 
+@media (max-height: 890px){
+    .mainMainpagesPaddingDefault{
+        padding-top: 2svh;
+        padding-left: 7vw;
+    }
+}
+

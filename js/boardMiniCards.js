@@ -22,10 +22,10 @@ async function loadTasksAndContacts(){
 }
 
 /**
- * 'boardTasks' is set to default, it is being checked whether tasks of a status exist and displays the tasks.
+ * 'headlineBoardStatusTasks' is set to default, it is being checked whether tasks of a status exist and displays the tasks.
  */
 function displayBoard(){
-    document.getElementById('boardTasks').innerHTML = htmlboard();
+    document.getElementById('headlineBoardStatusTasks').innerHTML = htmlboard();
     checkWhetherTasksExist();
     for (let i = 0; i < tasks.length; i++) {
         displayMiniCard(i);
@@ -38,26 +38,61 @@ function displayBoard(){
  * @returns the default board
  */
 function htmlboard(){
-    // ondrop="moveTo('the string is written in hear is sent to the the task status'"
+    // ondrop="moveTo('the string is written in here is sent to the the task status'"
     return /*html*/ `
-        <div class="tasks" id="tasksToDo" ondrop="moveTo('to do')" ondragleave="removeHiglight('tasksToDo')" ondragover="allowDrop(event); highlight('tasksToDo')">
-            <div class="noTasksExisting" id="noTasksExistingToDo">
-                <span>No tasks To do</span>
+        <div class="statusGroup">
+            <div class="headlineStatusTasks">
+                <h5 class="h5StatusTask">To do</h5>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" onmouseup="plusButtonToDefault(this)" onclick="openOverlayAddTask()">
+                    <rect x="1" y="1" width="22" height="22" rx="7" stroke="#2A3647" stroke-width="2"/>
+                    <path d="M12 8V16" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M16 12.0754L8 12.0754" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <div class="tasks" id="tasksToDo" ondrop="moveTo('to do')" ondragleave="removeHighlight('tasksToDo')" ondragover="allowDrop(event); highlight('tasksToDo')">
+                <div class="noTasksExisting" id="noTasksExistingToDo">
+                    <span>No tasks To do</span>
+                </div>
             </div>
         </div>
-        <div class="tasks" id="tasksInProgress"  ondrop="moveTo('in progress')" ondragleave="removeHiglight('tasksInProgress')" ondragover="allowDrop(event); highlight('tasksInProgress')">
-            <div class="noTasksExisting" id="noTasksExistingInProgress">
-                <span>No tasks In progress</span>
+        <div class="statusGroup">
+            <div class="headlineStatusTasks">
+                <h5 class="h5StatusTask">In progress</h5>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" onmouseup="plusButtonToDefault(this)" onclick="openOverlayAddTaskCertainStatus('in progress')">
+                    <rect x="1" y="1" width="22" height="22" rx="7" stroke="#2A3647" stroke-width="2"/>
+                    <path d="M12 8V16" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M16 12.0754L8 12.0754" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <div class="tasks" id="tasksInProgress" ondrop="moveTo('in progress')" ondragleave="removeHighlight('tasksInProgress')" ondragover="allowDrop(event); highlight('tasksInProgress')">
+                <div class="noTasksExisting" id="noTasksExistingInProgress">
+                    <span>No tasks In progress</span>
+                </div>
             </div>
         </div>
-        <div class="tasks" id="tasksAwaitFeedback"  ondrop="moveTo('await feedback')" ondragleave="removeHiglight('tasksAwaitFeedback')" ondragover="allowDrop(event); highlight('tasksAwaitFeedback')">
-            <div class="noTasksExisting" id="noTasksExistingAwaitFeedback">
-                <span>No tasks Await feedback</span>
+        <div class="statusGroup">
+            <div class="headlineStatusTasks">
+                <h5 class="h5StatusTask">Await feedback</h5>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" onmouseup="plusButtonToDefault(this)" onclick="openOverlayAddTaskCertainStatus('await feedback')">
+                    <rect x="1" y="1" width="22" height="22" rx="7" stroke="#2A3647" stroke-width="2"/>
+                    <path d="M12 8V16" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M16 12.0754L8 12.0754" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </div>
+            <div class="tasks" id="tasksAwaitFeedback" ondrop="moveTo('await feedback')" ondragleave="removeHighlight('tasksAwaitFeedback')" ondragover="allowDrop(event); highlight('tasksAwaitFeedback')">
+                <div class="noTasksExisting" id="noTasksExistingAwaitFeedback">
+                    <span>No tasks Await feedback</span>
+                </div>
             </div>
         </div>
-        <div class="tasks" id="tasksDone"  ondrop="moveTo('done')" ondragleave="removeHiglight('tasksDone')" ondragover="allowDrop(event); highlight('tasksDone')">
-            <div class="noTasksExisting" id="noTasksExistingDone">
-                <span>No tasks Done</span>
+        <div class="statusGroup">
+            <div class="headlineStatusTasks">
+                <h5 class="h5StatusTask">Done</h5>
+            </div>
+            <div class="tasks" id="tasksDone" ondrop="moveTo('done')" ondragleave="removeHighlight('tasksDone')" ondragover="allowDrop(event); highlight('tasksDone')">
+                <div class="noTasksExisting" id="noTasksExistingDone">
+                    <span>No tasks Done</span>
+                </div>
             </div>
         </div>
     `;

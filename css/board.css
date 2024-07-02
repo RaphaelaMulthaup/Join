@@ -1,3 +1,6 @@
+body{
+    overflow-x: hidden !important;
+}
 
 .mainBoard{
     padding-top: 79.5px;
@@ -110,6 +113,7 @@
 .headlineStatusTasks{
     display: flex;
     width: 252px;
+    padding-bottom: 16px;
 }
 
 .h5StatusTask{
@@ -246,7 +250,7 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 1.3s ease-in-out;
 }
 
 .miniCard:hover{
@@ -254,15 +258,21 @@
 }
 
 .miniCard:active{
-    animation: shake 0.5s ease-in-out;
+    animation: shake 0.8s ease-in-out;
     /* animation-delay: 0.2s; */
 }
 
 @keyframes shake {
     0% { transform: rotate(0deg); }
-    25% { transform: rotate(8deg); }
-    50% { transform: rotate(-8deg); }
-    75% { transform: rotate(8deg); }
+    10% { transform: rotate(3deg); }
+    20% { transform: rotate(-6deg); }
+    30% { transform: rotate(6deg); }
+    40% { transform: rotate(6deg); }
+    50% { transform: rotate(-6deg); }
+    60% { transform: rotate(6deg); }
+    70% { transform: rotate(-6deg); }
+    60% { transform: rotate(6deg); }
+    90% { transform: rotate(-3deg); }
     100% { transform: rotate(0deg);}
 }
 
