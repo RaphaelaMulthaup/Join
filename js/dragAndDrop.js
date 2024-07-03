@@ -1,62 +1,57 @@
 let currentDraggedElement;
 
-function updateHTML(){
-    let tasksToDo = tasks.filter(t => t['status'] == 'to do');
-
-    document.getElementById('tasksToDo').innerHTML = '';
-
-    for (let index = 0; index < tasksToDo.length; index++) {
-        const element = tasksToDo[index];
-        document.getElementById('tasksToDo').innerHTML += displayMiniCard(element);
-    }
-    let tasksInProgress = tasks.filter(t => t['status'] == 'in progress');
-
-    document.getElementById('tasksInProgress').innerHTML = '';
-
-    for (let index = 0; index < tasksInProgress.length; index++) {
-        const element = tasksInProgress[index];
-        document.getElementById('tasksInProgress').innerHTML += displayMiniCard(element);
-    }
-    let tasksAwaitFeedback = tasks.filter(t => t['status'] == 'await feedback');
-
-    document.getElementById('tasksAwaitFeedback').innerHTML = '';
-
-    for (let index = 0; index < tasksAwaitFeedback.length; index++) {
-        const element = tasksAwaitFeedback[index];
-        document.getElementById('tasksAwaitFeedback').innerHTML += displayMiniCard(element);
-    }
-    let tasksDone = tasks.filter(t => t['status'] == 'done');
-
-    document.getElementById('tasksDone').innerHTML = '';
-
-    for (let index = 0; index < tasksDone.length; index++) {
-        const element = tasksDone[index];
-        document.getElementById('tasksDone').innerHTML += displayMiniCard(element);
-    }
+/**
+ * Updates the HTML content of task sections based on their status.
+ */
+function updateHTML() {
+    const statuses = ['to do', 'in progress', 'await feedback', 'done'];
+    statuses.forEach(status => {
+        const tasksByStatus = tasks.filter(t => t.status === status);
+        const container = document.getElementById(`tasks${status.replace(' ', '')}`);
+        container.innerHTML = tasksByStatus.map(displayMiniCard).join('');
+    });
 }
 
+/**
+* Sets the currently dragged element's ID.
+* @param {number} id - The ID of the element being dragged.
+*/
 function startDragging(id) {
-    currentDraggedElement = id;
+   currentDraggedElement = id;
 }
 
+/**
+* Allows an element to be dropped.
+* @param {DragEvent} ev - The drag event.
+*/
 function allowDrop(ev) {
-    ev.preventDefault();
+   ev.preventDefault();
 }
 
+/**
+ * Moves the current dragged element to a new status.
+ * @param {string} status - The new status to assign to the dragged element.
+ * @returns {Promise<void>}
+ */
 async function moveTo(status) {
-    tasks[currentDraggedElement]['status'] = status;
-    console.log(status);
-    // ev.preventDefault();
-    tasks[currentDraggedElement].status = status;
-    console.log('tasks', tasks);
+    const task = tasks[currentDraggedElement];
+    task.status = status;
     await putTasksToDatabase(tasks);
     displayBoard();
 }
 
-function highlight(i) {
-    document.getElementById(i).classList.add('drag-area-highlight');
+/**
+ * Highlights the drop area.
+ * @param {string} id - The ID of the element to highlight.
+ */
+function highlight(id) {
+    document.getElementById(id).classList.add('drag-area-highlight');
 }
 
-function removeHighlight(i) {
-    document.getElementById(i).classList.remove('drag-area-highlight');
+/**
+ * Removes the highlight from the drop area.
+ * @param {string} id - The ID of the element to remove the highlight from.
+ */
+function removeHighlight(id) {
+    document.getElementById(id).classList.remove('drag-area-highlight');
 }

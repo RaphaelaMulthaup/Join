@@ -323,7 +323,17 @@ header h4 {
         background: #091931;
     }
 }
+.statusGroup{
+    height: 72svh;
+}
 
-@media (max-width: 760px){
-
+@media(max-width: 1400px){
+    
+    
+    .statusGroup{
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+ 
 }
