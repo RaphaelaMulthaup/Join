@@ -1,3 +1,7 @@
+.mainMainpagesAddTask{
+    flex: 1;
+}
+
 .mainpagesRightSideAddTask{
     display: flex;
     flex-direction: column;
@@ -20,8 +24,11 @@
 .inputTagsAddTask{
     display: flex;
     gap: 48px;
-    flex: 1;
     align-items: flex-start;
+}
+
+.inputTagsAddTaskAddTask{
+    min-height: 570px;
 }
 
 .formElementAddTask{
@@ -75,7 +82,8 @@
 }
 
 .formAddTask{
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
     margin-top: 48px;
     font-size: 20px;
 }
@@ -245,6 +253,7 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
+    height: 100%;
 }
 
 /*due date*/
@@ -415,8 +424,8 @@
     flex: 1;
 }
 
-.ulSubtasksAddTask{
-    flex: 1;
+.subtasksAddTask{
+    max-height: 120px;
 }
 
 #subtasks li{

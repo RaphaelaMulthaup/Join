@@ -210,6 +210,10 @@ body{
     justify-content: space-between;
 }
 
+.inputTagsAddTaskOverlay{
+    height: 566px;
+}
+
 .addTaskOverlayCloseButton{
     width: 32px;
     height: 32px;
