@@ -290,3 +290,32 @@ function prio(task, i){
         `;
     }
 }
+
+/*search tasks*/
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    let inputFindTask = document.getElementById('inputFindTask');
+    if (inputFindTask) {
+        inputFindTask.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                searchFunction();
+            }
+        });
+    }
+
+});
+/**
+ * This function search tasks. At first tasks is reloaded from the database. A new array is then created with the tasks that contain the value from the input field either in the title or the description. This array replaces tasks. The board is displayed again based on tasks.
+ */
+async function searchFunction(){
+    tasks = await loadData("/tasks");
+    let toSearch = document.getElementById('inputFindTask').value;
+    let filteredTasks = tasks.filter(task => 
+        task.title.toLowerCase().includes(toSearch.toLowerCase()) || 
+        task.description.toLowerCase().includes(toSearch.toLowerCase())
+    );
+    tasks = filteredTasks;
+    displayBoard();
+}

@@ -69,10 +69,6 @@ body{
     border-radius: 50%;
 }
 
-.magnifyingGlass:hover{
-    background-color: #EEEEEE;
-}
-
 .magnifyingGlass:active path {
     fill: #29ABE2;
 }
