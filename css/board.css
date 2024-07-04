@@ -106,6 +106,8 @@ body{
     gap: 26px;
     padding-left: 8vmin;
     padding-right: 16px;
+    height: 790px;
+    overflow-y: scroll;
 }
 
 .headlineStatusTasks{
