@@ -107,7 +107,6 @@ body{
     padding-left: 8vmin;
     padding-right: 16px;
     height: 790px;
-    overflow-y: scroll;
 }
 
 .headlineStatusTasks{
@@ -141,7 +140,20 @@ body{
     flex-direction: column;
     gap: 16px;
     width: 252px;
-    height: -webkit-fill-available;
+    height: 68svh;
+    overflow: auto;
+}
+
+.tasks::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Hintergrund der Scrollbar-Leiste */
+}
+
+.tasks::-webkit-scrollbar-thumb {
+    background: #88888867; /* Farbe des Scrollbar-Griffs */
+}
+
+.tasks::-webkit-scrollbar-thumb:hover {
+    background: #2A3647; /* Farbe des Scrollbar-Griffs beim Hover */
 }
 
 .noTasksExisting{
@@ -175,7 +187,7 @@ body{
 /*add task overlay*/
 .overlayAddTask {
     background-color: white;
-    width: 1116px;
+    max-width: 1116px;
     height: 870px;
     padding-top: 64px;
     padding-left: 74px;
@@ -365,6 +377,10 @@ body{
 
 @media(max-width: 1400px){
     
+    header{
+        width: 100vw !important;
+    }
+
     .menu{
         display: none !important;
     }
@@ -393,11 +409,11 @@ body{
     .mobileIcon{
         height: 40px;
     }
-    }    
+    } 
+
     @media(max-width: 1170px){
     .headlineStatusTasks{
         width: auto;
-        text-align: right;
         gap: 16px;
     }
     
@@ -410,11 +426,77 @@ body{
 
     .tasks{
         flex-direction: row;
-        justify-content: flex-end;
+        justify-content: flex-start;
         min-width: 88vw;
+        height: 350px;
     }
 
     .miniCard{
-        width: 280px;
+        min-width: 280px !important;
     }
 }
+
+@media(max-width: 1170px){
+    .inputTagsAddTask{
+        flex-direction: column;
+    }
+
+    .overlayAddTask{
+        overflow: auto;
+        padding-inline: 2vmin;
+        height: 83svh;
+        margin-bottom: 69px;
+    }
+
+    .widthFormElementsAddTask{
+        width: 90vw !important;
+    }
+
+    .lowerAreaAddTask{
+        position: fixed;
+        bottom: -70px;
+        width: 100%;
+        padding-right: 28px;
+    }
+
+    .lowerAreaAddTaskButtons{
+        /* padding-left: clamp(2vmin, 5vw, 62vmin);; */
+    }
+
+    .scroll-container {
+        height: 90%; /* Höhe des inneren Scroll-Containers, z.B. 90% der Höhe des äußeren Containers */
+        overflow-y: auto; /* Ermöglicht vertikales Scrollen innerhalb des inneren Containers */
+    }
+    
+    /* Optional: Custom Scrollbar Styling */
+    .scroll-container::-webkit-scrollbar {
+        width: 12px; /* Breite der Scrollbar */
+    }
+    
+    .scroll-container::-webkit-scrollbar-track {
+        background: #f1f1f1; /* Hintergrund der Scrollbar-Leiste */
+    }
+    
+    .scroll-container::-webkit-scrollbar-thumb {
+        background: #888; /* Farbe des Scrollbar-Griffs */
+    }
+    
+    .scroll-container::-webkit-scrollbar-thumb:hover {
+        background: #555; /* Farbe des Scrollbar-Griffs beim Hover */
+    }
+
+}
+
+
+
+@media(max-width: 763px){
+    
+.titleBigCard{
+    font-size: 8vmin;
+}
+
+    .bigCardData{
+        padding: 0 0 0 20px !important;
+    }
+}
+

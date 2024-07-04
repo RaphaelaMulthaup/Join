@@ -1,6 +1,6 @@
 .overlayCard{
     background-color: white;
-    width: 525px;
+    max-width: 525px;
     min-height: fit-content;
     max-height: 930px;
     padding: 48px 40px;

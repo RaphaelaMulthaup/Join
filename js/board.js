@@ -128,6 +128,7 @@ function addEventListener(){
  */
 function htmlAddTaskOverlay(){
     return /*html*/ `
+        <div class="scroll-container">
     <div class="headlineAddTaskOverlay">
         <h1>Add Task</h1>
         <div class="addTaskOverlayCloseButton" onclick="stayOpenOrActiv(event); firstDefaultThenClosing()">
@@ -243,6 +244,7 @@ function htmlAddTaskOverlay(){
             </div>
         </div>
     </form>
+</div>
     `;
 }
 
