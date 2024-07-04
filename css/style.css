@@ -148,6 +148,36 @@ a {
   background: rgba(0, 0, 0, 0.4);
 }
 
+.overlayBackgroundTransparent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100svh;
+  z-index: 50;
+}
+
+.noticeTaskAdded{
+  background-color: #2A3647;
+  border-radius: 20px;
+  display: flex;
+  font-size: 20px;
+  gap: 35px;
+  align-items: center;
+  justify-content: center;
+  height: 74px;
+  width: 326px;
+  color: white;
+  position: fixed;
+  inset: 0;
+  margin: auto;
+}
+
+.noticeTaskAdded img{
+  width: 30px;
+  height: 25px;
+}
+
 @keyframes addOverlay {
   0% {
     transform: translate(100vw, 0);

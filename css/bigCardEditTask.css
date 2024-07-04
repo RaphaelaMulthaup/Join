@@ -15,14 +15,12 @@
     animation-fill-mode: forwards;
     display: flex;
     flex-direction: column;
-    
     font-size: 20px;
 }
 
 .overlayBigCard {
     gap: 24px;
     padding: 48px 0 48px 0 !important;
-
 }
 
 .overlayBigCard.removing {

@@ -54,7 +54,7 @@ function validateInputCategory(){
 }
 
 /**
- * This function creates a new task. If the form is valid, selectedCategory and satusNewTask are added and then the newTask is pushed into tasks. The database is updated and the page is reloaded. In the end formValidated is set to false.
+ * This function creates a new task. If the form is valid, selectedCategory and satusNewTask are added and then the newTask is pushed into tasks. The database is updated and the page is reloaded. A notice will be displayed beforehand. In the end formValidated is set to false.
  * 
  * @param {string} descriptionOrigin origin of the description
  */
@@ -65,7 +65,10 @@ async function addNewTask(descriptionOrigin) {
         newTask.status = satusNewTask;
         tasks.push(newTask);  
         await putTasksToDatabase(tasks);
-        location.reload(); 
+        document.getElementById('overlayBackgroundTransparentNoticeTaskAdded').classList.remove('dNone');
+        setTimeout(function() {
+            location.reload();
+        }, 900);
     }
     formValidated = false;
 }
