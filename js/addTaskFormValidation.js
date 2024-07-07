@@ -54,7 +54,7 @@ function validateInputCategory(){
 }
 
 /**
- * This function creates a new task. If the form is valid, selectedCategory and satusNewTask are added and then the newTask is pushed into tasks. The database is updated and the page is reloaded. A notice will be displayed beforehand. In the end formValidated is set to false.
+ * This function creates a new task. If the form is valid, selectedCategory and satusNewTask are added and then the newTask is pushed into tasks. The database is updated and the page board.html is loaded. A notice will be displayed beforehand. In the end formValidated is set to false.
  * 
  * @param {string} descriptionOrigin origin of the description
  */
@@ -65,10 +65,7 @@ async function addNewTask(descriptionOrigin) {
         newTask.status = satusNewTask;
         tasks.push(newTask);  
         await putTasksToDatabase(tasks);
-        document.getElementById('overlayBackgroundTransparentNoticeTaskAdded').classList.remove('dNone');
-        setTimeout(function() {
-            location.reload();
-        }, 900);
+        displayNoticeAndReload();
     }
     formValidated = false;
 }
@@ -162,6 +159,19 @@ function getDate() {
 }
 
 /**
+ * This function creates an object with the data of a contact and returns it.
+ * 
+ * @param {object} selectedContactforNewTaskAllInformations the detailed informations about a contact
+ * @returns an object with the data of a contact
+ */
+function ContactInTaskJson(selectedContactforNewTaskAllInformations){
+    return {
+        name: selectedContactforNewTaskAllInformations.name, 
+        color: selectedContactforNewTaskAllInformations.color
+    };
+}
+
+/**
  * This function checks which of the prio buttons is activated and assigns the corresponding importance to the variable 'prioNewTask'.
  * 
  * @returns the status of importance
@@ -179,32 +189,6 @@ function determinePrioNewTask(){
         prioNewTask = 'Low'
     }
     return prioNewTask;
-}
-
-/**
- * This function creates an object with the data of a contact and returns it.
- * 
- * @param {object} selectedContactforNewTaskAllInformations the detailed informations about a contact
- * @returns an object with the data of a contact
- */
-function ContactInTaskJson(selectedContactforNewTaskAllInformations){
-    return {
-        name: selectedContactforNewTaskAllInformations.name, 
-        color: selectedContactforNewTaskAllInformations.color
-    };
-}
-
-/**
- * This function creates an object with the data of a subtask and returns it.
- * 
- * @param {string} subtask the subtask
- * @returns an object with the data of a subtask
- */
-function SubtasktInTaskJson(subtask){
-    return {
-        subtask: subtask,
-        status: 'to do'
-    };
 }
 
 /**
@@ -227,4 +211,45 @@ function createNewTask(titleNewTask, descriptionNewTask, assignedToNewTask, dueD
             prio: prioNewTask,
             subtasks: subtasksNewTask
         };
+}
+
+/**
+ * This function checks which is the current page and displays the notice with the corresponding animation.
+ */
+function displayNoticeAndReload(){
+    let title = document.title;
+    if (title === 'board') {
+        document.getElementById('overlayBackgroundTransparentNoticeTaskAdded').classList.remove('dNone');
+        setTimeout(function() {
+            location.reload();
+        }, 900);
+    } else if (title === 'addTask') {
+        showNotification();
+        setTimeout(function() {
+            window.location.href = 'board.html';
+        }, 1300);
+    }
+}
+
+/**
+ * This function displays the transparent overlay background with the overlay notice. By adding the Klaase 'show' the note is displayed via animation.
+ */
+function showNotification() {
+    document.getElementById('overlayBackgroundTransparentAddTask').classList.remove('dNone');
+    setTimeout(() => {
+        document.getElementById('overlayBackgroundTransparentAddTask').classList.add('show');
+    }, 10);
+}
+
+/**
+ * This function creates an object with the data of a subtask and returns it.
+ * 
+ * @param {string} subtask the subtask
+ * @returns an object with the data of a subtask
+ */
+function SubtasktInTaskJson(subtask){
+    return {
+        subtask: subtask,
+        status: 'to do'
+    };
 }

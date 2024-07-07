@@ -525,3 +525,17 @@
     font-size: 21px;
     font-weight: 700;
 }
+
+/*task added notice*/
+
+.noticeTaskAddedAddTask{
+    bottom: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 45;
+    transition: bottom 0.3s ease;
+}
+
+#overlayBackgroundTransparentAddTask.show #noticeTaskAddedAddTask {
+    bottom: 50%;
+}

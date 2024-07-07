@@ -256,6 +256,12 @@ body{
     display: none;
 }
 
+.noticeTaskAddedBoard{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 /*mini Card*/
 
 .miniCard{

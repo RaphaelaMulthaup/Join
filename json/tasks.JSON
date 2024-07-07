@@ -104,5 +104,37 @@
         "category": "User Story",
         "subtasks": [],
         "status": "await feedback"
+    },
+    {
+        "title": "User Feedback Analysis",
+        "description": "Analyze user feedback for the last quarter.",
+        "assignedTo": [
+            {
+                "name": "Sofia Müller", 
+                "color": "#00BEE8"
+            },
+            {
+                "name": "Anja Schulz", 
+                "color": "#FF5EB3"  
+            }
+        ],
+        "dueDate": "15/11/2023",
+        "prio": "Urgent",
+        "category": "Technical Task",
+        "subtasks": [
+            {
+                "subtask": "Collect Feedback",
+                "status": "done"
+            },
+            {
+                "subtask": "Analyze Data",
+                "status": "to do"
+            },
+            {
+                "subtask": "Report Findings",
+                "status": "to do"
+            }
+        ],
+        "status": "in progress"
     }
 ]

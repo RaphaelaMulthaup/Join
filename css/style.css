@@ -169,8 +169,6 @@ a {
   width: 326px;
   color: white;
   position: fixed;
-  inset: 0;
-  margin: auto;
 }
 
 .noticeTaskAdded img{

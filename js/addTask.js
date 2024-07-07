@@ -358,7 +358,6 @@ function selectCategory(selection){
 
     toggleSelectCategoryButton();
     selectedCategory = selection;
-    console.log(selectedCategory);
     document.getElementById('textSelectCategory').innerHTML = selection;
     errorMessageElement.style.visibility = 'hidden';
     button.classList.remove("borderRed");
