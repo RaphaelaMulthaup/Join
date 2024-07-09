@@ -196,7 +196,7 @@ header h4 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 1016px;
+    max-width: 1016px;
     margin-bottom: 32px;
 }
 
@@ -225,10 +225,11 @@ header h4 {
 
 /*legal notice*/
 .textInformations{
-    width: 1014px;
+    max-width: 1014px;
     height: 943px;
     overflow: scroll;
     scrollbar-width: none;
+    text-align: justify;
 }
 
 .textInformations::-webkit-scrollbar {
@@ -321,7 +322,17 @@ header h4 {
     .mobileMenu a:active{
         background: #091931;
     }
+
+    /* .headlineAreaInformations{
+        max-width: 100vw;
+    }
+*/
+    .informations{
+        width: 100vw;
+    }
 }
+
+
 .statusGroup{
     height: 72svh;
 }
@@ -335,4 +346,11 @@ header h4 {
         flex-direction: column;
     }
  
+    .headlineAreaInformations{
+        max-width: 100vw;
+    }
+
+    .informations{
+        padding-right: 16px;
+    }
 }

@@ -6,6 +6,7 @@
 async function loadBoardPage(){
     await loadPage('menuItemBoard');
     await loadTasksAndContacts();
+    await loadUsers();
     displayBoard();
 }
 
@@ -18,6 +19,21 @@ async function loadTasksAndContacts(){
 
     if (newTasks && newTasks.length > 0) {
         tasks = newTasks;
+    }
+}
+
+/**
+ * loads currentUser and greats the usere or guest
+ */
+async function loadUsers(){
+    try {
+    currentUser = await loadData('currentUser');   
+    if (currentUser && currentUser.name) {
+        // console.log(currentUser);
+        // console.log(currentUser.name);
+    }
+    } catch (e){
+        console.error('Loading error:' , e);
     }
 }
 
@@ -132,7 +148,7 @@ function displayMiniCard(i){
     colorCategory(task, i);
     subtasks(task, i);
     if (task.assignedTo) {
-        initials(task, i);
+        initials(task, i, currentUser);
     }
     prio(task, i);
 }
@@ -254,6 +270,27 @@ function chartSubtasks(i){
  * @param {object} task The task that is displayed.
  * @param {index} i The index of the task in the tasks json.
  */
+function initials(task, i, currentUser) {
+    let initialsMiniCardGraphically = document.getElementById('initialsMiniCardGraphically' + i);
+    for (let index = 0; index < task.assignedTo.length; index++) {
+        let user = task.assignedTo[index].name;
+        let initials = user.split(' ').map(word => word.charAt(0)).join('');
+        debugger
+        console.log('initials', task, initials, currentUser);
+        // Check if the initials match the current user and replace with "you" if they do
+        if (user === currentUser) {
+            initials = "you";
+        }
+
+        initialsMiniCardGraphically.innerHTML += /*html*/ `
+            <div class="initialsMiniCard" id="initialsMiniCard${i}.${index}">
+                <span>${initials}</span>
+            </div>
+        `;
+        document.getElementById('initialsMiniCard' + i + '.' + index).style.backgroundColor = task.assignedTo[index].color;
+    }
+}
+
 function initials(task, i){
     let initialsMiniCardGraphically = document.getElementById('initialsMiniCardGraphically' + i);
     for (let index = 0; index < task.assignedTo.length; index++) {

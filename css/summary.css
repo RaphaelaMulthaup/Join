@@ -30,15 +30,16 @@
 }
 
 .lineOverviewSummary{
-    width: 560px;
-    height: 168px;
+    /* width: 560px;
+    height: 168px; */
 }
 
 .overviewNumberTasks{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 168px;
+    padding: 16px;
+    /* height: 168px; */
     border-radius: 30px;
     background-color: white;
     box-shadow: 0px 0px 4px 0px #0000001A;
@@ -46,7 +47,7 @@
 
 .overviewNumberTasks:hover{
     transition: all 80ms ease-in-out;
-    height: 184px;
+    /* height: 184px;  andere höhenlösung mit Padding vielleicht*/ 
     background-color: #2A3647;
     box-shadow: 0px 4px 4px 0px #00000040;
 }
@@ -120,11 +121,11 @@
 
 .firstLineOverviewSummary a{
         gap: 18px;
-        width: 264px;
+        /* width: 264px; */
 }
 
 .firstLineOverviewSummary a:hover{
-    width: 282.5px;
+    /* width: 282.5px; Padding lösung??*/
 }
 
 .firstLineOverviewSummary a:active{
@@ -143,11 +144,11 @@
 
 /*second line*/
 .secondLineOverviewSummary{
-    width: 560px;
+    /* width: 560px; */
 }
 
 .secondLineOverviewSummary:hover{
-    width: 576px;
+    /* width: 576px; */
 }
 
 .overviewSummary:has(.secondLineOverviewSummary:hover) {
@@ -258,7 +259,11 @@
         margin-top: 0;
         display: flex;
         align-items: flex-start;
+        padding-bottom: 16px;
      }
+
+Frage zum scrollen und flexible höhen 
+https://join-125.developerakademie.net/Join/summary.html
 
      /* test */
      .overviewNumberTasks{
@@ -269,7 +274,7 @@
         border-radius: 30px;
         background-color: white;
         box-shadow: 0px 0px 4px 0px #0000001A;
-        padding: 3vw;
+        /* padding: 3vw; */
      }
 }
 
@@ -302,6 +307,10 @@
     .mainMainpagesPaddingDefault{
         padding-top: 2svh;
         padding-left: 7vw;
+        overflow: auto;
+        height: 78vh;
+        height: calc(-96px + 95vh - 42px);
+    
     }
 }
 

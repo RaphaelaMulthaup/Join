@@ -204,7 +204,11 @@ function closeOverlayEditTask(){
 }
 
 /**
- * This function creates a new version of the original task. The old one is replaced and the data on the page is re-rendered. If the dropdown menu for the contacts was previously open, it will be closed and the clicked contacts will be included. At the end, the status of the form validation is reset again.
+ * This function creates a new version of the original task. 
+ * The old one is replaced and the data on the page is re-rendered. 
+ * If the dropdown menu for the contacts was previously open, 
+ * it will be closed and the clicked contacts will be included. 
+ * At the end, the status of the form validation is reset again.
  */
 async function saveEdit(){
     if (buttonSelectContactClicked) {

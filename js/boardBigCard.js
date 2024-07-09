@@ -91,7 +91,7 @@ function assignedToBigCard(){
         for (let i = 0; i < taskBigCard.assignedTo.length; i++) {
             let user = taskBigCard.assignedTo[i];
             let initials = user.name.split(' ').map(word => word.charAt(0)).join('');
-            assignedToBigCardUsers.innerHTML += htmlAssignedToBigCardUsers(i, initials, user);
+            assignedToBigCardUsers.innerHTML += htmlAssignedToBigCardUsers(i, initials, user, currentUser);
             document.getElementById('initialsUserBigCard' + i).style.backgroundColor =  user.color;
         } 
     } else {
@@ -107,7 +107,11 @@ function assignedToBigCard(){
  * @param {object} user information about the user
  * @returns returns the created div with the user name
  */
-function htmlAssignedToBigCardUsers(i, initials, user){
+function htmlAssignedToBigCardUsers(i, initials, user, currentUser){
+      // Check if the initials match the current user and replace with "you" if they do
+      if (initials === currentUser.initials) {
+        initials = "you";
+    }
     return /*html*/ `
     <div class="userBigCard">
         <div class="initialsUserBigCard" id="initialsUserBigCard${i}">
