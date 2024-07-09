@@ -39,6 +39,9 @@ function getGreeting() {
 
 /*summary of the number of tasks*/
 
+/**
+ * This function loads the tasks from the database, indicates how many tasks there are, filters them according to their statuses and indicates the frequency of the different statuses. Additionally, information about urgent tasks is provided.
+ */
 async function displayNumberOfTasks(){
     tasks = await loadData("/tasks");
     let numberDisplayedToDo = document.getElementById('numberDisplayedToDo');
@@ -56,6 +59,13 @@ async function displayNumberOfTasks(){
     let numberDisplayedAwaitingFeedback = document.getElementById('numberDisplayedAwaitingFeedback');
     numberDisplayedAwaitingFeedback.innerHTML = tasks.filter(task => task.status === 'await feedback').length;
 
+    summaryUrgent();
+}
+
+/**
+ * This function creates a new array with all urgent tasks and displays its length. In addition, the date of the next urgent tasks is displayed. If there is no urgent task with a future date, 'currently no upcomming deadline' will be displayed.
+ */
+function summaryUrgent(){
     let nummerDisplayedUrgent = document.getElementById('nummerDisplayedUrgent');
     let tasksUrgent = tasks.filter(task => task.prio === 'Urgent');
     let nummerDisplayedUrgentValue = tasksUrgent.length;
@@ -64,12 +74,20 @@ async function displayNumberOfTasks(){
     if (nummerDisplayedUrgentValue === 0) {
         dateDeadline.innerHTML = 'currently no';
     } else{
-        let tasksUrgentSorted = tasksUrgent.sort((a, b) => parseDate(a.dueDate) - parseDate(b.dueDate));
-        let dateDeadlineSlashFormat = tasksUrgentSorted[0].dueDate;
-        let dateDeadlineAdvertised = formatDateToAdvertisedFormat(dateDeadlineSlashFormat);
+        let nextUrgentDate = searchNextUrgentDate(tasksUrgent);
+        let dateDeadlineAdvertised = formatDateToAdvertisedFormat(nextUrgentDate);
         dateDeadline.innerHTML = dateDeadlineAdvertised;
     }
-    
+}
+
+function searchNextUrgentDate(tasksUrgent){
+    let now = new Date();
+    let tasksUrgentSorted = tasksUrgent.sort((a, b) => parseDate(a.dueDate) - parseDate(b.dueDate));
+    for (let task of tasksUrgentSorted) {
+        if (parseDate(task.dueDate) > now) {
+            return task.dueDate;
+        }
+    }
 }
 
 function parseDate(dateString) {
