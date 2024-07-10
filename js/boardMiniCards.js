@@ -269,16 +269,15 @@ function chartSubtasks(i){
  * 
  * @param {object} task The task that is displayed.
  * @param {index} i The index of the task in the tasks json.
+ * @param {index} currentUser The currentUser check if the initials match the current user and replace with "you" if they do
  */
 function initials(task, i, currentUser) {
     let initialsMiniCardGraphically = document.getElementById('initialsMiniCardGraphically' + i);
     for (let index = 0; index < task.assignedTo.length; index++) {
         let user = task.assignedTo[index].name;
         let initials = user.split(' ').map(word => word.charAt(0)).join('');
-        debugger
-        console.log('initials', task, initials, currentUser);
-        // Check if the initials match the current user and replace with "you" if they do
-        if (user === currentUser) {
+        
+        if (user === currentUser.name) {
             initials = "you";
         }
 
@@ -288,20 +287,6 @@ function initials(task, i, currentUser) {
             </div>
         `;
         document.getElementById('initialsMiniCard' + i + '.' + index).style.backgroundColor = task.assignedTo[index].color;
-    }
-}
-
-function initials(task, i){
-    let initialsMiniCardGraphically = document.getElementById('initialsMiniCardGraphically' + i);
-    for (let index = 0; index < task.assignedTo.length; index++) {
-        let user = task.assignedTo[index].name;
-        let initials = user.split(' ').map(word => word.charAt(0)).join('');
-        initialsMiniCardGraphically.innerHTML += /*html*/ `
-            <div class="initialsMiniCard" id="initialsMiniCard${i}.${index}">
-                <span>${initials}</span>
-            </div>
-        `;
-        document.getElementById('initialsMiniCard' + i + '.' + index).style.backgroundColor =  task.assignedTo[index].color;
     }
 }
 
