@@ -80,6 +80,12 @@ function summaryUrgent(){
     }
 }
 
+/**
+ * This function determines the date of the next urgent task. The data is sorted and compared with the current date. The first date that is greater than the current one is the one you are looking for.
+ * 
+ * @param {JSON array} tasksUrgent All tasks with an urgent priority.
+ * @returns the next urgent date
+ */
 function searchNextUrgentDate(tasksUrgent){
     let now = new Date();
     let tasksUrgentSorted = tasksUrgent.sort((a, b) => parseDate(a.dueDate) - parseDate(b.dueDate));
@@ -90,26 +96,44 @@ function searchNextUrgentDate(tasksUrgent){
     }
 }
 
+/**
+ * This function changes the format of the date.
+ * 
+ * @param {string} dateString date in shlash format
+ * @returns the date in "YYYY-MM-DD" format
+ */
 function parseDate(dateString) {
     let [day, month, year] = dateString.split('/');
     return new Date(`${year}-${month}-${day}`);
-  }
+}
 
-  function formatDateToAdvertisedFormat(dateString) {
+/**
+ * This Funktion changes the date to a advertised format.
+ * 
+ * @param {string} dateString date in shlash format
+ * @returns the date in advertised format
+ */
+function formatDateToAdvertisedFormat(dateString) {
     let [day, month, year] = dateString.split('/');
     let date = new Date(year, month - 1, day);
 
     let monthName = getMonthName(date.getMonth());
     let dayNumber = date.getDate();
     let yearNumber = date.getFullYear();
- 
-    return `${monthName} ${dayNumber}, ${yearNumber}`;
-  }
 
-  function getMonthName(monthNumber) {
+    return `${monthName} ${dayNumber}, ${yearNumber}`;
+}
+
+/**
+ * This function returns the full name of a month.
+ * 
+ * @param {integer} monthNumber the position of the month
+ * @returns the full name of a month
+ */
+function getMonthName(monthNumber) {
     let months = [
-      "January", "February", "March", "April", "May", "June",
-      "July", "August", "September", "October", "November", "December"
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
     ];
     return months[monthNumber];
-  }
+}

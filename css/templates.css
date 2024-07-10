@@ -300,6 +300,7 @@ header h4 {
         justify-content: space-around;
         position: fixed;
         bottom: 0px;
+        z-index: 10;
     }
 
     .mobileDiv{

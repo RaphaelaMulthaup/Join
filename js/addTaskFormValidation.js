@@ -226,6 +226,7 @@ function displayNoticeAndReload(){
     } else if (title === 'addTask') {
         showNotification();
         setTimeout(function() {
+            document.getElementById('formAddNewTask').reset();
             window.location.href = 'board.html';
         }, 1300);
     }
