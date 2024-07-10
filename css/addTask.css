@@ -483,7 +483,6 @@
   justify-content: space-between;
   max-width: 978px;
   align-items: flex-end;
-  flex-wrap: wrap;
   margin-bottom: 71px;
 }
 
@@ -491,7 +490,6 @@
   display: flex;
   gap: 16px;
   margin-bottom: 8px;
-  flex-wrap: wrap;
   justify-content: flex-end;
 }
 
@@ -520,17 +518,6 @@
 }
 
 @media (max-width: 1310px) {
-  .verticalLineAddTask {
-    display: none;
-  }
-
-  .inputTagsAddTask {
-    flex-direction: column;
-  }
-
-  .widthFormElementsAddTask {
-    width: 70vw;
-  }
 
   .mainMainpagesAddTask {
     margin-bottom: 48px;
@@ -540,8 +527,8 @@
     overflow-x: auto;
   }
 
-  .lowerAreaAddTask {
-    margin-top: 24px;
+  .lowerAreaAddTaskNecessity {
+    width: fit-content;
   }
 }
 
