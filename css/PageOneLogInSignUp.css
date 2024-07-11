@@ -369,6 +369,10 @@ footer {
   padding: 12px;
 }
 
+.buttonGuestLogIn:hover{
+  cursor: pointer;
+}
+
 /* .form-valueSignUp {
   height: 630px;
 } */

@@ -53,15 +53,25 @@
 .menuItemseLegally {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    padding: 0 0 74px 60px;
+    gap: 4px;
+    padding: 0 0 64px 0px;
+}
+
+.menuItemseLegally > a,
+.menuItemseLegally > span{
+    height: 35px;
+    width: 100%;
+    padding-left: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 .menuItemseLegally span {
     color: #A8A8A8;
 }
 
-.menuItemseLegally span:hover {
+.menuItemseLegallySpan:hover {
     color: #29ABE2;
     font-weight: 700;
     cursor: pointer;
@@ -72,11 +82,11 @@
     color: #A8A8A8;
 }
 
-.menuItemseLegally a:hover {
+/*.menuItemseLegally a:hover {
     color: #29ABE2;
     font-weight: 700;
     cursor: pointer;
-}
+}*/
 
 /*header*/
 

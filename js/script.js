@@ -163,6 +163,7 @@ function openPrivacyPolicy(){
     closeLegalNotice();
     closeHelp();
     document.getElementById('privacyPolicy').style.display = 'flex';
+    changeMenuItemsEmphasis('PrivacyPolicy');
 }
 
 /**
@@ -170,6 +171,7 @@ function openPrivacyPolicy(){
  */
 function closePrivacyPolicy(){
     document.getElementById('privacyPolicy').style.display = 'none';
+    changeBackMenuItemsEmphasis('PrivacyPolicy');
 }
 
 /**
@@ -179,6 +181,7 @@ function openLegalNotice(){
     closePrivacyPolicy();
     closeHelp();
     document.getElementById('legalNotice').style.display = 'flex';
+    changeMenuItemsEmphasis('LegalNotice');
 }
 
 /**
@@ -186,6 +189,7 @@ function openLegalNotice(){
  */
 function closeLegalNotice(){
     document.getElementById('legalNotice').style.display = 'none';
+    changeBackMenuItemsEmphasis('LegalNotice');
 }
 
 /**
