@@ -207,7 +207,16 @@ a {
 
 @media (max-width: 945px){
   .mainMainpagesPaddingDefault{
-    padding-top: 10px;
+    /* padding-top: 10px; */
     padding-left: 8px;
   }
+
+  .headlineSummary{
+    justify-content: center;
+  }
+
+  .summaryContent{
+    justify-content: center;
+  }
+
 }

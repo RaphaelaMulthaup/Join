@@ -1,6 +1,7 @@
 .headlineSummary{
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .verticalLineBlue{
@@ -117,6 +118,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 3vmin;
 }
 
 .firstLineOverviewSummary a{
@@ -144,11 +146,11 @@
 
 /*second line*/
 .secondLineOverviewSummary{
-    /* width: 560px; */
+    max-width: 560px;
 }
 
 .secondLineOverviewSummary:hover{
-    /* width: 576px; */
+    max-width: 576px;
 }
 
 .overviewSummary:has(.secondLineOverviewSummary:hover) {
@@ -262,19 +264,9 @@
         padding-bottom: 16px;
      }
 
-Frage zum scrollen und flexible höhen 
-https://join-125.developerakademie.net/Join/summary.html
-
-     /* test */
      .overviewNumberTasks{
-        display: flex;
-        align-items: center;
-        justify-content: center;
         height: min-content;
-        border-radius: 30px;
-        background-color: white;
-        box-shadow: 0px 0px 4px 0px #0000001A;
-        /* padding: 3vw; */
+        padding: 25px 50px;
      }
 }
 
@@ -314,3 +306,36 @@ https://join-125.developerakademie.net/Join/summary.html
     }
 }
 
+@media (max-width: 640px) {
+    .verticalLineBlue{
+        display: none;
+    }
+
+    .horizonalLineBlue{
+        height: 2px;
+        width: 124px;
+        border: 1.5px solid #29ABE2;
+        background-color: #29ABE2;
+        border-radius: 10px;
+        margin: 32px 0px;
+    }
+
+    .headlineSummary{
+        display: unset;
+    }
+
+    .overviewNumberTasks{
+        padding: 25px 0;
+        width: fit-content;
+    }
+}
+
+@media (max-width: 400px){
+    .verticalLineGray{
+        margin: 0 30px 0 30px;
+    }
+
+    .overviewNumberTasks{
+        padding: 25px 4px;
+    }
+}
