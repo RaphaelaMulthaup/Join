@@ -105,13 +105,14 @@ function assignedToBigCard(){
  * @param {index} i The index of the user in the assignedTo json.
  * @param {span} initials user initials
  * @param {object} user information about the user
+ * @param {object} currentUser Check if the initials match the current user and replace with "you" if they do
  * @returns returns the created div with the user name
  */
 function htmlAssignedToBigCardUsers(i, initials, user, currentUser){
-      // Check if the initials match the current user and replace with "you" if they do
-      if (initials === currentUser.initials) {
+      if (currentUser && initials === currentUser.initials) {
         initials = "you";
     }
+
     return /*html*/ `
     <div class="userBigCard">
         <div class="initialsUserBigCard" id="initialsUserBigCard${i}">

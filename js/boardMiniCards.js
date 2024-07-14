@@ -277,7 +277,7 @@ function initials(task, i, currentUser) {
         let user = task.assignedTo[index].name;
         let initials = user.split(' ').map(word => word.charAt(0)).join('');
         
-        if (user === currentUser.name) {
+        if (currentUser && user === currentUser.name) {
             initials = "you";
         }
 
