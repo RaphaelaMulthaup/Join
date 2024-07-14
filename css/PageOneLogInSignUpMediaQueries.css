@@ -1,0 +1,88 @@
+@media (max-width: 1000px) {
+
+    .logo{
+    position: absolute;
+        height: 80px;
+        left: 20px;
+        top: 20px;
+    } 
+    }
+    
+    /* @media (max-width: 700px) { */
+    @media (max-width: 600px) {
+    
+      .inputbox{
+        width: 71vw;
+      }
+    
+      .signUp{
+        transition: right 0.75s ease, top 0.75s ease, font-size 0.75s ease;
+        top: 80svh;
+        text-align: center;
+        font-size: x-large;
+      }
+    
+      .buttonOnIndexToSignUp{
+        border-radius: 8px;
+        padding: 16px 20px 16px 20px;
+        font-weight: bold;
+        margin-left: 24px;
+        text-align: center;
+      }
+    
+      .formBoxLogIn{
+        height: 493px;
+        width: -webkit-fill-available;
+        margin: 20px;
+      }
+    }
+    
+    @media (max-width: 550px){
+    
+      /* .back-arrow{
+        left: 10%;
+      } */
+    
+      .inputbox{
+        height: 48px;
+        color: #80808040;
+        display: flex;
+      }
+      .buttonsLogIn{
+        gap: 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    
+      .buttonsLogIn button{
+        width: 177px;
+      }
+      .sectionPageOneLogInSignUp {
+        min-height: 73svh;
+    }
+    
+      footer{
+        position: absolute;
+        bottom: 0;
+        left: 20%;
+      }
+    
+    }
+    
+    /* @media (max-width: 440px) {
+    
+    @media only screen and (max-width: 1024px)  {
+    
+      .logo{
+        height: 100px;
+      }
+      .button{
+        padding: 13px 50px 13px 50px;
+      }
+    
+      .back-arrow{
+        left: 25px;
+      }
+    }

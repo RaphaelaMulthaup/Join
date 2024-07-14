@@ -164,6 +164,7 @@ function openPrivacyPolicy(){
     closeHelp();
     document.getElementById('privacyPolicy').style.display = 'flex';
     changeMenuItemsEmphasis('PrivacyPolicy');
+    allMenuItemsToDefault();
 }
 
 /**
@@ -172,6 +173,8 @@ function openPrivacyPolicy(){
 function closePrivacyPolicy(){
     document.getElementById('privacyPolicy').style.display = 'none';
     changeBackMenuItemsEmphasis('PrivacyPolicy');
+    let id = 'menuItem' + document.title.charAt(0).toUpperCase() + document.title.slice(1); 
+    selectActivePage(id);
 }
 
 /**
@@ -182,6 +185,7 @@ function openLegalNotice(){
     closeHelp();
     document.getElementById('legalNotice').style.display = 'flex';
     changeMenuItemsEmphasis('LegalNotice');
+    allMenuItemsToDefault();
 }
 
 /**
@@ -190,6 +194,8 @@ function openLegalNotice(){
 function closeLegalNotice(){
     document.getElementById('legalNotice').style.display = 'none';
     changeBackMenuItemsEmphasis('LegalNotice');
+    let id = 'menuItem' + document.title.charAt(0).toUpperCase() + document.title.slice(1); 
+    selectActivePage(id);
 }
 
 /**
@@ -207,6 +213,7 @@ function openHelp(){
     closePrivacyPolicy();
     document.getElementById('help').style.display = 'flex';
     document.getElementById('divHelpQuestionMark').classList.add('dNone');
+    allMenuItemsToDefault();
 }
 
 /**
@@ -215,6 +222,8 @@ function openHelp(){
 function closeHelp(){
     document.getElementById('help').style.display = 'none';
     document.getElementById('divHelpQuestionMark').classList.remove('dNone');
+    let id = 'menuItem' + document.title.charAt(0).toUpperCase() + document.title.slice(1); 
+    selectActivePage(id);
 }
 
 /*form validation*/
