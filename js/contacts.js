@@ -1,4 +1,8 @@
 const initials = [];
+
+//Ich möchte das wenn die bildschirmbreite unter .. ist das der einzellen angeklickte Contact vor die anderen Contacts geschoben wird
+// dabei soll ein Button mit drei Punkten erscheinen bei dem Drücken dieses Buttons soll Edit und Löschen erscheinen
+// Wie mache ich das jetzt am besten.
 /**
  * loadusers
 */
@@ -127,14 +131,14 @@ function renderContactContainer(user) {
         return;
     }
 
-    content.innerHTML += `
+    content.innerHTML += /*html*/`
         <div class="contactContainer" id="contactContainer${user.id}" onclick="openContact(${user.id})">
             <section class="circle bgColorCircle" id="circle${user.id}" style="background-color: ${user.color};">
                 <div class="initial">${user.initials}</div>
             </section>
             <div class="userContainer">
-                <div class="name" id="name${user.id}">${user.name}</div>
-                <div class="email">${user.email}</div>
+                <div class="name" id="name${user.id}" title="${user.name}">${user.name}</div>
+                <div class="email" title="${user.email}">${user.email}</div>
             </div>
         </div>
     `;
@@ -161,9 +165,21 @@ function openContact(id) {
         return;
     }
 
+    if (window.innerWidth < 910) {
+        document.getElementById('contactSlideInBox') = classList.remove('d-none');
+        const contactSlideInBox = document.querySelector('.contactSlideInBox');
+        const contactInput = document.querySelector('.ContactInput');
+        
+        if (contactSlideInBox && contactInput) {
+            contactSlideInBox.classList.add('contactSlideIn');
+            contactInput.parentNode.insertBefore(contactSlideInBox, contactInput);
+        }
+    }
+
     animateContent(content);
     updateUserContent(content, user);
 }
+
 
 /**
  * Find a user in the array based on the ID.

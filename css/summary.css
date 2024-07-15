@@ -30,17 +30,12 @@
     gap: 28px;
 }
 
-.lineOverviewSummary{
-    /* width: 560px;
-    height: 168px; */
-}
-
 .overviewNumberTasks{
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 16px;
-    /* height: 168px; */
+    height: 153px;
     border-radius: 30px;
     background-color: white;
     box-shadow: 0px 0px 4px 0px #0000001A;
@@ -48,7 +43,6 @@
 
 .overviewNumberTasks:hover{
     transition: all 80ms ease-in-out;
-    /* height: 184px;  andere höhenlösung mit Padding vielleicht*/ 
     background-color: #2A3647;
     box-shadow: 0px 4px 4px 0px #00000040;
 }
@@ -122,8 +116,8 @@
 }
 
 .firstLineOverviewSummary a{
-        gap: 18px;
-        /* width: 264px; */
+    gap: 18px;
+    width: -webkit-fill-available;
 }
 
 .firstLineOverviewSummary a:hover{
@@ -146,7 +140,7 @@
 
 /*second line*/
 .secondLineOverviewSummary{
-    max-width: 560px;
+    max-width: 576px;
 }
 
 .secondLineOverviewSummary:hover{
@@ -265,8 +259,7 @@
      }
 
      .overviewNumberTasks{
-        height: min-content;
-        padding: 25px 50px;
+        padding: 0px 40px;
      }
 }
 
@@ -325,17 +318,42 @@
     }
 
     .overviewNumberTasks{
-        padding: 25px 0;
-        width: fit-content;
+        padding: 25px 8px;
+        width: -webkit-fill-available;
+    }
+
+    .verticalLineGray{
+        margin: 0 30px 0 30px;
     }
 }
 
 @media (max-width: 400px){
-    .verticalLineGray{
-        margin: 0 30px 0 30px;
-    }
-
     .overviewNumberTasks{
         padding: 25px 4px;
+    }
+
+    .overviewNumberTasks:active{
+        transition: all 100ms ease-in-out;
+        height: 168px;
+        background-color: #F9F9F9;
+    }
+
+    .firstLineOverviewSummary a:active{
+       width: min-content; 
+    }
+
+    .grayCircleIcon svg{
+        width: 20px;
+    }
+
+    .redCircleIcon{
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .redCircleIcon svg{
+        width: 20px;
     }
 }

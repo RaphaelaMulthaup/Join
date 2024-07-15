@@ -70,14 +70,22 @@
           <div class="contactInput" id="contactInput"></div>
         </div>
       </main>
-      <div id="contactBox" class="positionContactBox">
-        <div class="contactBox">
-          <h2>Contacts</h2>
-          <div class="blueLineContacts"></div>
-          <p style="-webkit-text-stroke-width: medium">Better with a team</p>
+      <div class="contactSlideInBox d-none" id="contactSlideInBox">
+        <div id="contactBox" class="positionContactBox">
+          <div>
+              <div class="contactBox">
+              <h2>Contacts</h2>
+              <div class="blueLineContacts"></div>
+              <p style="-webkit-text-stroke-width: medium; padding-bottom: 8px;">Better with a team</p>
+              <div class="blueLineContactsHorizontal"></div>
+            </div>
+            <div class="backArrow">
+              <img src="./assets/img/arrow-left-line.svg" alt="">
+            </div>
+          </div>
         </div>
+        <div id="contactDetailContainer" class="contactDetailContainer contactSlideIn"></div>
       </div>
-      <div id="contactDetailContainer" class="contactDetailContainer contactSlideIn"></div>
       
       <div w3-include-html="./assets/templates/mobileMenu.html"></div>
       <div w3-include-html="./assets/templates/privacyPolicy.html"></div>
