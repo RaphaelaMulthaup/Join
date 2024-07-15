@@ -218,12 +218,12 @@ function createNewTask(titleNewTask, descriptionNewTask, assignedToNewTask, dueD
  */
 function displayNoticeAndReload(){
     let title = document.title;
-    if (title === 'board') {
+    if (title === 'Join Board') {
         document.getElementById('overlayBackgroundTransparentNoticeTaskAdded').classList.remove('dNone');
         setTimeout(function() {
             location.reload();
         }, 900);
-    } else if (title === 'addTask') {
+    } else if (title === 'Join Add Task') {
         showNotification();
         setTimeout(function() {
             document.getElementById('formAddNewTask').reset();

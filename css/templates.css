@@ -214,6 +214,16 @@ header h4 {
     margin-bottom: 10px;
 }
 
+.h4PrivacyPolicy{
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+
+.h5PrivacyPolicy{
+    margin-bottom: 6px;
+    font-size: 18px;
+}
+
 .arrowBack {
     margin-top: 1px;
     border-radius: 50%;
