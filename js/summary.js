@@ -72,28 +72,29 @@ function summaryUrgent(){
     nummerDisplayedUrgent.innerHTML = nummerDisplayedUrgentValue;
     let dateDeadline = document.getElementById('dateDeadline');
     if (nummerDisplayedUrgentValue === 0) {
-        dateDeadline.innerHTML = 'currently no';
+        displayCurrentlyNo(dateDeadline);
     } else{
-        let nextUrgentDate = searchNextUrgentDate(tasksUrgent);
-        let dateDeadlineAdvertised = formatDateToAdvertisedFormat(nextUrgentDate);
-        dateDeadline.innerHTML = dateDeadlineAdvertised;
+        searchNextUrgentDate(tasksUrgent, dateDeadline);
     }
 }
 
 /**
- * This function determines the date of the next urgent task. The data is sorted and compared with the current date. The first date that is greater than the current one is the one you are looking for.
+ * This function determines the date of the next urgent task. The data is sorted and compared with the current date. The first date that is greater than the current one is the one you are looking for and the one that is displayed. If there is no date in the future, 'currently no' is displayed.
  * 
  * @param {JSON array} tasksUrgent All tasks with an urgent priority.
- * @returns the next urgent date
+ * @param {html element} dateDeadline place for the next urgent date or a notice, that no urgent date exists in the future
  */
-function searchNextUrgentDate(tasksUrgent){
+function searchNextUrgentDate(tasksUrgent, dateDeadline){
     let now = new Date();
     let tasksUrgentSorted = tasksUrgent.sort((a, b) => parseDate(a.dueDate) - parseDate(b.dueDate));
-    for (let task of tasksUrgentSorted) {
-        if (parseDate(task.dueDate) > now) {
-            return task.dueDate;
-        }
-    }
+    if (parseDate(tasksUrgentSorted[tasksUrgentSorted.length - 1].dueDate) < now) {
+        displayCurrentlyNo(dateDeadline);
+    } else for (let task of tasksUrgentSorted) {
+                if (parseDate(task.dueDate) > now) {
+                    let dateDeadlineAdvertised = formatDateToAdvertisedFormat(task.dueDate);
+                    dateDeadline.innerHTML = dateDeadlineAdvertised;
+                }
+            }
 }
 
 /**
@@ -105,6 +106,14 @@ function searchNextUrgentDate(tasksUrgent){
 function parseDate(dateString) {
     let [day, month, year] = dateString.split('/');
     return new Date(`${year}-${month}-${day}`);
+}
+
+/**
+ * 
+ * @param {*} dateDeadline 
+ */
+function displayCurrentlyNo(dateDeadline){
+    dateDeadline.innerHTML = 'currently no';
 }
 
 /**
