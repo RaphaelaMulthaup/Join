@@ -173,7 +173,9 @@ function openPrivacyPolicy(){
 function closePrivacyPolicy(){
     document.getElementById('privacyPolicy').style.display = 'none';
     changeBackMenuItemsEmphasis('PrivacyPolicy');
-    let id = 'menuItem' + document.title.charAt(0).toUpperCase() + document.title.slice(1); 
+    let paige = document.title.substring(5);
+    let paigeWithoutSpace = paige.replace(/\s+/g, '');
+    let id = 'menuItem' + paigeWithoutSpace; 
     selectActivePage(id);
 }
 
@@ -194,7 +196,9 @@ function openLegalNotice(){
 function closeLegalNotice(){
     document.getElementById('legalNotice').style.display = 'none';
     changeBackMenuItemsEmphasis('LegalNotice');
-    let id = 'menuItem' + document.title.charAt(0).toUpperCase() + document.title.slice(1); 
+    let paige = document.title.substring(5);
+    let paigeWithoutSpace = paige.replace(/\s+/g, '');
+    let id = 'menuItem' + paigeWithoutSpace; 
     selectActivePage(id);
 }
 
@@ -222,7 +226,9 @@ function openHelp(){
 function closeHelp(){
     document.getElementById('help').style.display = 'none';
     document.getElementById('divHelpQuestionMark').classList.remove('dNone');
-    let id = 'menuItem' + document.title.charAt(0).toUpperCase() + document.title.slice(1); 
+    let paige = document.title.substring(5);
+    let paigeWithoutSpace = paige.replace(/\s+/g, '');
+    let id = 'menuItem' + paigeWithoutSpace; 
     selectActivePage(id);
 }
 
