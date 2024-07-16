@@ -315,17 +315,17 @@ input:valid ~ label {
 }
 
 @keyframes contactSlideIn {
-    from {
-        margin-left: 75%;
-    }
+  from {
+      margin-left: 75%;
+  }
 
-    to {
-        margin-left: 0%;
-    }
+  to {
+      margin-left: 0%;
+  }
 }
 .contactSlideIn {
-    animation: contactSlideIn 1s ease-in-out;
-  }
+  animation: contactSlideIn 1s ease-in-out;
+}
 
 .positionContainerBox.active {
   display: block;
@@ -483,9 +483,9 @@ input:valid ~ label {
 }
 
 @media (max-width:910px){
-  /* .positionContactBox, .contactSlideIn{
+  .hidden{
     display: none;
-  } */
+  }
 
   .blueLineContacts, .editDelete{
     display: none;
@@ -519,7 +519,7 @@ input:valid ~ label {
   .contactSlideInBox{
     z-index: 1;
     height: calc(100vh - 96px);
-    background: #cdcdcd;
+    background: #fff;
     position: relative;
     top: -37px;
   }
@@ -545,10 +545,37 @@ input:valid ~ label {
     display: unset;
     position: fixed;
     right: 24px;
-    top: 170px
+    top: 170px;
+    cursor: pointer;
   }
   .backArrow img{
     height: 32px;
+  }
+
+  @keyframes contactSlideOut {
+    from {
+        margin-left: 75%;
+    }
+    to {
+        margin-left: 0%;
+    }
+  }
+  
+  @keyframes contactSlideIn {
+    from {
+        margin-left: 100%;
+    }
+    to {
+        margin-left: 0%;
+    }
+  }
+  
+  .contactSlideOut {
+    animation: contactSlideOut 1s ease-in-out forwards;
+  }
+  
+  .contactSlideIn {
+    animation: contactSlideIn 1s ease-in-out;
   }
 }
 

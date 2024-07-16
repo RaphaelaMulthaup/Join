@@ -1,146 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TestPlatzFranz</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/franz.css">
-    <link rel="stylesheet" href="./css/fonts.css">
-    <link rel="stylesheet" href="./css/PageOneLogInSignUp.css">
+    <title>Benutzerdefinierter Tooltip</title>
 
     <style>
-        .drag-area {
-    height: 200px;
-    background-color: rgba(0, 0, 0, 0.1);
-    border: 1px dashed black;
-    margin-bottom: 50px;
-    display: flex;
-    align-items: flex-start;
+        .tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
 }
 
-.drag-area-highlight {
-    background-color: rgba(0, 0, 0, 0.2);
-}
-
-.todo {
-    background-color: white;
-    border: 1px solid black;
+.tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: -200%; /* Tooltip below the element */
+    left: 57%;
+    transform: translateX(-50%);
+    background-color: #2552cb;
+    color: #fff;
+    padding: 5px 10px;
     border-radius: 5px;
-    padding: 10px;
-    margin: 10px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    margin-bottom: 5px; /* Space between the tooltip and the element */
 }
+
+.tooltip:hover::after {
+    opacity: 1;
+}
+@keyframes contactSlideIn {
+    from {
+        margin-left: 75%;
+    }
+    to {
+        margin-left: 0%;
+    }
+}
+
+@keyframes contactSlideOut {
+    from {
+        margin-left: 0%;
+    }
+    to {
+        margin-left: 75%;
+    }
+}
+
+.contactSlideIn {
+    animation: contactSlideIn 1s ease-in-out forwards;
+}
+
+.contactSlideOut {
+    animation: contactSlideOut 1s ease-in-out forwards;
+}
+
     </style>
 
     <script>
-        let todos = [{
-    'id': 0,
-    'title': 'Putzen',
-    'category': 'open'
-}, {
-    'id': 1,
-    'title': 'Kochen',
-    'category': 'open'
-}, {
-    'id': 2,
-    'title': 'Einkaufen',
-    'category': 'closed'
-}];
-
-let currentDraggedElement;
-
-function updateHTML() {
-    let open = todos.filter(t => t['category'] == 'open');
-
-    document.getElementById('open').innerHTML = '';
-
-    for (let index = 0; index < open.length; index++) {
-        const element = open[index];
-        document.getElementById('open').innerHTML += generateTodoHTML(element);
-    }
-
-    let closed = todos.filter(t => t['category'] == 'closed');
-
-    document.getElementById('closed').innerHTML = '';
-
-    for (let index = 0; index < closed.length; index++) {
-        const element = closed[index];
-        document.getElementById('closed').innerHTML += generateTodoHTML(element);
-    }
+        function slideOut() {
+    document.getElementById('content').className = 'contactSlideOut';
 }
 
-function startDragging(id) {
-    currentDraggedElement = id;
-}
-
-function generateTodoHTML(element) {
-    console.log('Elemtens ID', currentDraggedElement);
-    return `<div draggable="true" ondragstart="startDragging(${element['id']})" class="todo">${element['title']}</div>`;
-    // console.log(currentDraggedElement);
-}
-
-function allowDrop(ev) {
-    ev.preventDefault();
-}
-
-function moveTo(category) {
-    console.log(category);
-    todos[currentDraggedElement]['category'] = category;
-    updateHTML();
-}
-
-function highlight(id) {
-    console.log('added', id);
-    document.getElementById(id).classList.add('drag-area-highlight');
-}
-
-function removeHighlight(id) {
-    console.log('removed', id);
-    document.getElementById(id).classList.remove('drag-area-highlight');
+function slideIn() {
+    document.getElementById('content').className = 'contactSlideIn';
 }
     </script>
 </head>
-<body onload="updateHTML()" style="background-color: brown;">
-    <div class="drag-area" id="open" ondrop="moveTo('open')" ondragleave="removeHighlight('open')" ondragover="allowDrop(event); highlight('open')"></div>
-    <div class="drag-area" id="closed" ondrop="moveTo('closed')" ondragleave="removeHighlight('closed')" ondragover="allowDrop(event); highlight('closed')"></div>
-    <section class="sectionPageOneLogInSignUp">
-        <div class="form-box formBoxSignUp">
-            <a class="back-arrow" href="index.html"></a>
-            <div class="form-valueSignUp">
-                <form class="formSignUp" id="signupForm" onsubmit="register(); return false;">
-                    <h1 class="h1PageOneLogInSignUp">Sign up</h1>
-                    <div class="inputbox">
-                        <input type="name" id="user" class="input person inputPageOneLogInSignUp" placeholder="Name" required>
-                    </div>
-                    <div class="inputbox">
-                        <input type="email" id="email" class="input mail inputPageOneLogInSignUp" placeholder="Email" required>
-                    </div>
-                    <div class="inputbox">
-                        <input type="password" minlength="8" id="passwordInput" class="input lock inputPageOneLogInSignUp" placeholder="Password" required>
-                        <span class="visibility-icon" onclick="togglePasswordVisibility('passwordInput')">
-                            <img src="./assets/img/visibility.svg" alt="Visibility Icon">
-                        </span>
-                    </div>
-                    <div class="inputbox" id="confirm">
-                        <input type="password" minlength="8" id="passwordInputConfirm" class="input lock inputPageOneLogInSignUp" placeholder="Confirm Password" required>
-                        <span class="visibility-icon" onclick="togglePasswordVisibility('passwordInputConfirm')">
-                            <img src="./assets/img/visibility.svg" alt="Visibility Icon">
-                        </span>
-                    </div>
-                    <span class="alert al" id="alert"></span>
-                    <div class="position positionSignIn">
-                        <div class="checkboxText checkboxTextSignUp">
-                            <input type="checkbox" id="checkbox" class="checkbox inputPageOneLogInSignUp dNone" onchange="toggleSubmitButton()">
-                            <label for="checkbox"></label>
-                            <span class="checkboxTextSpan">I accept the <a class="underline aPrivacyPolicy" href="privacyPolicy.html">Privacy policy</a></span>
-                        </div>
-                        <div>
-                            <button type="submit" class="button buttonFilled buttonSignIn" id="registerBtn" disabled title="Accept privacyPolicy first, please.">Sign up</button>
-                        </div>
-                    </div>  
-                </form>
-            </div>
-        </div>
-    </section>
+<body>
+    <div class="tooltip" data-tooltip="Das ist ein benutzerdefinierter Tooltip!">
+        Fahren Sie mit der Maus über mich!
+    </div>
+    <div id="content" class="contactSlideOut">Dein Inhalt</div>
+    <button onclick="slideOut()">Slide Out</button>
+    <button onclick="slideIn()">Slide In</button>
+    <script src="script.js"></script>
 </body>
 </html>

@@ -132,7 +132,7 @@ function renderContactContainer(user) {
     }
 
     content.innerHTML += /*html*/`
-        <div class="contactContainer" id="contactContainer${user.id}" onclick="openContact(${user.id})">
+        <div class="contactContainer" id="contactContainer${user.id}" onclick="openContact(${user.id}), slideOut()">
             <section class="circle bgColorCircle" id="circle${user.id}" style="background-color: ${user.color};">
                 <div class="initial">${user.initials}</div>
             </section>
@@ -165,20 +165,10 @@ function openContact(id) {
         return;
     }
 
-    if (window.innerWidth < 910) {
-        document.getElementById('contactSlideInBox') = classList.remove('d-none');
-        const contactSlideInBox = document.querySelector('.contactSlideInBox');
-        const contactInput = document.querySelector('.ContactInput');
-        
-        if (contactSlideInBox && contactInput) {
-            contactSlideInBox.classList.add('contactSlideIn');
-            contactInput.parentNode.insertBefore(contactSlideInBox, contactInput);
-        }
-    }
-
     animateContent(content);
     updateUserContent(content, user);
 }
+
 
 
 /**
@@ -234,6 +224,34 @@ function animateContent(content) {
     content.offsetWidth; // Trigger reflow
     content.classList.add('contactSlideIn');
 }
+
+
+    // Ihre Funktionen hier
+    function slideOut() {
+        const backArrow = document.getElementById('backArrow');
+        const contactSlideIn = document.getElementById('contactSlideInBox');
+
+        if (backArrow && contactSlideIn) {
+            backArrow.classList.remove('hidden');
+            contactSlideIn.classList.remove('hidden');
+        } else {
+            console.error('Element(s) not found in slideOut function.');
+        }
+    }
+
+    function slideIn() {
+        if (window.innerWidth < 910) {
+            const backArrow = document.getElementById('backArrow');
+            const contactSlideOut = document.getElementById('contactSlideOut');
+
+            if (backArrow && contactSlideOut) {
+                backArrow.classList.add('hidden');
+                contactSlideOut.classList.add('hidden');
+            } else {
+                console.error('Element(s) not found in slideIn function.');
+            }
+        }
+    }
 
 
 /**
