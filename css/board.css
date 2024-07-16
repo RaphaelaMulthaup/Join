@@ -107,6 +107,7 @@ body{
     padding-left: 8vmin;
     padding-right: 16px;
     height: 790px;
+    position: relative;
 }
 
 .headlineStatusTasks{
@@ -380,4 +381,22 @@ body{
 
 .prioImgMiniCard{
     width: 17px;
+}
+
+/*no task found*/
+
+#noticeNoTaskFound{
+    position: absolute;
+    top: 180px;
+    left: 510px;
+    background-color: #2A3647;
+    border-radius: 20px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 74px;
+    width: 240px;
+    color: white;
+    font-weight: 500;
 }

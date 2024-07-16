@@ -56,6 +56,9 @@ function displayBoard(){
 function htmlboard(){
     // ondrop="moveTo('the string is written in here is sent to the the task status'"
     return /*html*/ `
+        <div id="noticeNoTaskFound" class="dNone">
+            <span>No task found</span>
+        </div>
         <div class="statusGroup">
             <div class="headlineStatusTasks">
                 <h5 class="h5StatusTask">To do</h5>
@@ -315,19 +318,6 @@ function prio(task, i){
 
 /*search tasks*/
 
-document.addEventListener("DOMContentLoaded", function() {
-
-    let inputFindTask = document.getElementById('inputFindTask');
-    if (inputFindTask) {
-        inputFindTask.addEventListener('keydown', function(event) {
-            if (event.key === 'Enter') {
-                event.preventDefault();
-                searchFunction();
-            }
-        });
-    }
-
-});
 /**
  * This function search tasks. At first tasks is reloaded from the database. A new array is then created with the tasks that contain the value from the input field either in the title or the description. This array replaces tasks. The board is displayed again based on tasks.
  */
@@ -340,4 +330,7 @@ async function searchFunction(){
     );
     tasks = filteredTasks;
     displayBoard();
+    if (tasks.length == 0) {
+        document.getElementById('noticeNoTaskFound').classList.remove('dNone');
+    }
 }
