@@ -42,10 +42,15 @@
     
     .headlineBoardStatusTasks{
        flex-direction: column;
-       align-items: flex-end;
+       align-items: normal;
        overflow-y: scroll;
        padding-bottom: 24px;
+       padding-left: 16px;
        height: ;
+    }
+
+    .noTasksExisting{
+        max-width: 250px;
     }
 
     .tasks{
@@ -118,10 +123,14 @@
 
 
 @media(max-width: 763px){
+
+    .h1Board{
+        margin-bottom: 40px;
+    }
     
-.titleBigCard{
-    font-size: 8vmin;
-}
+    .titleBigCard{
+        font-size: 8vmin;
+    }
 
     .bigCardData{
         padding: 0 0 0 20px !important;
@@ -135,5 +144,9 @@
 
     .widthFormElementsAddTask{
         width: 92vw !important;
+    }
+
+    .noTasksExisting{
+        max-width: 700px;
     }
 }
