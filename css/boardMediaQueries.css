@@ -56,8 +56,12 @@
     .tasks{
         flex-direction: row;
         justify-content: flex-start;
-        min-width: 88vw;
+        width: 100%;
         height: fit-content;
+    }
+
+    .h5StatusTask{
+        flex: none;
     }
 
     .miniCard{
@@ -147,6 +151,11 @@
     }
 
     .noTasksExisting{
-        max-width: 700px;
+        max-width: 800px;
     }
+
+    .h5StatusTask{
+        flex: 1;
+    }
+
 }
