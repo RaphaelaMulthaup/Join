@@ -45,13 +45,14 @@
        align-items: flex-end;
        overflow-y: scroll;
        padding-bottom: 24px;
+       height: ;
     }
 
     .tasks{
         flex-direction: row;
         justify-content: flex-start;
         min-width: 88vw;
-        height: 350px;
+        height: fit-content;
     }
 
     .miniCard{
