@@ -32,11 +32,11 @@ async function putTasksToDatabase(data){
 /**
  * This function loads the example users into the database.
  */
-async function putUsersToDatabase(){
-    let response = await fetch("../json/tasks.json");
+async function putExampleUsersToDatabase(){
+    let response = await fetch("../json/users.json");
     let data = await response.json();
 
-    await fetch(firebaseUrl + "/tasks" + ".json", {
+    await fetch(firebaseUrl + "/users" + ".json", {
         method: "PUT",
         header: {
             "Content-Type": "application/json",
