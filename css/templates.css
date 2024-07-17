@@ -91,7 +91,7 @@
 /*header*/
 
 header {
-    min-height: 96px;
+    height: 96px;
     padding: 20px 40px 20px 48px;
     width: calc(100vw - 232px);
     /* width: calc(100vw - 240px); */
@@ -102,6 +102,12 @@ header {
     box-shadow: 0px 4px 4px 0px #0000001A;
     position: relative;
     z-index: 35;
+}
+
+.logoMenuResponsive{
+    width: 32px;
+    height: 39.02px;
+    display: none;
 }
 
 header h4 {
@@ -305,7 +311,30 @@ header h4 {
 @media (max-width: 1170px){
     header{
         width: 100vw;
+        height: 80px;
     }
+
+    .logoMenuResponsive{
+        display: block;
+    }
+    
+    .h4Header{
+        display: none;
+    }
+
+    .help{
+        display: none;
+    }
+
+    .cicleInitials{
+        height: 40px;
+        width: 40px;
+    }
+
+    .initials{
+        font-size: 14px;
+    }
+    
 
     .menu {
         display: none;
@@ -373,5 +402,12 @@ header h4 {
 
     .informations{
         padding-right: 16px;
+    }
+}
+
+@media(max-width: 470px){
+    header{
+        padding-left: 16px;
+        padding-right: 20px;
     }
 }
