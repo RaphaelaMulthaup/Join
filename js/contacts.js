@@ -324,7 +324,11 @@ async function addInitialsToUsersAndSave(users) {
     for (const user of users) {
         if(!user.initials){
             const [firstName, lastName] = user.name.split(" ").map(name => name.charAt(0).toUpperCase());
-            user.initials = firstName + lastName;
+            if (!lastName == undefined) {
+                 user.initials = firstName + lastName;
+            } else{
+                user.initials = firstName;
+            }
         }
     }
     return users;
@@ -346,7 +350,12 @@ async function addInitialsToUserAndSave(user) {
     }
 
     const [firstName, lastName] = user.name.split(" ").map(name => name.charAt(0).toUpperCase());
-    user.initials = firstName + lastName;
+    if (!lastName == undefined) {
+        user.initials = firstName + lastName;
+    } else{
+        user.initials = firstName;
+    }
+
 
     await putData(`/users/initials_${user.name}`, user.initials);
 
