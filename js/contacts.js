@@ -572,9 +572,12 @@ async function deleteUserAndReassignIds(userId) {
     const userIndex = users.findIndex(user => user.id === userId);
     
     if (userIndex !== -1) {
+        let nameDeletdUser = users[userIndex].name;
         console.log('gelöschter Benutzer', user);
         users.splice(userIndex, 1);
-      
+
+        await deleteDeletedUserInTasks(nameDeletdUser);
+
       users.forEach((user, index) => {
         user.id = index + 1;
       });
@@ -586,6 +589,30 @@ async function deleteUserAndReassignIds(userId) {
         console.log(`User with ID ${userId} not found.`);
     }
   }
+
+/**
+ * This function compares the name of the deleted user with the names of the users assigned to tasks and, if necessary, also deletes them in the tasks. When this happens, the tasks in the database are updated.
+ * 
+ * @param {string} nameDeletdUser the name of the deleted user
+ */
+async function deleteDeletedUserInTasks(nameDeletdUser){
+    let tasksIncludingDeletedUser = await loadData("/tasks");
+    for (let i = 0; i < tasksIncludingDeletedUser.length; i++) {
+        let taskIncludingDeletedUser = tasksIncludingDeletedUser[i];
+        if (taskIncludingDeletedUser.assignedTo) {
+            for (let j = 0; j < taskIncludingDeletedUser.assignedTo.length; j++) {
+            let userToCheck = taskIncludingDeletedUser.assignedTo[j].name;
+            if (userToCheck == nameDeletdUser) {
+                taskIncludingDeletedUser.assignedTo.splice(j, 1);
+                if (taskIncludingDeletedUser.assignedTo.length == 0) {
+                    delete taskIncludingDeletedUser.assignedTo;
+                }
+            } 
+        }
+        }
+    }
+    await putTasksToDatabase(tasksIncludingDeletedUser);
+}
 
 /**
  * Resets the contact form to its default state.

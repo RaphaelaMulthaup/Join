@@ -46,7 +46,7 @@ async function putUsersToDatabase(){
 }
 
 /**
- * This function loads data whith are saved in the database and returnes them.
+ * This function loads data which are saved in the database and returnes them.
  * 
  * @param {string} path The deposit under which the data should be loaded.
  * @returns the data
