@@ -35,38 +35,42 @@
     } 
 
     @media(max-width: 1170px){
-    .headlineStatusTasks{
-        width: auto;
-        gap: 16px;
-    }
-    
-    .headlineBoardStatusTasks{
-       flex-direction: column;
-       align-items: normal;
-       overflow-y: scroll;
-       padding-bottom: 24px;
-       padding-left: 16px;
-       height: ;
-    }
+        .boardHeadline{
+            padding-right: 8vmin;
+        }
 
-    .noTasksExisting{
-        max-width: 250px;
-    }
+        .headlineStatusTasks{
+            width: auto;
+            gap: 16px;
+        }
+        
+        .headlineBoardStatusTasks{
+        flex-direction: column;
+        align-items: normal;
+        overflow-y: scroll;
+        padding-bottom: 24px;
+        padding-left: 16px;
+        height: ;
+        }
 
-    .tasks{
-        flex-direction: row;
-        justify-content: flex-start;
-        width: 100%;
-        height: fit-content;
-    }
+        .noTasksExisting{
+            max-width: 250px;
+        }
 
-    .h5StatusTask{
-        flex: none;
-    }
+        .tasks{
+            flex-direction: row;
+            justify-content: flex-start;
+            width: 100%;
+            height: fit-content;
+        }
 
-    .miniCard{
-        min-width: 280px !important;
-    }
+        .h5StatusTask{
+            flex: none;
+        }
+
+        .miniCard{
+            min-width: 280px !important;
+        }
 }
 
 @media(max-width: 1170px){
@@ -124,14 +128,24 @@
 
 }
 
-
-
-@media(max-width: 763px){
+@media(max-width: 880px){
+    .boardHeadline{
+        flex-direction: column;
+        padding-left: 32px;
+    }
 
     .h1Board{
         margin-bottom: 40px;
     }
-    
+
+    .boardHeadlineActions{
+        justify-content: flex-start;
+    }
+}
+
+@media(max-width: 763px){
+
+
     .titleBigCard{
         font-size: 8vmin;
     }
@@ -156,6 +170,13 @@
 
     .h5StatusTask{
         flex: 1;
+    }
+
+}
+
+@media(max-width: 580px){
+    .boardHeadline{
+        padding-left: 24px;
     }
 
 }

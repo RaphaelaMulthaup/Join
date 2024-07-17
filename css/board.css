@@ -13,7 +13,7 @@ body{
 
 /*headline*/
 .boardHeadline{
-    max-width: 1056px;
+    max-width: 1160px;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
