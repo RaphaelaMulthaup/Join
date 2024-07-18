@@ -206,6 +206,7 @@ header h4 {
     z-index: 30;
     top: 96px;
     background-color: #F6F7F8;
+    padding-right: 96px !important;
 }
 
 .informationsTemplate{
@@ -318,6 +319,10 @@ header h4 {
         height: 80px;
     }
 
+    .informationsTemplate{
+        top: 80px;
+    }
+
     .logoMenuResponsive{
         display: block;
     }
@@ -409,6 +414,13 @@ header h4 {
 
     .informations{
         padding-right: 16px;
+    }
+}
+
+@media(max-width: 700px){
+    .informations{
+        padding-left: 16px !important;
+        padding-right: 16px !important;
     }
 }
 

@@ -24,7 +24,7 @@ body {
 
 .mainMainpagesPaddingDefault{
   padding-top: 110px;
-  padding-left: 96px;
+  padding-left: 96px !important;
 }
 
 * {
@@ -36,6 +36,10 @@ body {
   font-variation-settings: "slnt" 0;
   box-sizing: border-box;
   user-select: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-align: left !important;
 }
 
 h1 {
@@ -218,5 +222,14 @@ a {
   .summaryContent{
     justify-content: center;
   }
+}
 
+@media(max-width: 700px){
+  .mainMainpagesPaddingDefault{
+    padding-top: 48px;
+  }
+
+  h1{
+    font-size: 47px;
+  }
 }
