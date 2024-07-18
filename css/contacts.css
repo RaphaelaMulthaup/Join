@@ -58,6 +58,7 @@
 }
 
 .circle {
+  flex-shrink: 0;
   display: flex;
   vertical-align: middle;
   border-radius: 50%;
@@ -243,6 +244,9 @@ input:valid ~ label {
 
 .email{
   color: #29ABE2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .buttonFilled {
