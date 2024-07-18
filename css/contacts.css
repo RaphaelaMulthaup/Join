@@ -335,7 +335,7 @@ input:valid ~ label {
   display: block;
 }
 
-.backArrow{
+.backArrow, .mobileEdit{
   display: none;
 }
 
@@ -425,7 +425,7 @@ input:valid ~ label {
 }
 
 .delete{
-  margin: 12px;
+  /* margin: 12px; */
   background-size: contain;  
   background-repeat: no-repeat;
   background-image: url(../assets/img/delete.svg);
@@ -491,9 +491,23 @@ input:valid ~ label {
     display: none;
   }
 
-  .blueLineContacts, .editDelete{
+  .blueLineContacts{
     display: none;
   }
+  .editDelete{
+    position: absolute;
+    bottom: -16svh;
+    right: 130px;
+    padding-left: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+        }
+
+        .mobileD-none{
+          display: none !important;
+        }
 
   .contactBox{
     flex-direction: column;
@@ -581,7 +595,42 @@ input:valid ~ label {
   .contactSlideIn {
     animation: contactSlideIn 1s ease-in-out;
   }
+
+  .mobileEdit{
+    display: none;
+    transition: all 175ms ease-in-out;
+    display: flex;
+    position: fixed;
+    right: 24px;
+    bottom: 170px;
+    cursor: pointer;
+    background: #2A3647;
+    border-radius: 50px;
+    width: 60px;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mobileEdit:hover{
+    background: #29ABE2;
+  }
 }
+
+.subMenu{
+  background-color: #2A3647;
+    width: 150px;
+    border-radius: 20px 0px 20px 20px;
+    position: absolute;
+    top: 0px;
+    right: 20px;
+    box-shadow: 0px 0px 4px 0px #0000001A;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    z-index: 50;
+}
+
 
 @media (max-width:435px){
   .buttonFilled{

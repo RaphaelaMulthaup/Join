@@ -240,9 +240,9 @@ function animateContent(content) {
     }
 
     function slideIn() {
-        if (window.innerWidth < 910) {
+        // if (window.innerWidth < 910) {
             const backArrow = document.getElementById('backArrow');
-            const contactSlideOut = document.getElementById('contactSlideOut');
+            const contactSlideOut = document.getElementById('contactSlideInBox');
 
             if (backArrow && contactSlideOut) {
                 backArrow.classList.add('hidden');
@@ -250,7 +250,7 @@ function animateContent(content) {
             } else {
                 console.error('Element(s) not found in slideIn function.');
             }
-        }
+        // }
     }
 
 
@@ -266,12 +266,12 @@ function updateUserContent(content, user) {
             </div>
             <div class="userContainerBig">
                 <p class="nameBig" id="name${user.id}">${user.name}</p>
-                <div class="editDelete">
+                <div class="editDelete mobileD-none" id="editDelete">
                     <div class="edit" id="edit" onclick="editContactSlide(${user.id}, '${user.color}', '${user.initials}', '${user.name}', '${user.email}', '${user.phone}')">
                         <a class="edit" alt=""><p>Edit</p></a>
                     </div>
                     <div class="delete" id="delete" onclick="deleteUserAndReassignIds(${user.id})">
-                        <a alt=""><p>Delete</p></a>
+                        <a class="edit" alt=""><p>Delete</p></a>
                     </div>
                 </div>
             </div>
@@ -286,7 +286,24 @@ function updateUserContent(content, user) {
     `;
 }
 
+/**
+ * Toggles the 'mobileD-none' class on the element with the ID 'editDelete'.
+ */
+function toggleMobileEdit() {
+    const editDelete = document.getElementById('editDelete');
+    editDelete.classList.toggle('mobileD-none');
+}
 
+/**
+ * Adds an onclick event listener to the element with the ID 'mobileEdit' that 
+ * triggers the toggleMobileEdit function when the element is clicked.
+ * 
+ * This function is executed once the DOM content is fully loaded.
+ */
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileEdit = document.getElementById('mobileEdit');
+    mobileEdit.onclick = toggleMobileEdit;
+});
 /**
  * Listens for click events on the document and updates the style of contact containers accordingly.
  * @param {Event} event - The click event.

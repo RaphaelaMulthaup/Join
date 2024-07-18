@@ -1,11 +1,4 @@
-body{
-    /* overflow: scroll !important;
-    overflow-x: hidden !important; */
-}
-
 .mainBoard{
-    /* padding-top: 79.5px;
-    padding-left: 48px; */
     display: flex;
     flex-direction: column;
     height: calc(100vh - 96px);
@@ -18,7 +11,7 @@ body{
     justify-content: space-between;
     flex-wrap: wrap;
     margin-bottom: 48px;
-    padding-left: 8vmin;
+    padding-left: 100px;
     padding-right: 16px;
     padding-top: 61px;
 }
@@ -146,15 +139,15 @@ body{
 }
 
 .tasks::-webkit-scrollbar-track {
-    background: #f1f1f1; /* Hintergrund der Scrollbar-Leiste */
+    background: #f1f1f1;
 }
 
 .tasks::-webkit-scrollbar-thumb {
-    background: #88888867; /* Farbe des Scrollbar-Griffs */
+    background: #88888867;
 }
 
 .tasks::-webkit-scrollbar-thumb:hover {
-    background: #2A3647; /* Farbe des Scrollbar-Griffs beim Hover */
+    background: #2A3647;
 }
 
 .noTasksExisting{
@@ -283,7 +276,6 @@ body{
 
 .miniCard:active{
     animation: shake 0.8s ease-in-out;
-    /* animation-delay: 0.2s; */
 }
 
 @keyframes shake {

@@ -48,6 +48,8 @@
     to {
         margin-left: 75%;
     }
+
+    
 }
 
 .contactSlideIn {
@@ -57,7 +59,9 @@
 .contactSlideOut {
     animation: contactSlideOut 1s ease-in-out forwards;
 }
-
+.mobileD-none {
+            display: none;
+        }
     </style>
 
     <script>
@@ -68,6 +72,15 @@
 function slideIn() {
     document.getElementById('content').className = 'contactSlideIn';
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+            const div = document.getElementById('editDelet');
+            const button = document.getElementById('mobileEdit');
+
+            button.addEventListener('click', function() {
+                div.classList.toggle('mobileD-none');
+            });
+        });
     </script>
 </head>
 <body>
@@ -77,6 +90,7 @@ function slideIn() {
     <div id="content" class="contactSlideOut">Dein Inhalt</div>
     <button onclick="slideOut()">Slide Out</button>
     <button onclick="slideIn()">Slide In</button>
-    <script src="script.js"></script>
+    <div id="editDelete">This is the edit/delete section</div>
+    <button id="mobileEdit">Edit</button>
 </body>
 </html>

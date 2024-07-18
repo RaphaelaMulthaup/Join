@@ -4,19 +4,18 @@
         width: 100vw !important;
     }
 
-    .menu{
-        display: none !important;
+    .headlineBoardStatusTasks{
+        padding-left: 3vmax;
     }
-
     .mobileMenu{
-        width: 100vw !important;
+        /* width: 100vw !important;
         background: #2A3647 !important;
         color: beige !important;
         text-align: center !important;
         display: flex !important;
         justify-content: space-around !important;
         position: fixed !important;
-        bottom: 0px !important;
+        bottom: 0px !important; */
     }
     .mobileMenu a{
         color: white !important;
@@ -35,10 +34,6 @@
     } 
 
     @media(max-width: 1170px){
-        .boardHeadline{
-            padding-right: 8vmin;
-        }
-
         .headlineStatusTasks{
             width: auto;
             gap: 16px;
@@ -50,7 +45,6 @@
         overflow-y: scroll;
         padding-bottom: 24px;
         padding-left: 16px;
-        height: ;
         }
 
         .noTasksExisting{
