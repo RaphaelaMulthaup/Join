@@ -57,6 +57,14 @@
   animation-fill-mode: forwards;
 }
 
+.userContainer{
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+
+}
+
 .circle {
   flex-shrink: 0;
   display: flex;
