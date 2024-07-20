@@ -6,7 +6,7 @@
 }
 
 .h1PageOneLogInSignUp {
-  text-align: center;
+  text-align: center !important;
   margin-top: 48px;
   margin-bottom: 8px;
 }
@@ -28,11 +28,17 @@
 
 .aPageOneLogInSignUp {
   color: #a8a8a8;
+  white-space: nowrap;
 }
 
 .aPageOneLogInSignUp:hover {
   color: #29abe2;
   font-weight: bold;
+}
+
+.notAUser{
+  font-size: 20px;
+  text-align: center;
 }
 
 .paPageOneLogInSignUp {
@@ -223,6 +229,8 @@ input:valid ~ label {
   top: 70px;
   display: flex;
   align-items: center;
+  gap: 35px;
+  margin-left: 36px;
 }
 
 .slideInBG {
@@ -379,4 +387,10 @@ footer {
 
 .buttonOnIndexToSignUp {
   border-radius: 8px;
+  height: 49px;
+  width: 91px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
 }
