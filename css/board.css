@@ -133,7 +133,9 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
-    width: 252px;
+    /* width: 252px; */
+    
+    width: calc(100%- 232px);
     height: 68svh;
     overflow: auto;
 }

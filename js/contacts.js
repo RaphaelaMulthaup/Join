@@ -768,7 +768,7 @@ function addContactTemplate() {
             <div class="inputbox">
               <input type="tel" id="phone" class="input phone" placeholder="Phone"/>
             </div>
-            <div>
+            <div class="center">
               <button id="leftButton" class="button buttonEmpty" onclick="closeAddContact()">
                 Cancel <span id="closeX" class="closeX"></span>
               </button>

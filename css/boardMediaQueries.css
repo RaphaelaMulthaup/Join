@@ -1,22 +1,13 @@
 @media(max-width: 1400px){
     
     header{
-        width: 100vw !important;
+        width: calc(100vw- 323px) !important;
     }
 
     .headlineBoardStatusTasks{
         padding-left: 3vmax;
     }
-    .mobileMenu{
-        /* width: 100vw !important;
-        background: #2A3647 !important;
-        color: beige !important;
-        text-align: center !important;
-        display: flex !important;
-        justify-content: space-around !important;
-        position: fixed !important;
-        bottom: 0px !important; */
-    }
+
     .mobileMenu a{
         color: white !important;
         padding: 1vmax !important;

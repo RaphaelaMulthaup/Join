@@ -419,8 +419,8 @@ input:valid ~ label {
 .edit p {
   padding-left: 24px;
 }
-.edit p:hover{
 
+.edit p:hover{
   color: #29abe2;
 }
 
@@ -480,10 +480,25 @@ input:valid ~ label {
   }
 }
 
+.overlayBackground{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width:1024px){
+  .contactGroup{
+    flex-direction: column;
+  }
+
+  .contactSlide{
+    top: 0;
+  }
+}
 @media (max-width:1024px){
   .positionContactBox{
     width: min-content;
   }
+  
 }
 
 @media (max-width:910px){
@@ -498,16 +513,22 @@ input:valid ~ label {
     position: absolute;
     bottom: -16svh;
     right: 130px;
-    padding-left: 16px;
+    padding: 28px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 26px;
     align-items: flex-start;
-        }
+    border-radius: 20px 20px 0px 20px;
+    box-shadow: 4px 4px 5px 4px #0000003d;
+    }
 
-        .mobileD-none{
-          display: none !important;
-        }
+    .edit p{
+      padding-left: 32px;
+    }
+    
+    .mobileD-none{
+      display: none !important;
+    }
 
   .contactBox{
     flex-direction: column;
@@ -615,6 +636,27 @@ input:valid ~ label {
   .mobileEdit:hover{
     background: #29ABE2;
   }
+
+  .middel{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: -58px;
+    width: 0;
+    padding: 0;
+  }
+
+  .right{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: -40px 40px 20px 20px;
+  }
+  
+  .center{
+    align-self: center;
+  }
+
 }
 
 .subMenu{
