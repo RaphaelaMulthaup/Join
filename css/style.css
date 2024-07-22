@@ -214,7 +214,6 @@ a {
 
 @media (max-width: 945px){
   .mainMainpagesPaddingDefault{
-    /* padding-top: 10px; */
     padding-left: 8px !important;
   }
 
@@ -234,5 +233,8 @@ a {
 
   h1{
     font-size: 47px;
+  }
+  h2{
+    font-size: initial;
   }
 }

@@ -1,8 +1,5 @@
 const initials = [];
 
-//Ich möchte das wenn die bildschirmbreite unter .. ist das der einzellen angeklickte Contact vor die anderen Contacts geschoben wird
-// dabei soll ein Button mit drei Punkten erscheinen bei dem Drücken dieses Buttons soll Edit und Löschen erscheinen
-// Wie mache ich das jetzt am besten.
 /**
  * loadusers
 */
@@ -66,7 +63,6 @@ async function renderContactList(users) {
     });
 }
 
-
 /**
  * Renders contact containers for users with names starting with the specified letter.
  * @param {string} letter - The letter to filter users by.
@@ -112,6 +108,7 @@ async function randomBackgroundColor(users) {
     }
     return users;
 }
+
 /**
 * Renders a contact container element based on user information.
 * @param {Object} user - User information object.
@@ -169,8 +166,6 @@ function openContact(id) {
     updateUserContent(content, user);
 }
 
-
-
 /**
  * Find a user in the array based on the ID.
  * @param {number} id - The ID of the user to find.
@@ -225,33 +220,39 @@ function animateContent(content) {
     content.classList.add('contactSlideIn');
 }
 
+/**
+ * Displays the back arrow and contact slide-in box.
+ * Removes the 'hidden' class from the elements with IDs 'backArrow' and 'contactSlideInBox'.
+ * Logs an error if the elements are not found.
+ */
+function slideOut() {
+    const backArrow = document.getElementById('backArrow');
+    const contactSlideIn = document.getElementById('contactSlideInBox');
 
-    // Ihre Funktionen hier
-    function slideOut() {
-        const backArrow = document.getElementById('backArrow');
-        const contactSlideIn = document.getElementById('contactSlideInBox');
-
-        if (backArrow && contactSlideIn) {
-            backArrow.classList.remove('hidden');
-            contactSlideIn.classList.remove('hidden');
-        } else {
-            console.error('Element(s) not found in slideOut function.');
-        }
+    if (backArrow && contactSlideIn) {
+        backArrow.classList.remove('hidden');
+        contactSlideIn.classList.remove('hidden');
+    } else {
+        console.error('Element(s) not found in slideOut function.');
     }
+}
 
-    function slideIn() {
-        // if (window.innerWidth < 910) {
-            const backArrow = document.getElementById('backArrow');
-            const contactSlideOut = document.getElementById('contactSlideInBox');
+/**
+ * Hides the back arrow and contact slide-in box.
+ * Adds the 'hidden' class to the elements with IDs 'backArrow' and 'contactSlideInBox'.
+ * Logs an error if the elements are not found.
+ */
+function slideIn() {
+    const backArrow = document.getElementById('backArrow');
+    const contactSlideOut = document.getElementById('contactSlideInBox');
 
-            if (backArrow && contactSlideOut) {
-                backArrow.classList.add('hidden');
-                contactSlideOut.classList.add('hidden');
-            } else {
-                console.error('Element(s) not found in slideIn function.');
-            }
-        // }
+    if (backArrow && contactSlideOut) {
+        backArrow.classList.add('hidden');
+        contactSlideOut.classList.add('hidden');
+    } else {
+        console.error('Element(s) not found in slideIn function.');
     }
+}
 
 
 /**
@@ -259,31 +260,24 @@ function animateContent(content) {
  * @returns {HTMLElement} - The content element.
  */
 function updateUserContent(content, user) {
-    content.innerHTML = /*html*/`
-        <div class="displayFlex">
-            <div class="bigCircle bgColorCircleBig" id="bigCircle" style="background-color: ${user.color};">
-                <div class="initialBig" id="initialBig" >${user.initials}</div>
-            </div>
-            <div class="userContainerBig">
-                <p class="nameBig" id="name${user.id}">${user.name}</p>
-                <div class="editDelete mobileD-none" id="editDelete">
-                    <div class="edit" id="edit" onclick="editContactSlide(${user.id}, '${user.color}', '${user.initials}', '${user.name}', '${user.email}', '${user.phone}')">
-                        <a class="edit" alt=""><p>Edit</p></a>
-                    </div>
-                    <div class="edit" id="delete" onclick="deleteUserAndReassignIds(${user.id})">
-                        <a class="edit" alt=""><p>Delete</p></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="userContactBig">
-            <p>Contact information</p>
-            <h6>Email</h6>
-            <div class="email">${user.email}</div>
-            <h6>Phone</h6>
-            <div class="name" id="name${user.id}">${user.phone}</div>
-        </div>
-    `;
+    fetch('./assets/templates/userContentTemplate.html')
+        .then(response => response.text())
+        .then(template => {
+            // Ersetze die Platzhalter im Template
+            const filledTemplate = template
+                .replace(/{{color}}/g, user.color)
+                .replace(/{{initials}}/g, user.initials)
+                .replace(/{{id}}/g, user.id)
+                .replace(/{{name}}/g, user.name)
+                .replace(/{{email}}/g, user.email)
+                .replace(/{{phone}}/g, user.phone);
+            
+            // Setze den gefüllten Inhalt in das 'content' Element
+            content.innerHTML = filledTemplate;
+        })
+        .catch(error => {
+            console.error('Error loading the template:', error);
+        });
 }
 
 /**
@@ -304,6 +298,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const mobileEdit = document.getElementById('mobileEdit');
     mobileEdit.onclick = toggleMobileEdit;
 });
+
 /**
  * Listens for click events on the document and updates the style of contact containers accordingly.
  * @param {Event} event - The click event.
@@ -372,8 +367,6 @@ async function addInitialsToUserAndSave(user) {
     } else{
         user.initials = firstName;
     }
-
-
     await putData(`/users/initials_${user.name}`, user.initials);
 
     return user;
@@ -509,7 +502,6 @@ async function finalizeRegistration(users) {
     console.log('geladene Benutzer', users);
     await renderContactList(users);
 }
-
 
 /**
  * Checks if a given name is already taken in the users list.
@@ -744,47 +736,16 @@ function editContactSlide(id, color, initials, name, email, phone) {
  * It also includes buttons to cancel the action or register a new contact.
  */
 function addContactTemplate() {
-    document.getElementById('contactSlide').innerHTML = /*html*/`
-        <div class="contactGroup">
-          <div class="left" id="formTitle">
-            <img src="./assets/img/favicon_light.svg" alt="" />
-            <h1 id="">Add contact</h1>
-            <h2>Tasks are better with a team!</h2>
-            <div class="blueLineAddContacts"></div>
-          </div>
-          <div class="middel" id="middel">
-            <div class="image-container ellipse">
-              <img id="ellipse" src="./assets/img/personWhite.svg" />
-            </div>
-          <div class="right" id="">
-            <div class="slideBack" id="slideBack" onclick="closeAddContact()">
-              <img src="./assets/img/close.svg" alt="closeButton" />
-            </div>
-            <div class="inputbox">
-              <input type="name" id="user" class="input personInput" placeholder="Name"/>
-            </div>
-            <div class="inputbox">
-              <input type="email" id="email" class="input mail" placeholder="Email"/>
-            </div>
-            <div class="inputbox">
-              <input type="tel" id="phone" class="input phone" placeholder="Phone"/>
-            </div>
-            <div>
-              <button id="leftButton" class="button buttonEmpty" onclick="closeAddContact()">
-                Cancel <span id="closeX" class="closeX"></span>
-              </button>
-              <button id="registerBtn" class="button buttonFilled buttonFilledResponsiv" onclick="registerContact()">
-                Create contact
-                <img id="checkWhite" src="./assets/img/checkWhite.svg" style="padding-left: 10px" alt="" />
-              </button>
-            </div>
-            <div class="center" id="contactList"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    `
+    fetch('./assets/templates/addContactTemplate.html')
+        .then(response => response.text())
+        .then(html => {
+            document.getElementById('contactSlide').innerHTML = html;
+        })
+        .catch(error => {
+            console.error('Error loading the template:', error);
+        });
 }
+
 
 /**
  * Save changes to the contact information of a user by ID.
@@ -865,3 +826,29 @@ function confirmation() {
         resetForm();
     }, 3000);
 }
+
+/**
+ * Fügt die Klasse 'd-none' zum Element mit der ID 'leftButton' hinzu,
+ * wenn der Bildschirm schmaler als 500px ist und der Text des Buttons "Cancel" ist.
+ */
+function updateButtonVisibility() {
+    const leftButton = document.getElementById('leftButton');
+    const isCancelText = leftButton && leftButton.textContent.trim() === 'Cancel';
+    const isScreenNarrow = window.innerWidth < 500;
+
+    if (leftButton) {
+        if (isCancelText && isScreenNarrow) {
+            leftButton.classList.add('d-none');
+        } else {
+            leftButton.classList.remove('d-none');
+        }
+    } else {
+        console.error('Element with ID "leftButton" not found.');
+    }
+}
+
+// Event Listener für Fenstergrößenänderungen
+window.addEventListener('resize', updateButtonVisibility);
+
+// Initialer Aufruf, um den Zustand bei Laden der Seite zu überprüfen
+updateButtonVisibility();

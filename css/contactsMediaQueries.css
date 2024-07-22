@@ -1,0 +1,311 @@
+@keyframes animate-in {
+    0% {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes animate-out {
+    0% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+  }
+  
+  #list-view li, .contactContainerBig {
+    animation: animate-in linear forwards, animate-out linear forwards;
+    animation-timeline: view();
+    animation-range: entry, exit;
+  }
+  
+  @keyframes contactSlideIn {
+    from {
+        margin-left: 75%;
+    }
+  
+    to {
+        margin-left: 0%;
+    }
+  }
+
+  .addContact {
+    animation-name: addOverlay;
+    animation-duration: 0.5s;
+  }
+  
+  .d-none {
+    display: none;
+  }
+  
+  .closeContact {
+    animation-name: closeContact;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+  }
+  
+  @keyframes closeContact {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(100vw, 0);
+    }
+  }
+  
+  .contactGroup {
+    display: flex;
+  }
+
+.slideInBG {
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: #80808045;
+  }
+  .slideIn {
+    width: max-content;
+    animation: slideIn 2.5s ease-in-out forwards;
+    background-color: #2a3647;
+    border-radius: 20px;
+    position: absolute;
+    padding: 30px;
+    color: #cdcdcd;
+  }
+  
+  @keyframes slideIn {
+    0% {
+      top: 77vh;
+      left: 100vw;
+    }
+  
+    40% {
+      top: 77vh;
+      left: 57vw;
+    }
+    60% {
+      top: 77vh;
+      left: 57vw;
+    }
+    100%{
+      top: 77vh;
+      left: 100vw;
+    }
+  }
+  
+  @media (max-width:1024px){
+    .contactGroup{
+      flex-direction: column;
+    }
+  
+  }
+  @media (max-width:1024px){
+    .closeWhite{
+      content: url('../assets/img/closeWhite.svg');
+    }
+    
+    .left{
+      height: 300px;
+      border-radius: 16px 16px 0px 0px !important;
+    }
+  
+    .left img{
+      display: none;
+    }
+  
+    .middel{
+      display: flex;
+      width: unset;
+      padding: unset;
+      justify-content: center;
+      top: -60px;
+    }
+  
+    .right{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin: -40px 20px 20px 20px;
+      padding-right: unset;
+      align-items: center;
+    }
+    
+    .center{
+      align-self: center;
+    }
+  
+    .buttonFilledResponsiv{
+      font-size: 0;
+          vertical-align: middle;
+          border-radius: 50%;
+          height: 55px;
+          width: 55px;
+          position: absolute;
+          right: 8vmin;
+          bottom: 16vmin;
+    }
+  
+  
+  }
+  
+  @media (max-width:910px){
+    .hidden{
+      display: none;
+    }
+  
+    .blueLineContacts{
+      display: none;
+    }
+    .editDelete{
+      position: absolute;
+      bottom: -16svh;
+      right: 130px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 26px;
+      align-items: flex-start;
+      border-radius: 20px 20px 0px 20px;
+      box-shadow: 4px 4px 5px 4px #0000003d;
+      }
+  
+    .edit{
+        width: 110%;
+      }
+  
+    .edit p{
+        padding-left: 32px;
+      }
+      
+      .mobileD-none{
+        display: none !important;
+      }
+  
+    .contactBox{
+      flex-direction: column;
+      align-items: unset;
+    }
+  
+    .line{
+      width: auto;
+    }
+  
+    .contacts{
+      width: 100vw;
+     }
+  
+    .contactSlideInBox{
+      z-index: 1;
+      height: calc(100vh - 96px);
+      background: #fff;
+      position: relative;
+      top: -37px;
+    }
+  
+    .positionContactBox {
+      left: 24px;
+      top: 14svh
+    }
+  
+    .contactDetailContainer{
+      left: 24px;
+      top: 11svh;
+    }
+    
+    .blueLineContactsHorizontal{
+      background-color: #29abe2;
+      width: 60px;
+      height: 3px;
+      border-radius: 2px;
+    }
+  
+    .backArrow{
+      display: unset;
+      position: fixed;
+      right: 24px;
+      top: 170px;
+      cursor: pointer;
+    }
+    .backArrow img{
+      height: 32px;
+    }
+  
+    @keyframes contactSlideOut {
+      from {
+          margin-left: 75%;
+      }
+      to {
+          margin-left: 0%;
+      }
+    }
+    
+    @keyframes contactSlideIn {
+      from {
+          margin-left: 100%;
+      }
+      to {
+          margin-left: 0%;
+      }
+    }
+    
+    .contactSlideOut {
+      animation: contactSlideOut 1s ease-in-out forwards;
+    }
+    
+    .contactSlideIn {
+      animation: contactSlideIn 1s ease-in-out;
+    }
+  
+    .mobileEdit{
+      display: none;
+      transition: all 175ms ease-in-out;
+      display: flex;
+      position: fixed;
+      right: 24px;
+      bottom: 170px;
+      cursor: pointer;
+      background: #2A3647;
+      border-radius: 50px;
+      width: 60px;
+      height: 60px;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .mobileEdit:hover{
+      background: #29ABE2;
+    }
+  }
+  
+  .subMenu{
+    background-color: #2A3647;
+      width: 150px;
+      border-radius: 20px 0px 20px 20px;
+      position: absolute;
+      top: 0px;
+      right: 20px;
+      box-shadow: 0px 0px 4px 0px #0000001A;
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+      z-index: 50;
+  }
+  
+  
+  @media (max-width:500px){
+    .contactSlide{
+      width: 100%;
+    }
+  
+    .padding{
+      padding: 0;
+    }
+  }

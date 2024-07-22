@@ -1,0 +1,39 @@
+<!-- ./assets/templates/addContactTemplate.html -->
+<div class="contactGroup">
+    <div class="left" id="formTitle">
+      <img src="./assets/img/favicon_light.svg" alt="" />
+      <h1 id="">Add contact</h1>
+      <h2>Tasks are better with a team!</h2>
+      <div class="blueLineAddContacts"></div>
+    </div>
+    <div class="middel" id="middel">
+      <div class="image-container ellipse">
+        <img id="ellipse" src="./assets/img/personWhite.svg" />
+      </div>
+    <div class="right" id="">
+      <div class="slideBack" id="slideBack" onclick="closeAddContact()">
+        <img src="./assets/img/close.svg" alt="closeButton" />
+      </div>
+      <div class="inputbox">
+        <input type="name" id="user" class="input personInput" placeholder="Name"/>
+      </div>
+      <div class="inputbox">
+        <input type="email" id="email" class="input mail" placeholder="Email"/>
+      </div>
+      <div class="inputbox">
+        <input type="tel" id="phone" class="input phone" placeholder="Phone"/>
+      </div>
+      <div>
+        <button id="leftButton" class="button buttonEmpty" onclick="closeAddContact()">
+          Cancel <span id="closeX" class="closeX"></span>
+        </button>
+        <button id="registerBtn" class="button buttonFilled buttonFilledResponsiv" onclick="registerContact()">
+          Create contact
+          <img id="checkWhite" src="./assets/img/checkWhite.svg" style="padding-left: 10px" alt="" />
+        </button>
+      </div>
+      <div class="center" id="contactList"></div>
+    </div>
+  </div>
+  </div>
+  
