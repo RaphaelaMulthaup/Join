@@ -16,7 +16,6 @@
   }
 }
     
-    /* @media (max-width: 700px) { */
     @media (max-width: 600px) {
     
       .inputbox{
@@ -26,23 +25,16 @@
       .signUp{
         transition: right 0.75s ease, top 0.75s ease, font-size 0.75s ease;
         top: 80svh;
-        /*text-align: center;
-        font-size: x-large;*/
       }
     
       .buttonOnIndexToSignUp{
         border-radius: 8px;
-        /*padding: 16px 20px 16px 20px;*/
         font-weight: bold;
         text-align: center;
       }
     }
     
     @media (max-width: 550px){
-    
-      /* .back-arrow{
-        left: 10%;
-      } */
     
       .inputbox{
         height: 48px;
@@ -60,9 +52,6 @@
       .buttonsLogIn button{
         width: 177px;
       }
-      /*.sectionPageOneLogInSignUp {
-        min-height: 73svh;
-    }*/
     
       footer{
         position: absolute;
@@ -76,21 +65,5 @@
     @media (max-width: 350px){
       .signUp{
         gap: 10px;
-      }
-    }
-    
-    /* @media (max-width: 440px) {
-    
-    @media only screen and (max-width: 1024px)  {
-    
-      .logo{
-        height: 100px;
-      }
-      .button{
-        padding: 13px 50px 13px 50px;
-      }
-    
-      .back-arrow{
-        left: 25px;
       }
     }

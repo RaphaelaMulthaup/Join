@@ -309,3 +309,9 @@
       padding: 0;
     }
   }
+
+@media (max-height:840px){
+  .left{
+    height: unset;
+  }
+}

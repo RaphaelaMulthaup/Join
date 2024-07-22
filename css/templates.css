@@ -82,19 +82,12 @@
     color: #A8A8A8;
 }
 
-/*.menuItemseLegally a:hover {
-    color: #29ABE2;
-    font-weight: 700;
-    cursor: pointer;
-}*/
-
 /*header*/
 
 header {
     height: 96px;
     padding: 20px 40px 20px 48px;
     width: calc(100vw - 232px);
-    /* width: calc(100vw - 240px); */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -112,8 +105,6 @@ header {
 
 header h4 {
     font-size: 20px;
-    /* height: 24px; änderung vom 21.6.
-    Falls es etwas kaputt macht bitte rückmelden*/ 
     font-weight: 400;
 }
 
@@ -385,10 +376,6 @@ header h4 {
         background: #091931;
     }
 
-    /* .headlineAreaInformations{
-        max-width: 100vw;
-    }
-*/
     .informations{
         width: 100vw;
     }
