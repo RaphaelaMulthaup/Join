@@ -270,7 +270,7 @@ function updateUserContent(content, user) {
                     <div class="edit" id="edit" onclick="editContactSlide(${user.id}, '${user.color}', '${user.initials}', '${user.name}', '${user.email}', '${user.phone}')">
                         <a class="edit" alt=""><p>Edit</p></a>
                     </div>
-                    <div class="delete" id="delete" onclick="deleteUserAndReassignIds(${user.id})">
+                    <div class="edit" id="delete" onclick="deleteUserAndReassignIds(${user.id})">
                         <a class="edit" alt=""><p>Delete</p></a>
                     </div>
                 </div>
@@ -666,8 +666,8 @@ function resetForm() {
     clearValue('email');
     clearValue('phone');
     setHTML('middel', `
-        <img class="ellipse" id="ellipse" src="./assets/img/ellipse.svg" alt="" />
-        <img class="person" id="person" src="./assets/img/personWhite.svg" alt="" />`
+              <div class="image-container ellipse">
+              <img id="ellipse" src="./assets/img/personWhite.svg" alt="" />`
     );
 }
 
@@ -680,7 +680,7 @@ function closeAddContact() {
     setTimeout(() => {
         document.getElementById('contactSlideBG').classList.add('d-none');
         resetForm();
-    }, 1000);
+    }, 500);
 }
 
 /**
@@ -710,9 +710,10 @@ function editContactForm(id, color, initials, name, email, phone) {
     document.getElementById('registerBtn').innerHTML = `
         Save<img src='./assets/img/checkWhite.svg' style='padding-left: 10px'>`;
     document.getElementById('leftButton').innerText = "Delete";
-    document.getElementById('middel').innerHTML = `
-        <section class="ellipse" id="circle${id}" style="background-color: ${color};">
-        <div class="person initialBig">${initials}</div>`;
+    document.getElementById('middel').innerHTML = /*html*/`
+        <section class="ellipse border-radius" id="circle${id}" style="background-color: ${color};">
+        <div class="person initialBig">${initials}</div>
+        `;
     document.getElementById('user').value = name;
     document.getElementById('email').value = email;
     document.getElementById('phone').value = phone;
@@ -751,10 +752,10 @@ function addContactTemplate() {
             <h2>Tasks are better with a team!</h2>
             <div class="blueLineAddContacts"></div>
           </div>
-          <div class="middel" id="">
-            <img class="ellipse" id="ellipse" src="./assets/img/ellipse.svg" alt="" />
-            <img class="person" id="person" src="./assets/img/personWhite.svg" alt="" />
-          </div>
+          <div class="middel" id="middel">
+            <div class="image-container ellipse">
+              <img id="ellipse" src="./assets/img/personWhite.svg" />
+            </div>
           <div class="right" id="">
             <div class="slideBack" id="slideBack" onclick="closeAddContact()">
               <img src="./assets/img/close.svg" alt="closeButton" />
@@ -768,16 +769,16 @@ function addContactTemplate() {
             <div class="inputbox">
               <input type="tel" id="phone" class="input phone" placeholder="Phone"/>
             </div>
-            <div class="center">
+            <div>
               <button id="leftButton" class="button buttonEmpty" onclick="closeAddContact()">
                 Cancel <span id="closeX" class="closeX"></span>
               </button>
-              <button id="registerBtn" class="button buttonFilled" onclick="registerContact()">
+              <button id="registerBtn" class="button buttonFilled buttonFilledResponsiv" onclick="registerContact()">
                 Create contact
                 <img id="checkWhite" src="./assets/img/checkWhite.svg" style="padding-left: 10px" alt="" />
               </button>
             </div>
-            <div class="" id="contactList"></div>
+            <div class="center" id="contactList"></div>
           </div>
         </div>
       </div>

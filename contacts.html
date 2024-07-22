@@ -26,21 +26,23 @@
             <div class="blueLineAddContacts"></div>
           </div>
           <div class="middel" id="middel">
-            <img class="ellipse" id="ellipse" src="./assets/img/ellipse.svg" alt="" />
-            <img class="person" id="person" src="./assets/img/personWhite.svg" alt="" />
+            <div class="image-container ellipse">
+              <img id="ellipse" src="./assets/img/personWhite.svg" />
+            </div>
           </div>
+          
           <div class="right" id="right">
             <div class="slideBack" id="slideBack" onclick="closeAddContact()">
               <img src="./assets/img/close.svg" alt="closeButton" />
             </div>
             <div class="inputbox">
-              <input type="name" id="user" class="input personInput" placeholder="Name"/>
+              <input type="name" id="user" class="input personInput padding" placeholder="Name"/>
             </div>
             <div class="inputbox">
-              <input type="email" id="email" class="input mail" placeholder="Email"/>
+              <input type="email" id="email" class="input mail padding" placeholder="Email"/>
             </div>
             <div class="inputbox">
-              <input type="tel" id="phone" class="input phone" placeholder="Phone"/>
+              <input type="tel" id="phone" class="input phone padding" placeholder="Phone"/>
             </div>
             <div>
               <button id="leftButton" class="button buttonEmpty" onclick="closeAddContact()">

@@ -57,13 +57,13 @@
   animation-fill-mode: forwards;
 }
 
-.userContainer{
+/* .userContainer{
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   min-width: 0;
 
-}
+} */
 
 .circle {
   flex-shrink: 0;
@@ -167,23 +167,30 @@
   padding: 0;
 }
 
-.middel img {
-  position: absolute;
-  top: 40%;
+.middel {
+  position: relative;
 }
+
+.image-container {
+  border-radius: 50%;
+    background-color: #cdcdcd;
+    padding: 26px;
+  }
 
 .ellipse {
-  border-style: double;
-  border-radius: 103px;
-  border-width: 5px;
-  border-color: #d1d1d1;
+    border: solid 3px white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3), 0px 8px 15px rgba(0, 0, 0, 0.2);/* Versatz x, Versatz y, Unschärferadius, Farbe */
+  }
+  
+.border-radius{
+  border-radius: 50%;
 }
-
 .person {
-  height: 14% !important;
   margin: 30px;
   color: white;
   font-size: xx-large;
+  text-align: center;
+  width: 50px;
 }
 
 .right {
@@ -410,7 +417,7 @@ input:valid ~ label {
 .editDelete {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 16px;
 }
 
 .edit{
@@ -425,7 +432,7 @@ input:valid ~ label {
 }
 
 .edit p {
-  padding-left: 24px;
+  padding-left: 34px;
 }
 
 .edit p:hover{
@@ -433,7 +440,6 @@ input:valid ~ label {
 }
 
 .delete{
-  /* margin: 12px; */
   background-size: contain;  
   background-repeat: no-repeat;
   background-image: url(../assets/img/delete.svg);
@@ -488,25 +494,62 @@ input:valid ~ label {
   }
 }
 
-.overlayBackground{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 @media (max-width:1024px){
   .contactGroup{
     flex-direction: column;
   }
 
-  .contactSlide{
+  /* .contactSlide{
     top: 0;
-  }
+  } */
 }
 @media (max-width:1024px){
-  .positionContactBox{
-    width: min-content;
+  .slideBack{
+    content: url('./assets/img/closeWhite.svg');
   }
   
+  .left{
+    height: 300px;
+    border-radius: 16px 16px 0px 0px !important;
+  }
+
+  .left img{
+    display: none;
+  }
+
+  .middel{
+    display: flex;
+    width: unset;
+    padding: unset;
+    justify-content: center;
+    top: -60px;
+  }
+
+  .right{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: -40px 20px 20px 20px;
+    padding-right: unset;
+    align-items: center;
+  }
+  
+  .center{
+    align-self: center;
+  }
+
+  .buttonFilledResponsiv{
+    font-size: 0;
+        vertical-align: middle;
+        border-radius: 50%;
+        height: 55px;
+        width: 55px;
+        position: absolute;
+        right: 8vmin;
+        bottom: 16vmin;
+  }
+
+
 }
 
 @media (max-width:910px){
@@ -530,7 +573,11 @@ input:valid ~ label {
     box-shadow: 4px 4px 5px 4px #0000003d;
     }
 
-    .edit p{
+  .edit{
+      width: 110%;
+    }
+
+  .edit p{
       padding-left: 32px;
     }
     
@@ -543,7 +590,7 @@ input:valid ~ label {
     align-items: unset;
   }
 
-  .buttonFilled{
+  /* .buttonFilled{
     font-size: 0;
     vertical-align: middle;
     border-radius: 50%;
@@ -552,7 +599,7 @@ input:valid ~ label {
     position: absolute;
     right: 8vmin;
     bottom: 16vmin;
-  }
+  } */
 
   .line{
     width: auto;
@@ -644,26 +691,27 @@ input:valid ~ label {
   .mobileEdit:hover{
     background: #29ABE2;
   }
-
+/* 
   .middel{
     display: flex;
+    width: unset;
+    padding: unset;
     justify-content: center;
     position: relative;
-    top: -58px;
-    width: 0;
-    padding: 0;
+    top: -60px;
   }
 
   .right{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: -40px 40px 20px 20px;
+    margin: -40px 20px 20px 20px;
+    padding-right: unset;
   }
   
   .center{
     align-self: center;
-  }
+  } */
 
 }
 
@@ -682,9 +730,13 @@ input:valid ~ label {
 }
 
 
-@media (max-width:435px){
-  .buttonFilled{
-    bottom: 186px;
+@media (max-width:500px){
+  .contactSlide{
+    width: 100%;
+  }
+
+  .padding{
+    padding: 0;
   }
 }
 
