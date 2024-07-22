@@ -28,7 +28,8 @@ async function logIn(){
     let user = users.find( u => u.email == email.value && u.password == password.value)
     if(user) {
         console.log ('User gefunden')
-        currentUser = user; 
+        currentUser = user;
+        await putData('initialsHeader', currentUser.initials);
         await saveCurrentUser();
         window.location.href = 'summary.html';
     } else {
@@ -73,5 +74,6 @@ function fillInValues() {
 async function resetCurrentUser(){
     await putData('currentUser');
     await putData('checkboxValue', false);
+    await putData('initialsHeader', 'G');
     window.location.href = 'summary.html';
 }

@@ -103,10 +103,19 @@ function checkIfUserExists(users, username, email) {
  * @param {string} password - The password to add.
  */
 function addUser(users, username, email, password) {
+    let initials;
+    const [firstName, lastName] = username.split(" ").map(name => name.charAt(0).toUpperCase());
+            if (lastName !== undefined) {
+                initials = firstName + lastName;
+            } else{
+                initials = firstName;
+            }
+
     users.push({
         name: username,
         email: email,
-        password: password
+        password: password,
+        initials: initials
     });
 }
 

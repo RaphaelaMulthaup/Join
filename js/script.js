@@ -3,6 +3,7 @@
 let menuItems = ['menuItemSummary', 'menuItemAddTask', 'menuItemBoard', 'menuItemContacts']
 let subMenuOpen = false;
 let tasks = [];
+let initialsHeader;
 
 
 /**
@@ -21,6 +22,11 @@ async function loadPage(id) {
     document.querySelectorAll('.bodyMainpages').forEach(element => {
         element.style.display = 'flex';
     });
+    let locationForInitalsheader =  document.getElementById('initialsHeader');
+    if (locationForInitalsheader) {
+        let initialsHeaderFormDatabase = await loadData('initialsHeader');
+        locationForInitalsheader.innerHTML = initialsHeaderFormDatabase;
+    }
 }
 
 /**

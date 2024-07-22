@@ -13,11 +13,11 @@
   /*description*/
   #addTaskDescription {
     padding-top: 18px;
-    background-image: url("../assets/img/resize.svg"); /* Pfad zur benutzerdefinierten Grafik */
+    background-image: url("../assets/img/resize.svg");
     background-repeat: no-repeat;
-    background-position: calc(100% - 6.1px) calc(100% - 6.1px); /* Position der benutzerdefinierten Grafik */
-    padding-bottom: 25.1px; /* Platz für die benutzerdefinierte Grafik (19px + 6.1px Abstand) */
-    padding-right: 25.1px; /* Platz für die benutzerdefinierte Grafik (19px + 6.1px Abstand) */
+    background-position: calc(100% - 6.1px) calc(100% - 6.1px);
+    padding-bottom: 25.1px;
+    padding-right: 25.1px;
     height: 120px;
     font-size: 20px;
   }
@@ -82,11 +82,11 @@
   
   .dropdownContactsHidden {
     transform: scaleY(0);
-    --transition-duration: 300ms; /* Standarddauer, wenn die Klasse hidden hinzugefügt wird */
+    --transition-duration: 300ms;
   }
   
   :not(.dropdownContactsHidden)#dropdownContacts {
-    --transition-duration: 100ms; /* Dauer, wenn die Klasse hidden entfernt wird */
+    --transition-duration: 100ms;
   }
   
   .dropdown-content > label {
@@ -156,12 +156,12 @@
   }
   
   #addTaskDueDate::-webkit-calendar-picker-indicator {
-    background-image: url("../assets/img/calender.svg"); /* Pfad zur benutzerdefinierten Icon-Grafik */
-    background-size: 24px 24px; /* Größe des Hintergrundbildes anpassen */
-    background-repeat: no-repeat; /* Hintergrundwiederholung ausschalten */
+    background-image: url("../assets/img/calender.svg");
+    background-size: 24px 24px;
+    background-repeat: no-repeat;
     background-position: center;
-    cursor: pointer; /* Mauszeiger auf Zeiger festlegen, um Interaktivität anzuzeigen */
-    opacity: 1; /* Standardwert für den Firefox */
+    cursor: pointer;
+    opacity: 1;
   }
   
   /*prio*/
@@ -281,10 +281,6 @@
     flex: 1;
   }
   
-  /* .subtasksAddTask {
-    max-height: 120px;
-  } */
-  
   #subtasks li {
     padding-left: 24px;
     margin-top: 8px;
@@ -305,8 +301,8 @@
   }
   
   #subtasks li::before {
-    content: "\2022"; /* Punkt (•) als Inhalt hinzufügen */
-    margin-right: 8px; /* Abstand zwischen dem Punkt und dem Text */
+    content: "\2022";
+    margin-right: 8px;
   }
   
   #subtasks li span {

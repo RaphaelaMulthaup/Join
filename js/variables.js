@@ -1,2 +1,2 @@
 let users = [];
-let currentUser = []; 
+let currentUser = [];
