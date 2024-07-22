@@ -146,14 +146,43 @@
 
   .mainMainpagesAddTask {
     margin-bottom: 48px;
-    padding-left: 8vmin;
+    padding-left: 16px;
     padding-right: 16px;
-    padding-top: 61px;
+    padding-top: 56px;
     overflow-x: auto;
   }
 
   .lowerAreaAddTaskNecessity {
     width: fit-content;
+  }
+}
+
+@media (max-width: 1230px) {
+  .verticalLineAddTask{
+    display: none;
+  }
+
+  .inputTagsAddTask{
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .widthFormElementsAddTask{
+    width: 74vw;
+  }
+
+  .lowerAreaAddTask{
+    padding: 32px 24px 0 24px;
+    align-items: center;
+  }
+
+  .mainMainpagesAddTask{
+    max-height: unset;
+  }
+  .lowerAreaAddTaskNecessity{
+    transition: all;
+    justify-content: center;
   }
 }
 
@@ -171,6 +200,10 @@
   .addTaskPrioButtons {
     justify-content: center;
     flex-wrap: wrap;
+  }
+
+  .leftButton{
+    display: none !important;
   }
 }
 

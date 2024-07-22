@@ -281,9 +281,9 @@
     flex: 1;
   }
   
-  .subtasksAddTask {
+  /* .subtasksAddTask {
     max-height: 120px;
-  }
+  } */
   
   #subtasks li {
     padding-left: 24px;
@@ -339,4 +339,14 @@
   .imgEdit {
     width: 18.28px;
     height: 18.25px;
+  }
+
+@media (max-width:1230px){
+      .addTaskFormRight{
+      height: unset;
+    }
+    
+    .formAddTask{
+      padding-bottom: 50px;
+    }
   }
