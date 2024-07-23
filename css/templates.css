@@ -302,6 +302,7 @@ header h4 {
     position: fixed;
     transition: all 175ms ease-in-out;
     bottom: -10vh;
+    z-index: 100;
 }
 
 @media (max-width: 1170px){
@@ -312,6 +313,7 @@ header h4 {
 
     .informationsTemplate{
         top: 80px;
+        height: calc(100vh - 152px);
     }
 
     .logoMenuResponsive{
@@ -352,7 +354,7 @@ header h4 {
         justify-content: space-around;
         position: fixed;
         bottom: 0px;
-        z-index: 10;
+        /*z-index: 10;*/
     }
 
     .mobileDiv{

@@ -25,6 +25,10 @@
     } 
 
     @media(max-width: 1170px){
+        .mainBoard{
+            height: calc(100vh - 152px);
+        }
+
         .headlineStatusTasks{
             width: auto;
             gap: 16px;
