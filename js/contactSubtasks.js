@@ -131,7 +131,7 @@ function addContactTemplate() {
             document.getElementById('contactSlide').innerHTML = html;
         })
         .catch(error => {
-            console.error('Error loading the template:', error);
+            //console.error('Error loading the template:', error);
         });
 }
 
@@ -142,13 +142,13 @@ function addContactTemplate() {
 function saveContactChange(id) {
     const user = findUserById(id);
     if (!user) {
-        console.error('User not found with id:', id);
+        //console.error('User not found with id:', id);
         return;
     }
 
     const updatedData = getUpdatedFormData();
     if (!validateEditUser(updatedData)) {
-        console.error('Validation failed for updated user data');
+        //console.error('Validation failed for updated user data');
         return;
     }
 
@@ -198,7 +198,7 @@ function updateUserDetails(user, updatedData) {
 function finalizeUpdate(user) {
     updateUserContent(getContentElement(), user);
     putData("/users", users);
-    console.log('User updated successfully and uploaded :)', user);
+    //console.log('User updated successfully and uploaded :)', user);
     renderContactList(users);
     closeAddContact();
 }
@@ -230,7 +230,7 @@ function updateButtonVisibility() {
             leftButton.classList.remove('d-none');
         }
     } else {
-        console.error('Element with ID "leftButton" not found.');
+        //console.error('Element with ID "leftButton" not found.');
     }
 }
 
@@ -263,7 +263,7 @@ function slideOut() {
         backArrow.classList.remove('hidden');
         contactSlideIn.classList.remove('hidden');
     } else {
-        console.error('Element(s) not found in slideOut function.');
+        //console.error('Element(s) not found in slideOut function.');
     }
 }
 
@@ -280,7 +280,7 @@ function slideIn() {
         backArrow.classList.add('hidden');
         contactSlideOut.classList.add('hidden');
     } else {
-        console.error('Element(s) not found in slideIn function.');
+        //console.error('Element(s) not found in slideIn function.');
     }
 }
 

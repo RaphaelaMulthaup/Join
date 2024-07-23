@@ -27,13 +27,13 @@ async function logIn(){
     let alertPw = document.getElementById('alert');
     let user = users.find( u => u.email == email.value && u.password == password.value)
     if(user) {
-        console.log ('User gefunden')
+        //console.log ('User gefunden')
         currentUser = user;
         await putData('initialsHeader', currentUser.initials);
         await saveCurrentUser();
         window.location.href = 'summary.html';
     } else {
-        console.log ('User nicht gefunden')
+        //console.log ('User nicht gefunden')
         password.parentElement.style.border = '2px solid #FE818F';
         alertPw.innerHTML =` <span>Wrong password Ups! Try again.</span>`;
     }
@@ -46,7 +46,7 @@ async function saveCurrentUser(){
     var checkboxValue = rememberMe();
     await putData("/currentUser",currentUser);
     await putData('/checkboxValue', checkboxValue);
-    console.log ('Hochgesendete Daten', currentUser, 'checkbox-Wert', checkboxValue);
+    //console.log ('Hochgesendete Daten', currentUser, 'checkbox-Wert', checkboxValue);
 }
 
 /**

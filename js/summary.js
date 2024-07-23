@@ -16,7 +16,7 @@ async function loadusers(){
         document.getElementById('currentUser').innerText = currentUser.name;
     }
     } catch (e){
-        console.error('Loading error:' , e);
+        //console.error('Loading error:' , e);
     }
 }
 

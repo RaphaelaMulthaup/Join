@@ -9,7 +9,7 @@ async function init() {
         abcOrder(users);
         await renderContactList(users);
     } else {
-        console.error("Fehler beim Laden der Benutzerdaten.");
+        //console.error("Fehler beim Laden der Benutzerdaten.");
     }
 }
 
@@ -23,7 +23,7 @@ async function loadusers() {
         users = await addInitialsToUsersAndSave(users);
         return users;
     } catch (error) {
-        console.error("Fehler beim Laden der Benutzerdaten:", error);
+        //console.error("Fehler beim Laden der Benutzerdaten:", error);
         return [];
     }
 }
@@ -58,7 +58,7 @@ async function renderContactList(users) {
 
     indexLetterOnly.forEach(letter => {
         loadFirstLetter(letter);
-        console.log('indexletter', letter);
+        //console.log('indexletter', letter);
         loadContactIndex(letter, users);
     });
 }
@@ -78,7 +78,7 @@ function loadContactIndex(letter, users) {
             }
         }
     } else {
-        console.error('Users is not an array or is undefined:', users);
+        //console.error('Users is not an array or is undefined:', users);
     }
 }
 
@@ -124,7 +124,7 @@ function renderContactContainer(user) {
 
     // Use user.id instead of user.index
     if (typeof user.id === 'undefined') {
-        console.error('user.id is undefined');
+        //console.error('user.id is undefined');
         return;
     }
 
@@ -150,7 +150,7 @@ function renderContactContainer(user) {
  * @returns {void}
  */
 function openContact(id) {
-    console.log('openContact called with id:', id);
+    //console.log('openContact called with id:', id);
 
     const user = findUserById(id);
     if (!validateUser(user)) {
@@ -173,7 +173,7 @@ function openContact(id) {
  */
 function findUserById(id) {
     const user = users.find(user => user.id === id);
-    console.log('User object in findUserById:', user);
+    //console.log('User object in findUserById:', user);
     return user;
 }
 
@@ -186,7 +186,7 @@ function findUserById(id) {
  */
 function validateUser(user) {
     if (!user || !user.initials || !user.name || !user.id) {
-        console.error('Invalid user object:', user);
+        //console.error('Invalid user object:', user);
         return false;
     }
     return true;
@@ -201,7 +201,7 @@ function validateUser(user) {
 function getContentElement() {
     const content = document.getElementById('contactDetailContainer');
     if (!content) {
-        console.error('Element with id "contactDetailContainer" not found');
+        //console.error('Element with id "contactDetailContainer" not found');
         return null;
     }
     return content;
@@ -256,7 +256,7 @@ async function registerContact() {
 async function finalizeRegistration(users) {
     registerBtn.disabled = false;
     closeAddContact();
-    console.log('geladene Benutzer', users);
+    //console.log('geladene Benutzer', users);
     await renderContactList(users);
 }
 
@@ -340,7 +340,7 @@ async function addUser(users, newUser) {
     await addInitialsToUsersAndSave(users);
     await randomBackgroundColor(users)
     await putData("/users", users);
-    console.log('Hochgesendete Daten', users);
+    //console.log('Hochgesendete Daten', users);
     closeAddContact();
     await renderContactList(users);
     confirmation();
@@ -361,7 +361,7 @@ async function deleteUserAndReassignIds(userId) {
     
     if (userIndex !== -1) {
         let nameDeletdUser = users[userIndex].name;
-        console.log('gelöschter Benutzer', user);
+        //console.log('gelöschter Benutzer', user);
         users.splice(userIndex, 1);
 
         await deleteDeletedUserInTasks(nameDeletdUser);
@@ -369,11 +369,11 @@ async function deleteUserAndReassignIds(userId) {
       users.forEach((user, index) => {
         user.id = index + 1;
       });
-      console.log(users);
+      //console.log(users);
       closeAddContact();
       await putData('/users', users);
       await renderContactList(users);
     } else {
-        console.log(`User with ID ${userId} not found.`);
+        //console.log(`User with ID ${userId} not found.`);
     }
   }

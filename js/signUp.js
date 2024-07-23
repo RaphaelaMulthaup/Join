@@ -18,7 +18,7 @@ async function loadusers(){
     try {
         users = await loadData("users");
     } catch (e){
-        console.error('Loading error:' , e);
+        //console.error('Loading error:' , e);
     }
 }
 
@@ -45,7 +45,7 @@ async function register() {
 
     addUser(users, user.value, email.value, password);
     await putData("/users", users);
-    console.log('Hochgesendete Daten', users);
+    //console.log('Hochgesendete Daten', users);
     
     resetForm();
     setTimeout(() => { redirectToHome();
