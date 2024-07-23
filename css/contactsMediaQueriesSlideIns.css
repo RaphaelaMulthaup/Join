@@ -212,7 +212,6 @@
   
     .positionContactBox {
       left: 24px;
-      top: 14svh
     }
   
     .contactDetailContainer{
@@ -308,10 +307,33 @@
     .padding{
       padding: 0;
     }
+
+    .addButton {
+      width: 70%;
+    }
+
+    .contactDetailContainer{
+      position: absolute;
+      top: 110px;
+      width: 72%;
+    }
   }
 
 @media (max-height:840px){
   .left{
     height: unset;
   }
+}
+
+
+@media (max-height: 800px){
+  .editDelete{
+      bottom: 45px;
+      right: -40px;
+  }
+
+  .mobileEdit{
+    right: 25px;
+    bottom: 100px;
+   }
 }

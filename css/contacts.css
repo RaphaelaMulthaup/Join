@@ -379,7 +379,7 @@ input:valid ~ label {
 }
 
 .delete p {
-  padding-left: 24px;
+  padding-left: 32px;
 }
 .delete p:hover{
 

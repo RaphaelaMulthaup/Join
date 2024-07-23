@@ -12,7 +12,7 @@
   .formBoxLogIn{
     height: 493px;
     width: -webkit-fill-available;
-    margin: 20px;
+    margin: 100px 20px 82px 20px;
   }
 }
     
@@ -24,7 +24,7 @@
     
       .signUp{
         transition: right 0.75s ease, top 0.75s ease, font-size 0.75s ease;
-        top: 80svh;
+        top: 84svh;
       }
     
       .buttonOnIndexToSignUp{
@@ -65,5 +65,47 @@
     @media (max-width: 350px){
       .signUp{
         gap: 10px;
+      }
+    }
+
+    @media (max-height: 850px){
+      .form-valueSignUp{
+        height:  calc(273px - 0px - 0px);
+      }
+
+      .formBoxSignUp{
+        /* height: 350px; */
+        height: calc(551px - 140px - 0px);
+
+        margin: 120px 0px 0px 0px;
+        overflow: scroll;
+      }
+    }
+
+    @media (max-height: 680px){
+      .h1PageOneLogInSignUp {
+        margin-top: unset;
+        margin-bottom: unset;
+      }
+
+      .formBoxLogIn{
+        height: unset;
+        overflow-x: scroll;
+      }
+
+      .form-value{
+        height:  calc(273px - 0px - 0px);
+      }
+
+      /* .form-valueSignUp{
+        height: calc(551px - 140px - 0px);
+      } */
+
+      .sectionPageOneLogInSignUp{
+        align-items: unset;
+      }
+
+      .formBoxSignUp{
+        height: calc(480px - 100px - 0px);;
       }
     }

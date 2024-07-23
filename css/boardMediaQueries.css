@@ -86,10 +86,6 @@
         padding-right: 28px;
     }
 
-    /* .lowerAreaAddTaskButtons{
-        padding-left: clamp(2vmin, 5vw, 62vmin);
-    } */
-
     .scroll-container {
         height: 90%;
         overflow-y: auto;
