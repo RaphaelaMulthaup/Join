@@ -108,7 +108,7 @@
 
     .contactInput{
       height: calc(100% - 105px);
-      padding-bottom: 16px;
+      padding-bottom: 40px;
     }
   }
   
@@ -176,7 +176,8 @@
       display: none;
     }
     .editDelete{
-      position: absolute;
+      /* position: absolute; */
+      /* position: sticky; */
       bottom: -16svh;
       right: 130px;
       padding: 28px;
@@ -196,9 +197,9 @@
         padding-left: 32px;
       }
       
-      .mobileD-none{
-        display: none !important;
-      }
+    .mobileD-none{
+      display: none !important;
+    }
   
     .contactBox{
       flex-direction: column;
@@ -213,6 +214,11 @@
       width: 100vw;
      }
   
+     .userContainerBig, .userContactBig{
+        margin: unset;
+        padding: unset;
+     }
+
     .contactSlideInBox{
       z-index: 1;
       height: calc(100vh - 96px);
@@ -315,24 +321,37 @@
       width: 100%;
     }
   
-    .padding{
+    .padding, .contactInput{
       padding: 0;
     }
 
     .addButton {
       width: 70%;
+      height: auto;
     }
 
     .contactDetailContainer{
-      position: absolute;
-      top: 110px;
-      width: 72%;
+      position: unset;
+    }
+
+    .contactSlide{
+      top: unset;
+    }
+    .userContactBig h6, .userContactBig P, .right{
+      margin: unset;
+    }
+
+    .right{
+      position: relative;
+      top: -80px;
     }
   }
 
 @media (max-height:840px){
   .left{
-    height: unset;
+    height: 150px;
+    font-size: unset;
+    padding: 0;
   }
 }
 
@@ -341,10 +360,21 @@
   .editDelete{
       bottom: 45px;
       right: -40px;
+      padding: 8px 20px 8px 8px;
   }
 
   .mobileEdit{
     right: 25px;
     bottom: 100px;
+   }
+
+   .nameBig{
+    font-size: unset;
+   }
+
+   .inputbox{
+    margin: 0;
+    width: 94%;
+    height: unset;
    }
 }

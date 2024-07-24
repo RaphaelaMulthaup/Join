@@ -24,7 +24,7 @@
     
       .signUp{
         transition: right 0.75s ease, top 0.75s ease, font-size 0.75s ease;
-        top: 84svh;
+        top: 82svh;
       }
     
       .buttonOnIndexToSignUp{
@@ -70,11 +70,10 @@
 
     @media (max-height: 850px){
       .form-valueSignUp{
-        height:  calc(273px - 0px - 0px);
+        height: unset;
       }
 
       .formBoxSignUp{
-        /* height: 350px; */
         height: calc(551px - 140px - 0px);
 
         margin: 120px 0px 0px 0px;
@@ -93,13 +92,17 @@
         overflow-x: scroll;
       }
 
-      .form-value{
-        height:  calc(273px - 0px - 0px);
+      .checkboxTextLogIn, .checkboxText, .position{
+        margin: 0;
       }
 
-      /* .form-valueSignUp{
-        height: calc(551px - 140px - 0px);
-      } */
+      .formLogIn, .formSignUp{
+        gap: 20px;
+      }
+
+      .h1PageOneLogInSignUp::after{
+        margin: auto;
+      }
 
       .sectionPageOneLogInSignUp{
         align-items: unset;
@@ -107,5 +110,6 @@
 
       .formBoxSignUp{
         height: calc(480px - 100px - 0px);;
+        height: 420px;
       }
     }

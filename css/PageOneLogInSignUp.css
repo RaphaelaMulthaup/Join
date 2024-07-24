@@ -171,8 +171,9 @@ input:valid ~ label {
 }
 
 .visibility-icon img {
-  position: absolute;
-  margin: 10px 0px 0px -20px;
+  position: relative;
+  top: 15px;
+  right: 34px;
   opacity: 0;
 }
 
@@ -329,6 +330,7 @@ footer {
 .position {
   display: flex;
   flex-direction: column;
+  align-items: stretch;
   margin-bottom: 48px;
 }
 
@@ -336,9 +338,9 @@ footer {
   align-items: center;
 }
 
-.positionLogIn {
+/* .positionLogIn {
   margin-left: 39px;
-}
+} */
 
 #submitButton {
   width: 126px;
