@@ -362,3 +362,7 @@ function selectCategory(selection){
     errorMessageElement.style.visibility = 'hidden';
     button.classList.remove("borderRed");
 }
+
+function clearAddTask(){
+ document.getElementById('addTaskTitle').value = '';
+}

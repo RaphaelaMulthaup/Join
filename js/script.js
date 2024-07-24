@@ -88,8 +88,29 @@ function changeMenuItemToDefault(menuItem){
 
 /**
  * This function opens and closes the sub menu. Beforehand, it is checked whether something else is open or activated that should be closed beforehand.
+ * 
+ * @param {html element} circleInitials the circle with the initials in the header
  */
 function openAndCloseSubMenu(circleInitials){
+    closeEverythingAtAddTask(circleInitials);
+
+    let bodyBoard = circleInitials.closest('#bodyBoard');
+    if (bodyBoard) {
+        if (findTaskFocus) {
+            findTaskDefault();
+        }
+    }
+
+    document.getElementById('subMenu').classList.toggle('dNone');
+    subMenuOpen =!subMenuOpen;
+}
+
+/**
+ * This function checks whether we are on the add task page. If this is the case it is checked whether something else is open or activated on add task, that should be closed.
+ * 
+ * @param {html element} circleInitials the circle with the initials in the header
+ */
+function closeEverythingAtAddTask(circleInitials){
     let bodyAddTask = circleInitials.closest('#bodyAddTask');
     if (bodyAddTask) {
         if (buttonSelectContactClicked) {
@@ -103,16 +124,6 @@ function openAndCloseSubMenu(circleInitials){
         }
         searchSubtaskInEditing(); 
     }
-
-    let bodyBoard = circleInitials.closest('#bodyBoard');
-    if (bodyBoard) {
-        if (findTaskFocus) {
-            findTaskDefault();
-        }
-    }
-
-    document.getElementById('subMenu').classList.toggle('dNone');
-    subMenuOpen =!subMenuOpen;
 }
 
 /**
