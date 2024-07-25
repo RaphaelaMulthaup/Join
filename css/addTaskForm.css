@@ -9,6 +9,10 @@
   #addTaskTitle {
     padding-left: 21px;
   }
+
+  #addTaskTitle:hover{
+    cursor: pointer;
+  }
   
   /*description*/
   #addTaskDescription {
@@ -20,6 +24,10 @@
     padding-right: 25.1px;
     height: 120px;
     font-size: 20px;
+  }
+
+  #addTaskDescription:hover{
+    cursor: pointer;
   }
   
   #addTaskDescription::-webkit-resizer {
@@ -154,6 +162,10 @@
   /*due date*/
   #addTaskDueDate {
     color: #d1d1d1;
+  }
+
+  #addTaskDueDate {
+    cursor: pointer;
   }
   
   #addTaskDueDate:focus {

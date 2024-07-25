@@ -33,8 +33,45 @@ function validateInput(element) {
     if (!inputElement.checkValidity()) {
         // Benutzerdefinierte Fehlermeldung anzeigen
         errorMessageElement.style.visibility = 'visible';
-        inputElement.classList.add("borderRed"); // Färben Sie den Rahmen des Eingabefelds rot
+        inputElement.classList.add("borderRed");
     }
+}
+
+/**
+ * This function checks whether the input field for the due date is on the add task or board page. The date entered is compared with the current date. If the date is in the past, a weird error message will appear.
+ */
+function validateDueDateFuture(){
+
+    let inputElement = whichPage();
+
+    let errorMessageElement = document.getElementById("requiredMessageDueDateAddTask");
+    let addTaskDueDate = document.getElementById('addTaskDueDate');
+    let dueDate = new Date(addTaskDueDate.value);
+    let today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    if (dueDate < today) {
+        errorMessageElement.innerHTML = 'The date is in the past';
+        errorMessageElement.style.visibility = 'visible';
+        inputElement.classList.add("borderRed");
+    } else {
+        validateInput("DueDate");
+    }
+}
+
+/**
+ * This function checks which page we are on and returns the input element with type date on the corresponding page.
+ * 
+ * @returns the input element type date
+ */
+function whichPage(){
+    if (document.getElementById("addTaskDueDate")) {
+        inputElement = document.getElementById("addTaskDueDate");
+    } else {
+        inputElement = document.getElementById('addTaskOnBoardDueDate');
+    }
+
+    return inputElement;
 }
 
 /**
@@ -78,7 +115,7 @@ async function addNewTask(descriptionOrigin) {
 async function validateForm(descriptionOrigin){
     validateInput("Title");
     validateInput(descriptionOrigin);
-    validateInput("DueDate");
+    validateDueDateFuture()
     validateInputCategory();
 
     let { titleInput, descriptionInput, dueDateInput, categoryValid } = getFormInputs();

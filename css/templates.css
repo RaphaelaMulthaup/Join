@@ -130,6 +130,7 @@ header h4 {
 .help img:hover {
     height: 24px;
     width: 24px;
+    cursor: pointer;
 }
 
 .cicleInitials {
@@ -147,6 +148,7 @@ header h4 {
 
 .cicleInitials:hover {
     background-color: #E2E6EC;
+    cursor: pointer;
 }
 
 /*menu right*/
