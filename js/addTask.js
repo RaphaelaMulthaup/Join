@@ -363,6 +363,22 @@ function selectCategory(selection){
     button.classList.remove("borderRed");
 }
 
+/**
+ * This function clears the form add task.
+ */
 function clearAddTask(){
- document.getElementById('addTaskTitle').value = '';
+    document.getElementById('addTaskTitle').value = '';
+    document.getElementById('addTaskDescription').value = '';
+
+    let dropdownContacts = document.getElementById('dropdownContacts');
+    let checkboxes = dropdownContacts.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach(checkbox => checkbox.checked = false);
+    displayInitials();
+
+    document.getElementById('addTaskDueDate').value = '';
+    priorityMedium(event);
+    document.getElementById('textSelectCategory').innerHTML = 'Select task category';
+
+    subtasksForm = [];
+    renderSubtasks();
 }
