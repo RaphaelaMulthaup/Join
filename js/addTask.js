@@ -9,6 +9,12 @@ let subtasksForm = [];
 let formValidated = false;
 let satusNewTask = "to do";
 
+document.addEventListener('DOMContentLoaded', (event) => {
+    let addTaskDueDate = document.getElementById('addTaskDueDate');
+    let today = new Date().toISOString().split('T')[0];
+    addTaskDueDate.setAttribute('min', today);
+});
+
 /**
  * This function loads the add task page with the contacts and resets the selected category and the subtasks. An event listener for the enter event is added to the subtasks.
  */
