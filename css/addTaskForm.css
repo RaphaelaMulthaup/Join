@@ -110,6 +110,10 @@
     align-items: center;
     justify-content: center;
   }
+
+  .plusMoreInitials{
+
+  }
   
   .selectContactsName {
     flex: 1;
@@ -130,6 +134,7 @@
     display: flex;
     padding-top: 8px;
     gap: 8px;
+    align-items: center;
   }
   
   /*vertical line*/
