@@ -277,19 +277,25 @@ function chartSubtasks(i){
 function initials(task, i, currentUser) {
     let initialsMiniCardGraphically = document.getElementById('initialsMiniCardGraphically' + i);
     for (let index = 0; index < task.assignedTo.length; index++) {
-        let user = task.assignedTo[index].name;
-        let initials = user.split(' ').map(word => word.charAt(0)).join('');
-        
-        if (currentUser && user === currentUser.name) {
-            initials = "you";
-        }
 
-        initialsMiniCardGraphically.innerHTML += /*html*/ `
-            <div class="initialsMiniCard" id="initialsMiniCard${i}.${index}">
-                <span>${initials}</span>
-            </div>
-        `;
-        document.getElementById('initialsMiniCard' + i + '.' + index).style.backgroundColor = task.assignedTo[index].color;
+        if (index < 5) {
+            let user = task.assignedTo[index].name;
+            let initials = user.split(' ').map(word => word.charAt(0)).join('');
+            
+            if (currentUser && user === currentUser.name) {
+                initials = "you";
+            }
+
+            initialsMiniCardGraphically.innerHTML += /*html*/ `
+                <div class="initialsMiniCard" id="initialsMiniCard${i}.${index}">
+                    <span>${initials}</span>
+                </div>
+            `;
+            document.getElementById('initialsMiniCard' + i + '.' + index).style.backgroundColor = task.assignedTo[index].color;
+        } else {
+            initialsMiniCardGraphically.innerHTML += addPlusForMoreInitials();
+            break;
+        }
     }
 }
 

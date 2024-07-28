@@ -358,6 +358,11 @@
 
 .initialsMiniCardGraphically{
     display: flex;
+    align-items: center;
+}
+
+.initialsMiniCardGraphically svg{
+    margin-left: 6px;;
 }
 
 .initialsMiniCard{
