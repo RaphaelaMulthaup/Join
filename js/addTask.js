@@ -10,9 +10,11 @@ let formValidated = false;
 let satusNewTask = "to do";
 
 document.addEventListener('DOMContentLoaded', (event) => {
-    let addTaskDueDate = document.getElementById('addTaskDueDate');
-    let today = new Date().toISOString().split('T')[0];
-    addTaskDueDate.setAttribute('min', today);
+    if (document.title == 'Join Add Task') {
+        let addTaskDueDate = document.getElementById('addTaskDueDate');
+        let today = new Date().toISOString().split('T')[0];
+        addTaskDueDate.setAttribute('min', today);
+    }
 });
 
 /**

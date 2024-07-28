@@ -1,9 +1,14 @@
 /**
- * This function fills overlayEditTask with the appropriate html, adds eventlistener and makes everything appear with an animation. The form is then pre-filled with the existing data.
+ * This function fills overlayEditTask with the appropriate html, adds eventlistener, sets as an attribute for addTaskDueDate that the date must not be in the past and makes everything appear with an animation. The form is then pre-filled with the existing data.
  */
 function editTask(){
     document.getElementById('overlayEditTask').innerHTML = htmlOverlayEditTask();
-    addEventListener();    
+    addEventListener();
+
+    let addTaskDueDate = document.getElementById('addTaskDueDate');
+    let today = new Date().toISOString().split('T')[0];
+    addTaskDueDate.setAttribute('min', today);
+
     document.getElementById('overlayEditTaskBackground').classList.remove('dNone');
 
     document.getElementById('addTaskTitle').value = taskBigCard.title;

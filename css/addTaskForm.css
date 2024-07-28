@@ -291,6 +291,10 @@
     background-color: #d1d1d1;
   }
   
+  .subtasksAddTask{
+    max-height: 120px;
+  }
+
   #subtasks {
     overflow-y: scroll;
     overflow-x: hidden;
@@ -361,5 +365,9 @@
     
     .formAddTask{
       padding-bottom: 50px;
+    }
+
+    .subtasksAddTask{
+      max-height: unset;
     }
   }

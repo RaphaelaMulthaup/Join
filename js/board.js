@@ -80,7 +80,7 @@ function displayOverlayAddTask(){
 }
 
 /**
- * This function fills overlayAddTask with the corresponding html code, sets event listerner and displays the contacts.
+ * This function fills overlayAddTask with the corresponding html code, sets event listerner, displays the contacts and sets as an attribute for addTaskDueDate that the date must not be in the past.
  */
 function prepareOverlayAddTaskForm(){
     document.getElementById('overlayAddTask').innerHTML = htmlAddTaskOverlay();
@@ -91,6 +91,10 @@ function prepareOverlayAddTaskForm(){
         let contactForDropdown = contactsAddTask[i];
         dropdownContacts.innerHTML += htmlContactDropdown(contactForDropdown, i);
     }
+
+    let addTaskDueDate = document.getElementById('addTaskDueDate');
+    let today = new Date().toISOString().split('T')[0];
+    addTaskDueDate.setAttribute('min', today);
 }
 
 /**
