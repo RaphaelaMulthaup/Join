@@ -147,8 +147,8 @@
 
   .mainMainpagesAddTask {
     margin-bottom: 48px;
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-left: 8px;
+    padding-right: 8px;
     padding-top: 56px;
     overflow-x: auto;
   }
@@ -156,21 +156,37 @@
   .lowerAreaAddTaskNecessity {
     width: fit-content;
   }
+
+  .h1AddTask{
+    margin-left: 32px;
+  }
+
+  .formAddTaskAddTask{
+    margin-left: 32px;
+    margin-right: 32px;
+  }
 }
 
 @media (max-width: 1230px) {
+  .addTaskFormLeft{
+    width: 100%;
+  }
+
+  .addTaskFormRight{
+    width: 100%;
+  }
+
   .verticalLineAddTask{
     display: none;
   }
 
   .inputTagsAddTask{
-    flex-wrap: wrap;
+    flex-direction: column;
     width: 100%;
-    justify-content: center;
   }
 
   .widthFormElementsAddTask{
-    width: 74vw;
+    width: 100%;
   }
 
   .lowerAreaAddTask{
@@ -187,24 +203,118 @@
   }
 }
 
-@media (max-width: 600px) {
-  .mainMainpagesAddTask {
-    padding-top: 16px;
-    padding-inline: 4vw;
+@media (max-width: 1170px){
+  .h1AddTask{
+    margin-left: 64px;
   }
 
-  .widthFormElementsAddTask {
-    width: 90vw;
-    padding: 8px;
+  .formAddTaskAddTask{
+    margin-left: 64px;
+    margin-right: 64px;
+  }
+}
+
+@media (max-width: 820px){
+  .lowerAreaAddTask{
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 730px){
+  .lowerAreaAddTaskNecessityAddTask {
+    font-size: 14px;
   }
 
-  .addTaskPrioButtons {
-    justify-content: center;
-    flex-wrap: wrap;
+  .lowerAreaAddTaskAddTask{
+    margin-bottom: 0;
   }
 
   .leftButton{
     display: none !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .mainMainpagesAddTask {
+    padding-top: 16px;
+    /*padding-inline: 4vw;*/
+  }
+
+  .widthFormElementsAddTask {
+    /*width: 90vw;*/
+    padding: 8px;
+  }
+
+  .addTaskPrioButtonsAddTask{
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .addTaskPrioButtonsAddTask button{
+    width: 121px;
+  }
+}
+
+@media (max-width: 550px){
+  .h1AddTask{
+    margin-left: 32px;
+  }
+
+  .formAddTaskAddTask{
+    margin-left: 32px;
+    margin-right: 32px;
+  }
+}
+
+@media (max-width: 520px){
+  .addTaskPrioButtonsAddTask button{
+    font-size: 18px !important;
+    height: 41px;
+  }
+
+}
+
+@media (max-width: 500px){
+  .h1AddTask{
+    margin-left: 8px;
+  }
+
+  .formAddTaskAddTask{
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+}
+
+@media (max-width: 410px){
+  .addTaskPrioButtonsAddTask{
+    gap: 8px !important;
+  }
+
+  .addTaskPrioButtonsAddTask button{
+    font-size: 16px !important;
+  }
+
+  .addTaskPrioButtonsAddTask img{
+    width: 18px;
+  }
+}
+
+@media (max-width: 390px){
+  .lowerAreaAddTaskAddTask{
+    flex-direction: column-reverse;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 350px){
+  .h1AddTask{
+    margin-left: 0;
+  }
+
+  .formAddTaskAddTask{
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 

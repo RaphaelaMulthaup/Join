@@ -25,8 +25,8 @@
         <div w3-include-html="./assets/templates/header.html"></div>
         <main class="mainMainpages mainMainpagesPaddingDefault mainMainpagesAddTask">
             <div id="subMenu" class="dNone" w3-include-html="./assets/templates/subMenu.html" onclick="stayOpenOrActiv(event)"></div>
-            <h1>Add Task</h1>
-            <form onsubmit="addNewTask('Description'); return false;" class="formAddTask" novalidate id="formAddNewTask">
+            <h1 class="h1AddTask">Add Task</h1>
+            <form onsubmit="addNewTask('Description'); return false;" class="formAddTask formAddTaskAddTask" novalidate id="formAddNewTask">
                 <div class="inputTagsAddTask inputTagsAddTaskAddTask">
                     <div class="addTaskFormLeft">
 
@@ -68,7 +68,7 @@
                         
                         <div class="formElementAddTask">
                             <span class="formPointDescription">Prio</span>
-                            <div class="addTaskPrioButtons widthFormElementsAddTask">
+                            <div class="addTaskPrioButtons addTaskPrioButtonsAddTask widthFormElementsAddTask">
                                 <button formnovalidate class="buttonAddTaskPage" id="addTaskPrioUrgent" onclick="priorityUrgent(event)">Urgent <img id="imgUrgent" src="./assets/img/capaUrgent.svg"></button>
                                 <button formnovalidate class="buttonAddTaskPage addTaskPrioActiv addTaskPrioMediumActiv" id="addTaskPrioMedium" onclick="priorityMedium(event)">Medium <img id="imgMedium" src="./assets/img/capaMediumWhite.svg"></button>
                                 <button formnovalidate class="buttonAddTaskPage" id="addTaskPrioLow" onclick="priorityLow(event)">Low <img id="imgLow" src="./assets/img/capaLow.svg"></button>
@@ -114,8 +114,8 @@
 
                     </div>
                 </div>
-                <div class="lowerAreaAddTask">
-                    <span class="lowerAreaAddTaskNecessity">
+                <div class="lowerAreaAddTask lowerAreaAddTaskAddTask">
+                    <span class="lowerAreaAddTaskNecessity lowerAreaAddTaskNecessityAddTask">
                         <span class="colorRed">*</span>
                         This field is required
                     </span>
