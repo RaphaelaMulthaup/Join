@@ -68,15 +68,6 @@
         align-items: center !important;
     }
 
-    /*.overlayAddTask{
-        padding-inline: 2vmin;
-        height: calc(100vh - 82px);
-        margin: 0 0 82px 0;
-        width: 100vw;
-        max-width: none;
-        border-radius: 0;
-    }*/
-
     .lowerAreaAddTask{
         align-items: flex-start !important;
         
@@ -156,9 +147,6 @@
     .boardHeadline{
         padding-left: 24px;
     }
-<<<<<<< Updated upstream
-}
-=======
     
 }
 @media(max-height : 680px){
@@ -170,4 +158,3 @@
         overflow: scroll;
     }
 }
->>>>>>> Stashed changes

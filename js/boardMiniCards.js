@@ -68,7 +68,7 @@ function htmlboard(){
                     <path d="M16 12.0754L8 12.0754" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
                 </svg>
             </div>
-            <div class="tasks" id="tasksToDo" ondrop="moveTo('to do')" ondragleave="removeHighlight('tasksToDo')" ondragover="allowDrop(event); highlight('tasksToDo')">
+            <div class="tasks" id="tasksToDo" data-status="to do" ondrop="moveTo('to do')" ondragleave="removeHighlight('tasksToDo')" ondragover="allowDrop(event); highlight('tasksToDo')">
                 <div class="noTasksExisting" id="noTasksExistingToDo">
                     <span>No tasks To do</span>
                 </div>
