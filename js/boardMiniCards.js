@@ -49,12 +49,10 @@ function displayBoard(){
 }
 
 /**
- * This function creates the default content of the board.
- * 
- * @returns the default board
+ * Generates the HTML for the board.
+ * @returns {string} - The HTML string for the board.
  */
 function htmlboard(){
-    // ondrop="moveTo('the string is written in here is sent to the the task status'"
     return /*html*/ `
         <div id="noticeNoTaskFound" class="dNone">
             <span>No task found</span>
@@ -68,7 +66,7 @@ function htmlboard(){
                     <path d="M16 12.0754L8 12.0754" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
                 </svg>
             </div>
-            <div class="tasks" id="tasksToDo" data-status="to do" ondrop="moveTo('to do')" ondragleave="removeHighlight('tasksToDo')" ondragover="allowDrop(event); highlight('tasksToDo')">
+            <div class="tasks drop-zone" id="tasksToDo" data-status="to do" ondrop="moveTo('to do')" ondragleave="removeHighlight('tasksToDo')" ondragover="allowDrop(event); highlight('tasksToDo')">
                 <div class="noTasksExisting" id="noTasksExistingToDo">
                     <span>No tasks To do</span>
                 </div>
@@ -83,7 +81,7 @@ function htmlboard(){
                     <path d="M16 12.0754L8 12.0754" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
                 </svg>
             </div>
-            <div class="tasks" id="tasksInProgress" ondrop="moveTo('in progress')" ondragleave="removeHighlight('tasksInProgress')" ondragover="allowDrop(event); highlight('tasksInProgress')">
+            <div class="tasks drop-zone" id="tasksInProgress" data-status="in progress" ondrop="moveTo('in progress')" ondragleave="removeHighlight('tasksInProgress')" ondragover="allowDrop(event); highlight('tasksInProgress')">
                 <div class="noTasksExisting" id="noTasksExistingInProgress">
                     <span>No tasks In progress</span>
                 </div>
@@ -98,7 +96,7 @@ function htmlboard(){
                     <path d="M16 12.0754L8 12.0754" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
                 </svg>
             </div>
-            <div class="tasks" id="tasksAwaitFeedback" ondrop="moveTo('await feedback')" ondragleave="removeHighlight('tasksAwaitFeedback')" ondragover="allowDrop(event); highlight('tasksAwaitFeedback')">
+            <div class="tasks drop-zone" id="tasksAwaitFeedback" data-status="await feedback" ondrop="moveTo('await feedback')" ondragleave="removeHighlight('tasksAwaitFeedback')" ondragover="allowDrop(event); highlight('tasksAwaitFeedback')">
                 <div class="noTasksExisting" id="noTasksExistingAwaitFeedback">
                     <span>No tasks Await feedback</span>
                 </div>
@@ -108,7 +106,7 @@ function htmlboard(){
             <div class="headlineStatusTasks">
                 <h5 class="h5StatusTask">Done</h5>
             </div>
-            <div class="tasks" id="tasksDone" ondrop="moveTo('done')" ondragleave="removeHighlight('tasksDone')" ondragover="allowDrop(event); highlight('tasksDone')">
+            <div class="tasks drop-zone" id="tasksDone" data-status="done" ondrop="moveTo('done')" ondragleave="removeHighlight('tasksDone')" ondragover="allowDrop(event); highlight('tasksDone')">
                 <div class="noTasksExisting" id="noTasksExistingDone">
                     <span>No tasks Done</span>
                 </div>
@@ -175,16 +173,14 @@ function checkStatus(task, i){
 }
 
 /**
- * This function creates a mini card and returnes it.
- * 
- * @param {object} task The task that is displayed.
- * @param {index} i The index of the task in the tasks json.
- * @returns the mini card
+ * Generates the HTML for a mini card.
+ * @param {object} task - The task object.
+ * @param {number} i - The index of the task.
+ * @returns {string} - The HTML string for the mini card.
  */
-// ID wird noch benötigt beim erstellen einer neuen Task Karte
 function htmlMiniCard(task, i){
     return /*html*/ `
-        <div class="miniCard" id="miniCard${i}" onclick="openBigCard(${i})" draggable="true" ondragstart="startDragging(${i})" >
+        <div class="miniCard draggable box" id="miniCard${i}" data-id="${i}" onclick="openBigCard(${i})" draggable="true" ondragstart="startDragging(${i}, event)">
             <div class="category" id="category${i}">${task.category}</div>
             <div class="textMiniCard">
                 <h6 class="title">${task.title}</h6>

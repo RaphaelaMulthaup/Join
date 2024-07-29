@@ -1,6 +1,154 @@
+//// Version 3 
+// let currentDraggedElement;
+// let isDragging = false;
+// let startX, startY;
+
+// /**
+//  * Updates the HTML content of task sections based on their status.
+//  */
+// function updateHTML() {
+//     const statuses = ['to do', 'in progress', 'await feedback', 'done'];
+//     statuses.forEach(status => {
+//         const tasksByStatus = tasks.filter(t => t.status === status);
+//         const container = document.getElementById(`tasks${status.replace(' ', '')}`);
+//         container.innerHTML = tasksByStatus.map(displayMiniCard).join('');
+//     });
+// }
+
+// /**
+// * Sets the currently dragged element's ID.
+// * @param {number} id - The ID of the element being dragged.
+// * @param {Event} event - The drag event.
+// */
+// function startDragging(id, event) {
+//     if (!event) {
+//         console.error('Event is not defined');
+//         return;
+//     }
+
+//     currentDraggedElement = id;
+//     isDragging = true;
+
+//     startX = event.type === 'touchstart' ? event.touches[0].pageX : event.pageX;
+//     startY = event.type === 'touchstart' ? event.touches[0].pageY : event.pageY;
+
+//     document.addEventListener('mousemove', onDrag);
+//     document.addEventListener('touchmove', onDrag);
+
+//     // Disable scrolling
+//     document.body.style.overflow = 'hidden';
+// }
+
+
+// /**
+//  * Handles the dragging movement.
+//  * @param {Event} event - The move event (mouse or touch).
+//  */
+// function onDrag(event) {
+//     if (!isDragging) return;
+
+//     const currentX = event.type === 'touchmove' ? event.touches[0].pageX : event.pageX;
+//     const currentY = event.type === 'touchmove' ? event.touches[0].pageY : event.pageY;
+// console.log('onDrag','x', currentX,'y', currentY);
+//     const draggedElement = document.getElementById(`miniCard${currentDraggedElement}`);
+//     draggedElement.style.transform = `translate(${currentX - startX}px, ${currentY - startY}px)`;
+// }
+
+// /**
+//  * Ends the dragging process.
+//  */
+// function endDrag() {
+//     isDragging = false;
+//     document.removeEventListener('mousemove', onDrag);
+//     document.removeEventListener('touchmove', onDrag);
+//     console.log('endDrag');
+//     // Reset the transform property
+//     const draggedElement = document.getElementById(`miniCard${currentDraggedElement}`);
+//     if (draggedElement) {
+//         draggedElement.style.transform = '';
+//     }
+
+
+//     // Enable scrolling
+//     document.body.style.overflow = '';
+// }
+
+// /**
+// * Allows an element to be dropped.
+// * @param {DragEvent} ev - The drag event.
+// */
+// function allowDrop(ev) {
+//     console.log('ev',ev);
+//    ev.preventDefault();
+// }
+
+// /**
+//  * Moves the current dragged element to a new status.
+//  * @param {string} status - The new status to assign to the dragged element.
+//  * @returns {Promise<void>}
+//  */
+// async function moveTo(status) {
+//     const task = tasks[currentDraggedElement];
+//     task.status = status;
+//     await putTasksToDatabase(tasks);
+//     displayBoard();
+// }
+
+// /**
+//  * Highlights the drop area.
+//  * @param {string} id - The ID of the element to highlight.
+//  */
+// function highlight(id) {
+//     document.getElementById(id).classList.add('drag-area-highlight');
+// }
+
+// /**
+//  * Removes the highlight from the drop area.
+//  * @param {string} id - The ID of the element to remove the highlight from.
+//  */
+// function removeHighlight(id) {
+//     document.getElementById(id).classList.remove('drag-area-highlight');
+// }
+
+// // Event Listeners for Drag Start and End
+// document.querySelectorAll('.draggable').forEach(element => {
+//     element.addEventListener('mousedown', (event) => startDragging(element.dataset.id, event));
+//     element.addEventListener('touchstart', (event) => startDragging(element.dataset.id, event));
+//     document.addEventListener('mouseup', endDrag);
+//     document.addEventListener('touchend', endDrag);
+// });
+
+// // Drop Zone Event Listeners
+// document.querySelectorAll('.drop-zone').forEach(zone => {
+//     zone.addEventListener('dragover', allowDrop);
+//     zone.addEventListener('dragenter', () => highlight(zone.id));
+//     zone.addEventListener('dragleave', () => removeHighlight(zone.id));
+//     zone.addEventListener('drop', async (event) => {
+//         event.preventDefault();
+//         const status = zone.dataset.status;
+//         await moveTo(status);
+//         removeHighlight(zone.id);
+//     });
+// });
+
+
+window.onload = function(){
+    let miniCard = document.getElementsByClassName('box');
+
+    miniCard.addEventlistener('touchmove', function(e){
+        let touchLocation = e.targetTouches[0];
+
+        miniCard.style.left = touchLocation.pageX + 'px';
+        miniCard.style.top = touchLocation.pageY + 'px';
+    })
+    miniCard.addEventlistener('touched', function(e){
+        let x = parsenInt(miniCard.style.left);
+        let y = parsenInt(miniCard.style.top);
+    })
+}
+
+// Version 1
 let currentDraggedElement;
-let isDragging = false;
-let startX, startY;
 
 /**
  * Updates the HTML content of task sections based on their status.
@@ -18,42 +166,8 @@ function updateHTML() {
 * Sets the currently dragged element's ID.
 * @param {number} id - The ID of the element being dragged.
 */
-function startDragging(id, event) {
+function startDragging(id) {
    currentDraggedElement = id;
-   isDragging = true;
-
-   startX = event.type === 'touchstart' ? event.touches[0].pageX : event.pageX;
-   startY = event.type === 'touchstart' ? event.touches[0].pageY : event.pageY;
-
-   document.addEventListener('mousemove', onDrag);
-   document.addEventListener('touchmove', onDrag);
-}
-
-/**
- * Handles the dragging movement.
- * @param {Event} event - The move event (mouse or touch).
- */
-function onDrag(event) {
-    if (!isDragging) return;
-
-    const currentX = event.type === 'touchmove' ? event.touches[0].pageX : event.pageX;
-    const currentY = event.type === 'touchmove' ? event.touches[0].pageY : event.pageY;
-
-    const draggedElement = document.getElementById(`task-${currentDraggedElement}`);
-    draggedElement.style.transform = `translate(${currentX - startX}px, ${currentY - startY}px)`;
-}
-
-/**
- * Ends the dragging process.
- */
-function endDrag() {
-    isDragging = false;
-    document.removeEventListener('mousemove', onDrag);
-    document.removeEventListener('touchmove', onDrag);
-
-    // Reset the transform property
-    const draggedElement = document.getElementById(`task-${currentDraggedElement}`);
-    draggedElement.style.transform = '';
 }
 
 /**
@@ -91,87 +205,6 @@ function highlight(id) {
 function removeHighlight(id) {
     document.getElementById(id).classList.remove('drag-area-highlight');
 }
-
-// Event Listeners for Drag Start and End
-document.querySelectorAll('.draggable').forEach(element => {
-    element.addEventListener('mousedown', (event) => startDragging(element.dataset.id, event));
-    element.addEventListener('touchstart', (event) => startDragging(element.dataset.id, event));
-    element.addEventListener('mouseup', endDrag);
-    element.addEventListener('touchend', endDrag);
-});
-
-// Drop Zone Event Listeners
-document.querySelectorAll('.drop-zone').forEach(zone => {
-    zone.addEventListener('dragover', allowDrop);
-    zone.addEventListener('dragenter', () => highlight(zone.id));
-    zone.addEventListener('dragleave', () => removeHighlight(zone.id));
-    zone.addEventListener('drop', async (event) => {
-        event.preventDefault();
-        const status = zone.dataset.status;
-        await moveTo(status);
-        removeHighlight(zone.id);
-    });
-});
-
-
-///// Version 1
-// let currentDraggedElement;
-
-// /**
-//  * Updates the HTML content of task sections based on their status.
-//  */
-// function updateHTML() {
-//     const statuses = ['to do', 'in progress', 'await feedback', 'done'];
-//     statuses.forEach(status => {
-//         const tasksByStatus = tasks.filter(t => t.status === status);
-//         const container = document.getElementById(`tasks${status.replace(' ', '')}`);
-//         container.innerHTML = tasksByStatus.map(displayMiniCard).join('');
-//     });
-// }
-
-// /**
-// * Sets the currently dragged element's ID.
-// * @param {number} id - The ID of the element being dragged.
-// */
-// function startDragging(id) {
-//    currentDraggedElement = id;
-// }
-
-// /**
-// * Allows an element to be dropped.
-// * @param {DragEvent} ev - The drag event.
-// */
-// function allowDrop(ev) {
-//    ev.preventDefault();
-// }
-
-// /**
-//  * Moves the current dragged element to a new status.
-//  * @param {string} status - The new status to assign to the dragged element.
-//  * @returns {Promise<void>}
-//  */
-// async function moveTo(status) {
-//     const task = tasks[currentDraggedElement];
-//     task.status = status;
-//     await putTasksToDatabase(tasks);
-//     displayBoard();
-// }
-
-// /**
-//  * Highlights the drop area.
-//  * @param {string} id - The ID of the element to highlight.
-//  */
-// function highlight(id) {
-//     document.getElementById(id).classList.add('drag-area-highlight');
-// }
-
-// /**
-//  * Removes the highlight from the drop area.
-//  * @param {string} id - The ID of the element to remove the highlight from.
-//  */
-// function removeHighlight(id) {
-//     document.getElementById(id).classList.remove('drag-area-highlight');
-// }
 
 
 ///// Version 2
