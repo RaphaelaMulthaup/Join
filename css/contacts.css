@@ -362,6 +362,7 @@ input:valid ~ label {
   background-size: contain;
   background-repeat: no-repeat;
   background-image: url(../assets/img/edit.svg);
+  cursor: pointer;
 }
 
 .edit:hover{
@@ -381,6 +382,7 @@ input:valid ~ label {
   background-size: contain;  
   background-repeat: no-repeat;
   background-image: url(../assets/img/delete.svg);
+  cursor: pointer;
 }
 
 .delete p {
@@ -393,4 +395,12 @@ input:valid ~ label {
 .delete:hover {
   background-repeat: no-repeat;
   background-image: url(../assets/img/deleteBlue.svg);
+}
+
+.alert {
+  position: relative;
+  bottom: 13px;
+  color: #fe818f;
+  font-size: xx-small;
+  align-self: flex-start;
 }

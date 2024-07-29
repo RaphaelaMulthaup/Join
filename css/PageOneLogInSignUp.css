@@ -143,6 +143,7 @@ input:valid ~ label {
   font-size: 20px;
   display: flex;
   align-items: center;
+  margin-right: -20px;
 }
 
 .person {
@@ -173,8 +174,9 @@ input:valid ~ label {
 .visibility-icon img {
   position: relative;
   top: 15px;
-  right: 34px;
+  right: 22px;
   opacity: 0;
+  cursor: pointer;
 }
 
 .input::placeholder {

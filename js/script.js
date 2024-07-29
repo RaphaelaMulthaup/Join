@@ -261,6 +261,7 @@ function preventNotice(id) {
     input.removeAttribute('required');
 }
 
+
 /**
  * This function adds the required attribute to an element.
  * 

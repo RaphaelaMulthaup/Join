@@ -164,7 +164,6 @@
           bottom: 16vmin;
     }
   
-  
   }
   
   @media (max-width:910px){
@@ -377,4 +376,24 @@
     width: 94%;
     height: unset;
    }
+
+   .contactGroup{
+    flex-direction: column;
+   }
+
+   .alert{
+    top: 0px;
+    right: -16px;
+    }
+   
+    .slideBack{
+      top: -169px;
+    align-self: self-end;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+
 }

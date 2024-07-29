@@ -1,7 +1,3 @@
-// Daten(spiel)platz Franz
-const BASE_URL = "https://remotestorage-d71ae-default-rtdb.europe-west1.firebasedatabase.app/";
-// const BASE_URL = "https://joinin-71c4e-default-rtdb.europe-west1.firebasedatabase.app/";
-
 /*Haupt URL*/
 const firebaseUrl = "https://join-2fe35-default-rtdb.europe-west1.firebasedatabase.app/";
 

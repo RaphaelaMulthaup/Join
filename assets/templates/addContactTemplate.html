@@ -10,30 +10,36 @@
       <div class="image-container ellipse">
         <img id="ellipse" src="./assets/img/personWhite.svg" />
       </div>
-    <div class="right" id="">
-      <div class="slideBack" id="slideBack" onclick="closeAddContact()">
-        <img src="./assets/img/close.svg" alt="closeButton" />
-      </div>
-      <div class="inputbox">
-        <input type="name" id="user" class="input personInput" placeholder="Name"/>
-      </div>
-      <div class="inputbox">
-        <input type="email" id="email" class="input mail" placeholder="Email"/>
-      </div>
-      <div class="inputbox">
-        <input type="tel" id="phone" class="input phone" placeholder="Phone"/>
-      </div>
-      <div>
-        <button id="leftButton" class="button buttonEmpty" onclick="closeAddContact()">
-          Cancel <span id="closeX" class="closeX"></span>
-        </button>
-        <button id="registerBtn" class="button buttonFilled buttonFilledResponsiv" onclick="registerContact()">
-          Create contact
-          <img id="checkWhite" src="./assets/img/checkWhite.svg" style="padding-left: 10px" alt="" />
-        </button>
-      </div>
-      <div class="center" id="contactList"></div>
-    </div>
+      <form class="right" id="right" onsubmit="registerContact(); return false">
+        <div class="slideBack" id="slideBack" onclick="closeAddContact()">
+          <img class="closeWhite" src="./assets/img/close.svg" alt="closeButton" />
+        </div>
+        <div class="inputbox">
+          <input type="name" id="user" class="input personInput padding" placeholder="Name" required/>
+        </div>
+        <span class="alert" id="alertUser"></span>
+
+        <div class="inputbox">
+          <input type="email" id="email" class="input mail padding" placeholder="Email" required/>
+        </div>
+        <span class="alert" id="alertEmail"></span>
+
+        <div class="inputbox">
+          <input type="tel" id="phone" class="dada input phone padding" placeholder="Phone" required/>
+        </div>
+        <span class="alert" id="alertPhone"></span>
+
+        <div>
+          <button id="leftButton" class="button buttonEmpty" onclick="closeAddContact()">
+            Cancel <span id="closeX" class="closeX"></span>
+          </button>
+          <button id="registerBtn" class="button buttonFilled">
+            Create contact
+            <img id="checkWhite" src="./assets/img/checkWhite.svg" style="padding-left: 10px" alt="" />
+          </button>
+        </div>
+        <div class="" id="contactList"></div>
+      </form>
   </div>
   </div>
   

@@ -156,4 +156,18 @@
     .boardHeadline{
         padding-left: 24px;
     }
+<<<<<<< Updated upstream
 }
+=======
+    
+}
+@media(max-height : 680px){
+    .headlineBoardStatusTasks{
+        overflow: unset;
+    }
+
+    .mainBoard{
+        overflow: scroll;
+    }
+}
+>>>>>>> Stashed changes

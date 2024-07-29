@@ -25,33 +25,104 @@ async function deleteDeletedUserInTasks(nameDeletdUser){
 /**
  * Resets the contact form to its default state.
  */
-function resetForm() {
-    const setHTML = (id, html) => document.getElementById(id).innerHTML = html;
-    const setOnClick = (id, handler) => document.getElementById(id).onclick = handler;
-    const clearValue = (id) => document.getElementById(id).value = "";
+function validateForm() {
+    // preventDefault();
 
-    setHTML('formTitle', `
+    // Clear previous errors
+    document.getElementById('user').style.display = 'none';
+    document.getElementById('email').style.display = 'none';
+    document.getElementById('phone').style.display = 'none';
+
+    let isValid = true;
+
+    // Validate Name
+    const user = document.getElementById('user');
+    if (user.value.trim() === "") {
+        document.getElementById('alertEmail').textContent = 'Name is required validateForm';
+        document.getElementById('alertEmail').style.display = 'block';
+        isValid = false;
+    } else if (!user.value.trim() === "") {
+        document.getElementById('alertEmail').textContent = 'Invalid Name is required validatForm';
+        document.getElementById('alertEmail').style.display = 'block';
+        isValid = false;
+    }
+
+    // Validate Email
+    const email = document.getElementById('email');
+    if (email.value.trim() === "") {
+        document.getElementById('alertEmail').textContent = 'Email is required';
+        document.getElementById('alertEmail').style.display = 'block';
+        isValid = false;
+    } else if (!email.checkValidity()) {
+        document.getElementById('alertEmail').textContent = 'Invalid email address';
+        document.getElementById('alertEmail').style.display = 'block';
+        isValid = false;
+    }
+
+    // Validate Phone
+    const phone = document.getElementById('phone');
+    if (phone.value.trim() === "") {
+        document.getElementById('alertPhone').textContent = 'Phone number is required';
+        document.getElementById('alertPhone').style.display = 'block';
+        isValid = false;
+    } else if (!phone.checkValidity()) {
+        document.getElementById('alertPhone').textContent = 'Only numbers are allowed';
+        document.getElementById('alertPhone').style.display = 'block';
+        isValid = false;
+    }
+
+    if (isValid) {
+        // Form is valid, you can submit it
+        // For example: document.getElementById('contactForm').submit();
+        alert('Form submitted successfully!');
+    }
+}
+
+function resetForm() {
+    // Reset form values
+    document.getElementById('user').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('phone').value = '';
+
+    // Reset innerHTML for specified elements
+    document.getElementById('formTitle').innerHTML = `
         <img src='./assets/img/favicon_light.svg' alt=''>
         <h1>Add contact</h1>
         <h2>Tasks are better with a team!</h2>
-        <div class='blueLineAddContacts'></div>`
-    );
-    setHTML('registerBtn', `
-        Create contact<img src='./assets/img/checkWhite.svg' style='padding-left: 10px'>`
-    );
-    setHTML('leftButton', `
-        Cancel<img class="closeX" src='./assets/img/closeS.svg' style='padding-left: 10px'>`
-    );
-    setOnClick('leftButton', closeAddContact);
-    setOnClick('registerBtn', registerContact);
-    clearValue('user');
-    clearValue('email');
-    clearValue('phone');
-    setHTML('middel', `
-              <div class="image-container ellipse">
-              <img id="ellipse" src="./assets/img/personWhite.svg" alt="" />`
-    );
+        <div class='blueLineAddContacts'></div>
+    `;
+
+    document.getElementById('registerBtn').innerHTML = `
+        Create contact<img src='./assets/img/checkWhite.svg' style='padding-left: 10px'>
+    `;
+
+    document.getElementById('leftButton').innerHTML = `
+        Cancel<img class="closeX" src='./assets/img/closeS.svg' style='padding-left: 10px'>
+    `;
+
+    // Set onclick handlers
+    document.getElementById('leftButton').onclick = function() { closeAddContact(); resetForm(); };
+    document.getElementById('registerBtn').onclick = function() { registerContact(); resetForm(); };
+
+    // Reset image
+    document.getElementById('middel').innerHTML = `
+        <div class="image-container ellipse">
+            <img id="ellipse" src="./assets/img/personWhite.svg" alt="" />
+        </div>
+    `;
+
+    // Reset styles and messages from isNameOrEmailTaken
+    const userField = document.getElementById('user');
+    const emailField = document.getElementById('email');
+    const alertUser = document.getElementById('alertUser');
+    const alertEmail = document.getElementById('alertEmail');
+
+    userField.parentElement.style.border = '';
+    emailField.parentElement.style.border = '';
+    alertUser.innerHTML = '';
+    alertEmail.innerHTML = '';
 }
+
 
 
 /**
@@ -119,6 +190,8 @@ function editContactSlide(id, color, initials, name, email, phone) {
     document.getElementById('registerBtn').onclick = () => saveContactChange(id);
 }
 
+
+
 /**
  * Renders the add contact template into the contact slide section of the HTML document.
  * This function updates the innerHTML of the element with ID 'contactSlide' to display a form
@@ -131,7 +204,7 @@ function addContactTemplate() {
             document.getElementById('contactSlide').innerHTML = html;
         })
         .catch(error => {
-            //console.error('Error loading the template:', error);
+            console.error('Error loading the template:', error);
         });
 }
 
@@ -263,7 +336,7 @@ function slideOut() {
         backArrow.classList.remove('hidden');
         contactSlideIn.classList.remove('hidden');
     } else {
-        //console.error('Element(s) not found in slideOut function.');
+        console.error('Element(s) not found in slideOut function.');
     }
 }
 
@@ -280,7 +353,7 @@ function slideIn() {
         backArrow.classList.add('hidden');
         contactSlideOut.classList.add('hidden');
     } else {
-        //console.error('Element(s) not found in slideIn function.');
+        console.error('Element(s) not found in slideIn function.');
     }
 }
 
@@ -394,3 +467,97 @@ async function addInitialsToUserAndSave(user) {
 
     return user;
 }
+
+/**
+ * Validates the contact form fields.
+ *
+ * @returns {Object} An object containing the validation result. 
+ *                   If valid, the `success` property is true.
+ *                   If invalid, the `success` property is false and the `errorFields` property contains the invalid fields.
+ */
+function validateContactFormFields() {
+    let user = document.getElementById('user');
+    let email = document.getElementById('email');
+    let phone = document.getElementById('phone');
+
+    let errorFields = [];
+
+    if (!user.value.trim()) {
+        errorFields.push('user validateContactFormFields()');
+    }
+    if (!email.value.trim() || !validateEmail(email.value)) {
+        errorFields.push('email validateContactFormFields()');
+    }
+    if (!phone.value.trim() || !validatePhone(phone.value)) {
+        errorFields.push('phone validateContactFormFields()');
+    }
+
+    return {
+        success: errorFields.length === 0,
+        errorFields: errorFields
+    };
+}
+
+/**
+ * Validates an email address.
+ *
+ * @param {string} email - The email address to validate.
+ * @returns {boolean} True if the email is valid, false otherwise.
+ */
+function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+}
+
+/**
+ * Validates a phone number.
+ *
+ * @param {string} phone - The phone number to validate.
+ * @returns {boolean} True if the phone number is valid, false otherwise.
+ */
+function validatePhone(phone) {
+    const re = /^\+?[1-9]\d{1,14}$/;
+    return re.test(phone);
+}
+
+/**
+ * Displays error messages and updates the UI based on the invalid fields.
+ *
+ * @param {Array<string>} errorFields - The fields that have validation errors.
+ */
+function displayContactFormErrors(errorFields) {
+    const alertUser = document.getElementById('alertUser');
+    const alertEmail = document.getElementById('alertEmail');
+    const alertPhone = document.getElementById('alertPhone');
+
+    document.getElementById('user').parentElement.style.border = '';
+    document.getElementById('email').parentElement.style.border = '';
+    document.getElementById('phone').parentElement.style.border = '';
+    alertUser.innerHTML = '';
+    alertEmail.innerHTML = '';
+    alertPhone.innerHTML = '';
+
+
+        if (errorFields === 'user') {
+            document.getElementById('user').parentElement.style.border = '2px solid #FE818F';
+            alertUser.innerHTML = `<span>Name already exists FormErrors.</span>`;
+        } else if (errorFields === 'email') {
+            document.getElementById('email').parentElement.style.border = '2px solid #FE818F';
+            alertEmail.innerHTML = `<span>Please enter a valid email address.</span>`;
+        } else if (errorFields === 'phone') {
+            document.getElementById('phone').parentElement.style.border = '2px solid #FE818F';
+            alertPhone.innerHTML = `<span>Please enter a valid phone number.</span>`;
+        }
+
+}
+
+//Ist vermutlich zum löschen
+    function displayError(errorType, emailElement, passwordElement, alertUser, alertPw) {
+        if (errorType === 'password') {
+            passwordElement.parentElement.style.border = '2px solid #FE818F';
+            alertPw.innerHTML = `<span>Wrong password. Ups! Try again.</span>`;
+        } else if (errorType === 'user') {
+            emailElement.parentElement.style.border = '2px solid #FE818F';
+            alertUser.innerHTML = `<span>User does not exist. Please check your email address or sign up.</span>`;
+        }
+    }

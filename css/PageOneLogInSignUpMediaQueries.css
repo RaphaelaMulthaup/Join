@@ -88,8 +88,9 @@
       }
 
       .formBoxLogIn{
-        height: unset;
+        height: 50%;
         overflow-x: scroll;
+        align-self: center;
       }
 
       .checkboxTextLogIn, .checkboxText, .position{
