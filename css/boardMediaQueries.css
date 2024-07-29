@@ -68,16 +68,14 @@
         align-items: center !important;
     }
 
-    .overlayAddTask{
+    /*.overlayAddTask{
         padding-inline: 2vmin;
-        height: 83svh;
-        margin-bottom: 69px;
-        margin-inline: 80px;
-    }
-
-    .widthFormElementsAddTask{
-        width: 72vw !important;
-    }
+        height: calc(100vh - 82px);
+        margin: 0 0 82px 0;
+        width: 100vw;
+        max-width: none;
+        border-radius: 0;
+    }*/
 
     .lowerAreaAddTask{
         align-items: flex-start !important;
@@ -145,10 +143,6 @@
         margin-inline: 0;
     }
 
-    .widthFormElementsAddTask{
-        width: 92vw !important;
-    }
-
     .noTasksExisting{
         max-width: 800px;
     }
@@ -156,12 +150,10 @@
     .h5StatusTask{
         flex: 1;
     }
-
 }
 
 @media(max-width: 580px){
     .boardHeadline{
         padding-left: 24px;
     }
-
 }

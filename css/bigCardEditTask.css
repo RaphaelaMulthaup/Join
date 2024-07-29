@@ -220,6 +220,8 @@
     flex-direction: column;
     gap: 16px;
     padding-left: 40px;
+    width: 100%;
+    padding-right: 21px;
 }
 
 .formEditTaskLowerArea{

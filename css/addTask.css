@@ -248,7 +248,7 @@
 
   .addTaskPrioButtonsAddTask{
     padding-right: 0;
-    padding-left: 0;
+    padding-left: 2px;
   }
 
   .addTaskPrioButtonsAddTask button{

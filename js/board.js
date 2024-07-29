@@ -56,6 +56,17 @@ function plusButtonToDefault(plusButton) {
     }, 10);
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+    let button = document.getElementById('buttonAddTask');
+    button.addEventListener('click', () => {
+        if (window.innerWidth < 1170) {
+            window.location.href = './addTask.html';
+        } else {
+            openOverlayAddTask();
+        }
+    });
+});
+
 /**
  * This function emptys the subtasksForm array, displays the add task overlay and sets overlayAddTaskOpen to true. Beforehand, it is checked whether something else is open or activated that should be closed beforehand.
  */
@@ -187,7 +198,7 @@ function htmlAddTaskOverlay(){
                 
                 <div class="formElementAddTask">
                     <span class="formPointDescription">Prio</span>
-                    <div class="addTaskPrioButtons widthFormElementsAddTask">
+                    <div class="addTaskPrioButtons addTaskPrioButtonsAddTask widthFormElementsAddTask">
                         <button formnovalidate class="buttonAddTaskPage" id="addTaskPrioUrgent" onclick="priorityUrgent(event)">Urgent <img id="imgUrgent" src="./assets/img/capaUrgent.svg"></button>
                         <button formnovalidate class="buttonAddTaskPage addTaskPrioActiv addTaskPrioMediumActiv" id="addTaskPrioMedium" onclick="priorityMedium(event)">Medium <img id="imgMedium" src="./assets/img/capaMediumWhite.svg"></button>
                         <button formnovalidate class="buttonAddTaskPage" id="addTaskPrioLow" onclick="priorityLow(event)">Low <img id="imgLow" src="./assets/img/capaLow.svg"></button>
