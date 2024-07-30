@@ -181,6 +181,7 @@
   .addTaskPrioButtons {
     display: flex;
     gap: 16px;
+    justify-content: space-between;
   }
   
   .addTaskPrioButtons button {

@@ -229,6 +229,7 @@
     flex-direction: column;
     gap: 24px;
     padding-right: 21px;
+    width: 100%;
 }
 
 .editTaskHeadlinePrio{
