@@ -357,6 +357,8 @@ header h4 {
         position: fixed;
         bottom: 0px;
         /*z-index: 10;*/
+        height: 80px;
+        align-items: center;
     }
 
     .mobileDiv{
