@@ -66,7 +66,8 @@ function htmlboard(){
                     <path d="M16 12.0754L8 12.0754" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
                 </svg>
             </div>
-            <div class="tasks drop-zone" id="tasksToDo" data-status="to do" ondrop="moveTo('to do')" ondragleave="removeHighlight('tasksToDo')" ondragover="allowDrop(event); highlight('tasksToDo')">
+            //id="tasksToDo" data-status="to do" ondrop="moveTo('to do')" ondragleave="removeHighlight('tasksToDo')" ondragover="allowDrop(event);
+            <div class="tasks drop-zone toDo" id="tasksToDo" data-status="to do" ondrop="moveTo('to do')" ondragleave="removeHighlight('tasksToDo')" ondragover="allowDrop(event); highlight('tasksToDo')">
                 <div class="noTasksExisting" id="noTasksExistingToDo">
                     <span>No tasks To do</span>
                 </div>
@@ -81,7 +82,8 @@ function htmlboard(){
                     <path d="M16 12.0754L8 12.0754" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
                 </svg>
             </div>
-            <div class="tasks drop-zone" id="tasksInProgress" data-status="in progress" ondrop="moveTo('in progress')" ondragleave="removeHighlight('tasksInProgress')" ondragover="allowDrop(event); highlight('tasksInProgress')">
+            //id="tasksInProgress" data-status="in progress" ondrop="moveTo('in progress')" ondragleave="removeHighlight('tasksInProgress')" ondragover="allowDrop(event);
+            <div class="tasks drop-zone inProgress" id="tasksInProgress" data-status="in progress" ondrop="moveTo('in progress')" ondragleave="removeHighlight('tasksInProgress')" ondragover="allowDrop(event); highlight('tasksInProgress')">
                 <div class="noTasksExisting" id="noTasksExistingInProgress">
                     <span>No tasks In progress</span>
                 </div>
@@ -96,7 +98,8 @@ function htmlboard(){
                     <path d="M16 12.0754L8 12.0754" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
                 </svg>
             </div>
-            <div class="tasks drop-zone" id="tasksAwaitFeedback" data-status="await feedback" ondrop="moveTo('await feedback')" ondragleave="removeHighlight('tasksAwaitFeedback')" ondragover="allowDrop(event); highlight('tasksAwaitFeedback')">
+            //id="tasksAwaitFeedback" data-status="await feedback" ondrop="moveTo('await feedback')" ondragleave="removeHighlight('tasksAwaitFeedback')" ondragover="allowDrop(event);
+            <div class="tasks drop-zone awaitFeedback" id="tasksAwaitFeedback" data-status="await feedback" ondrop="moveTo('await feedback')" ondragleave="removeHighlight('tasksAwaitFeedback')" ondragover="allowDrop(event); highlight('tasksAwaitFeedback')">
                 <div class="noTasksExisting" id="noTasksExistingAwaitFeedback">
                     <span>No tasks Await feedback</span>
                 </div>
@@ -106,6 +109,7 @@ function htmlboard(){
             <div class="headlineStatusTasks">
                 <h5 class="h5StatusTask">Done</h5>
             </div>
+            //id="tasksDone" data-status="done" ondrop="moveTo('done')" ondragleave="removeHighlight('tasksDone')" ondragover="allowDrop(event);
             <div class="tasks drop-zone" id="tasksDone" data-status="done" ondrop="moveTo('done')" ondragleave="removeHighlight('tasksDone')" ondragover="allowDrop(event); highlight('tasksDone')">
                 <div class="noTasksExisting" id="noTasksExistingDone">
                     <span>No tasks Done</span>
@@ -180,7 +184,7 @@ function checkStatus(task, i){
  */
 function htmlMiniCard(task, i){
     return /*html*/ `
-        <div class="miniCard draggable" id="miniCard${i}" data-id="${i}" onclick="openBigCard(${i})" draggable="true" ondragstart="startDragging(${i}, event)">
+        <div class="miniCard draggable task" id="miniCard${i}" data-id="${i}" onclick="openBigCard(${i})" draggable="true" ondragstart="startDragging(${i}, event)">
             <div class="category" id="category${i}">${task.category}</div>
             <div class="textMiniCard">
                 <h6 class="title">${task.title}</h6>
