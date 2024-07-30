@@ -25,6 +25,15 @@
     <script src="./js/dragAndDrop.js"></script>
     <script src="./js/editTask.js"></script>
     <script src="./js/legalHelp.js"></script>
+    <!-- <script src="./js/dragAndDropMobil.js" defer></script> -->
+    <script>
+        setTimeout(function() {
+            var script = document.createElement('script');
+            script.src = './js/dragAndDropMobil.js';
+            document.body.appendChild(script);
+        }, 5000); // Verzögerung in Millisekunden (z.B. 2000ms = 2s)
+    </script>
+    
 </head>
 <body id="bodyBoard" class="bodyMainpages" onload="loadBoardPage()" onclick="setElementsToDefaultBoard()">
     <div w3-include-html="./assets/templates/menu.html"></div>
@@ -54,7 +63,7 @@
                 </div>
             </div>
             <div class="headlineBoardStatusTasks" id="headlineBoardStatusTasks">
-                <!--<div id="noticeNoTaskFound">
+                <div id="noticeNoTaskFound">
                     <span>No task found</span>
                 </div>
                 <div class="statusGroup">
@@ -66,7 +75,7 @@
                             <path d="M16 12.0754L8 12.0754" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
                         </svg>
                     </div>
-                    <div class="tasks" id="tasksToDo">
+                    <div class="task toDo" id="tasksToDo">
                         <div class="noTasksExisting" id="noTasksExistingToDo">
                             <span>No tasks To do</span>
                         </div>
@@ -82,7 +91,7 @@
                             <path d="M16 12.0754L8 12.0754" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
                         </svg>
                     </div>
-                    <div class="tasks" id="tasksInProgress">
+                    <div class="task inProgress" id="tasksInProgress">
                         <div class="noTasksExisting" id="noTasksExistingInProgress">
                             <span>No tasks In progress</span>
                         </div>
@@ -98,7 +107,7 @@
                             <path d="M16 12.0754L8 12.0754" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
                         </svg>
                     </div>
-                    <div class="tasks" id="tasksAwaitFeedback">
+                    <div class="task awaitFeedback" id="tasksAwaitFeedback">
                         <div class="noTasksExisting" id="noTasksExistingAwaitFeedback">
                             <span>No tasks Await feedback</span>
                         </div>
@@ -109,12 +118,12 @@
                     <div class="headlineStatusTasks">
                         <h5 class="h5StatusTask">Done</h5>
                     </div>
-                    <div class="tasks" id="tasksDone">
+                    <div class="task done" id="tasksDone">
                         <div class="noTasksExisting" id="noTasksExistingDone">
                             <span>No tasks Done</span>
                         </div>
                     </div>
-                </div>-->
+                </div>
             </div>
             
         </main>

@@ -271,6 +271,9 @@
     gap: 24px;
     transition: transform 1.3s ease-in-out;
 }
+.task{
+    position: relative;
+} 
 
 .miniCard:hover{
     cursor: pointer;
