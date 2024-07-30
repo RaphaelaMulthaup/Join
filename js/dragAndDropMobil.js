@@ -7,7 +7,7 @@ let done = document.querySelector(".done");
 let toDoPos = toDo.getBoundingClientRect();
 let inProgressPos = inProgress.getBoundingClientRect();
 let awaitFeedbackPos = awaitFeedback.getBoundingClientRect();
-// let donePos = done.getBoundingClientRect();
+let donePos = done.getBoundingClientRect();
   // console.log('todo', toDoPos);
 
 task.forEach(addStart);
@@ -31,7 +31,7 @@ function addStart(elem){
             elem.style.zIndex=10;
         });
 
-        elem.addEventListener("touchend", eve => {
+        elem.addEventListener("touchend",eve=>{
             elem.style.zIndex=0;
             if (elem.getBoundingClientRect().top
                 > donePos.top) {
@@ -40,7 +40,7 @@ function addStart(elem){
                 }
             }
             else if (elem.getBoundingClientRect().bottom
-                > toDoPos.bottom) {
+                < toDoPos.bottom) {
                 if (!toDo.contains(elem)) { toDo.appendChild(elem); }
             }
 

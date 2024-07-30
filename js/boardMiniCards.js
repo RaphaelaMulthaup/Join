@@ -3,7 +3,7 @@
 /**
  * This function calls the 'loadBoard' function after the templates have been loaded.
  */
-async function loadBoardPage(){
+async function loadBoardPage() {
     await loadPage('menuItemBoard');
     await loadTasksAndContacts();
     await loadUsers();
@@ -13,7 +13,7 @@ async function loadBoardPage(){
 /**
  * This function loads the example tasks and displays them.
  */
-async function loadTasksAndContacts(){
+async function loadTasksAndContacts() {
     let newTasks = await loadData("/tasks");
     contactsAddTask = await loadData('/users');
 
@@ -25,22 +25,22 @@ async function loadTasksAndContacts(){
 /**
  * loads currentUser and greats the usere or guest
  */
-async function loadUsers(){
+async function loadUsers() {
     try {
-    currentUser = await loadData('currentUser');   
-    if (currentUser && currentUser.name) {
-        // console.log(currentUser);
-        // console.log(currentUser.name);
-    }
-    } catch (e){
-        console.error('Loading error:' , e);
+        currentUser = await loadData('currentUser');
+        if (currentUser && currentUser.name) {
+            // console.log(currentUser);
+            // console.log(currentUser.name);
+        }
+    } catch (e) {
+        console.error('Loading error:', e);
     }
 }
 
 /**
  * 'headlineBoardStatusTasks' is set to default, it is being checked whether tasks of a status exist and displays the tasks.
  */
-function displayBoard(){
+function displayBoard() {
     document.getElementById('headlineBoardStatusTasks').innerHTML = htmlboard();
     checkWhetherTasksExist();
     for (let i = 0; i < tasks.length; i++) {
@@ -52,7 +52,7 @@ function displayBoard(){
  * Generates the HTML for the board.
  * @returns {string} - The HTML string for the board.
  */
-function htmlboard(){
+function htmlboard() {
     return /*html*/ `
         <div id="noticeNoTaskFound" class="dNone">
             <span>No task found</span>
@@ -66,7 +66,6 @@ function htmlboard(){
                     <path d="M16 12.0754L8 12.0754" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
                 </svg>
             </div>
-            //id="tasksToDo" data-status="to do" ondrop="moveTo('to do')" ondragleave="removeHighlight('tasksToDo')" ondragover="allowDrop(event);
             <div class="tasks drop-zone toDo" id="tasksToDo" data-status="to do" ondrop="moveTo('to do')" ondragleave="removeHighlight('tasksToDo')" ondragover="allowDrop(event); highlight('tasksToDo')">
                 <div class="noTasksExisting" id="noTasksExistingToDo">
                     <span>No tasks To do</span>
@@ -82,7 +81,6 @@ function htmlboard(){
                     <path d="M16 12.0754L8 12.0754" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
                 </svg>
             </div>
-            //id="tasksInProgress" data-status="in progress" ondrop="moveTo('in progress')" ondragleave="removeHighlight('tasksInProgress')" ondragover="allowDrop(event);
             <div class="tasks drop-zone inProgress" id="tasksInProgress" data-status="in progress" ondrop="moveTo('in progress')" ondragleave="removeHighlight('tasksInProgress')" ondragover="allowDrop(event); highlight('tasksInProgress')">
                 <div class="noTasksExisting" id="noTasksExistingInProgress">
                     <span>No tasks In progress</span>
@@ -98,7 +96,6 @@ function htmlboard(){
                     <path d="M16 12.0754L8 12.0754" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
                 </svg>
             </div>
-            //id="tasksAwaitFeedback" data-status="await feedback" ondrop="moveTo('await feedback')" ondragleave="removeHighlight('tasksAwaitFeedback')" ondragover="allowDrop(event);
             <div class="tasks drop-zone awaitFeedback" id="tasksAwaitFeedback" data-status="await feedback" ondrop="moveTo('await feedback')" ondragleave="removeHighlight('tasksAwaitFeedback')" ondragover="allowDrop(event); highlight('tasksAwaitFeedback')">
                 <div class="noTasksExisting" id="noTasksExistingAwaitFeedback">
                     <span>No tasks Await feedback</span>
@@ -109,8 +106,7 @@ function htmlboard(){
             <div class="headlineStatusTasks">
                 <h5 class="h5StatusTask">Done</h5>
             </div>
-            //id="tasksDone" data-status="done" ondrop="moveTo('done')" ondragleave="removeHighlight('tasksDone')" ondragover="allowDrop(event);
-            <div class="tasks drop-zone" id="tasksDone" data-status="done" ondrop="moveTo('done')" ondragleave="removeHighlight('tasksDone')" ondragover="allowDrop(event); highlight('tasksDone')">
+            <div class="tasks drop-zone done" id="tasksDone" data-status="done" ondrop="moveTo('done')" ondragleave="removeHighlight('tasksDone')" ondragover="allowDrop(event); highlight('tasksDone')">
                 <div class="noTasksExisting" id="noTasksExistingDone">
                     <span>No tasks Done</span>
                 </div>
@@ -122,7 +118,7 @@ function htmlboard(){
 /**
  * This function checks whether tasks of a status exist and shows or hides a message accordingly.
  */
-function checkWhetherTasksExist(){
+function checkWhetherTasksExist() {
     let numberOfTasksToDo = tasks.filter(task => task.status === "to do").length;
     if (numberOfTasksToDo > 0) {
         document.getElementById('noTasksExistingToDo').classList.toggle('dNone');
@@ -146,10 +142,10 @@ function checkWhetherTasksExist(){
  * 
  * @param {index} i The index of the task in the tasks json.
  */
-function displayMiniCard(i){
+function displayMiniCard(i) {
     let task = tasks[i];
     checkStatus(task, i);
-    shortenDescription(i);
+    // shortenDescription(i);
     colorCategory(task, i);
     subtasks(task, i);
     if (task.assignedTo) {
@@ -164,7 +160,7 @@ function displayMiniCard(i){
  * @param {object} task The task whose status is checked.
  * @param {index} i The index of the task in the tasks json.
  */
-function checkStatus(task, i){
+function checkStatus(task, i) {
     if (task.status == "to do") {
         document.getElementById('tasksToDo').innerHTML += htmlMiniCard(task, i);
     } else if (task.status == "in progress") {
@@ -182,9 +178,9 @@ function checkStatus(task, i){
  * @param {number} i - The index of the task.
  * @returns {string} - The HTML string for the mini card.
  */
-function htmlMiniCard(task, i){
-    return /*html*/ `
-        <div class="miniCard draggable task" id="miniCard${i}" data-id="${i}" onclick="openBigCard(${i})" draggable="true" ondragstart="startDragging(${i}, event)">
+function htmlMiniCard(task, i) {
+    return /*html*/ ` 
+        <div class="miniCard draggable test task" id="miniCard${i}" data-id="${i}" onclick="openBigCard(${i})" draggable="true" ondragstart="startDragging(${i}, event)">
             <div class="category" id="category${i}">${task.category}</div>
             <div class="textMiniCard">
                 <h6 class="title">${task.title}</h6>
@@ -204,7 +200,7 @@ function htmlMiniCard(task, i){
  * @param {object} task The task that is displayed.
  * @param {index} i The index of the task in the tasks json.
  */
-function colorCategory(task, i){
+function colorCategory(task, i) {
     let category = document.getElementById('category' + i);
     if (task.category == "User Story") {
         category.style.backgroundColor = '#0038FF';
@@ -218,7 +214,7 @@ function colorCategory(task, i){
  * 
  * @param {index} i The index of the task in the tasks json.
  */
-function shortenDescription(i){
+function shortenDescription(i) {
     let description = document.getElementById('description' + i);
     let maxLineHeight = 40;
 
@@ -233,7 +229,7 @@ function shortenDescription(i){
  * @param {object} task The task that is displayed.
  * @param {index} i The index of the task in the tasks json.
  */
-function subtasks(task, i){
+function subtasks(task, i) {
     if (task.subtasks) {
         let miniCard = document.getElementById('miniCard' + i);
         let divChartSubtasks = chartSubtasks(i);
@@ -252,7 +248,7 @@ function subtasks(task, i){
  * @param {index} i The index of the task in the tasks json.
  * @returns the new created div
  */
-function chartSubtasks(i){
+function chartSubtasks(i) {
     let chartSubtasks = document.createElement('div');
     chartSubtasks.classList.add('progressInfos');
     chartSubtasks.innerHTML = /*html*/ `
@@ -281,7 +277,7 @@ function initials(task, i, currentUser) {
         if (index < 5) {
             let user = task.assignedTo[index].name;
             let initials = user.split(' ').map(word => word.charAt(0)).join('');
-            
+
             if (currentUser && user === currentUser.name) {
                 initials = "you";
             }
@@ -305,13 +301,13 @@ function initials(task, i, currentUser) {
  * @param {object} task The task that is displayed.
  * @param {index} i The index of the task in the tasks json.
  */
-function prio(task, i){
+function prio(task, i) {
     let prioDivMiniCard = document.getElementById('prio' + i);
     if (task.prio == 'Low') {
         prioDivMiniCard.innerHTML = /*html*/`
         <img class="prioImgMiniCard" src="./assets/img/capaLow.svg" alt="low">
         `;
-    } else  if (task.prio == 'Medium') {
+    } else if (task.prio == 'Medium') {
         prioDivMiniCard.innerHTML = /*html*/`
         <img class="prioImgMiniCard" src="./assets/img/capaMedium.svg" alt="medium">
         `;
@@ -327,11 +323,11 @@ function prio(task, i){
 /**
  * This function search tasks. At first tasks is reloaded from the database. A new array is then created with the tasks that contain the value from the input field either in the title or the description. This array replaces tasks. The board is displayed again based on tasks.
  */
-async function searchFunction(){
+async function searchFunction() {
     tasks = await loadData("/tasks");
     let toSearch = document.getElementById('inputFindTask').value;
-    let filteredTasks = tasks.filter(task => 
-        task.title.toLowerCase().includes(toSearch.toLowerCase()) || 
+    let filteredTasks = tasks.filter(task =>
+        task.title.toLowerCase().includes(toSearch.toLowerCase()) ||
         task.description.toLowerCase().includes(toSearch.toLowerCase())
     );
     tasks = filteredTasks;
