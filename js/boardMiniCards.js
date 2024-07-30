@@ -180,7 +180,7 @@ function checkStatus(task, i){
  */
 function htmlMiniCard(task, i){
     return /*html*/ `
-        <div class="miniCard draggable box" id="miniCard${i}" data-id="${i}" onclick="openBigCard(${i})" draggable="true" ondragstart="startDragging(${i}, event)">
+        <div class="miniCard draggable" id="miniCard${i}" data-id="${i}" onclick="openBigCard(${i})" draggable="true" ondragstart="startDragging(${i}, event)">
             <div class="category" id="category${i}">${task.category}</div>
             <div class="textMiniCard">
                 <h6 class="title">${task.title}</h6>
