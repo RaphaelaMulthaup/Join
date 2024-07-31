@@ -271,7 +271,7 @@
         width: 103vw;
         justify-content: center;
         align-items: center;
-        margin: -19svh 0 0 -3vw;
+        margin: -40svh 0 0 0;
         animation: fade 1.75s ease-in-out 0.5s;
         animation-fill-mode: forwards;
         background-color: #f7f7f8;
