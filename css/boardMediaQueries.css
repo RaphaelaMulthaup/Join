@@ -163,6 +163,7 @@
         max-height: none !important;
         border-radius: 0 !important;
         padding-top: 20px !important;
+        padding-right: 8px !important;
     }
 
     .formEditTask{
@@ -202,3 +203,21 @@
     }
 }
 
+@media (max-width: 360px){
+    .editTaskPrioButtons button{
+        gap: 4px !important;
+    }
+
+    .editTaskPrioButtons{
+        gap: 8px !important;
+    }
+
+    .editTaskPrioButtons img{
+       display: none !important;
+    }
+
+    #textSelectContacts{
+        font-size: 18px;
+    }
+
+}

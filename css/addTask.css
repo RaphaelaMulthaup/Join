@@ -268,7 +268,7 @@
 }
 
 @media (max-width: 520px){
-  .addTaskPrioButtonsAddTask button{
+  .addTaskPrioButtons button{
     font-size: 18px !important;
     height: 41px;
   }
@@ -295,7 +295,7 @@
     font-size: 16px !important;
   }
 
-  .addTaskPrioButtonsAddTask img{
+  .addTaskPrioButtons img{
     width: 18px;
   }
 }
