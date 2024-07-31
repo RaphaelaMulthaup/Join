@@ -1,226 +1,233 @@
-@media(max-width: 1400px){
-    
-    header{
-        width: calc(100vw- 323px) !important;
-    }
+@media (max-width: 1400px) {
+  header {
+    width: calc(100vw- 323px) !important;
+  }
 
-    .headlineBoardStatusTasks{
-        padding-left: 3vmax;
-    }
+  .headlineBoardStatusTasks {
+    padding-left: 3vmax;
+  }
 
-    .mobileMenu a{
-        color: white !important;
-        padding: 1vmax !important;
-        border-radius: 10px !important;
-    }
+  .mobileMenu a {
+    color: white !important;
+    padding: 1vmax !important;
+    border-radius: 10px !important;
+  }
 
-    .mobileDiv{
-        display: flex;
-        flex-direction: column;
-    }
+  .mobileDiv {
+    display: flex;
+    flex-direction: column;
+  }
 
-    .mobileIcon{
-        height: 40px;
-    }
-} 
-
-    @media(max-width: 1170px){
-        .mainBoard{
-            height: calc(100vh - 152px);
-        }
-
-        .headlineStatusTasks{
-            width: auto;
-            gap: 16px;
-        }
-        
-        .headlineBoardStatusTasks{
-        flex-direction: column;
-        align-items: normal;
-        overflow-y: scroll;
-        padding-bottom: 24px;
-        padding-left: 16px;
-        }
-
-        .noTasksExisting{
-            max-width: 250px;
-        }
-
-        .tasks{
-            flex-direction: row;
-            justify-content: flex-start;
-            width: 100%;
-            height: fit-content;
-        }
-
-        .h5StatusTask{
-            flex: none;
-        }
-
-        .miniCard{
-            min-width: 280px !important;
-        }
+  .mobileIcon {
+    height: 40px;
+  }
 }
 
-@media(max-width: 1170px){
-    .overlayBackgroundResponsive{
-        height: calc(100vh - 80px);
-    }
+@media (max-width: 1170px) {
+  .mainBoard {
+    height: calc(100vh - 152px);
+  }
 
-    .overlayCard{
-        inset: auto !important;
-    }
+  .headlineStatusTasks {
+    width: auto;
+    gap: 16px;
+  }
 
-    .inputTagsAddTask{
-        flex-direction: column;
-        align-items: center !important;
-    }
+  .headlineBoardStatusTasks {
+    flex-direction: column;
+    align-items: normal;
+    overflow-y: scroll;
+    padding-bottom: 24px;
+    padding-left: 16px;
+  }
 
-    .lowerAreaAddTask{
-        align-items: flex-start !important;
-        
-    }
-    .lowerAreaAddTask{
-        position: fixed;
-        bottom: -70px;
-        width: 100%;
-        padding-right: 28px;
-    }
+  .noTasksExisting {
+    max-width: 250px;
+  }
 
-    .scroll-container {
-        height: 90%;
-        overflow-y: auto;
-    }
-    
-    .scroll-container::-webkit-scrollbar {
-        width: 6px;
-    }
-    
-    .scroll-container::-webkit-scrollbar-track {
-        background: #f1f1f1;
-    }
-    
-    .scroll-container::-webkit-scrollbar-thumb {
-        background: #888;
-    }
-    
-    .scroll-container::-webkit-scrollbar-thumb:hover {
-        background: #555;
-    }
+  .tasks {
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+    height: fit-content;
+  }
 
+  .h5StatusTask {
+    flex: none;
+  }
+
+  .miniCard {
+    /* min-width: 280px !important; */
+    width: 130px;
+    height: 130px;
+  }
 }
 
-@media(max-width: 880px){
-    .boardHeadline{
-        flex-direction: column;
-        padding-left: 32px;
-    }
+@media (max-width: 1170px) {
+  .overlayBackgroundResponsive {
+    height: calc(100vh - 80px);
+  }
 
-    .h1Board{
-        margin-bottom: 40px;
-    }
+  .overlayCard {
+    inset: auto !important;
+  }
 
-    .boardHeadlineActions{
-        justify-content: flex-start;
-    }
+  .inputTagsAddTask {
+    flex-direction: column;
+    align-items: center !important;
+  }
+
+  .lowerAreaAddTask {
+    align-items: flex-start !important;
+  }
+  .lowerAreaAddTask {
+    position: fixed;
+    bottom: -70px;
+    width: 100%;
+    padding-right: 28px;
+  }
+
+  .scroll-container {
+    height: 90%;
+    overflow-y: auto;
+  }
+
+  .scroll-container::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .scroll-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  .scroll-container::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+
+  .scroll-container::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
 }
 
-@media(max-width: 763px){
+@media (max-width: 880px) {
+  .boardHeadline {
+    flex-direction: column;
+    padding-left: 32px;
+  }
 
+  .h1Board {
+    margin-bottom: 40px;
+  }
 
-    .titleBigCard{
-        font-size: 8vmin;
-    }
-
-    .bigCardData{
-        padding: 0 0 0 20px !important;
-    }
-
-    .overlayAddTask{
-        border-radius: 0;
-        width: 100%;
-        margin-inline: 0;
-    }
-
-    .noTasksExisting{
-        max-width: 800px;
-    }
-
-    .h5StatusTask{
-        flex: 1;
-    }
+  .boardHeadlineActions {
+    justify-content: flex-start;
+  }
 }
 
-@media(max-width: 580px){
-    .boardHeadline{
-        padding-left: 24px;
-    }
+@media (max-width: 763px) {
+  .titleBigCard {
+    font-size: 8vmin;
+  }
 
-    .overlayCard{
-        max-width: 100vw !important;
-        width: 100vw !important;
-        max-height: none !important;
-        border-radius: 0 !important;
-        height: calc(100vh - 80px) !important;
-    }
+  .bigCardData {
+    padding: 0 0 0 20px !important;
+  }
 
-    .overlayEditTask{
-        padding-top: 20px !important;
-        padding-right: 8px !important;
-    }
+  .overlayAddTask {
+    border-radius: 0;
+    width: 100%;
+    margin-inline: 0;
+  }
 
-    .formEditTask{
-        max-height: calc(100vh - 267px);
-    }
+  .noTasksExisting {
+    max-width: 800px;
+  }
 
-    .inputTagsEditTask{
-        max-height: none !important;
-    }
-}
-@media(max-height : 680px){
-    .headlineBoardStatusTasks{
-        overflow: unset;
-    }
-
-    .mainBoard{
-        overflow: scroll;
-    }
+  .h5StatusTask {
+    flex: 1;
+  }
 }
 
-@media (max-width: 450px){
-    .formEditTaskUpperArea{
-        padding-left: 16px !important;
-        padding-right: 8px !important;
-    }
+@media (max-width: 580px) {
+  .boardHeadline {
+    padding-left: 24px;
+  }
 
-    .formEditTaskLowerArea{
-        padding-right: 8px !important;
-    }
+  .overlayCard {
+    max-width: 100vw !important;
+    width: 100vw !important;
+    max-height: none !important;
+    border-radius: 0 !important;
+    height: calc(100vh - 80px) !important;
+  }
 
-    .buttonUrgentEditTask{
-        margin-left: 16px !important;
-    }
+  .overlayEditTask {
+    padding-top: 20px !important;
+    padding-right: 8px !important;
+  }
 
-    .formEditTaskLowerArea > div:nth-child(n+2) {
-        padding-left: 16px !important;
-    }
+  .formEditTask {
+    max-height: calc(100vh - 267px);
+  }
+
+  .inputTagsEditTask {
+    max-height: none !important;
+  }
+}
+@media (max-height: 680px) {
+  .headlineBoardStatusTasks {
+    overflow: unset;
+  }
+
+  .mainBoard {
+    overflow: scroll;
+  }
 }
 
-@media (max-width: 360px){
-    .editTaskPrioButtons button{
-        gap: 4px !important;
-    }
+@media (max-width: 450px) {
+  .formEditTaskUpperArea {
+    padding-left: 16px !important;
+    padding-right: 8px !important;
+  }
 
-    .editTaskPrioButtons{
-        gap: 8px !important;
-    }
+  .formEditTaskLowerArea {
+    padding-right: 8px !important;
+  }
 
-    .editTaskPrioButtons img{
-       display: none !important;
-    }
+  .buttonUrgentEditTask {
+    margin-left: 16px !important;
+  }
 
-    #textSelectContacts{
-        font-size: 18px;
-    }
+  .formEditTaskLowerArea > div:nth-child(n + 2) {
+    padding-left: 16px !important;
+  }
+}
 
+@media (max-width: 360px) {
+  .editTaskPrioButtons button {
+    gap: 4px !important;
+  }
+
+  .editTaskPrioButtons {
+    gap: 8px !important;
+  }
+
+  .editTaskPrioButtons img {
+    display: none !important;
+  }
+
+  #textSelectContacts {
+    font-size: 18px;
+  }
+}
+
+@media (pointer: coarse) {
+  .tasks {
+    overflow: unset;
+  }
+
+  .drop-highlight {
+    border: 2px dashed #000;
+    background-color: #f0f0f0;
+  }
 }

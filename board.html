@@ -25,20 +25,19 @@
     <script src="./js/dragAndDrop.js"></script>
     <script src="./js/editTask.js"></script>
     <script src="./js/legalHelp.js"></script>
-    <!-- <script src="./js/dragAndDropMobil.js" defer></script> -->
     <script>
         setTimeout(function() {
             let script = document.createElement('script');
             script.src = './js/dragAndDropMobil.js';
             document.body.appendChild(script);
-        }, 3000); // Verzögerung in Millisekunden (z.B. 2000ms = 2s)
+        }, 2000);
     </script>
     
 </head>
 <body id="bodyBoard" class="bodyMainpages" onload="loadBoardPage()" onclick="setElementsToDefaultBoard()">
-    <!-- <div w3-include-html="./assets/templates/menu.html"></div> -->
+    <div w3-include-html="./assets/templates/menu.html"></div>
     <div class="mainpagesRightSide">
-        <!-- <div w3-include-html="./assets/templates/header.html"></div> -->
+        <div w3-include-html="./assets/templates/header.html"></div>
         <main class="mainMainpages mainBoard">
             <div id="subMenu" class="dNone" w3-include-html="./assets/templates/subMenu.html" onclick="stayOpenOrActiv(event)"></div>
             <div class="boardHeadline" style="display: none;">
@@ -75,7 +74,7 @@
                             <path d="M16 12.0754L8 12.0754" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
                         </svg>
                     </div>
-                    <div class="tasks toDo" id="tasksToDo">
+                    <div class="tasks toDo drop-highlight" id="tasksToDo">
                         <div class="noTasksExisting" id="noTasksExistingToDo">
                             <span>No tasks To do</span>
                         </div>
@@ -91,7 +90,7 @@
                             <path d="M16 12.0754L8 12.0754" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
                         </svg>
                     </div>
-                    <div class="tasks inProgress" id="tasksInProgress">
+                    <div class="tasks inProgress drop-highlight" id="tasksInProgress">
                         <div class="noTasksExisting" id="noTasksExistingInProgress">
                             <span>No tasks In progress</span>
                         </div>
@@ -107,7 +106,7 @@
                             <path d="M16 12.0754L8 12.0754" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
                         </svg>
                     </div>
-                    <div class="tasks awaitFeedback" id="tasksAwaitFeedback">
+                    <div class="tasks awaitFeedback drop-highlight" id="tasksAwaitFeedback">
                         <div class="noTasksExisting" id="noTasksExistingAwaitFeedback">
                             <span>No tasks Await feedback</span>
                         </div>
@@ -118,7 +117,7 @@
                     <div class="headlineStatusTasks">
                         <h5 class="h5StatusTask">Done</h5>
                     </div>
-                    <div class="tasks done" id="tasksDone">
+                    <div class="tasks done drop-highlight" id="tasksDone">
                         <div class="noTasksExisting" id="noTasksExistingDone">
                             <span>No tasks Done</span>
                         </div>
@@ -128,7 +127,7 @@
             
         </main>
         
-      <!-- <div w3-include-html="./assets/templates/mobileMenu.html"></div> -->
+      <div w3-include-html="./assets/templates/mobileMenu.html"></div>
         <div w3-include-html="./assets/templates/privacyPolicy.html"></div>
         <div w3-include-html="./assets/templates/legalNotice.html"></div>
         <div w3-include-html="./assets/templates/help.html"></div>

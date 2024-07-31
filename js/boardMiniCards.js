@@ -66,7 +66,7 @@ function htmlboard() {
                     <path d="M16 12.0754L8 12.0754" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
                 </svg>
             </div>
-            <div class="tasks drop-zone toDo" id="tasksToDo" data-status="to do" ondrop="moveTo('to do')" ondragleave="removeHighlight('tasksToDo')" ondragover="allowDrop(event); highlight('tasksToDo')">
+            <div class="tasks drop-zone toDo drop-highlight" id="tasksToDo" data-status="to do" ondrop="moveTo('to do')" ondragleave="removeHighlight('tasksToDo')" ondragover="allowDrop(event); highlight('tasksToDo')">
                 <div class="noTasksExisting" id="noTasksExistingToDo">
                     <span>No tasks To do</span>
                 </div>
@@ -81,7 +81,7 @@ function htmlboard() {
                     <path d="M16 12.0754L8 12.0754" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
                 </svg>
             </div>
-            <div class="tasks drop-zone inProgress" id="tasksInProgress" data-status="in progress" ondrop="moveTo('in progress')" ondragleave="removeHighlight('tasksInProgress')" ondragover="allowDrop(event); highlight('tasksInProgress')">
+            <div class="tasks drop-zone inProgress drop-highlight" id="tasksInProgress" data-status="in progress" ondrop="moveTo('in progress')" ondragleave="removeHighlight('tasksInProgress')" ondragover="allowDrop(event); highlight('tasksInProgress')">
                 <div class="noTasksExisting" id="noTasksExistingInProgress">
                     <span>No tasks In progress</span>
                 </div>
@@ -96,7 +96,7 @@ function htmlboard() {
                     <path d="M16 12.0754L8 12.0754" stroke="#2A3647" stroke-width="2" stroke-linecap="round"/>
                 </svg>
             </div>
-            <div class="tasks drop-zone awaitFeedback" id="tasksAwaitFeedback" data-status="await feedback" ondrop="moveTo('await feedback')" ondragleave="removeHighlight('tasksAwaitFeedback')" ondragover="allowDrop(event); highlight('tasksAwaitFeedback')">
+            <div class="tasks drop-zone awaitFeedback drop-highlight" id="tasksAwaitFeedback" data-status="await feedback" ondrop="moveTo('await feedback')" ondragleave="removeHighlight('tasksAwaitFeedback')" ondragover="allowDrop(event); highlight('tasksAwaitFeedback')">
                 <div class="noTasksExisting" id="noTasksExistingAwaitFeedback">
                     <span>No tasks Await feedback</span>
                 </div>
@@ -106,7 +106,7 @@ function htmlboard() {
             <div class="headlineStatusTasks">
                 <h5 class="h5StatusTask">Done</h5>
             </div>
-            <div class="tasks drop-zone done" id="tasksDone" data-status="done" ondrop="moveTo('done')" ondragleave="removeHighlight('tasksDone')" ondragover="allowDrop(event); highlight('tasksDone')">
+            <div class="tasks drop-zone done drop-highlight" id="tasksDone" data-status="done" ondrop="moveTo('done')" ondragleave="removeHighlight('tasksDone')" ondragover="allowDrop(event); highlight('tasksDone')">
                 <div class="noTasksExisting" id="noTasksExistingDone">
                     <span>No tasks Done</span>
                 </div>
