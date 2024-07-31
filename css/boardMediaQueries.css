@@ -3,6 +3,10 @@
     width: calc(100vw- 323px) !important;
   }
 
+  .boardHeadline{
+    padding-left: 3vmax;
+  }
+  
   .headlineBoardStatusTasks {
     padding-left: 3vmax;
   }
@@ -26,6 +30,7 @@
 @media (max-width: 1170px) {
   .mainBoard {
     height: calc(100vh - 152px);
+    overflow-y: scroll;
   }
 
   .headlineStatusTasks {
@@ -36,7 +41,6 @@
   .headlineBoardStatusTasks {
     flex-direction: column;
     align-items: normal;
-    overflow-y: scroll;
     padding-bottom: 24px;
     padding-left: 16px;
     gap: 20px;
