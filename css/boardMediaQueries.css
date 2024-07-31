@@ -1,4 +1,4 @@
-@media (max-width: 1400px) {
+@media (max-width: 1420px) {
   header {
     width: calc(100vw- 323px) !important;
   }
@@ -27,7 +27,7 @@
   }
 }
 
-@media (max-width: 1170px) {
+@media (max-width: 1420px) {
   .mainBoard {
     height: calc(100vh - 152px);
     overflow-y: scroll;
@@ -67,9 +67,7 @@
     /* width: 130px; */
     /* height: 130px; */
   }
-}
 
-@media (max-width: 1170px) {
   .overlayBackgroundResponsive {
     height: calc(100vh - 80px);
   }
