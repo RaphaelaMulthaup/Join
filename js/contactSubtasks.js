@@ -28,7 +28,6 @@ async function deleteDeletedUserInTasks(nameDeletdUser){
 function validateForm() {
     // preventDefault();
 
-    // Clear previous errors
     document.getElementById('user').style.display = 'none';
     document.getElementById('email').style.display = 'none';
     document.getElementById('phone').style.display = 'none';
@@ -79,7 +78,6 @@ function validateForm() {
 }
 
 function resetForm() {
-    // Reset form values
     document.getElementById('user').value = '';
     document.getElementById('email').value = '';
     document.getElementById('phone').value = '';

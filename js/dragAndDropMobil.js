@@ -1,35 +1,56 @@
+/**
+ * NodeList of all elements with class 'task'.
+ * @type {NodeListOf<Element>}
+ * The to-do, in-progress, await feedback and done column container element.
+ * @type {HTMLElement}
+ */
 let task = document.querySelectorAll(".task");
 let toDo = document.querySelector(".toDo");
 let inProgress = document.querySelector(".inProgress");
 let awaitFeedback = document.querySelector(".awaitFeedback");
 let done = document.querySelector(".done");
 
-let toDoPos = toDo.getBoundingClientRect();
-let inProgressPos = inProgress.getBoundingClientRect();
-let awaitFeedbackPos = awaitFeedback.getBoundingClientRect();
-let donePos = done.getBoundingClientRect();
 
 task.forEach(addTouchEvents);
 
+/**
+ * Adds touch event listeners to the given element.
+ * @param {Element} elem - The element to add touch events to.
+ */
 function addTouchEvents(elem) {
     elem.addEventListener("touchstart", e => handleTouchStart(e, elem));
 }
 
+/**
+ * Handles the touchstart event.
+ * @param {TouchEvent} e - The touchstart event object.
+ * @param {Element} elem - The element that is being touched.
+ */
 function handleTouchStart(e, elem) {
     console.log(e);
 
-    let startX = e.changedTouches[0].clientX;
-    let startY = e.changedTouches[0].clientY;
+    const startX = e.changedTouches[0].clientX;
+    const startY = e.changedTouches[0].clientY;
+
+    // Recalculate container positions on every touchstart
+    updateContainerPositions();
 
     elem.addEventListener("touchmove", eve => handleTouchMove(eve, elem, startX, startY));
     elem.addEventListener("touchend", eve => handleTouchEnd(eve, elem));
 }
 
+/**
+ * Handles the touchmove event.
+ * @param {TouchEvent} eve - The touchmove event object.
+ * @param {Element} elem - The element that is being moved.
+ * @param {number} startX - The initial x-coordinate of the touch.
+ * @param {number} startY - The initial y-coordinate of the touch.
+ */
 function handleTouchMove(eve, elem, startX, startY) {
     eve.preventDefault();
 
-    let nextX = eve.changedTouches[0].clientX;
-    let nextY = eve.changedTouches[0].clientY;
+    const nextX = eve.changedTouches[0].clientX;
+    const nextY = eve.changedTouches[0].clientY;
 
     elem.style.left = nextX - startX + "px";
     elem.style.top = nextY - startY + "px";
@@ -38,6 +59,11 @@ function handleTouchMove(eve, elem, startX, startY) {
     highlightDropZone(elem);
 }
 
+/**
+ * Handles the touchend event.
+ * @param {TouchEvent} eve - The touchend event object.
+ * @param {Element} elem - The element that is being touched.
+ */
 function handleTouchEnd(eve, elem) {
     elem.style.zIndex = 0;
 
@@ -57,9 +83,15 @@ function handleTouchEnd(eve, elem) {
     removeDropHighlights();
 }
 
+/**
+ * Checks if the element is overlapping the container.
+ * @param {Element} elem - The element being checked.
+ * @param {Element} container - The container element.
+ * @returns {boolean} True if overlapping, otherwise false.
+ */
 function isOverlapping(elem, container) {
-    let elemRect = elem.getBoundingClientRect();
-    let containerRect = container.getBoundingClientRect();
+    const elemRect = elem.getBoundingClientRect();
+    const containerRect = container.getBoundingClientRect();
 
     return (
         elemRect.top < containerRect.bottom &&
@@ -69,6 +101,10 @@ function isOverlapping(elem, container) {
     );
 }
 
+/**
+ * Highlights the drop zone of the element.
+ * @param {Element} elem - The element being moved.
+ */
 function highlightDropZone(elem) {
     removeDropHighlights();
 
@@ -83,6 +119,9 @@ function highlightDropZone(elem) {
     }
 }
 
+/**
+ * Removes the drop zone highlights.
+ */
 function removeDropHighlights() {
     toDo.classList.remove("drop-highlight");
     inProgress.classList.remove("drop-highlight");
@@ -90,6 +129,12 @@ function removeDropHighlights() {
     done.classList.remove("drop-highlight");
 }
 
+/**
+ * Moves the element to the specified container.
+ * @param {Element} elem - The element to be moved.
+ * @param {HTMLElement} container - The container to move the element to.
+ * @param {string} containerName - The name of the container.
+ */
 function moveToContainer(elem, container, containerName) {
     if (!container.contains(elem)) {
         container.appendChild(elem);
@@ -101,10 +146,25 @@ function moveToContainer(elem, container, containerName) {
     }
 }
 
+/**
+ * Resets the position of the element.
+ * @param {Element} elem - The element to reset.
+ */
 function resetElementPosition(elem) {
     elem.style.left = "0px";
     elem.style.top = "0px";
 }
+
+/**
+ * Updates the positions of the container elements.
+ */
+function updateContainerPositions() {
+    toDoPos = toDo.getBoundingClientRect();
+    inProgressPos = inProgress.getBoundingClientRect();
+    awaitFeedbackPos = awaitFeedback.getBoundingClientRect();
+    donePos = done.getBoundingClientRect();
+}
+
 
 /**
  * Moves the current dragged element to a new status.

@@ -39,6 +39,8 @@
     overflow-y: scroll;
     padding-bottom: 24px;
     padding-left: 16px;
+    gap: 20px;
+    height: unset;
   }
 
   .noTasksExisting {
@@ -57,9 +59,9 @@
   }
 
   .miniCard {
-    /* min-width: 280px !important; */
-    width: 130px;
-    height: 130px;
+    min-width: 280px !important;
+    /* width: 130px; */
+    /* height: 130px; */
   }
 }
 
@@ -182,6 +184,9 @@
   .mainBoard {
     overflow: scroll;
   }
+  .noTasksExisting{
+    display: none !important;
+  }
 }
 
 @media (max-width: 450px) {
@@ -229,5 +234,9 @@
   .drop-highlight {
     border: 2px dashed #000;
     background-color: #f0f0f0;
+  }
+
+  .noTasksExisting{
+    display: none;
   }
 }
