@@ -145,7 +145,7 @@ function checkWhetherTasksExist() {
 function displayMiniCard(i) {
     let task = tasks[i];
     checkStatus(task, i);
-    // shortenDescription(i);
+    shortenDescription(i);
     colorCategory(task, i);
     subtasks(task, i);
     if (task.assignedTo) {

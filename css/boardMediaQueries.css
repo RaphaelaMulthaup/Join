@@ -156,12 +156,15 @@
         padding-left: 24px;
     }
 
-    .overlayEditTask{
+    .overlayCard{
         max-width: 100vw !important;
         width: 100vw !important;
-        height: calc(100vh - 80px)  !important;
         max-height: none !important;
         border-radius: 0 !important;
+        height: calc(100vh - 80px) !important;
+    }
+
+    .overlayEditTask{
         padding-top: 20px !important;
         padding-right: 8px !important;
     }
