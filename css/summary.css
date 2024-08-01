@@ -144,7 +144,6 @@
 }
 
 .overviewSummary:has(.secondLineOverviewSummary:hover) {
-    gap: 20px;
     transition: 80ms ease-in-out;   
 }
 
