@@ -149,8 +149,8 @@ function stayOpenOrActiv(event){
  * @param {img} lockId - show if text is visible or not
  */
 function togglePasswordVisibility(lockId) {
-    var passwordField = document.getElementById(lockId);
-    var lockIcon = document.querySelector("#" + lockId + ".lock");
+    let passwordField = document.getElementById(lockId);
+    let lockIcon = document.querySelector("#" + lockId + ".lock");
 
     if 
     (passwordField.type == "text"){
@@ -166,8 +166,8 @@ function togglePasswordVisibility(lockId) {
  * check for checkbox
  */
 function toggleSubmitButton() {
-    var checkbox = document.getElementById('checkbox');
-    var registerBtn = document.getElementById('registerBtn');
+    let checkbox = document.getElementById('checkbox');
+    let registerBtn = document.getElementById('registerBtn');
     registerBtn.disabled = !checkbox.checked;
 }
 

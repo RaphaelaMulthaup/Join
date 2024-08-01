@@ -7,14 +7,8 @@
  * @returns {Promise<void>}
  */
 async function registerContact() {
-    // registerBtn.disabled = true;
-
-    // if (!areFieldsFilled()) {
-    //     // showAlertAndEnableButton('Bitte füllen Sie alle Felder aus hihi.');
-    //     validateContactForm();
-    //     return;
-    // }
-
+    registerBtn.disabled = true;
+  
     let users = await loadData("/users");
 
     if (isNameOrEmailTaken(users)) {

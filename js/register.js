@@ -90,10 +90,10 @@ function displayError(errorType, emailElement, passwordElement, alertUser, alert
  * saves currentUser and the checkboxValue
  */
 async function saveCurrentUser(){
-    var checkboxValue = rememberMe();
+    let checkboxValue = rememberMe();
     await putData("/currentUser",currentUser);
     await putData('/checkboxValue', checkboxValue);
-    //console.log ('Hochgesendete Daten', currentUser, 'checkbox-Wert', checkboxValue);
+    // console.log ('Hochgesendete Daten', currentUser, 'checkbox-Wert', checkboxValue);
 }
 
 /**
@@ -101,7 +101,7 @@ async function saveCurrentUser(){
  * @returns checkboxValue
  */
 function rememberMe() {
-    var checkbox = document.getElementById('checkbox');
+    let checkbox = document.getElementById('checkbox');
     return checkbox.checked;
 }
 

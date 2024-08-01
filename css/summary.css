@@ -120,10 +120,6 @@
     width: -webkit-fill-available;
 }
 
-.firstLineOverviewSummary a:hover{
-    /* width: 282.5px; Padding lösung??*/
-}
-
 .firstLineOverviewSummary a:active{
     width: 264px;
 }

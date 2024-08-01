@@ -23,7 +23,6 @@ async function loadusers() {
         users = await addInitialsToUsersAndSave(users);
         return users;
     } catch (error) {
-        //console.error("Fehler beim Laden der Benutzerdaten:", error);
         return [];
     }
 }
@@ -58,7 +57,6 @@ async function renderContactList(users) {
 
     indexLetterOnly.forEach(letter => {
         loadFirstLetter(letter);
-        //console.log('indexletter', letter);
         loadContactIndex(letter, users);
     });
 }
@@ -77,9 +75,7 @@ function loadContactIndex(letter, users) {
                 randomBackgroundColor(users);
             }
         }
-    } else {
-        //console.error('Users is not an array or is undefined:', users);
-    }
+    } 
 }
 
 /**
@@ -122,9 +118,7 @@ async function randomBackgroundColor(users) {
 function renderContactContainer(user) {
     const content = document.getElementById('contactInput');
 
-    // Use user.id instead of user.index
     if (typeof user.id === 'undefined') {
-        //console.error('user.id is undefined');
         return;
     }
 
@@ -150,7 +144,6 @@ function renderContactContainer(user) {
  * @returns {void}
  */
 function openContact(id) {
-    //console.log('openContact called with id:', id);
 
     const user = findUserById(id);
     if (!validateUser(user)) {
@@ -173,7 +166,6 @@ function openContact(id) {
  */
 function findUserById(id) {
     const user = users.find(user => user.id === id);
-    //console.log('User object in findUserById:', user);
     return user;
 }
 
@@ -186,7 +178,6 @@ function findUserById(id) {
  */
 function validateUser(user) {
     if (!user || !user.initials || !user.name || !user.id) {
-        //console.error('Invalid user object:', user);
         return false;
     }
     return true;
@@ -201,7 +192,6 @@ function validateUser(user) {
 function getContentElement() {
     const content = document.getElementById('contactDetailContainer');
     if (!content) {
-        //console.error('Element with id "contactDetailContainer" not found');
         return null;
     }
     return content;
@@ -232,7 +222,6 @@ async function deleteUserAndReassignIds(userId) {
     
     if (userIndex !== -1) {
         let nameDeletdUser = users[userIndex].name;
-        //console.log('gelöschter Benutzer', user);
         users.splice(userIndex, 1);
 
         await deleteDeletedUserInTasks(nameDeletdUser);
@@ -240,11 +229,9 @@ async function deleteUserAndReassignIds(userId) {
       users.forEach((user, index) => {
         user.id = index + 1;
       });
-      //console.log(users);
       closeAddContact();
       await putData('/users', users);
       await renderContactList(users);
     } else {
-        //console.log(`User with ID ${userId} not found.`);
     }
   }

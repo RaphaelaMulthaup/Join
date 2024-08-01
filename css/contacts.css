@@ -14,6 +14,10 @@
   width: 352px;
 }
 
+.contactSide{
+  text-align-last: center;
+}
+
 .indexContainer {
   padding: 16px;
 }
@@ -121,6 +125,7 @@
 .middel {
   display: flex;
   align-items: center;
+  justify-content: center;
   width: 200px;
   padding: 35px;
 }
@@ -166,6 +171,8 @@
   font-size: xx-large;
   text-align: center;
   width: 50px;
+  display: flex;
+  justify-content: center;
 }
 
 .right {
@@ -395,12 +402,4 @@ input:valid ~ label {
 .delete:hover {
   background-repeat: no-repeat;
   background-image: url(../assets/img/deleteBlue.svg);
-}
-
-.alert {
-  position: relative;
-  bottom: 13px;
-  color: #fe818f;
-  font-size: xx-small;
-  align-self: flex-start;
 }

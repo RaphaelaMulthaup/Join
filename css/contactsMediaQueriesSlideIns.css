@@ -45,10 +45,22 @@
     display: none;
   }
   
+  .alert {
+    position: relative;
+    bottom: 13px;
+    color: #fe818f;
+    font-size: xx-small;
+    align-self: flex-start;
+  }
+
   .closeContact {
     animation-name: closeContact;
     animation-duration: 0.5s;
     animation-timing-function: ease-in-out;
+  }
+
+  .overlayBackground{
+    overflow: hidden;
   }
   
   @keyframes closeContact {
