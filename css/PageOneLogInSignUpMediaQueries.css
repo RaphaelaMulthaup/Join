@@ -75,9 +75,7 @@
 
       .formBoxSignUp{
         height: calc(670px - 140px - 0px);
-
         margin: 120px 0px 0px 0px;
-        overflow: scroll;
       }
     }
 
