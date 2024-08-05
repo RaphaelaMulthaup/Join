@@ -14,6 +14,7 @@ async function loadusers(){
     if (currentUser && currentUser.name) {
         document.querySelector('.greetingCurrent').innerText = getGreeting();
         document.getElementById('currentUser').innerText = currentUser.name;
+        document.getElementById('initialsHeader').innerText = currentUser.initials;
     }
     } catch (e){
         //console.error('Loading error:' , e);

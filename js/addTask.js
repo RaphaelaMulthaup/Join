@@ -26,6 +26,10 @@ async function loadAddTaskPage(){
     await displayContacts();
     selectedCategory = '';
     subtasksForm = [];
+    currentUser = await loadData('currentUser');
+    if (currentUser && currentUser.initials) {
+        document.getElementById('initialsHeader').innerText = currentUser.initials;
+    }
 
     /**
      * This eventlistener creates a new subtask when the enter key is pressed within 'inputAddSubtask'.

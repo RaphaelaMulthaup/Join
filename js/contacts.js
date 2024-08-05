@@ -5,12 +5,15 @@ const initials = [];
 */
 async function init() {
     const users = await loadusers();
+    currentUser = await loadData('currentUser');   
     if (users) {
         abcOrder(users);
         await renderContactList(users);
-    } else {
+        if (currentUser && currentUser.initials) {
+            document.getElementById('initialsHeader').innerText = currentUser.initials;
+        
         //console.error("Fehler beim Laden der Benutzerdaten.");
-    }
+        }}
 }
 
 /**

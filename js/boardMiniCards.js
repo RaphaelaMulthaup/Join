@@ -7,8 +7,14 @@ async function loadBoardPage() {
     await loadPage('menuItemBoard');
     await loadTasksAndContacts();
     await loadUsers();
-    displayBoard();
+    displayBoard();    
+    currentUser = await loadData('currentUser');
+    if (currentUser && currentUser.initials) {
+        document.getElementById('initialsHeader').innerText = currentUser.initials;
+    }
 }
+
+
 
 /**
  * This function loads the example tasks and displays them.
@@ -21,6 +27,8 @@ async function loadTasksAndContacts() {
         tasks = newTasks;
     }
 }
+
+
 
 /**
  * loads currentUser and greats the usere or guest
