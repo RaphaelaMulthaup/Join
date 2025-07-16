@@ -1,400 +1,403 @@
 @keyframes animate-in {
-    0% {
-      opacity: 0;
-      transform: translateY(100%);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
   }
-  
-  @keyframes animate-out {
-    0% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    100% {
-      opacity: 0;
-      transform: translateY(-100%);
-    }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  #list-view li, .contactContainerBig {
-    animation: animate-in linear forwards, animate-out linear forwards;
-    animation-timeline: view();
-    animation-range: entry, exit;
+}
+
+@keyframes animate-out {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  @keyframes contactSlideIn {
-    from {
-        margin-left: 75%;
-    }
-  
-    to {
-        margin-left: 0%;
-    }
+  100% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+
+#list-view li,
+.contactContainerBig {
+  animation: animate-in linear forwards, animate-out linear forwards;
+  animation-timeline: view();
+  animation-range: entry, exit;
+}
+
+@keyframes contactSlideIn {
+  from {
+    margin-left: 75%;
   }
 
-  .addContact {
-    animation-name: addOverlay;
-    animation-duration: 0.5s;
+  to {
+    margin-left: 0%;
   }
-  
-  .d-none {
-    display: none;
-  }
-  
-  .alert {
-    position: relative;
-    bottom: 13px;
-    color: #fe818f;
-    font-size: xx-small;
-    align-self: flex-start;
-  }
+}
 
-  .closeContact {
-    animation-name: closeContact;
-    animation-duration: 0.5s;
-    animation-timing-function: ease-in-out;
-  }
+.addContact {
+  animation-name: addOverlay;
+  animation-duration: 0.5s;
+}
 
-  .overlayBackground{
-    overflow: hidden;
+.d-none {
+  display: none;
+}
+
+.alert {
+  position: relative;
+  bottom: 13px;
+  color: #fe818f;
+  font-size: xx-small;
+  align-self: flex-start;
+}
+
+.closeContact {
+  animation-name: closeContact;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+}
+
+.overlayBackground {
+  overflow: hidden;
+}
+
+@keyframes closeContact {
+  0% {
+    transform: translate(0, 0);
   }
-  
-  @keyframes closeContact {
-    0% {
-      transform: translate(0, 0);
-    }
-    100% {
-      transform: translate(100vw, 0);
-    }
+  100% {
+    transform: translate(100vw, 0);
   }
-  
-  .contactGroup {
-    display: flex;
-  }
+}
+
+.contactGroup {
+  display: flex;
+}
 
 .slideInBG {
-    position: fixed;
-    top: 0;
-    height: 100vh;
-    width: 100vw;
-    background-color: #80808045;
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: #80808045;
+}
+.slideIn {
+  width: max-content;
+  animation: slideIn 2.5s ease-in-out forwards;
+  background-color: #2a3647;
+  border-radius: 20px;
+  position: absolute;
+  padding: 30px;
+  color: #cdcdcd;
+}
+
+@keyframes slideIn {
+  0% {
+    top: 77vh;
+    left: 100vw;
   }
-  .slideIn {
-    width: max-content;
-    animation: slideIn 2.5s ease-in-out forwards;
-    background-color: #2a3647;
-    border-radius: 20px;
+
+  40% {
+    top: 77vh;
+    left: 57vw;
+  }
+  60% {
+    top: 77vh;
+    left: 57vw;
+  }
+  100% {
+    top: 77vh;
+    left: 100vw;
+  }
+}
+
+@media (max-width: 1170px) {
+  .contacts {
+    height: calc(100vh - 152px);
+  }
+
+  .contactInput {
+    height: calc(100% - 105px);
+    padding-bottom: 40px;
+  }
+}
+
+@media (max-width: 1140px) {
+  .contactGroup {
+    flex-direction: column;
+  }
+
+  .closeWhite {
+    content: url("../assets/img/closeWhite.svg");
+  }
+
+  .left {
+    height: 300px;
+    border-radius: 16px 16px 0px 0px !important;
+  }
+
+  .left img {
+    display: none;
+  }
+
+  .middel {
+    display: flex;
+    width: unset;
+    padding: unset;
+    justify-content: center;
+    top: -60px;
+  }
+
+  .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: -40px 20px 20px 20px;
+    padding-right: unset;
+    align-items: center;
+  }
+
+  .center {
+    align-self: center;
+  }
+
+  .buttonFilledResponsiv {
+    font-size: 0;
+    vertical-align: middle;
+    border-radius: 50%;
+    height: 55px;
+    width: 55px;
     position: absolute;
-    padding: 30px;
-    color: #cdcdcd;
+    right: 8vmin;
+    bottom: 16vmin;
   }
-  
-  @keyframes slideIn {
-    0% {
-      top: 77vh;
-      left: 100vw;
-    }
-  
-    40% {
-      top: 77vh;
-      left: 57vw;
-    }
-    60% {
-      top: 77vh;
-      left: 57vw;
-    }
-    100%{
-      top: 77vh;
-      left: 100vw;
-    }
+}
+
+@media (max-width: 910px) {
+  .hidden {
+    display: none;
   }
 
-  @media (max-width:1170px){
-    .contacts{
-      height: calc(100vh - 152px);
-    }
-
-    .contactInput{
-      height: calc(100% - 105px);
-      padding-bottom: 40px;
-    }
+  .blueLineContacts {
+    display: none;
   }
-  
-  @media (max-width:1024px){
-    .contactGroup{
-      flex-direction: column;
-    }
-  
+  .editDelete {
+    /* position: absolute; */
+    /* position: sticky; */
+    bottom: -16svh;
+    right: 130px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    align-items: flex-start;
+    border-radius: 20px 20px 0px 20px;
+    box-shadow: 4px 4px 5px 4px #0000003d;
   }
-  @media (max-width:1024px){
-    .closeWhite{
-      content: url('../assets/img/closeWhite.svg');
-    }
-    
-    .left{
-      height: 300px;
-      border-radius: 16px 16px 0px 0px !important;
-    }
-  
-    .left img{
-      display: none;
-    }
-  
-    .middel{
-      display: flex;
-      width: unset;
-      padding: unset;
-      justify-content: center;
-      top: -60px;
-    }
-  
-    .right{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      margin: -40px 20px 20px 20px;
-      padding-right: unset;
-      align-items: center;
-    }
-    
-    .center{
-      align-self: center;
-    }
-  
-    .buttonFilledResponsiv{
-      font-size: 0;
-          vertical-align: middle;
-          border-radius: 50%;
-          height: 55px;
-          width: 55px;
-          position: absolute;
-          right: 8vmin;
-          bottom: 16vmin;
-    }
-  
+
+  .edit {
+    width: 110%;
   }
-  
-  @media (max-width:910px){
-    .hidden{
-      display: none;
-    }
-  
-    .blueLineContacts{
-      display: none;
-    }
-    .editDelete{
-      /* position: absolute; */
-      /* position: sticky; */
-      bottom: -16svh;
-      right: 130px;
-      padding: 28px;
-      display: flex;
-      flex-direction: column;
-      gap: 26px;
-      align-items: flex-start;
-      border-radius: 20px 20px 0px 20px;
-      box-shadow: 4px 4px 5px 4px #0000003d;
-      }
-  
-    .edit{
-        width: 110%;
-      }
-  
-    .edit p{
-        padding-left: 32px;
-      }
-      
-    .mobileD-none{
-      display: none !important;
-    }
-  
-    .contactBox{
-      flex-direction: column;
-      align-items: unset;
-    }
-  
-    .line{
-      width: auto;
-    }
-  
-    .contacts{
-      width: 100vw;
-     }
-  
-     .userContainerBig{
-        margin: unset;
-        padding: unset;
-     }
 
-    .contactSlideInBox{
-      z-index: 1;
-      height: calc(100vh - 96px);
-      background: #fff;
-      position: relative;
-      top: -37px;
-    }
-  
-    .positionContactBox {
-      left: 24px;
-    }
-  
-    .contactDetailContainer{
-      left: 24px;
-      top: 11svh;
-    }
-    
-    .blueLineContactsHorizontal{
-      background-color: #29abe2;
-      width: 60px;
-      height: 3px;
-      border-radius: 2px;
-    }
-  
-    .backArrow{
-      display: unset;
-      position: fixed;
-      right: 24px;
-      top: 170px;
-      cursor: pointer;
-    }
-    .backArrow img{
-      height: 32px;
-    }
-  
-    @keyframes contactSlideOut {
-      from {
-          margin-left: 75%;
-      }
-      to {
-          margin-left: 0%;
-      }
-    }
-    
-    @keyframes contactSlideIn {
-      from {
-          margin-left: 100%;
-      }
-      to {
-          margin-left: 0%;
-      }
-    }
-    
-    .contactSlideOut {
-      animation: contactSlideOut 1s ease-in-out forwards;
-    }
-    
-    .contactSlideIn {
-      animation: contactSlideIn 1s ease-in-out;
-    }
-  
-    .mobileEdit{
-      display: none;
-      transition: all 175ms ease-in-out;
-      display: flex;
-      position: fixed;
-      right: 24px;
-      bottom: 170px;
-      cursor: pointer;
-      background: #2A3647;
-      border-radius: 50px;
-      width: 60px;
-      height: 60px;
-      justify-content: center;
-      align-items: center;
-    }
-  
-    .mobileEdit:hover{
-      background: #29ABE2;
-    }
+  .edit p {
+    padding-left: 32px;
   }
-  
-  @media (max-width:500px){
-    .contactSlide{
-      width: 100%;
-    }
-  
-    .padding, .contactInput{
-      padding: 0;
-    }
 
-    .addButton {
-      width: 70%;
-      height: auto;
-    }
+  .mobileD-none {
+    display: none !important;
+  }
 
-    .contactDetailContainer{
-      position: unset;
-      margin: 24px;
-    }
+  .contactBox {
+    flex-direction: column;
+    align-items: unset;
+  }
 
-    .contactSlide{
-      top: unset;
-    }
-    .right{
-      margin: unset;
-    }
+  .line {
+    width: auto;
+  }
 
-    .right{
-      position: relative;
-      top: -80px;
-    }
+  .contacts {
+    width: 100vw;
+  }
 
-    .bigCircle{
-      height: 88px;
-      min-width: 88px;
+  .userContainerBig {
+    margin: unset;
+    padding: unset;
+  }
+
+  .contactSlideInBox {
+    z-index: 1;
+    height: calc(100vh - 96px);
+    background: #fff;
+    position: relative;
+    top: -37px;
+  }
+
+  .positionContactBox {
+    left: 24px;
+  }
+
+  .contactDetailContainer {
+    left: 24px;
+    top: 11svh;
+  }
+
+  .blueLineContactsHorizontal {
+    background-color: #29abe2;
+    width: 60px;
+    height: 3px;
+    border-radius: 2px;
+  }
+
+  .backArrow {
+    display: unset;
+    position: fixed;
+    right: 24px;
+    top: 170px;
+    cursor: pointer;
+  }
+  .backArrow img {
+    height: 32px;
+  }
+
+  @keyframes contactSlideOut {
+    from {
+      margin-left: 75%;
+    }
+    to {
+      margin-left: 0%;
     }
   }
 
-@media (max-height:840px){
-  .left{
+  @keyframes contactSlideIn {
+    from {
+      margin-left: 100%;
+    }
+    to {
+      margin-left: 0%;
+    }
+  }
+
+  .contactSlideOut {
+    animation: contactSlideOut 1s ease-in-out forwards;
+  }
+
+  .contactSlideIn {
+    animation: contactSlideIn 1s ease-in-out;
+  }
+
+  .mobileEdit {
+    display: none;
+    transition: all 175ms ease-in-out;
+    display: flex;
+    position: fixed;
+    right: 24px;
+    bottom: 170px;
+    cursor: pointer;
+    background: #2a3647;
+    border-radius: 50px;
+    width: 60px;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mobileEdit:hover {
+    background: #29abe2;
+  }
+}
+
+@media (max-width: 500px) {
+  .contactSlide {
+    width: 100%;
+    top: unset;
+  }
+
+  .padding,
+  .contactInput {
+    padding: 0;
+  }
+
+  .addButton {
+    width: 70%;
+    height: auto;
+  }
+
+  .contactDetailContainer {
+    position: unset;
+    margin: 24px;
+  }
+
+  .right {
+    margin: unset;
+  }
+
+  .right {
+    position: relative;
+    top: -80px;
+  }
+
+  .bigCircle {
+    height: 88px;
+    min-width: 88px;
+  }
+}
+
+/* @media (max-height: 840px) {
+  .left {
     height: 150px;
     font-size: unset;
     padding: 0;
   }
 }
 
-
-@media (max-height: 800px){
-  .editDelete{
-      bottom: 45px;
-      right: -40px;
-      padding: 8px 20px 8px 8px;
+@media (max-height: 800px) {
+  .editDelete {
+    bottom: 45px;
+    right: -40px;
+    padding: 8px 20px 8px 8px;
   }
 
-  .mobileEdit{
+  .mobileEdit {
     right: 25px;
     bottom: 100px;
-   }
+  }
 
-   .nameBig{
+  .nameBig {
     font-size: unset;
-   }
+  }
 
-   .inputbox{
+  .inputbox {
     margin: 0;
     width: 94%;
     height: unset;
-   }
+  }
 
-   .contactGroup{
+  .contactGroup {
     flex-direction: column;
-   }
+  }
 
-   .alert{
+  .alert {
     top: 0px;
     right: -16px;
-    }
-   
-    .slideBack{
-      top: -169px;
-    }
+  }
+
+  .slideBack {
+    top: -169px;
+  }
 }
 
 @media (max-height: 600px) {
-    .contactDetailContainer{
-      position: unset;}
+  .contactDetailContainer {
+    position: unset;
   }
+} */
+
+@media (max-height: 700px) {
+  .contactSlide {
+    top: unset;
+  }
+}
