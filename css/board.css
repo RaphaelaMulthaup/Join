@@ -1,7 +1,7 @@
 .mainBoard{
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 96px);
+    height: calc(100dvh - 96px);
     overflow-x: scroll;
 }
 
@@ -137,7 +137,7 @@
     /* width: 252px; */
     
     width: calc(100%- 232px);
-    height: 68svh;
+    height: 68dvh;
     overflow: auto;
 }
 

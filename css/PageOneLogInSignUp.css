@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 95vh;
+  min-height: 95dvh;
 }
 
 .h1PageOneLogInSignUp {
@@ -240,7 +240,7 @@ input:valid ~ label {
   display: none;
   position: fixed;
   top: 0;
-  height: 100vh;
+  height: 100dvh;
   width: 100vw;
   background-color: #80808045;
 }
@@ -255,12 +255,12 @@ input:valid ~ label {
 
 @keyframes slideIn {
   0% {
-    top: 100vh;
+    top: 100dvh;
     left: 42vw;
   }
 
   100% {
-    top: 36vh;
+    top: 36dvh;
     left: 42vw;
   }
 }

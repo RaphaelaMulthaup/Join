@@ -61,7 +61,7 @@
   border-radius: 16px;
   background-color: white;
   position: absolute;
-  top: 20vh;
+  top: 20dvh;
   margin-inline: 8vmax;
   animation-fill-mode: forwards;
 }
@@ -278,7 +278,7 @@ input:valid ~ label {
 }
 
 .contacts {
-  height: calc(100vh - 96px);
+  height: calc(100dvh - 96px);
   margin: 0 auto;
   background: #fff;
   border: 1px solid #ddd;

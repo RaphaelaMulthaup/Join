@@ -29,7 +29,7 @@
 
 @media (max-width: 1420px) {
   .mainBoard {
-    height: calc(100vh - 152px);
+    height: calc(100dvh - 152px);
     overflow-y: scroll;
   }
 
@@ -69,7 +69,7 @@
   }
 
   .overlayBackgroundResponsive {
-    height: calc(100vh - 80px);
+    height: calc(100dvh - 80px);
   }
 
   .overlayCard {
@@ -162,7 +162,7 @@
     width: 100vw !important;
     max-height: none !important;
     border-radius: 0 !important;
-    height: calc(100vh - 80px) !important;
+    height: calc(100dvh - 80px) !important;
   }
 
   .overlayEditTask {
@@ -171,7 +171,7 @@
   }
 
   .formEditTask {
-    max-height: calc(100vh - 267px);
+    max-height: calc(100dvh - 267px);
   }
 
   .inputTagsEditTask {

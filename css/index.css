@@ -37,7 +37,7 @@
     background-color: #2a3647;
     animation: BGColorChang 1.25s ease-in-out forwards;
     animation-delay: 0.3s;
-    background-size: 100svh;
+    background-size: 100dvh;
   }
   @keyframes BGColorChang {
     0% {

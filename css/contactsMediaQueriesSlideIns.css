@@ -80,7 +80,7 @@
 .slideInBG {
   position: fixed;
   top: 0;
-  height: 100vh;
+  height: 100dvh;
   width: 100vw;
   background-color: #80808045;
 }
@@ -96,27 +96,27 @@
 
 @keyframes slideIn {
   0% {
-    top: 77vh;
+    top: 77dvh;
     left: 100vw;
   }
 
   40% {
-    top: 77vh;
+    top: 77dvh;
     left: 57vw;
   }
   60% {
-    top: 77vh;
+    top: 77dvh;
     left: 57vw;
   }
   100% {
-    top: 77vh;
+    top: 77dvh;
     left: 100vw;
   }
 }
 
 @media (max-width: 1170px) {
   .contacts {
-    height: calc(100vh - 152px);
+    height: calc(100dvh - 152px);
   }
 
   .contactInput {
@@ -187,7 +187,7 @@
   .editDelete {
     /* position: absolute; */
     /* position: sticky; */
-    bottom: -16svh;
+    bottom: -16dvh;
     right: 130px;
     padding: 28px;
     display: flex;
@@ -230,7 +230,7 @@
 
   .contactSlideInBox {
     z-index: 1;
-    height: calc(100vh - 96px);
+    height: calc(100dvh - 96px);
     background: #fff;
     position: relative;
     top: -37px;
@@ -242,7 +242,7 @@
 
   .contactDetailContainer {
     left: 24px;
-    top: 11svh;
+    top: 11dvh;
   }
 
   .blueLineContactsHorizontal {

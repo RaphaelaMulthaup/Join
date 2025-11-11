@@ -262,11 +262,11 @@
     .greeting{
         position: absolute;
         display: flex;
-        height: 100svh;
+        height: 100dvh;
         width: 103vw;
         justify-content: center;
         align-items: center;
-        margin: -40svh 0 0 0;
+        margin: -40dvh 0 0 0;
         animation: fade 1.75s ease-in-out 0.5s;
         animation-fill-mode: forwards;
         background-color: #f7f7f8;
@@ -285,11 +285,11 @@
 
 @media (max-height: 890px){
     .mainMainpagesPaddingDefault{
-        padding-top: 2svh;
+        padding-top: 2dvh;
         padding-left: 7vw;
         overflow: auto;
-        height: 78vh;
-        height: calc(-96px + 95vh - 42px);
+        height: 78dvh;
+        height: calc(-96px + 95dvh - 42px);
     
     }
 }

@@ -3,7 +3,7 @@
 .menu {
     width: 232px;
     background-color: #2A3647;
-    height: 100vh;
+    height: 100dvh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -194,7 +194,7 @@ header h4 {
 .informations {
     flex-direction: column;
     position: absolute;
-    height: calc(100vh - 96px);
+    height: calc(100dvh - 96px);
     width: calc(100vw - 232px);
     z-index: 30;
     top: 96px;
@@ -303,7 +303,7 @@ header h4 {
     justify-content: space-around;
     position: fixed;
     transition: all 175ms ease-in-out;
-    bottom: -10vh;
+    bottom: -10dvh;
     z-index: 100;
 }
 
@@ -315,7 +315,7 @@ header h4 {
 
     .informationsTemplate{
         top: 80px;
-        height: calc(100vh - 152px);
+        height: calc(100dvh - 152px);
     }
 
     .logoMenuResponsive{
@@ -389,7 +389,7 @@ header h4 {
 
 
 .statusGroup{
-    height: 72svh;
+    height: 72dvh;
 }
 
 @media(max-width: 1440px){
