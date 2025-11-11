@@ -53,7 +53,7 @@ git clone https://github.com/RaphaelaMulthaup/Join.git
 cd join
 ```
 
-Open index.html in your browser
+2. Open index.html in your browser
 or start a local server:
 
 ```bash
@@ -65,10 +65,10 @@ npx live-server
 ## 👨‍💻 Authors
 Developed as a team project.
 
-Raphaela Multhaup 📧 [Contact](mailto:kontakt@raphaela-multhaup.de)
-Franz Neußer 📧 [Contact](mailto:kontakt@raphaela-multhaup.de)
+- Raphaela Multhaup 📧 [Contact](mailto:kontakt@raphaela-multhaup.de)
+- Franz Neußer 📧 [Contact](mailto:kontakt@raphaela-multhaup.de)
 
 ---
 
 ## 🔒 License
-Educational project – all rights reserved © 2025 Join Project Team.
+This educational project is licensed under the MIT License – feel free to use, modify, and share it..
