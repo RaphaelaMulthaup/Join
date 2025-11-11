@@ -293,6 +293,7 @@ header h4 {
     margin-left: 25px;
 }
 
+/*mobile menu*/
 
 .mobileMenu{
     width: 100vw;
@@ -348,13 +349,13 @@ header h4 {
     }
 
     .mobileMenu{
-        width: 100vw;
+        /* width: 100vw;
         background: #2A3647;
         color: beige;
         text-align: center;
         display: flex;
         justify-content: space-around;
-        position: fixed;
+        position: fixed; */
         bottom: 0px;
         /*z-index: 10;*/
         height: 80px;
