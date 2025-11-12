@@ -237,12 +237,14 @@
   }
 
   .positionContactBox {
-    left: 24px;
+    left: 0;
+    padding-left: 24px;
   }
 
   .contactDetailContainer {
-    left: 24px;
+    left: 0px;
     top: 11dvh;
+    padding-left: 24px;
   }
 
   .blueLineContactsHorizontal {
@@ -295,7 +297,7 @@
     display: flex;
     position: fixed;
     right: 24px;
-    bottom: 170px;
+    bottom: 112px;
     cursor: pointer;
     background: #2a3647;
     border-radius: 50px;
