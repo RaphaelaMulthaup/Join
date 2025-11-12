@@ -225,7 +225,7 @@
 
   .userContainerBig {
     margin: unset;
-    padding: unset;
+    padding: 0 0 0 16px;
   }
 
   .contactSlideInBox {
