@@ -22,6 +22,7 @@
     margin-top: 55.5px;
     display: flex;
     align-items: center;
+    padding-bottom: 16px;
 }
 
 .overviewSummary{
@@ -288,8 +289,8 @@
         padding-top: 2dvh;
         padding-left: 7vw;
         overflow: auto;
-        height: 78dvh;
-        height: calc(-96px + 95dvh - 42px);
+        /* height: 78dvh;
+        height: calc(-96px + 95dvh - 42px); */
     
     }
 }

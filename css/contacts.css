@@ -1,5 +1,6 @@
 .mainContact {
   padding: 40px 0 0 100px;
+  height: 0 !important;
 }
 
 .addButton img {
@@ -30,6 +31,7 @@
 }
 .contactInput {
   padding-left: 32px;
+  padding-bottom: 16px;
   height: 85%;
   overflow: scroll;
   background-color: #ffffff;

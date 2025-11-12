@@ -29,7 +29,7 @@
 
 @media (max-width: 1420px) {
   .mainBoard {
-    height: calc(100dvh - 152px);
+    /* height: calc(100dvh - 152px); */
     overflow-y: scroll;
   }
 

@@ -145,7 +145,7 @@
 
 @media (max-width: 1310px) {
   .mainMainpagesAddTask {
-    margin-bottom: 48px;
+    /* margin-bottom: 48px; */
     padding-left: 8px;
     padding-right: 8px;
     padding-top: 56px;
