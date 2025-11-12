@@ -197,7 +197,7 @@ function editSubtask(editButton){
 function displayEditedSubtask(index){
     let Input = document.getElementById('inputEditSubtask' + index);
     let newValueSubtask = Input.value;
-    subtasksForm[index] = newValueSubtask;
+    subtasksForm[index] =     SubtasktInTaskJson(newValueSubtask);
     renderSubtasks();
 }
 
