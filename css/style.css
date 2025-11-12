@@ -219,7 +219,7 @@ a {
 @supports (-webkit-touch-callout: none) and (not (translate: none)) {
   @media (max-width: 1170px) {
     .mainMainpages {
-      padding-bottom: 80px;
+      padding-bottom: 100px;
     }
   }
 }
