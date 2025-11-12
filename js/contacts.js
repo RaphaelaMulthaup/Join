@@ -149,17 +149,16 @@ function renderContactContainer(user) {
 function openContact(id) {
 
     const user = findUserById(id);
-    if (!validateUser(user)) {
-        return;
-    }
+    if (!validateUser(user)) return;
 
     const content = getContentElement();
-    if (!content) {
-        return;
-    }
+    if (!content) return;
+
+    const contentEdit = getContentEditElement();
+    if (!contentEdit) return;
 
     animateContent(content);
-    updateUserContent(content, user);
+    updateUserContent(content, contentEdit, user);
 }
 
 /**
@@ -199,6 +198,21 @@ function getContentElement() {
     }
     return content;
 }
+
+/**
+ * Retrieves the contentEdit element with the id "mobileEdit" from the DOM.
+ *
+ * @function getContentEditElement
+ * @returns {HTMLElement|null} The contentEdit element if found, otherwise null.
+ */
+function getContentEditElement() {
+    const content = document.getElementById('mobileEdit');
+    if (!content) {
+        return null;
+    }
+    return content;
+}
+
 
 /**
  * Checks if an email exists in the array of users.
