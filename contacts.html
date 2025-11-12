@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="./assets/img/favicon_dark.svg">
+    <link rel="icon" href="./assets/img/favicon_dark.svg" />
     <title>Join Contacts</title>
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/fonts.css" />
@@ -18,9 +18,13 @@
     <script src="./js/contactErrorFunction.js"></script>
     <script src="./js/legalHelp.js"></script>
   </head>
-  <body class="bodyMainpages" onload="loadPage('menuItemContacts'), init()" onclick="closeSubMenu()" >
-  <div class="overlayBackground d-none" id="contactSlideBG">
-    <div class="contactSlide addContact" id="contactSlide">
+  <body
+    class="bodyMainpages"
+    onload="loadPage('menuItemContacts'), init()"
+    onclick="closeSubMenu()"
+  >
+    <div class="overlayBackground d-none" id="contactSlideBG">
+      <div class="contactSlide addContact" id="contactSlide">
         <div class="contactGroup" id="contactGroup">
           <div class="left" id="formTitle">
             <img src="./assets/img/favicon_light.svg" alt="" />
@@ -33,34 +37,69 @@
               <img id="ellipse" src="./assets/img/personWhite.svg" />
             </div>
           </div>
-          
-          <form class="right" id="right" onsubmit="registerContact(); return false">
+
+          <form
+            class="right"
+            id="right"
+            onsubmit="registerContact(); return false"
+          >
             <div class="slideBack" id="slideBack" onclick="closeAddContact()">
-              <img class="closeWhite" src="./assets/img/close.svg" alt="closeButton" />
+              <img
+                class="closeWhite"
+                src="./assets/img/close.svg"
+                alt="closeButton"
+              />
             </div>
             <div class="inputbox">
-              <input type="name" id="user" class="input personInput padding" placeholder="Name" required/>
+              <input
+                type="name"
+                id="user"
+                class="input personInput padding"
+                placeholder="Name"
+                required
+              />
             </div>
             <span class="alert" id="alertUser"></span>
 
             <div class="inputbox">
-              <input type="email" id="email" class="input mail padding" placeholder="Email" required/>
+              <input
+                type="email"
+                id="email"
+                class="input mail padding"
+                placeholder="Email"
+                required
+              />
             </div>
             <span class="alert" id="alertEmail"></span>
 
             <div class="inputbox">
-              <input type="number" id="phone" pattern="[0-9+-]+" class="dada input phone padding" placeholder="Phone" required/>
-            
+              <input
+                type="number"
+                id="phone"
+                pattern="[0-9+-]+"
+                class="dada input phone padding"
+                placeholder="Phone"
+                required
+              />
             </div>
             <span class="alert" id="alertPhone"></span>
 
             <div>
-              <button id="leftButton" class="button buttonEmpty" onclick="closeAddContact()">
+              <button
+                id="leftButton"
+                class="button buttonEmpty"
+                onclick="closeAddContact()"
+              >
                 Cancel <span id="closeX" class="closeX"></span>
               </button>
               <button id="registerBtn" class="button buttonFilled">
                 Create contact
-                <img id="checkWhite" src="./assets/img/checkWhite.svg" style="padding-left: 10px" alt="" />
+                <img
+                  id="checkWhite"
+                  src="./assets/img/checkWhite.svg"
+                  style="padding-left: 10px"
+                  alt=""
+                />
               </button>
             </div>
             <div class="" id="contactList"></div>
@@ -72,37 +111,74 @@
     <div class="mainpagesRightSide">
       <div w3-include-html="./assets/templates/header.html"></div>
       <main class="mainMainpages mainContact">
-        <div id="subMenu" class="dNone" w3-include-html="./assets/templates/subMenu.html" onclick="stayOpenOrActiv(event)"></div>
+        <div
+          id="subMenu"
+          class="dNone"
+          w3-include-html="./assets/templates/subMenu.html"
+          onclick="stayOpenOrActiv(event)"
+        ></div>
         <div class="contacts" id="contacts">
           <div class="contactSide" id="contactSide">
-            <button class="addButton buttonFilled" id="addContact" onclick="addContact()">
+            <button
+              class="addButton buttonFilled"
+              id="addContact"
+              onclick="addContact()"
+            >
               Add new contact <img src="./assets/img/personAdd.svg" alt="" />
             </button>
           </div>
           <div class="contactInput" id="contactInput"></div>
         </div>
       </main>
-      <div class="contactSlideInBox hidden contactSlideOut" id="contactSlideInBox">
+      <div
+        class="contactSlideInBox hidden contactSlideOut"
+        id="contactSlideInBox"
+      >
         <div id="contactBox" class="positionContactBox">
           <div>
-              <div class="contactBox">
+            <div class="contactBox">
               <h2>Contacts</h2>
               <div class="blueLineContacts"></div>
-              <p style="-webkit-text-stroke-width: medium; padding-bottom: 8px;">Better with a team</p>
+              <p style="-webkit-text-stroke-width: medium; padding-bottom: 8px">
+                Better with a team
+              </p>
               <div class="blueLineContactsHorizontal"></div>
             </div>
             <div class="backArrow" id="backArrow" onclick="slideIn()">
-              <img src="./assets/img/arrow-left-line.svg" alt="">
+              <img src="./assets/img/arrow-left-line.svg" alt="" />
             </div>
-            <div class="mobileEdit" id="mobileEdit" onclick="toggleMobileEdit()">
-              <img src="./assets/img/moreVert.svg" alt="More">
+            <div
+              class="mobileEdit"
+              id="mobileEdit"
+              onclick="toggleMobileEdit()"
+            >
+              <img src="./assets/img/moreVert.svg" alt="More" />
+              <div class="editDelete mobileD-none" id="editDelete">
+                <div
+                  class="edit"
+                  id="edit"
+                  onclick="editContactSlide('{{id}}', '{{color}}', '{{initials}}', '{{name}}', '{{email}}', '{{phone}}')"
+                >
+                  <a class="edit" alt=""><p>Edit</p></a>
+                </div>
+                <div
+                  class="delete"
+                  id="delete"
+                  onclick="deleteUserAndReassignIds('{{id}}')"
+                >
+                  <a class="delete" alt=""><p>Delete</p></a>
+                </div>
+              </div>
             </div>
             <div id="subMenuContainer"></div>
           </div>
         </div>
-        <div id="contactDetailContainer" class="contactDetailContainer contactSlideIn"></div>
+        <div
+          id="contactDetailContainer"
+          class="contactDetailContainer contactSlideIn"
+        ></div>
       </div>
-      
+
       <div w3-include-html="./assets/templates/mobileMenu.html"></div>
       <div w3-include-html="./assets/templates/privacyPolicy.html"></div>
       <div w3-include-html="./assets/templates/legalNotice.html"></div>
@@ -111,7 +187,6 @@
 
     <div class="slideInBG d-none" id="slideInBG">
       <div class="slideIn">Contact successfully created</div>
-      </div>
-      
+    </div>
   </body>
 </html>

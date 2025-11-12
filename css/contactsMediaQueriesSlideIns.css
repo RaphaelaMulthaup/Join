@@ -185,10 +185,11 @@
     display: none;
   }
   .editDelete {
-    /* position: absolute; */
+    position: absolute;
     /* position: sticky; */
-    bottom: -16dvh;
-    right: 130px;
+    bottom: -8px;
+    right: -13px;
+    background-color: white;
     padding: 28px;
     display: flex;
     flex-direction: column;
