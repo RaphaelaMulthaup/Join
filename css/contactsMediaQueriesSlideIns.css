@@ -115,6 +115,11 @@
 }
 
 @media (max-width: 1170px) {
+  .contactSlideInBox {
+    overflow-y: auto;
+    height: calc(100dvh - 160px);
+  }
+
   .contacts {
     height: calc(100dvh - 152px);
   }
@@ -244,7 +249,7 @@
 
   .contactDetailContainer {
     left: 0px;
-    top: 14dvh;
+    top: 110px;
     padding-left: 24px;
   }
 
@@ -331,6 +336,7 @@
 
   .contactDetailContainer {
     margin: 24px;
+    top: 90px;
   }
 
   /* .right {
