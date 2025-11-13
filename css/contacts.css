@@ -63,7 +63,7 @@
   border-radius: 16px;
   background-color: white;
   position: absolute;
-  top: 20dvh;
+  top: 4dvh;
   margin-inline: 8vmax;
   animation-fill-mode: forwards;
 }
