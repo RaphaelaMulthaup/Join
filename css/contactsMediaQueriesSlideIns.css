@@ -189,7 +189,8 @@
   .blueLineContacts {
     display: none;
   }
-  .editDelete {
+  
+  #editDeleteMobile {
     position: absolute;
     /* position: sticky; */
     bottom: -8px;
@@ -236,7 +237,6 @@
 
   .contactSlideInBox {
     z-index: 1;
-    height: calc(100dvh - 96px);
     background: #fff;
     position: relative;
     top: -37px;
@@ -301,9 +301,9 @@
     display: none;
     transition: all 175ms ease-in-out;
     display: flex;
-    position: fixed;
+    position: absolute;
     right: 24px;
-    bottom: 112px;
+    bottom: 22px;
     cursor: pointer;
     background: #2a3647;
     border-radius: 50px;

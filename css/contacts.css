@@ -100,11 +100,16 @@
 .contactDetailContainer {
   position: absolute;
   display: flex;
-  left: 500px;
+  left: 700px;
   flex-direction: column;
-  padding-bottom : 16px;
+  padding-bottom: 16px;
 }
 
+@media (max-width: 1170px) {
+  .contactDetailContainer {
+    left: 500px;
+  }
+}
 .bigCircle {
   background-color: coral;
   border-radius: 50%;
@@ -408,4 +413,10 @@ input:valid ~ label {
 .delete:hover {
   background-repeat: no-repeat;
   background-image: url(../assets/img/deleteBlue.svg);
+}
+
+@media (max-width: 1170px) {
+  .dNoneEditDelete {
+    display: none;
+  }
 }
