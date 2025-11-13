@@ -15,7 +15,7 @@
   width: 352px;
 }
 
-.contactSide{
+.contactSide {
   text-align-last: center;
 }
 
@@ -55,7 +55,7 @@
   color: white;
 }
 
-.userContainer{
+.userContainer {
   max-width: 300px;
 }
 
@@ -63,9 +63,14 @@
   border-radius: 16px;
   background-color: white;
   position: absolute;
-  top: 4dvh;
+  top: 20dvh;
   margin-inline: 8vmax;
   animation-fill-mode: forwards;
+}
+@media (max-width: 1170px) {
+  .contactSlide {
+    top: 4dvh;
+  }
 }
 
 .circle {
@@ -75,7 +80,7 @@
   border-radius: 50%;
   height: 45px;
   width: 45px;
-  border: 3px solid #FFFFFF;
+  border: 3px solid #ffffff;
   color: white;
   font-size: 12px;
   align-items: center;
@@ -92,14 +97,14 @@
   text-align: center;
 }
 
-.contactDetailContainer{
-  position: relative;
-    display: flex;
-    left: 500px;
-    flex-direction: column;
+.contactDetailContainer {
+  position: absolute;
+  display: flex;
+  left: 500px;
+  flex-direction: column;
 }
 
-.bigCircle{
+.bigCircle {
   background-color: coral;
   border-radius: 50%;
   border: 4px solid white;
@@ -154,17 +159,16 @@
 
 .image-container {
   border-radius: 50%;
-    background-color: #cdcdcd;
-    padding: 26px;
-  }
+  background-color: #cdcdcd;
+  padding: 26px;
+}
 
 .ellipse {
-    border: solid 3px white;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3), 
-                0px 8px 15px rgba(0, 0, 0, 0.2);
-  }
-  
-.border-radius{
+  border: solid 3px white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3), 0px 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.border-radius {
   border-radius: 50%;
 }
 .person {
@@ -241,8 +245,8 @@ input:valid ~ label {
   background-image: url(../assets/img/phone.svg);
 }
 
-.email{
-  color: #29ABE2;
+.email {
+  color: #29abe2;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -297,15 +301,15 @@ input:valid ~ label {
   display: block;
 }
 
-.backArrow, .mobileEdit{
+.backArrow,
+.mobileEdit {
   display: none;
 }
 
-.displayFlex{
+.displayFlex {
   display: flex;
   align-items: center;
 }
-
 
 .positionContactBox {
   width: fit-content;
@@ -313,21 +317,21 @@ input:valid ~ label {
   left: 700px;
 }
 
-.userContainerBig{
+.userContainerBig {
   padding: 28px;
   margin-top: 8px;
 }
 
-.userContactBig{
+.userContactBig {
   margin-top: 40px;
 }
 
-.userContactBig P{
+.userContactBig P {
   font-size: large;
   margin: 0 0 32px 0;
 }
 
-.userContactBig h6{
+.userContactBig h6 {
   margin: 15px 0 15px 0;
 }
 
@@ -336,7 +340,7 @@ input:valid ~ label {
   align-items: center;
 }
 
-.contactBox h2{
+.contactBox h2 {
   font-size: xxx-large;
 }
 
@@ -348,7 +352,7 @@ input:valid ~ label {
   border-radius: 2px;
 }
 
-.blueLineAddContacts{
+.blueLineAddContacts {
   background-color: #29abe2;
   width: 70px;
   height: 2px;
@@ -356,9 +360,9 @@ input:valid ~ label {
   border-radius: 2px;
 }
 
-.nameBig{
+.nameBig {
   font-size: xx-large;
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .editDelete {
@@ -367,14 +371,14 @@ input:valid ~ label {
   gap: 16px;
 }
 
-.edit{
+.edit {
   background-size: contain;
   background-repeat: no-repeat;
   background-image: url(../assets/img/edit.svg);
   cursor: pointer;
 }
 
-.edit:hover{
+.edit:hover {
   background-repeat: no-repeat;
   background-image: url(../assets/img/editBlue.svg);
 }
@@ -383,12 +387,12 @@ input:valid ~ label {
   padding-left: 34px;
 }
 
-.edit p:hover{
+.edit p:hover {
   color: #29abe2;
 }
 
-.delete{
-  background-size: contain;  
+.delete {
+  background-size: contain;
   background-repeat: no-repeat;
   background-image: url(../assets/img/delete.svg);
   cursor: pointer;
@@ -397,8 +401,7 @@ input:valid ~ label {
 .delete p {
   padding-left: 32px;
 }
-.delete p:hover{
-
+.delete p:hover {
   color: #29abe2;
 }
 .delete:hover {

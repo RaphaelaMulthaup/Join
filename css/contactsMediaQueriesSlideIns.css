@@ -244,7 +244,7 @@
 
   .contactDetailContainer {
     left: 0px;
-    top: 11dvh;
+    top: 14dvh;
     padding-left: 24px;
   }
 
@@ -259,7 +259,7 @@
     display: unset;
     position: fixed;
     right: 24px;
-    top: 170px;
+    top: 130px;
     cursor: pointer;
   }
   .backArrow img {
@@ -277,10 +277,10 @@
 
   @keyframes contactSlideIn {
     from {
-      margin-left: 100%;
+      left: 100%;
     }
     to {
-      margin-left: 0%;
+      left: 0%;
     }
   }
 
@@ -330,7 +330,6 @@
   }
 
   .contactDetailContainer {
-    position: unset;
     margin: 24px;
   }
 
