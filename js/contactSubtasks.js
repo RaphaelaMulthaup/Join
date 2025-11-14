@@ -194,7 +194,13 @@ function editContactSlide(id, color, initials, name, email, phone) {
   editContactForm(id, color, initials, name, email, phone);
   document.getElementById("leftButton").onclick = () =>
     deleteUserAndReassignIds(id);
-  document.getElementById("registerBtn").onclick = () => saveContactChange(id);
+  // document.getElementById("registerBtn").onclick = () => saveContactChange(id);
+      const form = document.getElementById('right');
+
+    form.onsubmit = (event) => {
+        event.preventDefault();
+        saveContactChange(id);
+    };
 }
 
 /**
@@ -381,7 +387,7 @@ function updateUserContent(content, contentEdit, user) {
   fetch("./assets/templates/editUserContentTemplate.html")
     .then((response) => response.text())
     .then((template) => {
-      contentEdit.innerHTML += template
+      contentEdit.innerHTML = template
         .replace(/{{color}}/g, user.color)
         .replace(/{{initials}}/g, user.initials)
         .replace(/{{id}}/g, user.id)

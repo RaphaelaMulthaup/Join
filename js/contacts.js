@@ -167,7 +167,7 @@ function openContact(id) {
  * @returns {Object|null} - The user object or null if not found.
  */
 function findUserById(id) {
-    const user = users.find(user => user.id === id);
+    const user = users.find(user => user.id === Number(id));
     return user;
 }
 
