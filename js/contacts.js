@@ -235,7 +235,7 @@ function emailExists(existingemail) {
  * @returns {Promise<void>}
  */
 async function deleteUserAndReassignIds(userId) {
-    const userIndex = users.findIndex(user => user.id === userId);
+    const userIndex = users.findIndex(user => user.id === Number(userId));
     
     if (userIndex !== -1) {
         let nameDeletdUser = users[userIndex].name;
