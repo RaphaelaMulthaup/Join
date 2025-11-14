@@ -324,6 +324,12 @@ input:valid ~ label {
   left: 700px;
 }
 
+@media (max-width: 1170px) {
+  .positionContactBox {
+    left: 500px;
+  }
+}
+
 .userContainerBig {
   padding: 28px;
   margin-top: 8px;
@@ -416,7 +422,7 @@ input:valid ~ label {
   background-image: url(../assets/img/deleteBlue.svg);
 }
 
-@media (max-width: 1170px) {
+@media (max-width: 910px) {
   .dNoneEditDelete {
     display: none;
   }
