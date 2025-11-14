@@ -54,6 +54,12 @@
   align-self: flex-start;
 }
 
+@media (min-width: 500px) and (max-width: 1170px) {
+  .alert {
+    align-self: center;
+  }
+}
+
 .closeContact {
   animation-name: closeContact;
   animation-duration: 0.5s;
@@ -189,7 +195,7 @@
   .blueLineContacts {
     display: none;
   }
-  
+
   #editDeleteMobile {
     position: absolute;
     /* position: sticky; */
