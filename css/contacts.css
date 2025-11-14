@@ -205,6 +205,7 @@
   margin-bottom: 16px;
   color: #80808040;
   display: flex;
+  max-width: 460px;
 }
 
 .inputbox label {

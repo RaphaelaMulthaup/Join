@@ -130,7 +130,7 @@
   }
 }
 
-@media (max-width: 1140px) {
+@media (max-width: 1170px) {
   .contactGroup {
     flex-direction: column;
   }
