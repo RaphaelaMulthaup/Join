@@ -107,10 +107,11 @@ function resetForm() {
     closeAddContact();
     resetForm();
   };
-  document.getElementById("registerBtn").onclick = function () {
-    registerContact();
-    resetForm();
-  };
+  // document.getElementById("registerBtn").onclick = function () {
+  //   registerContact();
+  //   resetForm();
+  // };
+  registerBtn.disabled = false;
 
   // Reset image
   document.getElementById("middel").innerHTML = `
@@ -195,12 +196,12 @@ function editContactSlide(id, color, initials, name, email, phone) {
   document.getElementById("leftButton").onclick = () =>
     deleteUserAndReassignIds(id);
   // document.getElementById("registerBtn").onclick = () => saveContactChange(id);
-      const form = document.getElementById('right');
+  const form = document.getElementById("right");
 
-    form.onsubmit = (event) => {
-        event.preventDefault();
-        saveContactChange(id);
-    };
+  form.onsubmit = (event) => {
+    event.preventDefault();
+    saveContactChange(id);
+  };
 }
 
 /**
