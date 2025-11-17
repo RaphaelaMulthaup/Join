@@ -66,7 +66,7 @@ npx live-server
 Developed as a team project.
 
 - Raphaela Multhaup 📧 [Contact](mailto:kontakt@raphaela-multhaup.de)
-- Franz Neußer 📧 [Contact](mailto:kontakt@raphaela-multhaup.de)
+- Franz Neußer 📧 [Contact](mailto:neusser.franz@posteo.at)
 
 ---
 
