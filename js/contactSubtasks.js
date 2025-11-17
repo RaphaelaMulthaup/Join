@@ -402,7 +402,9 @@ function updateUserContent(content, contentEdit, user) {
 /**
  * Toggles the 'mobileD-none' class on the element with the ID 'editDelete'.
  */
-function toggleMobileEdit() {
+function toggleMobileEdit(event) {
+  event.stopPropagation();
+  closeSubMenu();
   const editDeleteMobile = document.getElementById("editDeleteMobile");
   editDeleteMobile.classList.toggle("mobileD-none");
 }

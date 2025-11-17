@@ -21,7 +21,7 @@
   <body
     class="bodyMainpages"
     onload="loadPage('menuItemContacts'), init()"
-    onclick="closeSubMenu()"
+    onclick="closeSubMenu(), closeEditDeleteMobile()"
   >
     <div class="overlayBackground d-none" id="contactSlideBG">
       <div class="contactSlide addContact" id="contactSlide">
@@ -107,7 +107,7 @@
         </div>
       </div>
     </div>
-    
+
     <div w3-include-html="./assets/templates/menu.html"></div>
     <div class="mainpagesRightSide">
       <div w3-include-html="./assets/templates/header.html"></div>
@@ -155,7 +155,7 @@
           id="contactDetailContainer"
           class="contactDetailContainer contactSlideIn"
         ></div>
-        <div class="mobileEdit" id="mobileEdit" onclick="toggleMobileEdit()">
+        <div class="mobileEdit" id="mobileEdit" onclick="toggleMobileEdit(event)">
           <img src="./assets/img/moreVert.svg" alt="More" />
         </div>
       </div>
