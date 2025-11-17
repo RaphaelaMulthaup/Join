@@ -154,6 +154,7 @@ function closeSubMenu() {
 
 function closeEditDeleteMobile() {
   const editDeleteMobile = document.getElementById("editDeleteMobile");
+  if (!editDeleteMobile) return;
   editDeleteMobile.classList.add("mobileD-none");
 }
 
