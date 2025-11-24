@@ -103,6 +103,13 @@
   transform: scaleY(0);
 }
 
+input[type="date"] {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: white;
+  padding-left: 16px;
+}
+
 /*lower area add task*/
 .lowerAreaAddTask {
   display: flex;
@@ -186,6 +193,7 @@
 
   .widthFormElementsAddTask {
     width: 100%;
+    max-width: 100%;
   }
 
   .lowerAreaAddTask {
