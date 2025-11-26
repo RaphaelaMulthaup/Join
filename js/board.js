@@ -4,9 +4,9 @@ let overlayAddTaskOpen = false;
 /**
  * This funktion sets clicked elements back to default.
  */
-function setElementsToDefaultBoard(){
-    closeSubMenu();
-    findTaskDefault();
+function setElementsToDefaultBoard() {
+  closeSubMenu();
+  findTaskDefault();
 }
 
 /*headline*/
@@ -14,141 +14,142 @@ function setElementsToDefaultBoard(){
 /**
  * This function colors the border of 'findTask' blue and puts a focus on the input field. Beforehand, it is checked whether something else is open or activated that should be closed beforehand.
  */
-function findTaskActive(){
-    if (subMenuOpen) {
-        closeSubMenu();
-    }
-    let findTask = document.getElementById('findTask');
-    let inputFindTask = document.getElementById('inputFindTask');
-    findTask.style.border = "1px solid #29ABE2";
-    inputFindTask.focus(); // Inputfeld fokussieren
-    findTaskFocus = true;
+function findTaskActive() {
+  if (subMenuOpen) {
+    closeSubMenu();
+  }
+  let findTask = document.getElementById("findTask");
+  let inputFindTask = document.getElementById("inputFindTask");
+  findTask.style.border = "1px solid #29ABE2";
+  inputFindTask.focus(); // Inputfeld fokussieren
+  findTaskFocus = true;
 }
 
 /**
  * This function colors the border of 'findTask' gray again.
  */
-function findTaskDefault(){
-    let findTask = document.getElementById('findTask');
-    findTask.style.border = "1px solid #A8A8A8";
-    findTaskFocus = false;
+function findTaskDefault() {
+  let findTask = document.getElementById("findTask");
+  findTask.style.border = "1px solid #A8A8A8";
+  findTaskFocus = false;
 }
 
 /**
  * This function colors the SVG dark for 10ms before it returns to its original color.
- * 
+ *
  * @param {string} plusButton clicked plus button
  */
 function plusButtonToDefault(plusButton) {
-    let rect = plusButton.querySelector('rect');
-    let paths = plusButton.querySelectorAll('path');
-    rect.setAttribute('stroke', '#091931');
-    paths.forEach(function(path) {
-        path.setAttribute('stroke', '#091931');
-    });
+  let rect = plusButton.querySelector("rect");
+  let paths = plusButton.querySelectorAll("path");
+  rect.setAttribute("stroke", "#091931");
+  paths.forEach(function (path) {
+    path.setAttribute("stroke", "#091931");
+  });
 
-    setTimeout(function() {
-        rect.setAttribute('stroke', '#2A3647');
-        paths.forEach(function(path) {
-            path.setAttribute('stroke', '#2A3647');
-        });
-    
-    }, 10);
+  setTimeout(function () {
+    rect.setAttribute("stroke", "#2A3647");
+    paths.forEach(function (path) {
+      path.setAttribute("stroke", "#2A3647");
+    });
+  }, 10);
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    let button = document.getElementById('buttonAddTask');
-    button.addEventListener('click', () => {
-        if (window.innerWidth < 1170) {
-            window.location.href = './addTask.html';
-        } else {
-            openOverlayAddTask();
-        }
-    });
+document.addEventListener("DOMContentLoaded", () => {
+  let button = document.getElementById("buttonAddTask");
+  button.addEventListener("click", () => {
+    if (window.innerWidth < 1170) {
+      window.location.href = "./addTask.html";
+    } else {
+      openOverlayAddTask();
+    }
+  });
 });
 
 /**
  * This function emptys the subtasksForm array, displays the add task overlay and sets overlayAddTaskOpen to true. Beforehand, it is checked whether something else is open or activated that should be closed beforehand.
  */
-function openOverlayAddTask(){
-    if (subMenuOpen) {
-        closeSubMenu();
-    }
-    if (findTaskFocus) {
-        findTaskDefault();
-    }
-    subtasksForm = [];
-    displayOverlayAddTask();
-    overlayAddTaskOpen = true;
+function openOverlayAddTask() {
+  if (subMenuOpen) {
+    closeSubMenu();
+  }
+  if (findTaskFocus) {
+    findTaskDefault();
+  }
+  subtasksForm = [];
+  displayOverlayAddTask();
+  overlayAddTaskOpen = true;
 }
 
 /**
- * This function prepares the form and takes away the 'dNone' class from the div 'overlayAddTaskBackground'. The overlay with animation is displayed including contacts. 
+ * This function prepares the form and takes away the 'dNone' class from the div 'overlayAddTaskBackground'. The overlay with animation is displayed including contacts.
  */
-function displayOverlayAddTask(){
-    prepareOverlayAddTaskForm();
-    document.getElementById('overlayAddTaskBackground').classList.remove('dNone');
+function displayOverlayAddTask() {
+  prepareOverlayAddTaskForm();
+  document.getElementById("overlayAddTaskBackground").classList.remove("dNone");
 }
 
 /**
  * This function fills overlayAddTask with the corresponding html code, sets event listerner, displays the contacts and sets as an attribute for addTaskDueDate that the date must not be in the past.
  */
-function prepareOverlayAddTaskForm(){
-    document.getElementById('overlayAddTask').innerHTML = htmlAddTaskOverlay();
-    addEventListener();
+function prepareOverlayAddTaskForm() {
+  document.getElementById("overlayAddTask").innerHTML = htmlAddTaskOverlay();
+  addEventListener();
 
-    let dropdownContacts = document.getElementById('dropdownContacts');
-    for (let i = 0; i < contactsAddTask.length; i++) {
-        let contactForDropdown = contactsAddTask[i];
-        dropdownContacts.innerHTML += htmlContactDropdown(contactForDropdown, i);
-    }
+  let dropdownContacts = document.getElementById("dropdownContacts");
+  for (let i = 0; i < contactsAddTask.length; i++) {
+    let contactForDropdown = contactsAddTask[i];
+    dropdownContacts.innerHTML += htmlContactDropdown(contactForDropdown, i);
+  }
 
-    let addTaskDueDate = document.getElementById('addTaskDueDate');
-    let today = new Date().toISOString().split('T')[0];
-    addTaskDueDate.setAttribute('min', today);
+  let addTaskDueDate = document.getElementById("addTaskDueDate");
+  let today = new Date().toISOString().split("T")[0];
+  addTaskDueDate.setAttribute("min", today);
 }
 
 /**
  * This function sets two event listener. One for an enter event at inputAddSubtask and one to hide the form validation hints.
  */
-function addEventListener(){
-    /**
-     * This eventlistener creates a new subtask when the enter key is pressed within 'inputAddSubtask'.
-     */
-    let inputAddSubtask = document.getElementById('inputAddSubtask');
+function addEventListener() {
+  /**
+   * This eventlistener creates a new subtask when the enter key is pressed within 'inputAddSubtask'.
+   */
+  let inputAddSubtask = document.getElementById("inputAddSubtask");
 
-    inputAddSubtask.addEventListener('keydown', function(event) {
-        if (event.key === 'Enter') {
-            event.preventDefault();
-            addSubtask();
+  inputAddSubtask.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      addSubtask();
+    }
+  });
+
+  /**
+   * This event listener checks validity. If the value is valid, the error display and red border are removed, if applicable.
+   */
+
+  document.querySelectorAll(".addTaskInputRequired").forEach((inputElement) => {
+    inputElement.addEventListener("input", function () {
+      if (inputElement.checkValidity()) {
+        // Wenn das Eingabefeld gültig ist, entfernen Sie die Fehlermeldung und den roten Rahmen
+        let errorMessageElement = document.getElementById(
+          "requiredMessage" + inputElement.id.replace("addTask", "") + "AddTask"
+        );
+        if (errorMessageElement) {
+          errorMessageElement.style.visibility = "hidden";
         }
+        inputElement.classList.remove("borderRed");
+      }
     });
-
-    /**
-     * This event listener checks validity. If the value is valid, the error display and red border are removed, if applicable.
-     */
-
-    document.querySelectorAll('.addTaskInputRequired').forEach(inputElement => {
-        inputElement.addEventListener("input", function() {
-            if (inputElement.checkValidity()) {
-                // Wenn das Eingabefeld gültig ist, entfernen Sie die Fehlermeldung und den roten Rahmen
-                let errorMessageElement = document.getElementById("requiredMessage" + inputElement.id.replace("addTask", "") + "AddTask");
-                if (errorMessageElement) {
-                    errorMessageElement.style.visibility = 'hidden';
-                }
-                inputElement.classList.remove("borderRed");
-            }
-        });
-    });
+  });
 }
 
 /**
  * This function creates the overlay add task.
- * 
+ *
  * @returns the overlay add task
  */
-function htmlAddTaskOverlay(){
-    return /*html*/ `
+function htmlAddTaskOverlay() {
+  return /*html*/ `
         <div class="scroll-container">
     <div class="headlineAddTaskOverlay">
         <h1>Add Task</h1>
@@ -158,17 +159,17 @@ function htmlAddTaskOverlay(){
     </div>
     <form onsubmit="addNewTask('OnBoardDescription'); return false;" class="formAddTask" novalidate id="formAddNewTask">
         <div class="inputTagsAddTask inputTagsAddTaskOverlay">
-            <div class="addTaskFormLeft">
+            <div class="addTaskFormLeft addTaskFormLeftOverlay">
         
                 <div class="formElementAddTask">
                     <label class="formPointDescription" for="addTaskTitle">Title<span class="colorRed">*</span></label>
-                    <input class="widthFormElementsAddTask heightFormElementsAddTask borderFormElementsAddTask inputTagAddTaskFocus addTaskInputRequired" id="addTaskTitle" name="addTaskTitle" type="text" required placeholder="Enter a title" autocomplete="off">
+                    <input class="widthFormElementsAddTask widthFormElementsAddTaskOverlay heightFormElementsAddTask borderFormElementsAddTask inputTagAddTaskFocus addTaskInputRequired" id="addTaskTitle" name="addTaskTitle" type="text" required placeholder="Enter a title" autocomplete="off">
                     <span class="requiredMessage" id="requiredMessageTitleAddTask">This field is required</span>
                 </div>
         
                 <div class="formElementAddTask">
                     <label class="formPointDescription" for="addTaskOnBoardDescription">Description<span class="colorRed">*</span></label>
-                    <textarea class="widthFormElementsAddTask borderFormElementsAddTask paddingLeftAddTask inputTagAddTaskFocus addTaskInputRequired" name="addTaskDescription" id="addTaskOnBoardDescription" onmouseover="preventNotice('addTaskOnBoardDescription')" 
+                    <textarea class="widthFormElementsAddTask widthFormElementsAddTaskOverlay borderFormElementsAddTask paddingLeftAddTask inputTagAddTaskFocus addTaskInputRequired" name="addTaskDescription" id="addTaskOnBoardDescription" onmouseover="preventNotice('addTaskOnBoardDescription')" 
                     onmouseout="restoreRequired('addTaskOnBoardDescription')" required placeholder="Enter a description"></textarea>
                     <span class="requiredMessage" id="requiredMessageOnBoardDescriptionAddTask">This field is required</span>
                 </div>
@@ -176,29 +177,29 @@ function htmlAddTaskOverlay(){
                 <div class="formElementAddTask">
                     <span class="formPointDescription">Assigned to</span>
                     <div class="dropdown" id="addTaskAssignedTo">
-                        <button formnovalidate id="buttonSelectContacts" class="buttonSelectContacts widthFormElementsAddTask heightFormElementsAddTask borderFormElementsAddTask paddingRightAddTask" onclick="selectContactsButton(event)">
+                        <button formnovalidate id="buttonSelectContacts" class="buttonSelectContacts widthFormElementsAddTask widthFormElementsAddTaskOverlay heightFormElementsAddTask borderFormElementsAddTask paddingRightAddTask" onclick="selectContactsButton(event)">
                             <span id="textSelectContacts">Select contacts to assign</span>
                             <input class="inputInsideDiv" type="text" id="inputSelectContacts" style="display: none;" autocomplete="off">
                             <img id="arrowIcon" src="./assets/img/arrowdropdownDown.svg" alt="">
                         </button>
-                        <div class="dropdown-content widthFormElementsAddTask dropdownContactsHidden" id="dropdownContacts" onclick="stayOpenOrActiv(event)"></div>
+                        <div class="dropdown-content widthFormElementsAddTask widthFormElementsAddTaskOverlay dropdownContactsHidden" id="dropdownContacts" onclick="stayOpenOrActiv(event)"></div>
                     </div>
                     <div id="initialsSelectedContacts" class="initialsSelectedContacts"></div>
                 </div>
         
             </div>
             <div class="verticalLineAddTask"></div>
-            <div class="addTaskFormRight">
+            <div class="addTaskFormRight addTaskFormRightOverlay">
         
                 <div class="formElementAddTask">
                     <label class="formPointDescription" for="addTaskDueDate">Due date<span class="colorRed">*</span></label>
-                    <input class="widthFormElementsAddTask heightFormElementsAddTask borderFormElementsAddTask paddingLeftAddTask paddingRightAddTask inputTagAddTaskFocus addTaskInputRequired" id="addTaskDueDate" name="addTaskDueDate" type="date" required onfocus="blackColorDueDate(this)" oninput="blackColorDueDate(this)" onblur="changeColorDueDate(this)">
+                    <input class="widthFormElementsAddTask widthFormElementsAddTaskOverlay heightFormElementsAddTask borderFormElementsAddTask paddingLeftAddTask paddingRightAddTask inputTagAddTaskFocus addTaskInputRequired" id="addTaskDueDate" name="addTaskDueDate" type="date" required onfocus="blackColorDueDate(this)" oninput="blackColorDueDate(this)" onblur="changeColorDueDate(this)">
                     <span class="requiredMessage" id="requiredMessageDueDateAddTask">This field is required</span>
                 </div>
                 
                 <div class="formElementAddTask">
                     <span class="formPointDescription">Prio</span>
-                    <div class="addTaskPrioButtons addTaskPrioButtonsAddTask widthFormElementsAddTask">
+                    <div class="addTaskPrioButtons addTaskPrioButtonsAddTask widthFormElementsAddTask widthFormElementsAddTaskOverlay">
                         <button formnovalidate class="buttonAddTaskPage" id="addTaskPrioUrgent" onclick="priorityUrgent(event)">Urgent <img id="imgUrgent" src="./assets/img/capaUrgent.svg"></button>
                         <button formnovalidate class="buttonAddTaskPage addTaskPrioActiv addTaskPrioMediumActiv" id="addTaskPrioMedium" onclick="priorityMedium(event)">Medium <img id="imgMedium" src="./assets/img/capaMediumWhite.svg"></button>
                         <button formnovalidate class="buttonAddTaskPage" id="addTaskPrioLow" onclick="priorityLow(event)">Low <img id="imgLow" src="./assets/img/capaLow.svg"></button>
@@ -208,11 +209,11 @@ function htmlAddTaskOverlay(){
                 <div class="formElementAddTask">
                     <span class="formPointDescription">Category<span class="colorRed">*</span></span>
                     <div class="dropdown" id="addTaskCategory">
-                        <button formnovalidate id="buttonSelectCategory" class="buttonSelectCategory widthFormElementsAddTask heightFormElementsAddTask borderFormElementsAddTask paddingRightAddTask" onclick="selectCategoryButton(event)">
+                        <button formnovalidate id="buttonSelectCategory" class="buttonSelectCategory widthFormElementsAddTask widthFormElementsAddTaskOverlay heightFormElementsAddTask borderFormElementsAddTask paddingRightAddTask" onclick="selectCategoryButton(event)">
                             <span id="textSelectCategory">Select task category</span>
                             <img id="arrowIconCategory" src="./assets/img/arrowdropdownDown.svg">
                         </button>
-                        <div class="dropdown-content widthFormElementsAddTask hidden" id="dropdownCategory">
+                        <div class="dropdown-content widthFormElementsAddTask widthFormElementsAddTaskOverlay hidden" id="dropdownCategory">
                             <label class="paddingLeftAddTask" onclick="selectCategory('Technical Task')">Technical Task</label>
                             <label class="paddingLeftAddTask" onclick="selectCategory('User Story')">User Story</label>
                         </div>
@@ -222,7 +223,7 @@ function htmlAddTaskOverlay(){
         
                 <div class="formElementAddTask">
                     <span class="formPointDescription" for="addTaskSubtasks">Subtasks</span>
-                    <div class="widthFormElementsAddTask heightFormElementsAddTask borderFormElementsAddTask paddingLeftAddTask paddingRightAddTask inputTagAddTaskFocus" id="addTaskSubtasks" onclick="activateAddTaskSubtasks(); stayOpenOrActiv(event)">
+                    <div class="widthFormElementsAddTask widthFormElementsAddTaskOverlay heightFormElementsAddTask borderFormElementsAddTask paddingLeftAddTask paddingRightAddTask inputTagAddTaskFocus" id="addTaskSubtasks" onclick="activateAddTaskSubtasks(); stayOpenOrActiv(event)">
                         <span id="textAddSubtask">Add new subtask</span>
                         <div id="circleIconPlusAddTaskSubtasks" class='circleIconAddTaskSubtasks'>
                             <img src="./assets/img/plus.svg">
@@ -271,34 +272,36 @@ function htmlAddTaskOverlay(){
 
 /**
  * This function sets the status of the task before the overlay opens.
- * 
+ *
  * @param {string} status The status that a new task should have.
  */
-function openOverlayAddTaskCertainStatus(status){
-    satusNewTask = status;
-    openOverlayAddTask();
+function openOverlayAddTaskCertainStatus(status) {
+  satusNewTask = status;
+  openOverlayAddTask();
 }
 
 /**
  * This function first sets other elements to default bevor closing overlay add task.
  */
-function firstDefaultThenClosing(){
-    setElementsToDefaultAddTask();
-    closeOverlayAddTask();
+function firstDefaultThenClosing() {
+  setElementsToDefaultAddTask();
+  closeOverlayAddTask();
 }
 
 /**
  * This function adds class 'removing' to 'overlayAddTask'. This will display the sliding out animation. After the animation plays, the div 'overlayAddTaskBackground' is given the class .dNone. 'removing' is then removed again. The html in overlayAddTask will be deleted. StatusNewTask is set back to 'to do' and overlayAddTaskOpen back to false.
  */
-function closeOverlayAddTask(){
-    satusNewTask = "to do";
-    let overlayAddTaskBackground = document.getElementById('overlayAddTaskBackground');
-    let overlayAddTask = document.getElementById('overlayAddTask');
-    overlayAddTask.classList.add('removing');
-    setTimeout(function() {
-        overlayAddTaskBackground.classList.add('dNone');
-        overlayAddTask.classList.remove('removing');
-    }, 100); // Dauer der Animation in Millisekunden
-    overlayAddTask.innerHTML = '';
-    overlayAddTaskOpen = false;
+function closeOverlayAddTask() {
+  satusNewTask = "to do";
+  let overlayAddTaskBackground = document.getElementById(
+    "overlayAddTaskBackground"
+  );
+  let overlayAddTask = document.getElementById("overlayAddTask");
+  overlayAddTask.classList.add("removing");
+  setTimeout(function () {
+    overlayAddTaskBackground.classList.add("dNone");
+    overlayAddTask.classList.remove("removing");
+  }, 100); // Dauer der Animation in Millisekunden
+  overlayAddTask.innerHTML = "";
+  overlayAddTaskOpen = false;
 }

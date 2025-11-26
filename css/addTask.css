@@ -150,6 +150,23 @@ input[type="date"] {
   font-weight: 700;
 }
 
+@media (max-width: 1420px) {
+  .inputTagsAddTaskOverlay {
+    flex-direction: column;
+    width: 100%;
+  }
+  .widthFormElementsAddTaskOverlay {
+    width: 100%;
+    max-width: 100%;
+  }
+  .addTaskFormLeftOverlay {
+    width: 100%;
+  }
+  .addTaskFormRightOverlay {
+    width: 100%;
+  }
+}
+
 @media (max-width: 1310px) {
   .mainMainpagesAddTask {
     /* margin-bottom: 48px; */
