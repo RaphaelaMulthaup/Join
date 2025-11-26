@@ -293,3 +293,15 @@ function restoreRequired(id) {
   let input = document.getElementById(id);
   input.setAttribute("required", "required");
 }
+
+document.addEventListener("click", function (event) {
+  const menu = document.getElementById("editDeleteMobile");
+  const toggleBtn = document.getElementById("mobileEdit");
+
+  if (!menu || !toggleBtn) return;
+
+  // Wenn Klick außerhalb des Edit-Menüs UND außerhalb des Buttons
+  if (!menu.contains(event.target) && !toggleBtn.contains(event.target)) {
+    closeEditDeleteMobile();
+  }
+}, true); // <-- WICHTIG! Safari braucht den Capture-Mode
