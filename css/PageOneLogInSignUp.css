@@ -1,8 +1,25 @@
+#bodyLogin {
+  overflow: auto;
+  display: flex;
+  gap: 32px;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100dvh;
+}
+
+.headerIndex {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 70px;
+  padding-right: 40px;
+}
+
 .sectionPageOneLogInSignUp {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 95dvh;
+  /* min-height: 95dvh; */
+  /* margin-top: 40px; */
 }
 
 .h1PageOneLogInSignUp {
@@ -36,7 +53,7 @@
   font-weight: bold;
 }
 
-.notAUser{
+.notAUser {
   font-size: 20px;
   text-align: center;
 }
@@ -46,7 +63,7 @@
   margin-top: 2px;
 }
 
-.logo{
+.logo {
   position: absolute;
   height: 150px;
   left: 70px;
@@ -190,7 +207,7 @@ input:valid ~ label {
   bottom: 21px;
   color: #fe818f;
   font-size: xx-small;
-  margin-bottom: -36px;
+  margin-bottom: -24px;
 }
 
 .al {
@@ -227,13 +244,22 @@ input:valid ~ label {
 
 .signUp {
   transition: right 0.75s ease, top 0.75s ease, font-size 0.75s ease;
-  position: absolute;
+  /* position: absolute;
   right: 40px;
-  top: 70px;
+  top: 70px; */
   display: flex;
   align-items: center;
   gap: 35px;
   margin-left: 36px;
+}
+
+@media (max-width: 460px) {
+  .signUp {
+    top: 88px;
+  }
+  .notAUser {
+    font-size: 16px;
+  }
 }
 
 .slideInBG {
@@ -381,7 +407,7 @@ footer {
   padding: 12px;
 }
 
-.buttonGuestLogIn:hover{
+.buttonGuestLogIn:hover {
   cursor: pointer;
 }
 

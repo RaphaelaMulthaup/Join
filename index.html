@@ -1,66 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="./assets/img/favicon_dark.svg">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./assets/img/favicon_dark.svg" />
     <title title="Join">Join</title>
     <title>Join</title>
-    <link rel="stylesheet" href="./css/index.css">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/PageOneLogInSignUp.css">
-    <link rel="stylesheet" href="./css/PageOneLogInSignUpMediaQueries.css">
+    <link rel="stylesheet" href="./css/index.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/PageOneLogInSignUp.css" />
+    <link rel="stylesheet" href="./css/PageOneLogInSignUpMediaQueries.css" />
     <script src="./js/storage.js"></script>
     <script src="./js/variables.js"></script>
     <script src="./js/script.js"></script>
     <script src="./js/register.js"></script>
-</head>
-<body onload="init()">        
-        <img src="./assets/img/emptyBox.svg" id="start-logo" class="start-logo" alt="">
-    
-        <div class="signUp">
-            <p class="notAUser">Not a Join user? </p>
-            <a href="signUp.html" class="button buttonFilled buttonOnIndexToSignUp">Sign up</a>
-        </div>
-        <section class="sectionPageOneLogInSignUp">
-            <div class="form-box formBoxLogIn">
-                <div class="form-value">
-                    <form class="formLogIn" onsubmit="logIn(); return false">
-                        <h1 class="h1PageOneLogInSignUp">Log in</h1>
-                        <div class="inputbox">
-                            <input type="email" id="email" class="input mail inputPageOneLogInSignUp" placeholder="Email" required>
-                        </div>
-                        <span class="alert" id="alertUser"></span>
-                        <div class="inputbox">
-                            <input type="password" id="password" class="input lock" placeholder="Password" required>
-                            <span class="visibility-icon" onclick="togglePasswordVisibility('password')">
-                                <img src="./assets/img/visibility.svg" alt="Visibility Icon">
-                            </span>
-                        </div>
-                        <span class="alert" id="alertPw"></span>
-                        <div class="position positionLogIn">
-                            <div class="checkboxText checkboxTextLogIn">
-                                <input type="checkbox" id="checkbox" class="checkbox inputPageOneLogInSignUp" onchange="" style="display: none;">
-                                <label for="checkbox"></label>
-                                <p class="paPageOneLogInSignUp">Remember me</p>
-                            </div>
-                            <div class="buttonsLogIn">
-                                <button class="button buttonFilled buttonLogIn" id="registerBtn">Log in</button>
-                                <a class="button buttonEmpty buttonGuestLogIn" onclick="resetCurrentUser(); return false;" >Guest Log in</a>
-                            </div>
-                        </div>
-                        
-                    </form>
-                    <div id="msgBox"></div>
-                </div>
-    
+  </head>
+  <body onload="init()" id="bodyLogin">
+    <div class="headerIndex">
+      <img
+        src="./assets/img/emptyBox.svg"
+        id="start-logo"
+        class="start-logo"
+        alt=""
+      />
+
+      <div class="signUp">
+        <p class="notAUser">Not a Join user?</p>
+        <a href="signUp.html" class="button buttonFilled buttonOnIndexToSignUp"
+          >Sign up</a
+        >
+      </div>
+    </div>
+    <section class="sectionPageOneLogInSignUp">
+      <div class="form-box formBoxLogIn">
+        <div class="form-value">
+          <form class="formLogIn" onsubmit="logIn(); return false">
+            <h1 class="h1PageOneLogInSignUp">Log in</h1>
+            <div class="inputbox">
+              <input
+                type="email"
+                id="email"
+                class="input mail inputPageOneLogInSignUp"
+                placeholder="Email"
+                required
+              />
             </div>
-        </section>
-        <footer>
-            <a class="aPageOneLogInSignUp" href="./privacyPoliceIndipendentPage.html" target="_blank">Privacy Policy</a>
-            <a class="aPageOneLogInSignUp" href="./legalNoticeIndependentPage.html" target="_blank">Legal Notice</a>
-        </footer>
-    </body>
-    
-    
-    </html>
+            <span class="alert" id="alertUser"></span>
+            <div class="inputbox">
+              <input
+                type="password"
+                id="password"
+                class="input lock"
+                placeholder="Password"
+                required
+              />
+              <span
+                class="visibility-icon"
+                onclick="togglePasswordVisibility('password')"
+              >
+                <img src="./assets/img/visibility.svg" alt="Visibility Icon" />
+              </span>
+            </div>
+            <span class="alert" id="alertPw"></span>
+            <div class="position positionLogIn">
+              <div class="checkboxText checkboxTextLogIn">
+                <input
+                  type="checkbox"
+                  id="checkbox"
+                  class="checkbox inputPageOneLogInSignUp"
+                  onchange=""
+                  style="display: none"
+                />
+                <label for="checkbox"></label>
+                <p class="paPageOneLogInSignUp">Remember me</p>
+              </div>
+              <div class="buttonsLogIn">
+                <button
+                  class="button buttonFilled buttonLogIn"
+                  id="registerBtn"
+                >
+                  Log in
+                </button>
+                <a
+                  class="button buttonEmpty buttonGuestLogIn"
+                  onclick="resetCurrentUser(); return false;"
+                  >Guest Log in</a
+                >
+              </div>
+            </div>
+          </form>
+          <div id="msgBox"></div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <a
+        class="aPageOneLogInSignUp"
+        href="./privacyPoliceIndipendentPage.html"
+        target="_blank"
+        >Privacy Policy</a
+      >
+      <a
+        class="aPageOneLogInSignUp"
+        href="./legalNoticeIndependentPage.html"
+        target="_blank"
+        >Legal Notice</a
+      >
+    </footer>
+  </body>
+</html>

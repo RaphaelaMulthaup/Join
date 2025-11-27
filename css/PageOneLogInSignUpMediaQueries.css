@@ -1,114 +1,119 @@
 @media (max-width: 1000px) {
-
-    .logo{
+  .logo {
     position: absolute;
-        height: 80px;
-        left: 20px;
-        top: 20px;
-    } 
-    }
+    height: 80px;
+    left: 20px;
+    top: 20px;
+  }
+}
 
-@media (max-width: 700px){
-  .formBoxLogIn{
+@media (max-width: 700px) {
+  .formBoxLogIn {
     height: 493px;
     width: -webkit-fill-available;
     margin: 100px 20px 82px 20px;
   }
 }
-    
-    @media (max-width: 600px) {
-    
-      .inputbox{
-        width: 71vw;
-      }
-    
-      .signUp{
-        transition: right 0.75s ease, top 0.75s ease, font-size 0.75s ease;
-        top: 82sdvh;
-      }
-    
-      .buttonOnIndexToSignUp{
-        border-radius: 8px;
-        font-weight: bold;
-        text-align: center;
-      }
-    }
-    
-    @media (max-width: 550px){
-    
-      .inputbox{
-        height: 48px;
-        color: #80808040;
-        display: flex;
-      }
-      .buttonsLogIn{
-        gap: 16px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
-    
-      .buttonsLogIn button{
-        width: 177px;
-      }
-    
-      footer{
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        right: 50%;
-      }
-    
-    }
 
-    @media (max-width: 350px){
-      .signUp{
-        gap: 10px;
-      }
-    }
+@media (max-width: 600px) {
+  .inputbox {
+    width: 71vw;
+  }
 
-    @media (max-height: 850px){
-      .form-valueSignUp{
-        height: unset;
-      }
+  .signUp {
+    transition: right 0.75s ease, top 0.75s ease, font-size 0.75s ease;
+    top: 82sdvh;
+  }
 
-      .formBoxSignUp{
-        height: calc(670px - 140px - 0px);
-        margin: 120px 0px 0px 0px;
-      }
-    }
+  .buttonOnIndexToSignUp {
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+  }
+}
 
-    @media (max-height: 680px){
-      .h1PageOneLogInSignUp {
-        margin-top: unset;
-        margin-bottom: unset;
-      }
+@media (max-width: 550px) {
+  .inputbox {
+    height: 48px;
+    color: #80808040;
+    display: flex;
+  }
+  .buttonsLogIn {
+    gap: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
-      .formBoxLogIn{
-        height: 50%;
-        overflow-x: scroll;
-        align-self: center;
-      }
+  .buttonsLogIn button {
+    width: 177px;
+  }
 
-      .checkboxTextLogIn, .checkboxText, .position{
-        margin: 0;
-      }
+  /* footer {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    right: 50%;
+  } */
+}
 
-      .formLogIn, .formSignUp{
-        gap: 20px;
-      }
+@media (max-width: 350px) {
+  .signUp {
+    gap: 10px;
+  }
+}
 
-      .h1PageOneLogInSignUp::after{
-        margin: auto;
-      }
+@media (max-height: 850px) {
+  .form-valueSignUp {
+    height: unset;
+  }
 
-      .sectionPageOneLogInSignUp{
-        align-items: unset;
-      }
+  .formBoxSignUp {
+    height: calc(670px - 140px - 0px);
+    margin: 120px 0px 0px 0px;
+  }
+}
 
-      .formBoxSignUp{
-        height: calc(480px - 100px - 0px);;
-        height: 420px;
-      }
-    }
+@media (max-height: 750px) {
+  .h1PageOneLogInSignUp {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  .formBoxLogIn {
+    height: fit-content;
+    overflow-x: scroll;
+    align-self: center;
+    margin: 0px 20px 0px 20px;
+    padding: 16px 0px;
+  }
+
+  .position {
+    gap: 20px;
+  }
+  .checkboxTextLogIn,
+  .checkboxText,
+  .position {
+    margin: 0;
+  }
+
+  .formLogIn,
+  .formSignUp {
+    gap: 20px;
+  }
+
+  .h1PageOneLogInSignUp::after {
+    margin-top: 4px;
+  }
+
+  .sectionPageOneLogInSignUp {
+    align-items: unset;
+  }
+
+  .formBoxSignUp {
+    height: calc(480px - 100px - 0px);
+    height: 420px;
+  }
+}
+
