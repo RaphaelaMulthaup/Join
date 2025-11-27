@@ -3,10 +3,10 @@
     width: calc(100vw- 323px) !important;
   }
 
-  .boardHeadline{
+  .boardHeadline {
     padding-left: 3vmax;
   }
-  
+
   .headlineBoardStatusTasks {
     padding-left: 3vmax;
   }
@@ -24,6 +24,12 @@
 
   .mobileIcon {
     height: 40px;
+  }
+
+  @media (min-width: 1171px) {
+    .boardHeadline {
+      width: calc(100vw - 232px);
+    }
   }
 }
 
@@ -181,7 +187,7 @@
   .mainBoard {
     overflow: scroll;
   }
-  .noTasksExisting{
+  .noTasksExisting {
     display: none !important;
   }
 }
@@ -233,7 +239,7 @@
     background-color: #f0f0f0;
   }
 
-  .noTasksExisting{
+  .noTasksExisting {
     display: none;
   }
 }

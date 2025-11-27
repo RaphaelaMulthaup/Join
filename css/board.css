@@ -104,6 +104,12 @@
   position: relative;
 }
 
+@media (max-width: 1170px) {
+  .headlineBoardStatusTasks {
+    padding-right: 0px;
+  }
+}
+
 .headlineStatusTasks {
   display: flex;
   width: 252px;

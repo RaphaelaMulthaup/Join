@@ -167,7 +167,7 @@ input[type="date"] {
   }
 }
 
-@media (max-width: 1310px) {
+@media (max-width: 1330px) {
   .mainMainpagesAddTask {
     /* margin-bottom: 48px; */
     padding-left: 8px;
@@ -190,7 +190,7 @@ input[type="date"] {
   }
 }
 
-@media (max-width: 1230px) {
+@media (max-width: 1270px) {
   .addTaskFormLeft {
     width: 100%;
   }

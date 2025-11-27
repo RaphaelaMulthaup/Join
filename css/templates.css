@@ -311,7 +311,7 @@ header h4 {
     justify-content: space-around;
     position: fixed;
     transition: all 175ms ease-in-out;
-    bottom: -10dvh;
+    bottom: -12dvh;
     z-index: 100;
 }
 

@@ -2,7 +2,7 @@
   display: none !important;
 }
 
-body {
+body, html {
   background-color: #f7f7f8;
   overflow: hidden;
 }
