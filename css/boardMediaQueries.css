@@ -82,18 +82,13 @@
   }
 
   .lowerAreaAddTask {
-    align-items: flex-start !important;
+    align-items: flex-start;
   }
   .lowerAreaAddTask {
     position: fixed;
     bottom: -70px;
     width: 100%;
     padding-right: 28px;
-  }
-
-  .scroll-container {
-    height: 90%;
-    overflow-y: auto;
   }
 
   .scroll-container::-webkit-scrollbar {

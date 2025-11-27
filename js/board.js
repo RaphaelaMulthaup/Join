@@ -245,7 +245,7 @@ function htmlAddTaskOverlay() {
         
             </div>
         </div>
-        <div class="lowerAreaAddTask">
+        <div class="lowerAreaAddTask lowerAreaAddTaskOverlay">
             <span class="lowerAreaAddTaskNecessity">
                 <span class="colorRed">*</span>
                 This field is required
