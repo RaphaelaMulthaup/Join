@@ -70,7 +70,7 @@
   }
 
   .formBoxSignUp {
-    height: calc(670px - 140px - 0px);
+    /* height: calc(670px - 140px - 0px); */
     margin: 120px 0px 0px 0px;
   }
 }
@@ -117,3 +117,8 @@
   } */
 }
 
+@media (max-width: 500px) {
+  .formBoxSignUp {
+    height: 500px;
+  }
+}
