@@ -1,4 +1,5 @@
-#bodyLogin {
+#bodyLogin,
+#bodySignUp {
   overflow: auto;
   display: flex;
   gap: 32px;
@@ -103,10 +104,12 @@
 .formBoxSignUp {
   height: 630px;
   width: 600px;
+  max-width: 90vw;
   margin-inline: 16px;
 }
 
 .back-arrow {
+  margin-right: -20px;
   position: relative;
   top: -36%;
   height: 34px;

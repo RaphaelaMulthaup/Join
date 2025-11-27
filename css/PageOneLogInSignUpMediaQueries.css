@@ -111,9 +111,9 @@
     align-items: unset;
   }
 
-  .formBoxSignUp {
+  /* .formBoxSignUp {
     height: calc(480px - 100px - 0px);
     height: 420px;
-  }
+  } */
 }
 
