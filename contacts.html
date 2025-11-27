@@ -110,14 +110,15 @@
 
     <div w3-include-html="./assets/templates/menu.html"></div>
     <div class="mainpagesRightSide">
+      <div
+        id="subMenu"
+        class="dNone"
+        w3-include-html="./assets/templates/subMenu.html"
+        onclick="stayOpenOrActiv(event)"
+      ></div>
+
       <div w3-include-html="./assets/templates/header.html"></div>
       <main class="mainMainpages mainContact">
-        <div
-          id="subMenu"
-          class="dNone"
-          w3-include-html="./assets/templates/subMenu.html"
-          onclick="stayOpenOrActiv(event)"
-        ></div>
         <div class="contacts" id="contacts">
           <div class="contactSide" id="contactSide">
             <button
@@ -155,7 +156,11 @@
           id="contactDetailContainer"
           class="contactDetailContainer contactSlideIn"
         ></div>
-        <div class="mobileEdit" id="mobileEdit" onclick="toggleMobileEdit(event)">
+        <div
+          class="mobileEdit"
+          id="mobileEdit"
+          onclick="toggleMobileEdit(event)"
+        >
           <img src="./assets/img/moreVert.svg" alt="More" />
         </div>
       </div>

@@ -1,56 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="./assets/img/favicon_dark.svg">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./assets/img/favicon_dark.svg" />
     <title>Join Legal Notice</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/fonts.css">
-    <link rel="stylesheet" href="./css/legalHelp.css">
-    <link rel="stylesheet" href="./css/templates.css">
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/fonts.css" />
+    <link rel="stylesheet" href="./css/legalHelp.css" />
+    <link rel="stylesheet" href="./css/templates.css" />
     <script src="./js/script.js"></script>
     <script src="./js/legalHelp.js"></script>
     <script src="./js/variables.js"></script>
-</head>
-<body class="bodyMainpages" onload="loadInfoPage('LegalNotice')" onclick="closeSubMenu()">
+  </head>
+  <body
+    class="bodyMainpages"
+    onload="loadInfoPage('LegalNotice')"
+    onclick="closeSubMenu()"
+  >
     <div w3-include-html="./assets/templates/menuInfoPages.html"></div>
     <div class="mainpagesRightSide">
-        <div w3-include-html="./assets/templates/headerInfoPages.html"></div>
-        <main class="mainMainpages">
-            <div id="subMenu" class="dNone" w3-include-html="./assets/templates/subMenu.html" onclick="stayOpenOrActiv(event)"></div>
-            <div id="legalNotice" class="informations mainMainpagesPaddingDefault informationsIndipendent">
-                <div class="headlineAreaInformations">
-                    <h1>Legal Notice</h1>
-                    <div class="arrowBack" onclick="closeTapReturnToPreviousTap()"></div>
-                </div>
-                <div class="textInformations">
-                    <h3 class="h3LegalNoticeAndHelp">Imprint</h3>
-                    <ul>
-                        <li>Franz Neusser, Raphaela Multhaup</li>
-                        <li>Schloßhof 4d</li>
-                        <li>37688 Beverungen</li>
-                    </ul>
-                    <h5>Exploring the Board</h5>
-                    <p>raphaelamulthaup@icloud.com</p>
-                    <h5>Acceptance of terms</h5>
-                    <p>By accessing and using <span>Join</span> (Product), you acknowledge and agree to the following terms and conditions, and any policies, guidelines, or amendments thereto that may be presented to you from time to time. We, the listed students, may update or change the terms and conditions from time to time without notice.</p>
-                    <h5>Scope and ownership of the product</h5>
-                    <p><span>Join</span> has been developed as part of a student group project in a web development bootcamp at the <span>Developer Akademie GmbH</span>. It has an educational purpose and is not intended for extensive personal & business usage. As such, we cannot guarantee consistent availability, reliability, accuracy, or any other aspect of quality regarding this Product.</p>
-                    <p>The design of <span>Join</span> is owned by the <span>Developer Akademie GmbH</span>. Unauthorized use, reproduction, modification, distribution, or replication of the design is strictly prohibited.</p>
-                    <h5>Proprietary rights</h5>
-                    <p>Aside from the design owned by <span>Developer Akademie GmbH</span>, we, the listed students, retain all proprietary rights in <span>Join</span>, including any associated copyrighted material, trademarks, and other proprietary information.</p>
-                    <h5>Use of the product</h5>
-                    <p><span>Join</span> is intended to be used for lawful purposes only, in accordance with all applicable laws and regulations. Any use of <span>Join</span> for illegal activities, or to harass, harm, threaten, or intimidate another person, is strictly prohibited. You are solely responsible for your interactions with other users of <span>Join</span>.</p>
-                    <h5>Disclaimer of warranties and limitation of liability</h5>
-                    <p><span>Join</span> is provided "as is" without warranty of any kind, whether express or implied, including but not limited to the implied warranties of merchantability, fitness for a particular purpose, and non-infringement. In no event will we, the listed students, or the <span>Developer Akademie</span>, be liable for any direct, indirect, incidental, special, consequential or exemplary damages, including but not limited to, damages for loss of profits, goodwill, use, data, or other intangible losses, even if we have been advised of the possibility of such damages, arising out of or in connection with the use or performance of <span>Join</span>.</p>
-                    <h5>Indemnity</h5>
-                    <p>You agree to indemnify, defend and hold harmless us, the listed students, the <span>Developer Akademie</span>, and our affiliates, partners, officers, directors, agents, and employees, from and against any claim, demand, loss, damage, cost, or liability (including reasonable legal fees) arising out of or relating to your use of <span>Join</span> and/or your breach of this Legal Notice.</p>
-                    <p>For any questions or notices, please contact us at raphaelamulthaup@icloud.com.</p>
-                    <p>Date: April 26, 2024</p>
-                </div>
-            </div>
-        </main>
+      <div
+        id="subMenu"
+        class="dNone"
+        w3-include-html="./assets/templates/subMenu.html"
+        onclick="stayOpenOrActiv(event)"
+      ></div>
+
+      <div w3-include-html="./assets/templates/headerInfoPages.html"></div>
+      <main class="mainMainpages">
+        <div
+          id="legalNotice"
+          class="informations mainMainpagesPaddingDefault informationsIndipendent"
+        >
+          <div class="headlineAreaInformations">
+            <h1>Legal Notice</h1>
+            <div
+              class="arrowBack"
+              onclick="closeTapReturnToPreviousTap()"
+            ></div>
+          </div>
+          <div class="textInformations">
+            <h3 class="h3LegalNoticeAndHelp">Imprint</h3>
+            <ul>
+              <li>Franz Neusser, Raphaela Multhaup</li>
+              <li>Schloßhof 4d</li>
+              <li>37688 Beverungen</li>
+            </ul>
+            <h5>Exploring the Board</h5>
+            <p>raphaelamulthaup@icloud.com</p>
+            <h5>Acceptance of terms</h5>
+            <p>
+              By accessing and using <span>Join</span> (Product), you
+              acknowledge and agree to the following terms and conditions, and
+              any policies, guidelines, or amendments thereto that may be
+              presented to you from time to time. We, the listed students, may
+              update or change the terms and conditions from time to time
+              without notice.
+            </p>
+            <h5>Scope and ownership of the product</h5>
+            <p>
+              <span>Join</span> has been developed as part of a student group
+              project in a web development bootcamp at the
+              <span>Developer Akademie GmbH</span>. It has an educational
+              purpose and is not intended for extensive personal & business
+              usage. As such, we cannot guarantee consistent availability,
+              reliability, accuracy, or any other aspect of quality regarding
+              this Product.
+            </p>
+            <p>
+              The design of <span>Join</span> is owned by the
+              <span>Developer Akademie GmbH</span>. Unauthorized use,
+              reproduction, modification, distribution, or replication of the
+              design is strictly prohibited.
+            </p>
+            <h5>Proprietary rights</h5>
+            <p>
+              Aside from the design owned by
+              <span>Developer Akademie GmbH</span>, we, the listed students,
+              retain all proprietary rights in <span>Join</span>, including any
+              associated copyrighted material, trademarks, and other proprietary
+              information.
+            </p>
+            <h5>Use of the product</h5>
+            <p>
+              <span>Join</span> is intended to be used for lawful purposes only,
+              in accordance with all applicable laws and regulations. Any use of
+              <span>Join</span> for illegal activities, or to harass, harm,
+              threaten, or intimidate another person, is strictly prohibited.
+              You are solely responsible for your interactions with other users
+              of <span>Join</span>.
+            </p>
+            <h5>Disclaimer of warranties and limitation of liability</h5>
+            <p>
+              <span>Join</span> is provided "as is" without warranty of any
+              kind, whether express or implied, including but not limited to the
+              implied warranties of merchantability, fitness for a particular
+              purpose, and non-infringement. In no event will we, the listed
+              students, or the <span>Developer Akademie</span>, be liable for
+              any direct, indirect, incidental, special, consequential or
+              exemplary damages, including but not limited to, damages for loss
+              of profits, goodwill, use, data, or other intangible losses, even
+              if we have been advised of the possibility of such damages,
+              arising out of or in connection with the use or performance of
+              <span>Join</span>.
+            </p>
+            <h5>Indemnity</h5>
+            <p>
+              You agree to indemnify, defend and hold harmless us, the listed
+              students, the <span>Developer Akademie</span>, and our affiliates,
+              partners, officers, directors, agents, and employees, from and
+              against any claim, demand, loss, damage, cost, or liability
+              (including reasonable legal fees) arising out of or relating to
+              your use of <span>Join</span> and/or your breach of this Legal
+              Notice.
+            </p>
+            <p>
+              For any questions or notices, please contact us at
+              raphaelamulthaup@icloud.com.
+            </p>
+            <p>Date: April 26, 2024</p>
+          </div>
+        </div>
+      </main>
     </div>
-</body>
+  </body>
 </html>
