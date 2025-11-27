@@ -257,6 +257,12 @@
     padding: 64px 0px 20px 0px !important;
     margin-left: -16px;
   }
+  @media (max-height: 700px) {
+    .overlayAddTask {
+      padding-top: 0;
+      padding-bottom: 110px;
+    }
+  }
 }
 
 @media (max-width: 360px) {
