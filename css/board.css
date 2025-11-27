@@ -262,6 +262,9 @@
       padding-top: 0;
       padding-bottom: 110px;
     }
+    .scroll-container {
+        padding-top: 16px;
+    }
   }
 }
 
