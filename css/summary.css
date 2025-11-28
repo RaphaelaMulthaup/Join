@@ -209,10 +209,6 @@
     font-size: 16px;
 }
 
-/*.numberDisplayedDeclarationSecondLine:visited {
-    color: #2A3647;
-}
-
 /*third line*/
 .overviewNumberTasksThirdLine{
     flex-direction: column;
@@ -289,9 +285,6 @@
         padding-top: 2dvh;
         padding-left: 7vw;
         overflow: auto;
-        /* height: 78dvh;
-        height: calc(-96px + 95dvh - 42px); */
-    
     }
 }
 

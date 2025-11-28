@@ -19,8 +19,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* min-height: 95dvh; */
-  /* margin-top: 40px; */
 }
 
 .h1PageOneLogInSignUp {
@@ -73,7 +71,6 @@
 
 .form-box {
   position: relative;
-  /* width: 400px; */
   background: white;
   border: 2px solid rgba(255, 255, 255, 0.5);
   border-radius: 20px;
@@ -247,9 +244,6 @@ input:valid ~ label {
 
 .signUp {
   transition: right 0.75s ease, top 0.75s ease, font-size 0.75s ease;
-  /* position: absolute;
-  right: 40px;
-  top: 70px; */
   display: flex;
   align-items: center;
   gap: 35px;
@@ -368,10 +362,6 @@ footer {
 .positionSignIn {
   align-items: center;
 }
-
-/* .positionLogIn {
-  margin-left: 39px;
-} */
 
 #submitButton {
   width: 126px;

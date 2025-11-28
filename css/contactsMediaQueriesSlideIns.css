@@ -198,7 +198,6 @@
 
   #editDeleteMobile {
     position: absolute;
-    /* position: sticky; */
     bottom: -8px;
     right: -13px;
     background-color: white;
@@ -345,70 +344,11 @@
     top: 90px;
   }
 
-  /* .right {
-    margin: unset;
-  }
-
-  .right {
-    position: relative;
-    top: -80px;
-  } */
-
   .bigCircle {
     height: 88px;
     min-width: 88px;
   }
 }
-
-/* @media (max-height: 840px) {
-  .left {
-    height: 150px;
-    font-size: unset;
-    padding: 0;
-  }
-}
-
-@media (max-height: 800px) {
-  .editDelete {
-    bottom: 45px;
-    right: -40px;
-    padding: 8px 20px 8px 8px;
-  }
-
-  .mobileEdit {
-    right: 25px;
-    bottom: 100px;
-  }
-
-  .nameBig {
-    font-size: unset;
-  }
-
-  .inputbox {
-    margin: 0;
-    width: 94%;
-    height: unset;
-  }
-
-  .contactGroup {
-    flex-direction: column;
-  }
-
-  .alert {
-    top: 0px;
-    right: -16px;
-  }
-
-  .slideBack {
-    top: -169px;
-  }
-}
-
-@media (max-height: 600px) {
-  .contactDetailContainer {
-    position: unset;
-  }
-} */
 
 @media (max-height: 700px) {
   .contactSlide {

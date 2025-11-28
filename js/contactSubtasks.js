@@ -26,8 +26,6 @@ async function deleteDeletedUserInTasks(nameDeletdUser) {
  * Resets the contact form to its default state.
  */
 function validateForm() {
-  // preventDefault();
-
   document.getElementById("user").style.display = "none";
   document.getElementById("email").style.display = "none";
   document.getElementById("phone").style.display = "none";
@@ -75,8 +73,6 @@ function validateForm() {
   }
 
   if (isValid) {
-    // Form is valid, you can submit it
-    // For example: document.getElementById('contactForm').submit();
     alert("Form submitted successfully!");
   }
 }
@@ -107,10 +103,6 @@ function resetForm() {
     closeAddContact();
     resetForm();
   };
-  // document.getElementById("registerBtn").onclick = function () {
-  //   registerContact();
-  //   resetForm();
-  // };
   registerBtn.disabled = false;
 
   // Reset image
@@ -227,13 +219,11 @@ function addContactTemplate() {
 function saveContactChange(id) {
   const user = findUserById(id);
   if (!user) {
-    //console.error('User not found with id:', id);
     return;
   }
 
   const updatedData = getUpdatedFormData();
   if (!validateEditUser(updatedData)) {
-    //console.error('Validation failed for updated user data');
     return;
   }
 
@@ -283,7 +273,6 @@ function updateUserDetails(user, updatedData) {
 function finalizeUpdate(user) {
   updateUserContent(getContentElement(), user);
   putData("/users", users);
-  //console.log('User updated successfully and uploaded :)', user);
   renderContactList(users);
   closeAddContact();
 }
@@ -315,7 +304,6 @@ function updateButtonVisibility() {
       leftButton.classList.remove("d-none");
     }
   } else {
-    //console.error('Element with ID "leftButton" not found.');
   }
 }
 
@@ -330,7 +318,7 @@ window.addEventListener("resize", updateButtonVisibility);
  */
 function animateContent(content) {
   content.classList.remove("contactSlideIn");
-  content.offsetWidth; // Trigger reflow
+  content.offsetWidth;
   content.classList.add("contactSlideIn");
 }
 
@@ -588,7 +576,9 @@ function displayContactFormErrors(errorFields) {
   }
 }
 
-//Ist vermutlich zum löschen
+/**
+ * Displays an error message and highlights the corresponding input field when the user or password is incorrect.
+ */
 function displayError(
   errorType,
   emailElement,

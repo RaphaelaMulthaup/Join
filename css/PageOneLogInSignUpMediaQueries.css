@@ -50,12 +50,6 @@
     width: 177px;
   }
 
-  /* footer {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    right: 50%;
-  } */
 }
 
 @media (max-width: 350px) {
@@ -70,7 +64,6 @@
   }
 
   .formBoxSignUp {
-    /* height: calc(670px - 140px - 0px); */
     margin: 120px 0px 0px 0px;
   }
 }
@@ -111,10 +104,6 @@
     align-items: unset;
   }
 
-  /* .formBoxSignUp {
-    height: calc(480px - 100px - 0px);
-    height: 420px;
-  } */
 }
 
 @media (max-width: 500px) {

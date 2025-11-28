@@ -169,7 +169,6 @@ input[type="date"] {
 
 @media (max-width: 1330px) {
   .mainMainpagesAddTask {
-    /* margin-bottom: 48px; */
     padding-left: 8px;
     padding-right: 8px;
     padding-top: 56px;
@@ -262,12 +261,6 @@ input[type="date"] {
 @media (max-width: 600px) {
   .mainMainpagesAddTask {
     padding-top: 16px;
-    /*padding-inline: 4vw;*/
-  }
-
-  .widthFormElementsAddTask {
-    /*width: 90vw;*/
-    /*padding: 8px;*/
   }
 
   .addTaskPrioButtonsAddTask {

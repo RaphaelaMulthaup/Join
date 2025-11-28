@@ -28,25 +28,6 @@ async function loadPage(id) {
   });
 }
 
-// // Funktion zur Ausgabe der Initialen des currentUser in ein Textfeld
-// function insertInitials() {
-//     // Prüfe, ob currentUser definiert ist und ob es Initialen gibt
-//     const initials = currentUser && currentUser.initials ? currentUser.initials : 'G';
-//     console.log(currentUser.initials, 'initials');
-
-//     // Versuche, das Element mit der ID 'initialsHeader' zu finden
-//     const initialsField = document.getElementById('initialsHeader');
-
-//     if (!initialsField) {
-//         console.error('Textfeld mit der ID "initialsHeader" nicht gefunden', currentUser ? currentUser.initials : 'N/A');
-//         return;
-//     }
-
-//     // Setze den Inhalt des Textfelds auf die Initialen
-//     initialsField.innerHTML = initials;
-//     console.log(currentUser.initials, 'initialsField');
-// }
-
 /**
  * This function includes html templates. (menu and header)
  */
@@ -152,6 +133,11 @@ function closeSubMenu() {
   subMenuOpen = false;
 }
 
+/**
+ * Hides the mobile edit/delete menu by adding the "mobileD-none" class if the element exists.
+ * 
+ * @returns if the element does not exist
+ */
 function closeEditDeleteMobile() {
   const editDeleteMobile = document.getElementById("editDeleteMobile");
   if (!editDeleteMobile) return;

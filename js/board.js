@@ -301,7 +301,7 @@ function closeOverlayAddTask() {
   setTimeout(function () {
     overlayAddTaskBackground.classList.add("dNone");
     overlayAddTask.classList.remove("removing");
-  }, 100); // Dauer der Animation in Millisekunden
+  }, 100);
   overlayAddTask.innerHTML = "";
   overlayAddTaskOpen = false;
 }
